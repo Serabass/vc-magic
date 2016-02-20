@@ -130,6 +130,7 @@
     <ClInclude Include="src\MissionHook.h" />
     <ClInclude Include="src\MissionThreads.h" />
     <ClInclude Include="src\Script.h" />
+    <ClInclude Include="src\Stats.h" />
     <ClInclude Include="src\vc-magic.h" />
     <ClInclude Include="src\ScriptClasses.h" />
   </ItemGroup>
@@ -140,6 +141,7 @@
     <ClCompile Include="src\MissionHook.cpp" />
     <ClCompile Include="src\MissionThreads.cpp" />
     <ClCompile Include="src\Script.cpp" />
+    <ClCompile Include="src\Stats.cpp" />
     <ClCompile Include="src\vc-magic.cpp" />
     <ClCompile Include="src\ScriptClasses.cpp" />
   </ItemGroup>

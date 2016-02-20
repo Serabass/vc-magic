@@ -121,3 +121,8 @@ void Game::SetBustedSpawnPosition(float fX, float fY, float fZ, float fZAngle)
 {
 	ScriptCommand(&restart_if_busted_at, fX, fY, fZ, fZAngle);
 }
+
+int * Game::maxWantedLevelHuman = (int *)0x6910D8;
+int * Game::maxWantedLevel = (int *)0x6910DC;
+
+VCTime Game::time = { (char *)0x0A10B6B, (char *)0x0A10B92 };

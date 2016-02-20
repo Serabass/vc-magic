@@ -2,6 +2,12 @@
 
 #ifndef GAME_H
 #define GAME_H
+
+struct VCTime {
+	char* hour;
+	char* minute;
+};
+
 class Game
 {
 public:
@@ -30,6 +36,14 @@ public:
 	void SetCameraPosition(float fX1, float fY1, float fZ1, float fX2, float fY2, float fZ2);
 	void SetWastedSpawnPosition(float fX, float fY, float fZ, float fZAngle);
 	void SetBustedSpawnPosition(float fX, float fY, float fZ, float fZAngle);
+
+	static int* maxWantedLevelHuman;
+	static int* maxWantedLevel;
+
+	static VCTime time;
+
+	static char* gameHour;
+	static char* gameMinute;
 };
 
 #endif

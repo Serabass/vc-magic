@@ -13,7 +13,7 @@
 
 // Externals
 extern Script*	pScript;
-extern Game*		pGame;
+extern Game*	pGame;
 extern Player*	pPlayer;
 
 
@@ -108,7 +108,7 @@ void Player::GiveMoney(int iMoney)
 	ScriptCommand(&add_to_player_money, &m_dwChar, iMoney);
 }
 
-
+int(__cdecl* Player::getStruct)() = (int(__cdecl*)())0x4BC120;
 
 //--------------------------------------------------------------------------------
 // ScriptActor class functions.

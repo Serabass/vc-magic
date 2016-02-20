@@ -13,6 +13,7 @@
 #include "MissionHook.h"
 #include "Game.h"
 #include "Script.h"
+#include "Stats.h"
 
 //Class definitions
 
@@ -39,6 +40,8 @@ public:
 	void SetZAngle(float fAngle);
 	void GiveWeapon(SCRIPT_MISSION* m_pMission, DWORD dwWeapon, DWORD dwAmmo);
 	void GiveMoney(int iMoney);
+
+	static int(__cdecl* getStruct)();
 };
 
 class Actor
