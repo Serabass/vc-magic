@@ -123,19 +123,23 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\Game.h" />
     <ClInclude Include="src\GameDefines.h" />
     <ClInclude Include="src\GameScripting.h" />
     <ClInclude Include="src\GxtHook.h" />
     <ClInclude Include="src\MissionHook.h" />
     <ClInclude Include="src\MissionThreads.h" />
+    <ClInclude Include="src\Script.h" />
     <ClInclude Include="src\vc-magic.h" />
     <ClInclude Include="src\ScriptClasses.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Game.cpp" />
     <ClCompile Include="src\GameScripting.cpp" />
     <ClCompile Include="src\GxtHook.cpp" />
     <ClCompile Include="src\MissionHook.cpp" />
     <ClCompile Include="src\MissionThreads.cpp" />
+    <ClCompile Include="src\Script.cpp" />
     <ClCompile Include="src\vc-magic.cpp" />
     <ClCompile Include="src\ScriptClasses.cpp" />
   </ItemGroup>
