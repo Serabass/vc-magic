@@ -30,4 +30,5 @@
 *.opensdf
 .vs/
 Debug/
+vc-magic/Debug/
 Release/
