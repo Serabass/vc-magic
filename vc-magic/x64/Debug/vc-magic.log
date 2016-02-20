@@ -1,0 +1,182 @@
+﻿Сборка начата 20.02.2016 22:23:14.
+     1>Проект "D:\!programming\C++\vc-magic\vc-magic\vc-magic.vcxproj" в узле 2 (целевые объекты Rebuild).
+     1>ClCompile:
+         D:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\x86_amd64\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /D _WINDLL /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"x64\Debug\\" /Fd"x64\Debug\vc140.pdb" /Gd /TP /errorReport:prompt src\GameScripting.cpp src\GxtHook.cpp src\MissionHook.cpp src\MissionThreads.cpp "src\vc-magic.cpp" src\ScriptClasses.cpp
+         ScriptClasses.cpp
+         vc-magic.cpp
+     1>d:\!programming\c++\vc-magic\vc-magic\src\vc-magic.cpp(74): warning C4311: приведение типов: усечение указателя из "int (__cdecl *)(void)" в "DWORD"
+     1>d:\!programming\c++\vc-magic\vc-magic\src\vc-magic.cpp(74): warning C4302: приведение типов: усечение из "int (__cdecl *)(void)" в "DWORD"
+     1>d:\!programming\c++\vc-magic\vc-magic\src\vc-magic.cpp(76): warning C4312: приведение типов: преобразование из "DWORD" в "void *" большего размера
+     1>d:\!programming\c++\vc-magic\vc-magic\src\vc-magic.cpp(77): warning C4312: приведение типов: преобразование из "DWORD" в "DWORD *" большего размера
+     1>d:\!programming\c++\vc-magic\vc-magic\src\vc-magic.cpp(78): warning C4312: приведение типов: преобразование из "DWORD" в "void *" большего размера
+     1>d:\!programming\c++\vc-magic\vc-magic\src\vc-magic.cpp(81): warning C4311: приведение типов: усечение указателя из "void (__cdecl *)(void)" в "DWORD"
+     1>d:\!programming\c++\vc-magic\vc-magic\src\vc-magic.cpp(81): warning C4302: приведение типов: усечение из "void (__cdecl *)(void)" в "DWORD"
+     1>d:\!programming\c++\vc-magic\vc-magic\src\vc-magic.cpp(82): warning C4312: приведение типов: преобразование из "DWORD" в "void *" большего размера
+     1>d:\!programming\c++\vc-magic\vc-magic\src\vc-magic.cpp(83): warning C4312: приведение типов: преобразование из "DWORD" в "DWORD *" большего размера
+     1>d:\!programming\c++\vc-magic\vc-magic\src\vc-magic.cpp(84): warning C4312: приведение типов: преобразование из "DWORD" в "void *" большего размера
+     1>d:\!programming\c++\vc-magic\vc-magic\src\vc-magic.cpp(87): warning C4311: приведение типов: усечение указателя из "void (__cdecl *)(void)" в "DWORD"
+     1>d:\!programming\c++\vc-magic\vc-magic\src\vc-magic.cpp(87): warning C4302: приведение типов: усечение из "void (__cdecl *)(void)" в "DWORD"
+     1>d:\!programming\c++\vc-magic\vc-magic\src\vc-magic.cpp(88): warning C4312: приведение типов: преобразование из "DWORD" в "void *" большего размера
+     1>d:\!programming\c++\vc-magic\vc-magic\src\vc-magic.cpp(89): warning C4312: приведение типов: преобразование из "DWORD" в "DWORD *" большего размера
+     1>d:\!programming\c++\vc-magic\vc-magic\src\vc-magic.cpp(90): warning C4312: приведение типов: преобразование из "DWORD" в "void *" большего размера
+     1>d:\!programming\c++\vc-magic\vc-magic\src\vc-magic.cpp(93): warning C4311: приведение типов: усечение указателя из "void (__cdecl *)(void)" в "DWORD"
+     1>d:\!programming\c++\vc-magic\vc-magic\src\vc-magic.cpp(93): warning C4302: приведение типов: усечение из "void (__cdecl *)(void)" в "DWORD"
+     1>d:\!programming\c++\vc-magic\vc-magic\src\vc-magic.cpp(94): warning C4312: приведение типов: преобразование из "DWORD" в "void *" большего размера
+     1>d:\!programming\c++\vc-magic\vc-magic\src\vc-magic.cpp(95): warning C4312: приведение типов: преобразование из "DWORD" в "BYTE *" большего размера
+     1>d:\!programming\c++\vc-magic\vc-magic\src\vc-magic.cpp(96): warning C4312: приведение типов: преобразование из "DWORD" в "DWORD *" большего размера
+     1>d:\!programming\c++\vc-magic\vc-magic\src\vc-magic.cpp(97): warning C4312: приведение типов: преобразование из "DWORD" в "WORD *" большего размера
+     1>d:\!programming\c++\vc-magic\vc-magic\src\vc-magic.cpp(98): warning C4312: приведение типов: преобразование из "DWORD" в "void *" большего размера
+         MissionThreads.cpp
+         MissionHook.cpp
+     1>d:\!programming\c++\vc-magic\vc-magic\src\missionhook.cpp(66): error C2485: naked: неизвестный расширенный атрибут
+     1>d:\!programming\c++\vc-magic\vc-magic\src\missionhook.cpp(68): error C4235: использовано нестандартное расширение: ключевое слово "__asm" данной архитектурой не поддерживается
+     1>d:\!programming\c++\vc-magic\vc-magic\src\missionhook.cpp(70): error C2065: movzx: необъявленный идентификатор
+     1>d:\!programming\c++\vc-magic\vc-magic\src\missionhook.cpp(70): error C2146: синтаксическая ошибка: отсутствие ";" перед идентификатором "ecx"
+     1>d:\!programming\c++\vc-magic\vc-magic\src\missionhook.cpp(70): error C2065: ecx: необъявленный идентификатор
+     1>d:\!programming\c++\vc-magic\vc-magic\src\missionhook.cpp(70): error C2065: ds: необъявленный идентификатор
+     1>d:\!programming\c++\vc-magic\vc-magic\src\missionhook.cpp(70): error C2143: синтаксическая ошибка: отсутствие ";" перед ":"
+     1>d:\!programming\c++\vc-magic\vc-magic\src\missionhook.cpp(70): error C2059: синтаксическая ошибка: :
+     1>d:\!programming\c++\vc-magic\vc-magic\src\missionhook.cpp(109): error C2485: naked: неизвестный расширенный атрибут
+     1>d:\!programming\c++\vc-magic\vc-magic\src\missionhook.cpp(111): error C4235: использовано нестандартное расширение: ключевое слово "__asm" данной архитектурой не поддерживается
+     1>d:\!programming\c++\vc-magic\vc-magic\src\missionhook.cpp(113): error C2065: movzx: необъявленный идентификатор
+     1>d:\!programming\c++\vc-magic\vc-magic\src\missionhook.cpp(113): error C2146: синтаксическая ошибка: отсутствие ";" перед идентификатором "ecx"
+     1>d:\!programming\c++\vc-magic\vc-magic\src\missionhook.cpp(113): error C2065: ecx: необъявленный идентификатор
+     1>d:\!programming\c++\vc-magic\vc-magic\src\missionhook.cpp(113): error C2065: ds: необъявленный идентификатор
+     1>d:\!programming\c++\vc-magic\vc-magic\src\missionhook.cpp(113): error C2143: синтаксическая ошибка: отсутствие ";" перед ":"
+     1>d:\!programming\c++\vc-magic\vc-magic\src\missionhook.cpp(113): error C2059: синтаксическая ошибка: :
+     1>d:\!programming\c++\vc-magic\vc-magic\src\missionhook.cpp(282): error C2485: naked: неизвестный расширенный атрибут
+     1>d:\!programming\c++\vc-magic\vc-magic\src\missionhook.cpp(284): error C4235: использовано нестандартное расширение: ключевое слово "__asm" данной архитектурой не поддерживается
+     1>d:\!programming\c++\vc-magic\vc-magic\src\missionhook.cpp(287): error C2065: call: необъявленный идентификатор
+     1>d:\!programming\c++\vc-magic\vc-magic\src\missionhook.cpp(287): error C2146: синтаксическая ошибка: отсутствие ";" перед идентификатором "ShutdownMissions"
+     1>d:\!programming\c++\vc-magic\vc-magic\src\missionhook.cpp(287): error C2146: синтаксическая ошибка: отсутствие ";" перед идентификатором "jmp"
+     1>d:\!programming\c++\vc-magic\vc-magic\src\missionhook.cpp(287): warning C4551: в вызове функции отсутствует список аргументов
+     1>d:\!programming\c++\vc-magic\vc-magic\src\missionhook.cpp(288): error C2065: jmp: необъявленный идентификатор
+     1>d:\!programming\c++\vc-magic\vc-magic\src\missionhook.cpp(288): error C2146: синтаксическая ошибка: отсутствие ";" перед идентификатором "ShutdownHooked"
+     1>d:\!programming\c++\vc-magic\vc-magic\src\missionhook.cpp(288): error C2143: синтаксическая ошибка: отсутствие ";" перед "}"
+     1>d:\!programming\c++\vc-magic\vc-magic\src\missionhook.cpp(305): error C2485: naked: неизвестный расширенный атрибут
+     1>d:\!programming\c++\vc-magic\vc-magic\src\missionhook.cpp(307): error C4235: использовано нестандартное расширение: ключевое слово "__asm" данной архитектурой не поддерживается
+     1>d:\!programming\c++\vc-magic\vc-magic\src\missionhook.cpp(309): error C2065: cmp: необъявленный идентификатор
+     1>d:\!programming\c++\vc-magic\vc-magic\src\missionhook.cpp(309): error C2146: синтаксическая ошибка: отсутствие ";" перед идентификатором "bScriptInit"
+     1>d:\!programming\c++\vc-magic\vc-magic\src\missionhook.cpp(310): error C2146: синтаксическая ошибка: отсутствие ";" перед идентификатором "jz"
+     1>d:\!programming\c++\vc-magic\vc-magic\src\missionhook.cpp(311): error C2065: jz: необъявленный идентификатор
+     1>d:\!programming\c++\vc-magic\vc-magic\src\missionhook.cpp(311): error C2146: синтаксическая ошибка: отсутствие ";" перед идентификатором "first_run"
+     1>d:\!programming\c++\vc-magic\vc-magic\src\missionhook.cpp(312): error C2065: first_run: необъявленный идентификатор
+     1>d:\!programming\c++\vc-magic\vc-magic\src\missionhook.cpp(312): error C2146: синтаксическая ошибка: отсутствие ";" перед идентификатором "pushad"
+     1>d:\!programming\c++\vc-magic\vc-magic\src\missionhook.cpp(312): error C2065: pushad: необъявленный идентификатор
+     1>d:\!programming\c++\vc-magic\vc-magic\src\missionhook.cpp(312): error C2146: синтаксическая ошибка: отсутствие ";" перед идентификатором "call"
+     1>d:\!programming\c++\vc-magic\vc-magic\src\missionhook.cpp(313): error C2065: call: необъявленный идентификатор
+     1>d:\!programming\c++\vc-magic\vc-magic\src\missionhook.cpp(313): error C2146: синтаксическая ошибка: отсутствие ";" перед идентификатором "ShutdownMissions"
+     1>d:\!programming\c++\vc-magic\vc-magic\src\missionhook.cpp(313): error C2146: синтаксическая ошибка: отсутствие ";" перед идентификатором "mov"
+     1>d:\!programming\c++\vc-magic\vc-magic\src\missionhook.cpp(313): warning C4551: в вызове функции отсутствует список аргументов
+     1>d:\!programming\c++\vc-magic\vc-magic\src\missionhook.cpp(313): error C2065: mov: необъявленный идентификатор
+     1>d:\!programming\c++\vc-magic\vc-magic\src\missionhook.cpp(313): error C2146: синтаксическая ошибка: отсутствие ";" перед идентификатором "bShutdown"
+     1>d:\!programming\c++\vc-magic\vc-magic\src\missionhook.cpp(314): error C2146: синтаксическая ошибка: отсутствие ";" перед идентификатором "mov"
+     1>d:\!programming\c++\vc-magic\vc-magic\src\missionhook.cpp(314): error C2065: mov: необъявленный идентификатор
+     1>d:\!programming\c++\vc-magic\vc-magic\src\missionhook.cpp(314): error C2146: синтаксическая ошибка: отсутствие ";" перед идентификатором "bScriptInit"
+     1>d:\!programming\c++\vc-magic\vc-magic\src\missionhook.cpp(315): error C2146: синтаксическая ошибка: отсутствие ";" перед идентификатором "mov"
+     1>d:\!programming\c++\vc-magic\vc-magic\src\missionhook.cpp(315): error C2065: mov: необъявленный идентификатор
+     1>d:\!programming\c++\vc-magic\vc-magic\src\missionhook.cpp(315): error C2146: синтаксическая ошибка: отсутствие ";" перед идентификатором "bMissionEnded"
+     1>d:\!programming\c++\vc-magic\vc-magic\src\missionhook.cpp(317): error C2146: синтаксическая ошибка: отсутствие ";" перед идентификатором "popad"
+     1>d:\!programming\c++\vc-magic\vc-magic\src\missionhook.cpp(317): error C2065: popad: необъявленный идентификатор
+     1>d:\!programming\c++\vc-magic\vc-magic\src\missionhook.cpp(317): error C2146: синтаксическая ошибка: отсутствие ";" перед идентификатором "first_run"
+     1>d:\!programming\c++\vc-magic\vc-magic\src\missionhook.cpp(319): error C2065: jmp: необъявленный идентификатор
+     1>d:\!programming\c++\vc-magic\vc-magic\src\missionhook.cpp(319): error C2146: синтаксическая ошибка: отсутствие ";" перед идентификатором "ScriptRestart"
+     1>d:\!programming\c++\vc-magic\vc-magic\src\missionhook.cpp(319): error C2143: синтаксическая ошибка: отсутствие ";" перед "}"
+     1>d:\!programming\c++\vc-magic\vc-magic\src\missionhook.cpp(384): error C2485: naked: неизвестный расширенный атрибут
+     1>d:\!programming\c++\vc-magic\vc-magic\src\missionhook.cpp(386): error C4235: использовано нестандартное расширение: ключевое слово "__asm" данной архитектурой не поддерживается
+     1>d:\!programming\c++\vc-magic\vc-magic\src\missionhook.cpp(388): error C2065: mov: необъявленный идентификатор
+     1>d:\!programming\c++\vc-magic\vc-magic\src\missionhook.cpp(388): error C2146: синтаксическая ошибка: отсутствие ";" перед идентификатором "gst"
+     1>d:\!programming\c++\vc-magic\vc-magic\src\missionhook.cpp(389): error C2065: ecx: необъявленный идентификатор
+     1>d:\!programming\c++\vc-magic\vc-magic\src\missionhook.cpp(389): error C2146: синтаксическая ошибка: отсутствие ";" перед идентификатором "cmp"
+     1>d:\!programming\c++\vc-magic\vc-magic\src\missionhook.cpp(389): error C2065: cmp: необъявленный идентификатор
+     1>d:\!programming\c++\vc-magic\vc-magic\src\missionhook.cpp(389): error C2146: синтаксическая ошибка: отсутствие ";" перед идентификатором "bScriptInit"
+     1>d:\!programming\c++\vc-magic\vc-magic\src\missionhook.cpp(390): error C2146: синтаксическая ошибка: отсутствие ";" перед идентификатором "jnz"
+     1>d:\!programming\c++\vc-magic\vc-magic\src\missionhook.cpp(391): error C2065: jnz: необъявленный идентификатор
+     1>d:\!programming\c++\vc-magic\vc-magic\src\missionhook.cpp(391): error C2146: синтаксическая ошибка: отсутствие ";" перед идентификатором "over_init"
+     1>d:\!programming\c++\vc-magic\vc-magic\src\missionhook.cpp(391): error C2065: over_init: необъявленный идентификатор
+     1>d:\!programming\c++\vc-magic\vc-magic\src\missionhook.cpp(391): error C2146: синтаксическая ошибка: отсутствие ";" перед идентификатором "mov"
+     1>d:\!programming\c++\vc-magic\vc-magic\src\missionhook.cpp(391): error C2065: mov: необъявленный идентификатор
+     1>d:\!programming\c++\vc-magic\vc-magic\src\missionhook.cpp(391): error C2146: синтаксическая ошибка: отсутствие ";" перед идентификатором "bScriptInit"
+     1>d:\!programming\c++\vc-magic\vc-magic\src\missionhook.cpp(392): error C2146: синтаксическая ошибка: отсутствие ";" перед идентификатором "call"
+     1>d:\!programming\c++\vc-magic\vc-magic\src\missionhook.cpp(393): error C2065: call: необъявленный идентификатор
+     1>d:\!programming\c++\vc-magic\vc-magic\src\missionhook.cpp(393): error C2146: синтаксическая ошибка: отсутствие ";" перед идентификатором "ScriptInit"
+     1>d:\!programming\c++\vc-magic\vc-magic\src\missionhook.cpp(393): error C2146: синтаксическая ошибка: отсутствие ";" перед идентификатором "jmp"
+     1>d:\!programming\c++\vc-magic\vc-magic\src\missionhook.cpp(393): warning C4551: в вызове функции отсутствует список аргументов
+     1>d:\!programming\c++\vc-magic\vc-magic\src\missionhook.cpp(394): error C2065: jmp: необъявленный идентификатор
+     1>d:\!programming\c++\vc-magic\vc-magic\src\missionhook.cpp(394): error C2146: синтаксическая ошибка: отсутствие ";" перед идентификатором "over_tick"
+     1>d:\!programming\c++\vc-magic\vc-magic\src\missionhook.cpp(394): error C2065: over_tick: необъявленный идентификатор
+     1>d:\!programming\c++\vc-magic\vc-magic\src\missionhook.cpp(394): error C2146: синтаксическая ошибка: отсутствие ";" перед идентификатором "over_init"
+     1>d:\!programming\c++\vc-magic\vc-magic\src\missionhook.cpp(396): error C2065: call: необъявленный идентификатор
+     1>d:\!programming\c++\vc-magic\vc-magic\src\missionhook.cpp(396): error C2146: синтаксическая ошибка: отсутствие ";" перед идентификатором "MissionTick"
+     1>d:\!programming\c++\vc-magic\vc-magic\src\missionhook.cpp(396): error C2146: синтаксическая ошибка: отсутствие ";" перед идентификатором "over_tick"
+     1>d:\!programming\c++\vc-magic\vc-magic\src\missionhook.cpp(396): warning C4551: в вызове функции отсутствует список аргументов
+     1>d:\!programming\c++\vc-magic\vc-magic\src\missionhook.cpp(397): error C2065: mov: необъявленный идентификатор
+     1>d:\!programming\c++\vc-magic\vc-magic\src\missionhook.cpp(397): error C2146: синтаксическая ошибка: отсутствие ";" перед идентификатором "eax"
+     1>d:\!programming\c++\vc-magic\vc-magic\src\missionhook.cpp(397): error C2065: eax: необъявленный идентификатор
+     1>d:\!programming\c++\vc-magic\vc-magic\src\missionhook.cpp(399): error C2146: синтаксическая ошибка: отсутствие ";" перед идентификатором "ret"
+     1>d:\!programming\c++\vc-magic\vc-magic\src\missionhook.cpp(399): error C2065: ret: необъявленный идентификатор
+     1>d:\!programming\c++\vc-magic\vc-magic\src\missionhook.cpp(399): error C2143: синтаксическая ошибка: отсутствие ";" перед "}"
+         GxtHook.cpp
+     1>d:\!programming\c++\vc-magic\vc-magic\src\gxthook.cpp(85): error C2485: naked: неизвестный расширенный атрибут
+     1>d:\!programming\c++\vc-magic\vc-magic\src\gxthook.cpp(87): error C4235: использовано нестандартное расширение: ключевое слово "__asm" данной архитектурой не поддерживается
+     1>d:\!programming\c++\vc-magic\vc-magic\src\gxthook.cpp(89): error C2065: mov: необъявленный идентификатор
+     1>d:\!programming\c++\vc-magic\vc-magic\src\gxthook.cpp(89): error C2146: синтаксическая ошибка: отсутствие ";" перед идентификатором "eax"
+     1>d:\!programming\c++\vc-magic\vc-magic\src\gxthook.cpp(89): error C2065: eax: необъявленный идентификатор
+     1>d:\!programming\c++\vc-magic\vc-magic\src\gxthook.cpp(89): error C2143: синтаксическая ошибка: отсутствие "]" перед "+"
+     1>d:\!programming\c++\vc-magic\vc-magic\src\gxthook.cpp(89): error C3481: esp: передаваемая переменная в лямбда-выражении не найдена
+     1>d:\!programming\c++\vc-magic\vc-magic\src\gxthook.cpp(89): error C3260: "+": пропускаются непредвиденные токены перед телом лямбда-функции
+     1>d:\!programming\c++\vc-magic\vc-magic\src\gxthook.cpp(104): fatal error C1903: не удается восстановить после предыдущих ошибок; остановка компиляции
+         GameScripting.cpp
+     1>d:\!programming\c++\vc-magic\vc-magic\src\gamescripting.cpp(35): error C2485: naked: неизвестный расширенный атрибут
+     1>d:\!programming\c++\vc-magic\vc-magic\src\gamescripting.cpp(37): error C4235: использовано нестандартное расширение: ключевое слово "__asm" данной архитектурой не поддерживается
+     1>d:\!programming\c++\vc-magic\vc-magic\src\gamescripting.cpp(39): error C2065: mov: необъявленный идентификатор
+     1>d:\!programming\c++\vc-magic\vc-magic\src\gamescripting.cpp(39): error C2146: синтаксическая ошибка: отсутствие ";" перед идентификатором "eax"
+     1>d:\!programming\c++\vc-magic\vc-magic\src\gamescripting.cpp(39): error C2065: eax: необъявленный идентификатор
+     1>d:\!programming\c++\vc-magic\vc-magic\src\gamescripting.cpp(39): error C2065: OFFSET: необъявленный идентификатор
+     1>d:\!programming\c++\vc-magic\vc-magic\src\gamescripting.cpp(40): error C2146: синтаксическая ошибка: отсутствие ";" перед идентификатором "ScriptBuf"
+     1>d:\!programming\c++\vc-magic\vc-magic\src\gamescripting.cpp(40): error C2146: синтаксическая ошибка: отсутствие ";" перед идентификатором "sub"
+     1>d:\!programming\c++\vc-magic\vc-magic\src\gamescripting.cpp(40): error C2065: sub: необъявленный идентификатор
+     1>d:\!programming\c++\vc-magic\vc-magic\src\gamescripting.cpp(40): error C2146: синтаксическая ошибка: отсутствие ";" перед идентификатором "eax"
+     1>d:\!programming\c++\vc-magic\vc-magic\src\gamescripting.cpp(40): error C2065: eax: необъявленный идентификатор
+     1>d:\!programming\c++\vc-magic\vc-magic\src\gamescripting.cpp(42): error C2146: синтаксическая ошибка: отсутствие ";" перед идентификатором "mov"
+     1>d:\!programming\c++\vc-magic\vc-magic\src\gamescripting.cpp(42): error C2065: mov: необъявленный идентификатор
+     1>d:\!programming\c++\vc-magic\vc-magic\src\gamescripting.cpp(42): error C2146: синтаксическая ошибка: отсутствие ";" перед идентификатором "ecx"
+     1>d:\!programming\c++\vc-magic\vc-magic\src\gamescripting.cpp(42): error C2065: ecx: необъявленный идентификатор
+     1>d:\!programming\c++\vc-magic\vc-magic\src\gamescripting.cpp(43): error C2146: синтаксическая ошибка: отсутствие ";" перед идентификатором "mov"
+     1>d:\!programming\c++\vc-magic\vc-magic\src\gamescripting.cpp(43): error C2065: mov: необъявленный идентификатор
+     1>d:\!programming\c++\vc-magic\vc-magic\src\gamescripting.cpp(43): error C2065: ecx: необъявленный идентификатор
+     1>d:\!programming\c++\vc-magic\vc-magic\src\gamescripting.cpp(45): error C2065: eax: необъявленный идентификатор
+     1>d:\!programming\c++\vc-magic\vc-magic\src\gamescripting.cpp(45): error C2146: синтаксическая ошибка: отсутствие ";" перед идентификатором "call"
+     1>d:\!programming\c++\vc-magic\vc-magic\src\gamescripting.cpp(46): error C2065: call: необъявленный идентификатор
+     1>d:\!programming\c++\vc-magic\vc-magic\src\gamescripting.cpp(46): error C2146: синтаксическая ошибка: отсутствие ";" перед идентификатором "ProcessOneCommand"
+     1>d:\!programming\c++\vc-magic\vc-magic\src\gamescripting.cpp(46): error C2146: синтаксическая ошибка: отсутствие ";" перед идентификатором "xor"
+     1>d:\!programming\c++\vc-magic\vc-magic\src\gamescripting.cpp(46): error C2065: xor: необъявленный идентификатор
+     1>d:\!programming\c++\vc-magic\vc-magic\src\gamescripting.cpp(46): error C2146: синтаксическая ошибка: отсутствие ";" перед идентификатором "eax"
+     1>d:\!programming\c++\vc-magic\vc-magic\src\gamescripting.cpp(46): error C2065: eax: необъявленный идентификатор
+     1>d:\!programming\c++\vc-magic\vc-magic\src\gamescripting.cpp(47): error C2065: eax: необъявленный идентификатор
+     1>d:\!programming\c++\vc-magic\vc-magic\src\gamescripting.cpp(47): error C2146: синтаксическая ошибка: отсутствие ";" перед идентификатором "mov"
+     1>d:\!programming\c++\vc-magic\vc-magic\src\gamescripting.cpp(47): error C2065: mov: необъявленный идентификатор
+     1>d:\!programming\c++\vc-magic\vc-magic\src\gamescripting.cpp(47): error C2146: синтаксическая ошибка: отсутствие ";" перед идентификатором "ecx"
+     1>d:\!programming\c++\vc-magic\vc-magic\src\gamescripting.cpp(47): error C2065: ecx: необъявленный идентификатор
+     1>d:\!programming\c++\vc-magic\vc-magic\src\gamescripting.cpp(48): error C2146: синтаксическая ошибка: отсутствие ";" перед идентификатором "mov"
+     1>d:\!programming\c++\vc-magic\vc-magic\src\gamescripting.cpp(48): error C2065: mov: необъявленный идентификатор
+     1>d:\!programming\c++\vc-magic\vc-magic\src\gamescripting.cpp(48): error C2146: синтаксическая ошибка: отсутствие ";" перед идентификатором "al"
+     1>d:\!programming\c++\vc-magic\vc-magic\src\gamescripting.cpp(48): error C2065: al: необъявленный идентификатор
+     1>d:\!programming\c++\vc-magic\vc-magic\src\gamescripting.cpp(48): error C2143: синтаксическая ошибка: отсутствие "]" перед "+"
+     1>d:\!programming\c++\vc-magic\vc-magic\src\gamescripting.cpp(48): error C3481: ecx: передаваемая переменная в лямбда-выражении не найдена
+     1>d:\!programming\c++\vc-magic\vc-magic\src\gamescripting.cpp(48): error C3260: "+": пропускаются непредвиденные токены перед телом лямбда-функции
+     1>d:\!programming\c++\vc-magic\vc-magic\src\gamescripting.cpp(76): error C2065: ScriptCmd: необъявленный идентификатор
+     1>d:\!programming\c++\vc-magic\vc-magic\src\gamescripting.cpp(76): error C2227: выражение слева от "->Params" должно указывать на тип класса, структуры или объединения либо на универсальный тип
+         d:\!programming\c++\vc-magic\vc-magic\src\gamescripting.cpp(76): note: тип: unknown-type
+     1>d:\!programming\c++\vc-magic\vc-magic\src\gamescripting.cpp(77): error C2065: ScriptCmd: необъявленный идентификатор
+     1>d:\!programming\c++\vc-magic\vc-magic\src\gamescripting.cpp(78): error C2065: ScriptCmd: необъявленный идентификатор
+     1>d:\!programming\c++\vc-magic\vc-magic\src\gamescripting.cpp(78): error C2227: выражение слева от "->OpCode" должно указывать на тип класса, структуры или объединения либо на универсальный тип
+         d:\!programming\c++\vc-magic\vc-magic\src\gamescripting.cpp(78): note: тип: unknown-type
+     1>d:\!programming\c++\vc-magic\vc-magic\src\gamescripting.cpp(78): error C2660: memcpy: функция не принимает 2 аргументов
+     1>d:\!programming\c++\vc-magic\vc-magic\src\gamescripting.cpp(156): fatal error C1004: непредвиденное обнаружение конца файла
+         Создание кода...
+     1>Сборка проекта "D:\!programming\C++\vc-magic\vc-magic\vc-magic.vcxproj" завершена (целевые объекты Rebuild) с ошибкой.
+
+Ошибка сборки.
+
+Затраченное время: 00:00:03.09
