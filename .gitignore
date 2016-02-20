@@ -32,6 +32,7 @@
 Debug/
 vc-magic/Debug/
 Release/
+vc-magic/Release/
 
 *.log
 *.tlog
