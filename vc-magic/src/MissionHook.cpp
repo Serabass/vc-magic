@@ -28,9 +28,9 @@ const VCPosition_t PlayerStart	= {-592.0f, 670.0f, 10.0f, 240.0f};
 bool bScriptInit	= false;// Has the script been initialised?
 bool bShutdown		= false;// Are we shutting down?
 
-ScriptScript*	pScript;	// Script stuff.
-ScriptGame*		pGame;		// Game stuff.
-ScriptPlayer*	pPlayer;	// Player stuff.
+Script*	pScript;	// Script stuff.
+Game*		pGame;		// Game stuff.
+Player*	pPlayer;	// Player stuff.
 
 SCRIPT_MISSION MissionHead;	// Head of the mission structures linked list.
 DWORD MissionCount = 1;		// Counter used for mission ids.
@@ -341,16 +341,16 @@ void ScriptInit()
 
 	gst->dwScriptIP = MissionHead.Id;
 
-	pScript = new ScriptScript();
+	pScript = new Script();
 	pScript->NameThread("MAIN");
-	pGame = new ScriptGame();
+	pGame = new Game();
 	pGame->Fade(0, FADE_OUT);
 	pGame->SetMaxWantedLevel(6);
 	pGame->SetWastedBustedCheck(true);
 	pGame->SetCurrentTime(20, 0);
 	pGame->RefreshScreen(PlayerStart.x, PlayerStart.y);
 	pGame->SetCamera(PlayerStart.x, PlayerStart.y + 2.0f, PlayerStart.z);
-	pPlayer = new ScriptPlayer(PlayerStart.x, PlayerStart.y, PlayerStart.z);
+	pPlayer = new Player(PlayerStart.x, PlayerStart.y, PlayerStart.z);
 	pPlayer->SetSkin(MODEL_PLAYER);
 	pPlayer->SetZAngle(PlayerStart.a);
 	pGame->SetWastedSpawnPosition(PlayerStart.x, PlayerStart.y, PlayerStart.z, 360.0f-PlayerStart.a);

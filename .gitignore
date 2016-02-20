@@ -26,3 +26,8 @@
 *.exe
 *.out
 *.app
+
+*.opensdf
+.vs/
+Debug/
+Release/

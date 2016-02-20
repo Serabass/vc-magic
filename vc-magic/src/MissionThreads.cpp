@@ -11,9 +11,9 @@
 #include "ScriptClasses.h"
 
 // Externals
-extern ScriptScript*	pScript;	// Script stuff.
-extern ScriptGame*		pGame;		// Game stuff.
-extern ScriptPlayer*	pPlayer;	// Player stuff.
+extern Script*	pScript;	// Script stuff.
+extern Game*		pGame;		// Game stuff.
+extern Player*	pPlayer;	// Player stuff.
 extern GAME_SCRIPT_THREAD* gst;
 extern bool (*WastedBustedCheck)();
 
@@ -90,24 +90,24 @@ void Mission_TheSample(SCRIPT_MISSION* pMission)
 
 	float fX, fY, fZ;
 
-	ScriptVehicle* pDebugCar	= NULL;
-	ScriptVehicle* pCopCar		= NULL;
-	ScriptVehicle* pSwatVan		= NULL;
-	ScriptVehicle* pFBICar		= NULL;
-	ScriptSpecialActor* pHilary = NULL;
-	ScriptSpecialActor* pPhil	= NULL;
-	ScriptActor* pCopper1		= NULL;
-	ScriptActor* pCopper2		= NULL;
-	ScriptActor* pSwat1			= NULL;
-	ScriptActor* pSwat2			= NULL;
-	ScriptActor* pFed1			= NULL;
-	ScriptActor* pFed2			= NULL;
-	ScriptActor* pFed3			= NULL;
-	ScriptActor* pFed4			= NULL;
-	ScriptMarker* pSafeHouse	= NULL;
-	ScriptMarker* pSwatMarker	= NULL;
-	ScriptMarker* pPhilMarker	= NULL;
-	ScriptMarker* pHilaryMarker	= NULL;
+	Vehicle* pDebugCar	= NULL;
+	Vehicle* pCopCar		= NULL;
+	Vehicle* pSwatVan		= NULL;
+	Vehicle* pFBICar		= NULL;
+	SpecialActor* pHilary = NULL;
+	SpecialActor* pPhil	= NULL;
+	Actor* pCopper1		= NULL;
+	Actor* pCopper2		= NULL;
+	Actor* pSwat1			= NULL;
+	Actor* pSwat2			= NULL;
+	Actor* pFed1			= NULL;
+	Actor* pFed2			= NULL;
+	Actor* pFed3			= NULL;
+	Actor* pFed4			= NULL;
+	Marker* pSafeHouse	= NULL;
+	Marker* pSwatMarker	= NULL;
+	Marker* pPhilMarker	= NULL;
+	Marker* pHilaryMarker	= NULL;
 
 	// Start mission intro
 	pGame->TextStyled("!TITLE", 4000, 2);
@@ -116,53 +116,53 @@ void Mission_TheSample(SCRIPT_MISSION* pMission)
 	while (pGame->Fading()) SCRIPT_WAIT(0);
 
 	// Car for debugging.
-	pDebugCar = new ScriptVehicle(pMission, CAR_SENTINEL, PlayerCar.x, PlayerCar.y, PlayerCar.z);
+	pDebugCar = new Vehicle(pMission, CAR_SENTINEL, PlayerCar.x, PlayerCar.y, PlayerCar.z);
 	pDebugCar->SetZAngle(PlayerCar.a);
 	pDebugCar->SetColour(57, 57);
 
 	// Create the cop car.
-	pCopCar = new ScriptVehicle(pMission, CAR_POLICE, CopsStart.x, CopsStart.y, CopsStart.z);
+	pCopCar = new Vehicle(pMission, CAR_POLICE, CopsStart.x, CopsStart.y, CopsStart.z);
 
 	// Get position for swat van relaitve to cop car.
 	pCopCar->GetRelativeCoordinates(0.0, 12.0, 0.0, &fX, &fY, &fZ);
 	// Create swat van.
-	pSwatVan = new ScriptVehicle(pMission, CAR_ENFORCER, fX, fY, fZ);
+	pSwatVan = new Vehicle(pMission, CAR_ENFORCER, fX, fY, fZ);
 
 	// Get position for fbi car relaitve to swat van.
 	pSwatVan->GetRelativeCoordinates(0.0, 12.0, 0.0, &fX, &fY, &fZ);
 	// Create fbi car.
-	pFBICar = new ScriptVehicle(pMission, CAR_FBIRANCH, fX, fY, fZ);
+	pFBICar = new Vehicle(pMission, CAR_FBIRANCH, fX, fY, fZ);
 
 	// Create Hilary.
-	pHilary = new ScriptSpecialActor(pMission, 1, MODEL_IGHLARY);
+	pHilary = new SpecialActor(pMission, 1, MODEL_IGHLARY);
 	// Spawn Hilary in the back of the swat van.
 	pHilary->SpawnInPassengerSeat(pSwatVan->GetVehicle(), 3, 1);
 	pHilary->SetWander(true);
 
 	// Create Phil.
-	pPhil = new ScriptSpecialActor(pMission, 2, MODEL_IGPHIL2);
+	pPhil = new SpecialActor(pMission, 2, MODEL_IGPHIL2);
 	// Spawn Phil in the back of the swat van.
 	pPhil->SpawnInPassengerSeat(pSwatVan->GetVehicle(), 3, 2);
 	pPhil->SetWander(true);
 
 	// Create and setup copper #1
-	pCopper1 = new ScriptActor(pMission);
+	pCopper1 = new Actor(pMission);
 	pCopper1->SpawnInDriverSeat(pCopCar->GetVehicle(), 6, IDE_COP);
 
 	// Create and setup copper #2
-	pCopper2 = new ScriptActor(pMission);
+	pCopper2 = new Actor(pMission);
 	pCopper2->SpawnInPassengerSeat(pCopCar->GetVehicle(), 6, IDE_COP, 0);
 
 	// Create and setup swat guy #1
-	pSwat1 = new ScriptActor(pMission);
+	pSwat1 = new Actor(pMission);
 	pSwat1->SpawnInDriverSeat(pSwatVan->GetVehicle(), 6, IDE_SWAT);
 
 	// Create and setup swat guy #2
-	pSwat2 = new ScriptActor(pMission);
+	pSwat2 = new Actor(pMission);
 	pSwat2->SpawnInPassengerSeat(pSwatVan->GetVehicle(), 6, IDE_SWAT, 0);
 
 	// Create and setup Fed #1
-	pFed1 = new ScriptActor(pMission);
+	pFed1 = new Actor(pMission);
 	pFed1->SpawnInDriverSeat(pFBICar->GetVehicle(), 6, IDE_FBI);
 	pFed1->GiveWeapon(WEAPON_MP5LGN, 9999);
 	pFed1->ResetFlags();
@@ -170,7 +170,7 @@ void Mission_TheSample(SCRIPT_MISSION* pMission)
 	pFed1->SetWander(true);
 
 	// Create and setup Fed #2
-	pFed2 = new ScriptActor(pMission);
+	pFed2 = new Actor(pMission);
 	pFed2->SpawnInPassengerSeat(pFBICar->GetVehicle(), 6, IDE_FBI, 0);
 	pFed2->GiveWeapon(WEAPON_MP5LGN, 9999);
 	pFed2->ResetFlags();
@@ -178,7 +178,7 @@ void Mission_TheSample(SCRIPT_MISSION* pMission)
 	pFed2->SetWander(true);
 
 	// Create and setup Fed #3
-	pFed3 = new ScriptActor(pMission);
+	pFed3 = new Actor(pMission);
 	pFed3->SpawnInPassengerSeat(pFBICar->GetVehicle(), 6, IDE_FBI, 1);
 	pFed3->GiveWeapon(WEAPON_MP5LGN, 9999);
 	pFed3->ResetFlags();
@@ -186,7 +186,7 @@ void Mission_TheSample(SCRIPT_MISSION* pMission)
 	pFed3->SetWander(true);
 
 	// Create and setup Fed #4
-	pFed4 = new ScriptActor(pMission);
+	pFed4 = new Actor(pMission);
 	pFed4->SpawnInPassengerSeat(pFBICar->GetVehicle(), 6, IDE_FBI, 2);
 	pFed4->GiveWeapon(WEAPON_MP5LGN, 9999);
 	pFed4->ResetFlags();
@@ -268,7 +268,7 @@ void Mission_TheSample(SCRIPT_MISSION* pMission)
 	pPlayer->Freeze(false);
 
 	// Swat van marker.
-	pSwatMarker = new ScriptMarker();
+	pSwatMarker = new Marker();
 	pSwatMarker->TieToVehicle(pSwatVan->GetVehicle(), 2, 2);
 	pSwatMarker->ShowOnRadar(3);
 	pSwatMarker->SetColor(2);
@@ -353,18 +353,18 @@ TheyAreOut:
 
 
 	// Phil's marker
-	pPhilMarker = new ScriptMarker();
+	pPhilMarker = new Marker();
 	pPhilMarker->TieToActor(pPhil->GetActor(), 4, 2);
 	pPhilMarker->ShowOnRadar(3);
 	pPhilMarker->SetColor(2);
 
 	// Hilary's marker
-	pHilaryMarker = new ScriptMarker();
+	pHilaryMarker = new Marker();
 	pHilaryMarker->TieToActor(pHilary->GetActor(), 4, 2);
 	pHilaryMarker->ShowOnRadar(3);
 	pHilaryMarker->SetColor(4);
 
-	pSafeHouse = new ScriptMarker();
+	pSafeHouse = new Marker();
 	pSafeHouse->SphereAndIcon(SafeHouse.x, SafeHouse.y, SafeHouse.z, 2);
 
 	pFBICar->SetMaxSpeed(0.0f);		// Stop the FBI car.
@@ -478,7 +478,7 @@ void MainScript(SCRIPT_MISSION* pMission)
 {
 	WaitForSingleObject(pMission->hExecute, INFINITE);
 
-	ScriptVehicle* pBike = new ScriptVehicle(pMission, BIKE_PCJ600, BikeShop.x, BikeShop.y, BikeShop.z, false);
+	Vehicle* pBike = new Vehicle(pMission, BIKE_PCJ600, BikeShop.x, BikeShop.y, BikeShop.z, false);
 	pBike->SetZAngle(BikeShop.a);
 	pBike->SetColour(57, 57);
 
@@ -499,7 +499,7 @@ void MainScript(SCRIPT_MISSION* pMission)
 	while (pGame->Fading()) SCRIPT_WAIT(0);
 	pPlayer->Freeze(false);
 
-	ScriptMarker* pMissionMarker = new ScriptMarker();
+	Marker* pMissionMarker = new Marker();
 	bool OnMission = true;		// Init to true to create the marker on first run through the loop.
 	for (;;)
 	{
@@ -518,7 +518,7 @@ void MainScript(SCRIPT_MISSION* pMission)
 			{
 				bMissionEnded = false;
 				OnMission = false;
-				pMissionMarker = new ScriptMarker();
+				pMissionMarker = new Marker();
 				pMissionMarker->SphereAndIcon(MissionStart.x, MissionStart.y, MissionStart.z, 2);
 			}
 		}

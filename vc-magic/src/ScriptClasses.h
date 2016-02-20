@@ -14,11 +14,11 @@
 
 
 //Class definitions
-class ScriptScript
+class Script
 {
 public:
-	ScriptScript();
-	~ScriptScript();
+	Script();
+	~Script();
 
 	bool ModelAvailable(DWORD dwModel);
 
@@ -28,11 +28,11 @@ public:
 	void Wait(int msTime);
 };
 
-class ScriptGame
+class Game
 {
 public:
-	ScriptGame();
-	~ScriptGame();
+	Game();
+	~Game();
 
 	bool Fading();
 
@@ -58,14 +58,14 @@ public:
 	void SetBustedSpawnPosition(float fX, float fY, float fZ, float fZAngle);
 };
 
-class ScriptPlayer
+class Player
 {
 private:
 	DWORD m_dwChar;
 	DWORD m_dwActor;
 public:
-	ScriptPlayer(float fX, float fY, float fZ);
-	~ScriptPlayer();
+	Player(float fX, float fY, float fZ);
+	~Player();
 
 	DWORD* GetChar();
 	DWORD* GetActor();
@@ -83,7 +83,7 @@ public:
 	void GiveMoney(int iMoney);
 };
 
-class ScriptActor
+class Actor
 {
 private:
 	DWORD m_dwActor;
@@ -91,8 +91,8 @@ private:
 	bool m_bKeepOnDestroy;
 	bool m_bSpawned;
 public:
-	ScriptActor(SCRIPT_MISSION* pMission, bool bKeepOnDestroy = true);
-	~ScriptActor();
+	Actor(SCRIPT_MISSION* pMission, bool bKeepOnDestroy = true);
+	~Actor();
 
 	DWORD* GetActor();
 	bool Dead();
@@ -111,15 +111,15 @@ public:
 	void KillPlayer(DWORD* pdwPlayer);
 };
 
-class ScriptSpecialActor
+class SpecialActor
 {
 private:
 	SCRIPT_MISSION* m_pMission;
-	ScriptActor* m_pActor;
+	Actor* m_pActor;
 	int m_iSlot;
 public:
-	ScriptSpecialActor(SCRIPT_MISSION* pMission, int iSlot, char Model[8]);
-	~ScriptSpecialActor();
+	SpecialActor(SCRIPT_MISSION* pMission, int iSlot, char Model[8]);
+	~SpecialActor();
 
 	DWORD* GetActor();
 	bool Dead();
@@ -133,15 +133,15 @@ public:
 	void SetWander(bool bWander);
 };
 
-class ScriptVehicle
+class Vehicle
 {
 private:
 	DWORD m_dwVehicle;
 	SCRIPT_MISSION* m_pMission;
 	bool m_bKeepOnDestroy;
 public:
-	ScriptVehicle(SCRIPT_MISSION* pMission, DWORD dwModel, float fX, float fY, float fZ, bool bKeepOnDestroy = true);
-	~ScriptVehicle();
+	Vehicle(SCRIPT_MISSION* pMission, DWORD dwModel, float fX, float fY, float fZ, bool bKeepOnDestroy = true);
+	~Vehicle();
 
 	DWORD* GetVehicle();
 	int GetHealth();
@@ -159,14 +159,14 @@ public:
 	void SetBehaviour(int iBehaviour);
 };
 
-class ScriptMarker
+class Marker
 {
 private:
 	DWORD m_dwMarker;
 	bool m_bCreated;
 public:
-	ScriptMarker();
-	~ScriptMarker();
+	Marker();
+	~Marker();
 
 	void TieToActor(DWORD* pdwActor, int iSize, int iType);
 	void TieToVehicle(DWORD* pdwVehicle, int iSize, int iType);
