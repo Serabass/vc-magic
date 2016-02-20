@@ -122,7 +122,14 @@ void Game::SetBustedSpawnPosition(float fX, float fY, float fZ, float fZAngle)
 	ScriptCommand(&restart_if_busted_at, fX, fY, fZ, fZAngle);
 }
 
+
+char(__cdecl* Game::SetTime)(char hour, char minute) = (char(__cdecl*)(char hour, char minute))0x487160;
+
 int * Game::maxWantedLevelHuman = (int *)0x6910D8;
 int * Game::maxWantedLevel = (int *)0x6910DC;
 
-VCTime Game::time = { (char *)0x0A10B6B, (char *)0x0A10B92 };
+VCTime * Game::time = (VCTime*)0x0A10B6B;
+char * Game::lastTypedChar = (char*)0x0A10942;
+HWND * Game::mainHWND = (HWND*)0x07897A4;
+
+StadiumStrings* Game::stadiumStrings = (StadiumStrings*)0x69679C;

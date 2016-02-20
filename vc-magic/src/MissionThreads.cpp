@@ -10,6 +10,8 @@
 #include "GameScripting.h"
 #include "ScriptClasses.h"
 
+#include <stdio.h>
+
 // Externals
 extern Script*	pScript;	// Script stuff.
 extern Game*		pGame;		// Game stuff.
@@ -463,6 +465,24 @@ MissionCleanup:
 	TERMINATE_THREAD();
 }
 
+
+void MainScript(SCRIPT_MISSION* pMission)
+{
+	WaitForSingleObject(pMission->hExecute, INFINITE);
+	Vehicle *bike = new Vehicle(pMission, BIKE::SANCHEZ, BikeShop.x, BikeShop.y, BikeShop.z);
+	bool OnMission = false;		// Init to true to create the marker on first run through the loop.
+	for (;;)
+	{
+		//v8::Handle<v8::Value> result = script->Run();
+		SCRIPT_WAIT(50);
+
+		if (GetKeyState(VK_TAB) < 0) {
+			MessageBox(0, Game::stadiumStrings->carRace, "", 0);
+		}
+	}
+}
+
+
 //--------------------------------------------------------------------------------------------
 //	func:
 //		MainScript()
@@ -474,7 +494,7 @@ MissionCleanup:
 //		pMission
 //			Pointer to the SCRIPT_MISSION structure for the main thread.
 //
-void MainScript(SCRIPT_MISSION* pMission)
+void MainScript_example(SCRIPT_MISSION* pMission)
 {
 	WaitForSingleObject(pMission->hExecute, INFINITE);
 

@@ -371,6 +371,8 @@ void Vehicle::SetBehaviour(int iBehaviour)
 	ScriptCommand(&set_car_driver_behaviour, &m_dwVehicle, iBehaviour);
 }
 
+int(__cdecl* Vehicle::SpawnNearPlayer)(int modelIndex) = (int(__cdecl*)(int modelIndex))0x04AE8F0;
+
 //--------------------------------------------------------------------------------
 // ScriptMarker class functions.
 //

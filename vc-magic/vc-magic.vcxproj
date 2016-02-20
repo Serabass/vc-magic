@@ -83,6 +83,9 @@
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
+    <PostBuildEvent>
+      <Command>copy "$(TargetPath)" "D:\Program Files (x86)\Grand Theft Auto Vice City\$(TargetName).asi"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -130,6 +133,7 @@
     <ClInclude Include="src\MissionHook.h" />
     <ClInclude Include="src\MissionThreads.h" />
     <ClInclude Include="src\Script.h" />
+    <ClInclude Include="src\Settings.h" />
     <ClInclude Include="src\Stats.h" />
     <ClInclude Include="src\vc-magic.h" />
     <ClInclude Include="src\ScriptClasses.h" />
@@ -141,6 +145,7 @@
     <ClCompile Include="src\MissionHook.cpp" />
     <ClCompile Include="src\MissionThreads.cpp" />
     <ClCompile Include="src\Script.cpp" />
+    <ClCompile Include="src\Settings.cpp" />
     <ClCompile Include="src\Stats.cpp" />
     <ClCompile Include="src\vc-magic.cpp" />
     <ClCompile Include="src\ScriptClasses.cpp" />

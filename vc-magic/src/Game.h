@@ -3,9 +3,15 @@
 #ifndef GAME_H
 #define GAME_H
 
+
 struct VCTime {
 	char* hour;
 	char* minute;
+};
+
+struct StadiumStrings {
+	char carRace[28]; // 0x69679C
+	// continue plz...
 };
 
 class Game
@@ -37,13 +43,16 @@ public:
 	void SetWastedSpawnPosition(float fX, float fY, float fZ, float fZAngle);
 	void SetBustedSpawnPosition(float fX, float fY, float fZ, float fZAngle);
 
+	static char(__cdecl* SetTime)(char hour, char minute);
+
 	static int* maxWantedLevelHuman;
 	static int* maxWantedLevel;
 
-	static VCTime time;
+	static VCTime* time;
+	static char* lastTypedChar;
+	static HWND* mainHWND;
 
-	static char* gameHour;
-	static char* gameMinute;
+	static StadiumStrings* stadiumStrings;
 };
 
 #endif

@@ -15,6 +15,11 @@
 #include "Script.h"
 #include "Stats.h"
 
+struct VCPoint2D {
+	int x;
+	int y;
+};
+
 //Class definitions
 
 class Player
@@ -118,6 +123,7 @@ public:
 	void SetDoorStatus(int iStatus);
 	void SetSiren(bool bSiren);
 	void SetBehaviour(int iBehaviour);
+	static int(__cdecl* SpawnNearPlayer)(int modelIndex);
 };
 
 class Marker
