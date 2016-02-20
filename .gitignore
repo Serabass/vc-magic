@@ -35,3 +35,6 @@ Release/
 
 *.log
 *.tlog
+**/*.log
+**/*.tlog
+
