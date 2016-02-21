@@ -126,6 +126,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\Cheats.h" />
     <ClInclude Include="src\Game.h" />
     <ClInclude Include="src\GameDefines.h" />
     <ClInclude Include="src\GameScripting.h" />
@@ -135,10 +136,12 @@
     <ClInclude Include="src\Script.h" />
     <ClInclude Include="src\Settings.h" />
     <ClInclude Include="src\Stats.h" />
+    <ClInclude Include="src\HUD.h" />
     <ClInclude Include="src\vc-magic.h" />
     <ClInclude Include="src\ScriptClasses.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Cheats.cpp" />
     <ClCompile Include="src\Game.cpp" />
     <ClCompile Include="src\GameScripting.cpp" />
     <ClCompile Include="src\GxtHook.cpp" />
@@ -147,6 +150,7 @@
     <ClCompile Include="src\Script.cpp" />
     <ClCompile Include="src\Settings.cpp" />
     <ClCompile Include="src\Stats.cpp" />
+    <ClCompile Include="src\HUD.cpp" />
     <ClCompile Include="src\vc-magic.cpp" />
     <ClCompile Include="src\ScriptClasses.cpp" />
   </ItemGroup>

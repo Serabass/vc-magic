@@ -1,6 +1,5 @@
 #include "ScriptClasses.h"
 #include "Settings.h"
-
 char * Settings::subtitlesEnabled = (char *)0x869650;
 char * Settings::wideScreenEnabled = (char *)0x869652;
 char * Settings::sfxVolume = (char *)0x869659;

@@ -17,6 +17,18 @@
 #define MAX_SCRIPT_VARS	16	// Size of our variable saving array
 #define MAX_SCRIPT_SIZE	255	// Size of ScriptBuf - Max is really (2+(13*5))
 
+#define STAD_STRING_1 0x69679C
+#define STAD_STRING_2 0x6967C4
+#define STAD_STRING_3 0x696800
+#define STAD_STRING_4 0x696830
+#define STAD_STRING_5 0x69686C
+#define STAD_STRING_6 0x696898
+#define STAD_STRING_7 0x6968D4
+#define STAD_STRING_8 0x696954
+#define STAD_STRING_9 0x69696C
+#define STAD_STRING_10 0x696974
+#define STAD_STRING_11 0x696978
+
 
 // Structures
 struct GAME_SCRIPT_THREAD	// 0x88 bytes total.
@@ -46,6 +58,44 @@ struct SCRIPT_COMMAND		//	Params				| z param is for zero-terminating
 	WORD OpCode;			//		f = float		| amount of parameters.
 	char Params[13];		//		v = variable	| Used only with create_thread
 };							//		s = string		| as far as i know.
+
+struct VCPoint2D {
+	int x;
+	int y;
+};
+
+struct stHUD {
+	float flt_697A64;
+	float verticalScale;
+	float weaponIconSize;
+	float horizontalScale;
+	float flt_697A74; // prob screen height
+	float flt_697A78; // prob screen width
+	float flt_697A7C;
+	float flt_697A80;
+	float flt_697A84;
+	float flt_697A88;
+	float flt_697A8C;
+	float flt_697A90;
+	float flt_697A94;
+	float flt_697A98;
+	float flt_697A9C;
+	float flt_697AA0;
+	float radarHorizontalScale;
+};
+
+struct StadiumStrings {
+	char string1[STAD_STRING_2 - STAD_STRING_1];
+	char string2[STAD_STRING_3 - STAD_STRING_2];
+	char string3[STAD_STRING_4 - STAD_STRING_3];
+	char string4[STAD_STRING_5 - STAD_STRING_4];
+	char string5[STAD_STRING_6 - STAD_STRING_5];
+	char string6[STAD_STRING_7 - STAD_STRING_6];
+	char string7[STAD_STRING_8 - STAD_STRING_7];
+	char string8[STAD_STRING_9 - STAD_STRING_8];
+	char string9[STAD_STRING_10 - STAD_STRING_9];
+	char string10[STAD_STRING_11 - STAD_STRING_10];
+};
 
 
 // Prototypes

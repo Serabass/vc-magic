@@ -12,13 +12,11 @@
 #include "GameScripting.h"
 #include "MissionHook.h"
 #include "Game.h"
+#include "Settings.h"
 #include "Script.h"
 #include "Stats.h"
-
-struct VCPoint2D {
-	int x;
-	int y;
-};
+#include "Cheats.h"
+#include "HUD.h"
 
 //Class definitions
 

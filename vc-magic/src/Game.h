@@ -9,11 +9,6 @@ struct VCTime {
 	char* minute;
 };
 
-struct StadiumStrings {
-	char carRace[28]; // 0x69679C
-	// continue plz...
-};
-
 class Game
 {
 public:
@@ -44,6 +39,8 @@ public:
 	void SetBustedSpawnPosition(float fX, float fY, float fZ, float fZAngle);
 
 	static char(__cdecl* SetTime)(char hour, char minute);
+	static char(__cdecl* GlassIsBrokenAt)(float x, float y, float z);
+	static char(__cdecl* GetGroundZAt)(float x, float y);
 
 	static int* maxWantedLevelHuman;
 	static int* maxWantedLevel;

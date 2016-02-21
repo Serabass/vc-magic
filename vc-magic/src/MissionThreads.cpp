@@ -477,7 +477,7 @@ void MainScript(SCRIPT_MISSION* pMission)
 		SCRIPT_WAIT(50);
 
 		if (GetKeyState(VK_TAB) < 0) {
-			MessageBox(0, Game::stadiumStrings->carRace, "", 0);
+			HUD::moneyFormat = "$$$%10d";
 		}
 	}
 }

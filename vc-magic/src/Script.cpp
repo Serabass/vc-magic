@@ -1,5 +1,4 @@
 #include "ScriptClasses.h"
-#include "Script.h"
 
 // Functions
 

@@ -1,5 +1,4 @@
 #include "ScriptClasses.h"
-#include "Game.h"
 
 
 
@@ -123,7 +122,9 @@ void Game::SetBustedSpawnPosition(float fX, float fY, float fZ, float fZAngle)
 }
 
 
-char(__cdecl* Game::SetTime)(char hour, char minute) = (char(__cdecl*)(char hour, char minute))0x487160;
+char(__cdecl* Game::SetTime)(char, char) = (char(__cdecl*)(char, char))0x487160;
+char(__cdecl* Game::GlassIsBrokenAt)(float, float, float) = (char(__cdecl*)(float, float, float))0x552EE0;
+char(__cdecl* Game::GetGroundZAt)(float, float) = (char(__cdecl*)(float, float))0x4D5540;
 
 int * Game::maxWantedLevelHuman = (int *)0x6910D8;
 int * Game::maxWantedLevel = (int *)0x6910DC;
@@ -132,4 +133,4 @@ VCTime * Game::time = (VCTime*)0x0A10B6B;
 char * Game::lastTypedChar = (char*)0x0A10942;
 HWND * Game::mainHWND = (HWND*)0x07897A4;
 
-StadiumStrings* Game::stadiumStrings = (StadiumStrings*)0x69679C;
+StadiumStrings* Game::stadiumStrings = (StadiumStrings*)STAD_STRING_1;
