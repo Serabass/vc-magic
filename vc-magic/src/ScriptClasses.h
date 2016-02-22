@@ -8,6 +8,8 @@
 #ifndef SCRIPTCLASSES_H
 #define SCRIPTCLASSES_H
 
+#define STRUCT_OFFSET(T, baseAddr, offset) (T*)(baseAddr + offset)
+
 // Includes
 #include "GameScripting.h"
 #include "MissionHook.h"
@@ -30,6 +32,9 @@ private:
 	DWORD m_dwChar;
 	DWORD m_dwActor;
 public:
+
+	CPed* ped;
+
 	Player(float fX, float fY, float fZ);
 	~Player();
 
@@ -47,10 +52,18 @@ public:
 	void SetZAngle(float fAngle);
 	void GiveWeapon(SCRIPT_MISSION* m_pMission, WEAPON dwWeapon, DWORD dwAmmo);
 	void GiveMoney(int iMoney);
+	static int(__cdecl* getStructAddress)();
+	CPed* __cdecl getStruct();
 
+	template <typename T>
+	T* $(int off);
 private:
-	static int(__cdecl* __getStructAddress)();
 };
+
+template <typename T> T* Player::$(int off) {
+	return (T*)(this->getStructAddress() + off);
+	// return (T*)(*(int *)(this->getStructAddress()) + off);
+}
 
 class Actor
 {

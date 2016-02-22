@@ -9,6 +9,7 @@
 #include "MissionThreads.h"
 #include "GameScripting.h"
 #include "ScriptClasses.h"
+#include <math.h>
 
 #include <stdio.h>
 
@@ -497,33 +498,17 @@ void MainScript(SCRIPT_MISSION* pMission)
 	// CreateThread(0, 0, &ConsoleWatch, 0, 0, 0);
 	WaitForSingleObject(pMission->hExecute, INFINITE);
 	Vehicle *bike = new Vehicle(pMission, BIKE::SANCHEZ, BikeShop.x, BikeShop.y, BikeShop.z);
-	Actor *a[10];
-
-	for (int i = 0; i < 10; i++) {
-		a[i] = new Actor(pMission);
-		a[i]->Spawn(PEDTYPE::COP, IDE_COP, BikeShop.x, BikeShop.y, BikeShop.z);
-		a[i]->GiveWeapon(WEAPON::BAT, 1);
-		a[i]->ArmWeapon(WEAPON::BAT);
-		a[i]->KillPlayer(pPlayer->GetChar());
-	}
 
 	bool OnMission = false;		// Init to true to create the marker on first run through the loop.
 	for (;;)
 	{
 		//v8::Handle<v8::Value> result = script->Run();
 		SCRIPT_WAIT(50);
-			if (GetKeyState(VK_ADD) < 0) {
-				*Game::trafficAccidents += 0.1f;
-			}
-			if (GetKeyState(VK_SUBTRACT) < 0) {
-				*Game::trafficAccidents -= 0.1f;
-			}
-
 			if (GetKeyState(VK_TAB) < 0) {
 
 			}
 
-			Game::money->real = (*Game::trafficAccidents * 100);
+			Game::money->real = pPlayer->ped->health;
 	}
 }
 

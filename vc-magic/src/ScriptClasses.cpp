@@ -33,11 +33,12 @@ Player::Player(float fX, float fY, float fZ)
 {
 	ScriptCommand(&create_player, 0, fX, fY, fZ, &m_dwChar);
 	ScriptCommand(&create_actor_from_player, &m_dwChar, &m_dwActor);
+
+	this->ped = (CPed*)this->getStructAddress();
 }
 
 Player::~Player()
 {
-
 }
 
 DWORD* Player::GetChar()
@@ -108,7 +109,12 @@ void Player::GiveMoney(int iMoney)
 	ScriptCommand(&add_to_player_money, &m_dwChar, iMoney);
 }
 
-int(__cdecl* Player::__getStructAddress)() = (int(__cdecl*)())0x4BC120;
+
+int(__cdecl* Player::getStructAddress)() = (int(__cdecl*)())0x4BC120;
+
+CPed* __cdecl Player::getStruct() {
+	return (CPed*)this->getStructAddress();
+};
 
 //--------------------------------------------------------------------------------
 // ScriptActor class functions.
