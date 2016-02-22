@@ -15,6 +15,11 @@ Script::~Script()
 
 }
 
+bool Script::RequestModel(DWORD dwModel)
+{
+	return ScriptCommand(&request_model, dwModel) ? true : false;
+}
+
 bool Script::ModelAvailable(DWORD dwModel)
 {
 	return ScriptCommand(&is_model_available, dwModel) ? true : false;

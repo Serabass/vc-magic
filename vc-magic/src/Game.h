@@ -4,11 +4,6 @@
 #define GAME_H
 
 
-struct VCTime {
-	char* hour;
-	char* minute;
-};
-
 class Game
 {
 public:
@@ -45,11 +40,31 @@ public:
 	static int* maxWantedLevelHuman;
 	static int* maxWantedLevel;
 
-	static VCTime* time;
+	// static VCTime* time;
+	static char* hour;
+	static char* minute;
+
 	static char* lastTypedChar;
 	static HWND* mainHWND;
 
 	static StadiumStrings* stadiumStrings;
+	static int* moonSize;
+
+	static Money* money;
+
+	static float* pedDensity;
+	static float* carDensity;
+	static float* trafficAccidents;
+
+#define MAX_USER_CHEATS 10
+
+	static void(__cdecl* printString)(float x, float y, int a);
+
+	static UserCheat* userCheats[MAX_USER_CHEATS];
+
+	static bool RegisterUserCheat(char *string, void(__cdecl* callback)());
+
+	static void LoadWeaponModels(WEAPON);
 };
 
 #endif

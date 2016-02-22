@@ -20,6 +20,10 @@
 
 //Class definitions
 
+struct PlayerStruct {
+
+};
+
 class Player
 {
 private:
@@ -41,10 +45,11 @@ public:
 	void SetWantedLevel(int iLevel);
 	void SetHealth(int iHealth);
 	void SetZAngle(float fAngle);
-	void GiveWeapon(SCRIPT_MISSION* m_pMission, DWORD dwWeapon, DWORD dwAmmo);
+	void GiveWeapon(SCRIPT_MISSION* m_pMission, WEAPON dwWeapon, DWORD dwAmmo);
 	void GiveMoney(int iMoney);
 
-	static int(__cdecl* getStruct)();
+private:
+	static int(__cdecl* __getStructAddress)();
 };
 
 class Actor
@@ -65,7 +70,8 @@ public:
 	void Spawn(int iPedType, DWORD dwModel, float fX, float fY, float fZ);
 	void SpawnInPassengerSeat(DWORD* pdwVehicle, int iPedType, DWORD dwModel, int iSeat);
 	void SpawnInDriverSeat(DWORD* pdwVehicle, int iPedType, DWORD dwModel);
-	void GiveWeapon(DWORD dwWeapon, DWORD dwAmmo);
+	void GiveWeapon(WEAPON dwWeapon, DWORD dwAmmo);
+	void ArmWeapon(WEAPON dwWeapon);
 	void ResetFlags();
 	void SetPedStats(DWORD dwPedStats);
 	void SetWander(bool bWander);
@@ -73,6 +79,7 @@ public:
 	void LeaveVehicle();
 	void KillActor(DWORD* pdwActor);
 	void KillPlayer(DWORD* pdwPlayer);
+	void StealAnyCar();
 };
 
 class SpecialActor

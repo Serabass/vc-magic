@@ -1,6 +1,6 @@
 #include "ScriptClasses.h"
 
-
+// using namespace std;
 
 //--------------------------------------------------------------------------------
 // ScriptGame class functions.
@@ -129,8 +129,58 @@ char(__cdecl* Game::GetGroundZAt)(float, float) = (char(__cdecl*)(float, float))
 int * Game::maxWantedLevelHuman = (int *)0x6910D8;
 int * Game::maxWantedLevel = (int *)0x6910DC;
 
-VCTime * Game::time = (VCTime*)0x0A10B6B;
+// VCTime * Game::time; // = (VCTime *)({ (char*)0x0A10B6B, (char*)0x0A10B92 });
+
+char * Game::hour = (char*)0x0A10B6B;
+char * Game::minute = (char*)0x0A10B92;
+
 char * Game::lastTypedChar = (char*)0x0A10942;
 HWND * Game::mainHWND = (HWND*)0x07897A4;
 
 StadiumStrings* Game::stadiumStrings = (StadiumStrings*)STAD_STRING_1;
+int* Game::moonSize = (int*)0x695680;
+Money* Game::money = (Money*)0x94ADC8;
+
+float* Game::pedDensity = (float*)0x694DC0;
+float* Game::carDensity = (float*)0x686FC8;
+float* Game::trafficAccidents = (float*)0x687238;
+
+void(__cdecl* Game::printString)(float, float, int) = (void(__cdecl*)(float, float, int))0x4D5540;
+
+UserCheat* Game::userCheats[MAX_USER_CHEATS] = {
+	nullptr, nullptr,
+	nullptr, nullptr,
+	nullptr, nullptr,
+	nullptr, nullptr,
+	nullptr, nullptr,
+};
+
+// std::array<UserCheat, MAX_USER_CHEATS> x;
+
+bool Game::RegisterUserCheat(char *string, void(__cdecl* callback)()) {
+	for (int i = 0; i < MAX_USER_CHEATS; i++) {
+		if (userCheats[i] == nullptr) {
+			userCheats[i] = new UserCheat();
+			*userCheats[i]->string = *string;
+			userCheats[i]->callback = callback;
+			return true;
+		}
+	}
+
+	return false;
+}
+
+void Game::LoadWeaponModels(WEAPON weapon) {
+	switch (weapon) {
+	case WEAPON::BAT:
+		Script::RequestModel(264); // WEAPON_MODEL::BAT
+		break;
+	case WEAPON::MINIGUN:
+		Script::RequestModel(290); // WEAPON_MODEL::MINIGUN
+		Script::RequestModel(294); // WEAPON_MODEL::MINIGUN2
+		break;
+	case WEAPON::BOMB:
+		Script::RequestModel(291); // WEAPON_MODEL::BOMB
+		break;
+	}
+}

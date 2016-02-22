@@ -10,6 +10,7 @@ public:
 	~Script();
 
 	bool ModelAvailable(DWORD dwModel);
+	static bool RequestModel(DWORD dwModel);
 
 	void CreateThread(int StartIP);
 	void TerminateThread();

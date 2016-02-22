@@ -10,6 +10,8 @@ public:
 	static char * PROFESSIONALTOOLS;
 	static char(__cdecl* check)(char lastPressedChar, char * cheatString);
 
+	static bool* cigarette;
+	static bool* greenLights;
 };
 
 

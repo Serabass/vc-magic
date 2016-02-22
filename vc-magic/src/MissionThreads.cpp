@@ -14,7 +14,7 @@
 
 // Externals
 extern Script*	pScript;	// Script stuff.
-extern Game*		pGame;		// Game stuff.
+extern Game*	pGame;		// Game stuff.
 extern Player*	pPlayer;	// Player stuff.
 extern GAME_SCRIPT_THREAD* gst;
 extern bool (*WastedBustedCheck)();
@@ -166,7 +166,7 @@ void Mission_TheSample(SCRIPT_MISSION* pMission)
 	// Create and setup Fed #1
 	pFed1 = new Actor(pMission);
 	pFed1->SpawnInDriverSeat(pFBICar->GetVehicle(), 6, IDE_FBI);
-	pFed1->GiveWeapon(WEAPON_MP5LGN, 9999);
+	pFed1->GiveWeapon(WEAPON::MP5LGN, 9999);
 	pFed1->ResetFlags();
 	pFed1->SetPedStats(16);
 	pFed1->SetWander(true);
@@ -174,7 +174,7 @@ void Mission_TheSample(SCRIPT_MISSION* pMission)
 	// Create and setup Fed #2
 	pFed2 = new Actor(pMission);
 	pFed2->SpawnInPassengerSeat(pFBICar->GetVehicle(), 6, IDE_FBI, 0);
-	pFed2->GiveWeapon(WEAPON_MP5LGN, 9999);
+	pFed2->GiveWeapon(WEAPON::MP5LGN, 9999);
 	pFed2->ResetFlags();
 	pFed2->SetPedStats(16);
 	pFed2->SetWander(true);
@@ -182,7 +182,7 @@ void Mission_TheSample(SCRIPT_MISSION* pMission)
 	// Create and setup Fed #3
 	pFed3 = new Actor(pMission);
 	pFed3->SpawnInPassengerSeat(pFBICar->GetVehicle(), 6, IDE_FBI, 1);
-	pFed3->GiveWeapon(WEAPON_MP5LGN, 9999);
+	pFed3->GiveWeapon(WEAPON::MP5LGN, 9999);
 	pFed3->ResetFlags();
 	pFed3->SetPedStats(16);
 	pFed3->SetWander(true);
@@ -190,7 +190,7 @@ void Mission_TheSample(SCRIPT_MISSION* pMission)
 	// Create and setup Fed #4
 	pFed4 = new Actor(pMission);
 	pFed4->SpawnInPassengerSeat(pFBICar->GetVehicle(), 6, IDE_FBI, 2);
-	pFed4->GiveWeapon(WEAPON_MP5LGN, 9999);
+	pFed4->GiveWeapon(WEAPON::MP5LGN, 9999);
 	pFed4->ResetFlags();
 	pFed4->SetPedStats(16);
 	pFed4->SetWander(true);
@@ -228,7 +228,7 @@ void Mission_TheSample(SCRIPT_MISSION* pMission)
 	pSwatVan->SetDoorStatus(2);
 
 	// Be nice! Give the player a gun...
-	pPlayer->GiveWeapon(pMission, WEAPON_MP5LGN, 99);
+	pPlayer->GiveWeapon(pMission, WEAPON::MP5LGN, 99);
 	// ...and some health.
 	pPlayer->SetHealth(100);
 
@@ -465,20 +465,65 @@ MissionCleanup:
 	TERMINATE_THREAD();
 }
 
+DWORD __stdcall ConsoleWatch(LPVOID lpThreadParameter) {
+
+	FILE *fStdIn, *fStdOut, *fStdErr;
+
+	// this is in my class constructor
+
+	AllocConsole();
+	freopen_s(&fStdIn, "conin$", "r", stdin);
+	freopen_s(&fStdOut, "conout$", "w", stdout);
+	freopen_s(&fStdErr, "conout$", "w", stderr);
+
+	fprintf_s(fStdOut, "Hello!\n", 2);
+	//std::cout.sync_with_stdio();
+	//std::cin.sync_with_stdio();
+	for (;;) {
+		if (GetKeyState(VK_TAB) < 0) {
+			/*
+			fprintf_s(fStdOut, "Enter:");
+			fscanf_s(fStdIn, "%d %d", Game::hour, Game::minute);
+			fprintf_s(fStdOut, "\n");
+			*/
+		}
+	}
+
+	return 0;
+}
 
 void MainScript(SCRIPT_MISSION* pMission)
 {
+	// CreateThread(0, 0, &ConsoleWatch, 0, 0, 0);
 	WaitForSingleObject(pMission->hExecute, INFINITE);
 	Vehicle *bike = new Vehicle(pMission, BIKE::SANCHEZ, BikeShop.x, BikeShop.y, BikeShop.z);
+	Actor *a[10];
+
+	for (int i = 0; i < 10; i++) {
+		a[i] = new Actor(pMission);
+		a[i]->Spawn(PEDTYPE::COP, IDE_COP, BikeShop.x, BikeShop.y, BikeShop.z);
+		a[i]->GiveWeapon(WEAPON::BAT, 1);
+		a[i]->ArmWeapon(WEAPON::BAT);
+		a[i]->KillPlayer(pPlayer->GetChar());
+	}
+
 	bool OnMission = false;		// Init to true to create the marker on first run through the loop.
 	for (;;)
 	{
 		//v8::Handle<v8::Value> result = script->Run();
 		SCRIPT_WAIT(50);
+			if (GetKeyState(VK_ADD) < 0) {
+				*Game::trafficAccidents += 0.1f;
+			}
+			if (GetKeyState(VK_SUBTRACT) < 0) {
+				*Game::trafficAccidents -= 0.1f;
+			}
 
-		if (GetKeyState(VK_TAB) < 0) {
-			HUD::moneyFormat = "$$$%10d";
-		}
+			if (GetKeyState(VK_TAB) < 0) {
+
+			}
+
+			Game::money->real = (*Game::trafficAccidents * 100);
 	}
 }
 

@@ -92,11 +92,11 @@ void Player::SetZAngle(float fAngle)
 	ScriptCommand(&set_player_z_angle, &m_dwChar, fAngle);
 }
 
-void Player::GiveWeapon(SCRIPT_MISSION* m_pMission, DWORD dwWeapon, DWORD dwAmmo)
+void Player::GiveWeapon(SCRIPT_MISSION* m_pMission, WEAPON dwWeapon, DWORD dwAmmo)
 {
 	if (!pScript->ModelAvailable(dwWeapon))
 	{
-		ScriptCommand(&request_model, dwWeapon);
+		Game::LoadWeaponModels(dwWeapon);
 		ScriptCommand(&load_requested_models);
 		while (!pScript->ModelAvailable(dwWeapon)) SCRIPT_WAIT(0);
 	}
@@ -108,7 +108,7 @@ void Player::GiveMoney(int iMoney)
 	ScriptCommand(&add_to_player_money, &m_dwChar, iMoney);
 }
 
-int(__cdecl* Player::getStruct)() = (int(__cdecl*)())0x4BC120;
+int(__cdecl* Player::__getStructAddress)() = (int(__cdecl*)())0x4BC120;
 
 //--------------------------------------------------------------------------------
 // ScriptActor class functions.
@@ -173,7 +173,7 @@ void Actor::SpawnInDriverSeat(DWORD* pdwVehicle, int iPedType, DWORD dwModel)
 	m_bSpawned = true;
 }
 
-void Actor::GiveWeapon(DWORD dwWeapon, DWORD dwAmmo)
+void Actor::GiveWeapon(WEAPON dwWeapon, DWORD dwAmmo)
 {
 	if (!pScript->ModelAvailable(dwWeapon))
 	{
@@ -182,6 +182,11 @@ void Actor::GiveWeapon(DWORD dwWeapon, DWORD dwAmmo)
 		while (!pScript->ModelAvailable(dwWeapon)) SCRIPT_WAIT(0);
 	}
 	ScriptCommand(&give_actor_weapon, &m_dwActor, dwWeapon, dwAmmo);
+}
+
+void Actor::ArmWeapon(WEAPON dwWeapon)
+{
+	ScriptCommand(&actor_arm_weapon, &m_dwActor, dwWeapon);
 }
 
 void Actor::ResetFlags()
@@ -217,6 +222,13 @@ void Actor::KillActor(DWORD* pdwActor)
 void Actor::KillPlayer(DWORD* pdwPlayer)
 {
 	ScriptCommand(&set_actor_to_kill_player, &m_dwActor, pdwPlayer);
+}
+
+
+
+void Actor::StealAnyCar()
+{
+	ScriptCommand(&set_actor_steal_any_car, &m_dwActor);
 }
 
 
