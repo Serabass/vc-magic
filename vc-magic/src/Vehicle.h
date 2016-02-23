@@ -14,6 +14,9 @@ public:
 	Vehicle(SCRIPT_MISSION* pMission, DWORD dwModel, float fX, float fY, float fZ, bool bKeepOnDestroy = true);
 	~Vehicle();
 
+
+	static int(__cdecl* SpawnNearPlayer)(int modelIndex);
+
 	DWORD* GetVehicle();
 	int GetHealth();
 	bool NearPoint(float fX, float fY, float fZ, float fRX, float fRY, float fRZ, bool bSphere);
@@ -28,7 +31,7 @@ public:
 	void SetDoorStatus(int iStatus);
 	void SetSiren(bool bSiren);
 	void SetBehaviour(int iBehaviour);
-	static int(__cdecl* SpawnNearPlayer)(int modelIndex);
+	bool IsStuck();
 };
 
 #endif

@@ -1612,7 +1612,7 @@ struct CPed {
 };
 
 // Prototypes
-int ScriptCommand(const SCRIPT_COMMAND* ScriptCommand, ...);	// The main scripting function. See notes.
+int $(const SCRIPT_COMMAND* $, ...);	// The main scripting function. See notes.
 
 
 // Constants
@@ -1620,6 +1620,7 @@ int ScriptCommand(const SCRIPT_COMMAND* ScriptCommand, ...);	// The main scripti
 /*	Below are some opcodes i've defined, but it's still missing
 	about 95% of them ;) See http://vc-db.webtools4you.net/		*/
 const SCRIPT_COMMAND request_model					= { 0x0247, "i" };		// (CAR_*|BIKE_*|BOAT_*|WEAPON_*|OBJECT_*)
+const SCRIPT_COMMAND release_model					= { 0x0249, "i" };		// (CAR_*|BIKE_*|BOAT_*|WEAPON_*|OBJECT_*)
 const SCRIPT_COMMAND load_requested_models			= { 0x038B, "" };		// -/-
 const SCRIPT_COMMAND create_car						= { 0x00A5, "ifffv" };	// (CAR_*|BIKE_*|BOAT_*), x, y, z, var_car
 const SCRIPT_COMMAND load_special_actor				= { 0x023C, "is" };		// SPECIAL_*, MODEL_*
@@ -1717,6 +1718,15 @@ const SCRIPT_COMMAND destroy_fire					= { 0x02D1, "v" };	// x, y, z, a
 const SCRIPT_COMMAND remove_all_fires				= { 0x031A, "" };	// x, y, z, a
 const SCRIPT_COMMAND create_car_fire				= { 0x0325, "vv" };	// x, y, z, a
 const SCRIPT_COMMAND create_actor_fire				= { 0x0326, "vv" };	// x, y, z, a
-
+const SCRIPT_COMMAND hold_cellphone					= { 0x052B, "vi" };	// x, y, z, a
+const SCRIPT_COMMAND text_lowpriority				= { 0x00BB, "sii" };	// x, y, z, a
+const SCRIPT_COMMAND text_highpriority				= { 0x00BC, "sii" };	// x, y, z, a
+const SCRIPT_COMMAND text_clear_all					= { 0x00BE, "" };	// x, y, z, a
+const SCRIPT_COMMAND show_save_screen				= { 0x03D8, "" };	// x, y, z, a
+const SCRIPT_COMMAND create_timer					= { 0x014E, "vi" };	// x, y, z, a
+const SCRIPT_COMMAND stop_timer						= { 0x014F, "vi" };	// x, y, z, a
+const SCRIPT_COMMAND pause_timer					= { 0x0396, "v" };	// x, y, z, a
+const SCRIPT_COMMAND set_timer_with_text			= { 0x03C3, "vis" };	// x, y, z, a
+const SCRIPT_COMMAND is_car_stuck					= { 0x03CE, "v" };	// x, y, z, a
 
 #endif

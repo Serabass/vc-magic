@@ -12,17 +12,19 @@
 
 // The SCRIPT_WAIT() define is used with loops within a mission
 // thread  to allow the execution of regular code to continue.
-#define SCRIPT_WAIT(x)									\
-{														\
-	pScript->Wait(x);									\
-	SetEvent(pMission->hContinue);						\
-	WaitForSingleObject(pMission->hExecute, INFINITE);	\
+#define SCRIPT_WAIT(x)										\
+{															\
+	Script::Wait(x);										\
+	if (pMission != NULL) {									\
+		SetEvent(pMission->hContinue);						\
+		WaitForSingleObject(pMission->hExecute, INFINITE);	\
+	}														\
 }
 
 // Used a the bottom of all mission thread functions to clean up.
 #define TERMINATE_THREAD()			\
 {									\
-	pScript->TerminateThread();		\
+	Script::TerminateThread();		\
 	SetEvent(pMission->hContinue);	\
 	DelMission(pMission);			\
 }
@@ -36,9 +38,11 @@
 // Delete alloctaed memory safely.
 #define SAFE_DELETE(p) { if(p) { delete (p); (p)=NULL; } }
 
+enum IDE : DWORD {
+	NUL = 0
+};
 
-
-enum CAR {
+enum CAR : DWORD {
 	LANDSTAL = 130,
 	IDAHO = 131,
 	STINGER = 132,
@@ -123,7 +127,7 @@ enum CAR {
 	VICECHEE = 236
 };
 
-enum BOAT {
+enum BOAT : DWORD {
 	RIO = 136,
 	PREDATOR = 160,
 	SQUALO = 176,
@@ -137,7 +141,7 @@ enum BOAT {
 	JETMAX = 223
 };
 
-enum HELI {
+enum HELI : DWORD {
 	CHOPPER = 165,
 	HUNTER = 155,
 	SEASPAR = 177,
@@ -146,7 +150,7 @@ enum HELI {
 	VCNMAV = 218
 };
 
-enum BIKE {
+enum BIKE : DWORD {
 	ANGEL = 166,
 	PIZZABOY = 178,
 	PCJ600 = 191,
@@ -155,7 +159,7 @@ enum BIKE {
 	SANCHEZ = 198
 };
 
-enum WEAPON {
+enum WEAPON : DWORD {
 	NONE = 0,
 	BRASSKNUCKLE = 1,
 	SCREWDRIVER = 2,
@@ -230,7 +234,7 @@ enum WEAPON_MODEL {
 	MINIGUN2 = 294
 };
 */
-enum PEDTYPE {
+enum PEDTYPE : DWORD {
 	PLAYER1 = 0,
 	PLAYER2 = 1,
 	PLAYER3 = 2,
@@ -253,7 +257,7 @@ enum PEDTYPE {
 	SPECIAL = 19
 };
 
-enum WEATHER {
+enum WEATHER : DWORD {
 	SUNNY = 0,
 	CLOUDY = 1,
 	RAINING = 2,
@@ -263,13 +267,13 @@ enum WEATHER {
 	INTERIOR = 6
 };
 
-enum VehicleType {
+enum VehicleType : DWORD {
 	CAR = 0,
 	BOAT = 1,
 	BIKE = 5
 };
 
-enum INTERIOR {
+enum INTERIOR : DWORD {
 	OUTSIDE = 0,
 	HOTEL = 1,
 	MANSION = 2,
@@ -291,6 +295,10 @@ enum INTERIOR {
 	PRINTWORKS = 18
 };
 
+enum FADE : bool {
+	FADEIN = false,
+	FADEOUT = true
+};
 
 // Defines
 #define MODEL_BGA			"BGA"
@@ -513,9 +521,6 @@ enum INTERIOR {
 #define INTERIOR_STADIUM3	16
 #define INTERIOR_CLUB		17
 #define INTERIOR_PRINTWORKS	18
-
-#define FADE_OUT			0
-#define FADE_IN				1
 
 #define IDE_COP				1
 #define IDE_SWAT			2

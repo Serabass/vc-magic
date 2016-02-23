@@ -70,7 +70,7 @@ int __declspec(naked) ExecuteScriptBuf()
 //			You must also pass parameters matching the parameter string in the
 //			"Params" member of the passed SCRIPT_COMMAND structure. See ReadMe.
 //
-int ScriptCommand(const SCRIPT_COMMAND* ScriptCmd, ...)
+int $(const SCRIPT_COMMAND* ScriptCmd, ...)
 {
 	va_list ap;
 	const char* p = ScriptCmd->Params;			// Get parameter string.

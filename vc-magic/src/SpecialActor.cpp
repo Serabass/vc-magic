@@ -7,8 +7,8 @@ SpecialActor::SpecialActor(SCRIPT_MISSION* pMission, int iSlot, char Model[8])
 {
 	m_pMission = pMission;
 	m_iSlot = iSlot;
-	ScriptCommand(&load_special_actor, iSlot, Model);
-	ScriptCommand(&load_requested_models);
+	$(&load_special_actor, iSlot, Model);
+	$(&load_requested_models);
 	m_pActor = new Actor(m_pMission, false);
 }
 

@@ -29,6 +29,9 @@ class Vehicle;
 #include "Actor.h"
 #include "SpecialActor.h"
 #include "Player.h"
+#include "Police.h"
+#include "Text.h"
+#include "Model.h"
 
 //Class definitions
 

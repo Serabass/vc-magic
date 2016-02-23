@@ -11,7 +11,6 @@
 // Includes
 #include <windows.h>
 
-
 // Structures
 struct SCRIPT_MISSION
 {

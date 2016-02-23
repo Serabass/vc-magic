@@ -2,20 +2,15 @@
 
 #ifndef SCRIPT_H
 #define SCRIPT_H
+#include "ScriptClasses.h"
 
 class Script
 {
 public:
-	Script();
-	~Script();
-
-	bool ModelAvailable(DWORD dwModel);
-	static bool RequestModel(DWORD dwModel);
-
-	void CreateThread(int StartIP);
-	void TerminateThread();
-	void NameThread(char ThreadName[8]);
-	void Wait(int msTime);
+	static void CreateThread(int StartIP);
+	static void TerminateThread();
+	static void NameThread(char ThreadName[8]);
+	static void Wait(int msTime);
 };
 
 #endif

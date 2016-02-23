@@ -23,6 +23,7 @@ public:
 
 	DWORD* GetChar();
 	DWORD* GetActor();
+	Actor* CreateActor();
 
 	bool NearPoint(float fX, float fY, float fZ, float fRX, float fRY, float fRZ, bool bSphere);
 	bool NearPointOnFoot(float fX, float fY, float fZ, float fRX, float fRY, float fRZ, bool bSphere);
@@ -37,12 +38,17 @@ public:
 	void GiveMoney(int iMoney);
 	static int(__cdecl* getStructAddress)();
 
+	void HoldCellPhone(bool hold = true);
+	void HoldCellPhone();
+	void ToggleCellPhone();
+	bool UsingPhone;
+
 	template <typename T>
-	T* $(int off);
+	T* $$(int off);
 private:
 };
 
-template <typename T> T* Player::$(int off = 0) {
+template <typename T> T* Player::$$(int off = 0) {
 	return (T*)(this->getStructAddress() + off);
 }
 

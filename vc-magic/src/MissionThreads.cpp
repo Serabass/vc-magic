@@ -15,8 +15,6 @@
 #include <stdio.h>
 
 // Externals
-extern Script*	pScript;	// Script stuff.
-extern Game*	pGame;		// Game stuff.
 extern Player*	pPlayer;	// Player stuff.
 extern GAME_SCRIPT_THREAD* gst;
 extern bool (*WastedBustedCheck)();
@@ -25,10 +23,8 @@ extern bool (*WastedBustedCheck)();
 const VCPosition_t MissionStart	= {-695.0f, 556.0f, 11.0f, 180.0f};
 const VCPosition_t BikeShop	= {-594.0f, 670.0f, 10.0f, 140.0f};
 
-
 // Globals
 bool bMissionEnded = true;	// Mission ended flag.
-
 
 // Functions
 
@@ -64,30 +60,30 @@ void Mission_TheSample(SCRIPT_MISSION* pMission)
 
 	float fX, fY, fZ;
 
-	Vehicle* pDebugCar	= NULL;
+	Vehicle* pDebugCar		= NULL;
 	Vehicle* pCopCar		= NULL;
 	Vehicle* pSwatVan		= NULL;
 	Vehicle* pFBICar		= NULL;
-	SpecialActor* pHilary = NULL;
-	SpecialActor* pPhil	= NULL;
-	Actor* pCopper1		= NULL;
-	Actor* pCopper2		= NULL;
+	SpecialActor* pHilary	= NULL;
+	SpecialActor* pPhil		= NULL;
+	Actor* pCopper1			= NULL;
+	Actor* pCopper2			= NULL;
 	Actor* pSwat1			= NULL;
 	Actor* pSwat2			= NULL;
 	Actor* pFed1			= NULL;
 	Actor* pFed2			= NULL;
 	Actor* pFed3			= NULL;
 	Actor* pFed4			= NULL;
-	Marker* pSafeHouse	= NULL;
-	Marker* pSwatMarker	= NULL;
-	Marker* pPhilMarker	= NULL;
+	Marker* pSafeHouse		= NULL;
+	Marker* pSwatMarker		= NULL;
+	Marker* pPhilMarker		= NULL;
 	Marker* pHilaryMarker	= NULL;
 
 	// Start mission intro
-	pGame->TextStyled("!TITLE", 4000, 2);
+	Text::Styled("!TITLE", 4000, 2);
 	pPlayer->Freeze(true);
-	pGame->Fade(1000, FADE_OUT);
-	while (pGame->Fading()) SCRIPT_WAIT(0);
+	Game::Fade(1000, FADE::FADEOUT);
+	while (Game::Fading()) SCRIPT_WAIT(0);
 
 	// Car for debugging.
 	pDebugCar = new Vehicle(pMission, CAR_SENTINEL, PlayerCar.x, PlayerCar.y, PlayerCar.z);
@@ -206,39 +202,39 @@ void Mission_TheSample(SCRIPT_MISSION* pMission)
 
 	// Continue with intro.
 	pSwatVan->GetRelativeCoordinates(-8.0, 30.0, 3.0, &fX, &fY, &fZ);
-	pGame->SetCameraPosition(fX, fY, fZ, 0.0f, 0.0f, 0.0f);
-	pGame->SetCameraOnVehicle(pSwatVan->GetVehicle());
-	pGame->SetWidescreen(true);
+	Game::SetCameraPosition(fX, fY, fZ, 0.0f, 0.0f, 0.0f);
+	Game::SetCameraOnVehicle(pSwatVan->GetVehicle());
+	Game::SetWidescreen(true);
 	SCRIPT_WAIT(1000);
-	pGame->Fade(1000, FADE_IN);
-	while (pGame->Fading()) SCRIPT_WAIT(0);
-	pGame->TextNow("!CAUGHT", 4000, 1);
+	Game::Fade(1000, FADE::FADEIN);
+	while (Game::Fading()) SCRIPT_WAIT(0);
+	Text::Now("!CAUGHT", 4000, 1);
 	SCRIPT_WAIT(4000);
 	pSwatVan->GetRelativeCoordinates(-8.0, 30.0, 3.0, &fX, &fY, &fZ);
-	pGame->SetCameraPosition(fX, fY, fZ, 0.0f, 0.0f, 0.0f);
-	pGame->SetCameraOnVehicle(pSwatVan->GetVehicle());
-	pGame->TextNow("!TAKEN", 4000, 1);
+	Game::SetCameraPosition(fX, fY, fZ, 0.0f, 0.0f, 0.0f);
+	Game::SetCameraOnVehicle(pSwatVan->GetVehicle());
+	Text::Now("!TAKEN", 4000, 1);
 	SCRIPT_WAIT(4000);
 	pSwatVan->GetRelativeCoordinates(-8.0, 30.0, 3.0, &fX, &fY, &fZ);
-	pGame->SetCameraPosition(fX, fY, fZ, 0.0f, 0.0f, 0.0f);
-	pGame->SetCameraOnVehicle(pSwatVan->GetVehicle());
-	pGame->TextNow("!GETEM", 4000, 1);
+	Game::SetCameraPosition(fX, fY, fZ, 0.0f, 0.0f, 0.0f);
+	Game::SetCameraOnVehicle(pSwatVan->GetVehicle());
+	Text::Now("!GETEM", 4000, 1);
 	SCRIPT_WAIT(4000);
-	pGame->Fade(1000, FADE_OUT);
-	while (pGame->Fading()) SCRIPT_WAIT(0);
+	Game::Fade(1000, FADE::FADEOUT);
+	while (Game::Fading()) SCRIPT_WAIT(0);
 	pPlayer->SetZAngle(MissionStart.a);
-	pGame->RestoreCameraJumpcut();
-	pGame->SetCameraBehindPlayer();
-	pGame->SetWidescreen(false);
-	pGame->Fade(1000, FADE_IN);
-	while (pGame->Fading()) SCRIPT_WAIT(0);
-	pGame->SetCameraPosition(MissionStart.x, MissionStart.y, MissionStart.z + 2.0f, 0.0f, 0.0f, 0.0f);
-	pGame->PointCamera(PlayerCar.x, PlayerCar.y, PlayerCar.z, 1);
+	Game::RestoreCameraJumpcut();
+	Game::SetCameraBehindPlayer();
+	Game::SetWidescreen(false);
+	Game::Fade(1000, FADE::FADEIN);
+	while (Game::Fading()) SCRIPT_WAIT(0);
+	Game::SetCameraPosition(MissionStart.x, MissionStart.y, MissionStart.z + 2.0f, 0.0f, 0.0f, 0.0f);
+	Game::PointCamera(PlayerCar.x, PlayerCar.y, PlayerCar.z, 1);
 	SCRIPT_WAIT(500);
-	pGame->TextNow("!SENTI", 2000, 1);
+	Text::Now("!SENTI", 2000, 1);
 	SCRIPT_WAIT(2000);
-	pGame->RestoreCameraJumpcut();
-	pGame->SetCameraBehindPlayer();
+	Game::RestoreCameraJumpcut();
+	Game::SetCameraBehindPlayer();
 	pPlayer->Freeze(false);
 
 	// Swat van marker.
@@ -265,13 +261,13 @@ void Mission_TheSample(SCRIPT_MISSION* pMission)
 
 		if (pPhil->Dead())
 		{
-			pGame->TextNow("!PHLDED", 5000, 1);
+			Text::Now("!PHLDED", 5000, 1);
 			goto MissionFailed;
 		}
 
 		if (pHilary->Dead())
 		{
-			pGame->TextNow("!HILDED", 5000, 1);
+			Text::Now("!HILDED", 5000, 1);
 			goto MissionFailed;
 		}
 
@@ -279,7 +275,7 @@ void Mission_TheSample(SCRIPT_MISSION* pMission)
 
 		if (pSwatVan->NearPoint(CopShop.x, CopShop.y, CopShop.z, 12.0f, 12.0f, 2.0f, 0))
 		{
-			pGame->TextNow("!GONNER", 5000, 1);
+			Text::Now("!GONNER", 5000, 1);
 			goto MissionFailed;
 		}
 
@@ -288,7 +284,7 @@ void Mission_TheSample(SCRIPT_MISSION* pMission)
 			if (pSwatVan->GetHealth() < 1000)
 			{
 				bDoTheFedsKnow = true;
-				pGame->TextNow("!THEYNO", 4000, 1);
+				Text::Now("!THEYNO", 4000, 1);
 				pPlayer->SetWantedLevel(iRunningWantedLevel);
 				pCopCar->SetMaxSpeed(fCopsSpeedySpeed);
 				pSwatVan->SetMaxSpeed(fCopsSpeedySpeed);
@@ -362,7 +358,7 @@ TheyAreOut:
 		pFBICar->SetBehaviour(2);		// Kill the player!
 	}
 
-	pGame->TextNow("!GOGOGO", 4000, 1);
+	Text::Now("!GOGOGO", 4000, 1);
 
 	bool bBringMsg = false;
 
@@ -374,13 +370,13 @@ TheyAreOut:
 
 		if (pPhil->Dead())
 		{
-			pGame->TextNow("!PHLDED", 5000, 1);
+			Text::Now("!PHLDED", 5000, 1);
 			goto MissionFailed;
 		}
 
 		if (pHilary->Dead())
 		{
-			pGame->TextNow("!HILDED", 5000, 1);
+			Text::Now("!HILDED", 5000, 1);
 			goto MissionFailed;
 		}
 
@@ -390,22 +386,22 @@ TheyAreOut:
 				(pHilary->NearPoint(SafeHouse.x, SafeHouse.y, SafeHouse.z, 6.0f, 6.0f, 2.0f, 0)))
 			{
 				pPlayer->ClearWantedLevel();
-				pGame->TextStyledOneNumber("M_PASS", 25000, 5000, 1);
-				pGame->PlayMusic(1);
+				Text::StyledOneNumber("M_PASS", 25000, 5000, 1);
+				Game::PlayMusic(1);
 				pPlayer->GiveMoney(25000);
 				goto MissionCleanup;
 			} else {
 				if (!bBringMsg)
 				{
 					bBringMsg = true;
-					pGame->TextNow("!BRING", 5000, 1);
+					Text::Now("!BRING", 5000, 1);
 				}
 			}
 		}
 	}
 
 MissionFailed:
-	pGame->TextStyled("M_FAIL", 5000, 1);
+	Text::Styled("M_FAIL", 5000, 1);
 
 MissionCleanup:
 	SAFE_DELETE(pPhilMarker);
@@ -464,6 +460,10 @@ DWORD __stdcall ConsoleWatch(LPVOID lpThreadParameter) {
 	return 0;
 }
 
+void cheatTest() {
+	Game::money->real += 100000;
+}
+
 void MainScript(SCRIPT_MISSION* pMission)
 {
 	// CreateThread(0, 0, &ConsoleWatch, 0, 0, 0);
@@ -474,19 +474,14 @@ void MainScript(SCRIPT_MISSION* pMission)
 	man->Spawn(PEDTYPE::CIVMALE, 5, BikeShop.x, BikeShop.y, BikeShop.z);
 
 	bool OnMission = false;		// Init to true to create the marker on first run through the loop.
+	
 	for (;;)
 	{
 		//v8::Handle<v8::Value> result = script->Run();
 		SCRIPT_WAIT(50);
 			if (GetKeyState(VK_TAB) < 0) {
-				man->DriveCar(bike->GetVehicle());
+				MessageBoxA(0, Game::lastTypedChars, "", 0);
 			}
-
-
-
-			pPlayer->$<float>(0);
-
-			Game::money->real = (int)roundf(pPlayer->ped->health);
 	}
 }
 
@@ -506,25 +501,25 @@ void MainScript_example(SCRIPT_MISSION* pMission)
 {
 	WaitForSingleObject(pMission->hExecute, INFINITE);
 
-	Vehicle* pBike = new Vehicle(pMission, BIKE_PCJ600, BikeShop.x, BikeShop.y, BikeShop.z, false);
+	Vehicle* pBike = new Vehicle(pMission, BIKE::PCJ600, BikeShop.x, BikeShop.y, BikeShop.z, false);
 	pBike->SetZAngle(BikeShop.a);
 	pBike->SetColour(57, 57);
 
-	pGame->TextStyled("!WELC_0", 4000, 2);
+	Text::Styled("!WELC_0", 4000, 2);
 	pPlayer->Freeze(true);
-	pGame->Fade(0, FADE_OUT);
-	while (pGame->Fading()) SCRIPT_WAIT(0);
-	pGame->SetWidescreen(true);
-	pGame->Fade(1000, FADE_IN);
-	pGame->TextNow("!WELC_1", 3000, 1);
+	Game::Fade(0, FADE::FADEOUT);
+	while (Game::Fading()) SCRIPT_WAIT(0);
+	Game::SetWidescreen(true);
+	Game::Fade(1000, FADE::FADEIN);
+	Text::Now("!WELC_1", 3000, 1);
 	SCRIPT_WAIT(3100);
-	pGame->TextNow("!WELC_2", 3000, 1);
+	Text::Now("!WELC_2", 3000, 1);
 	SCRIPT_WAIT(3100);
-	pGame->Fade(1000, FADE_OUT);
-	while (pGame->Fading()) SCRIPT_WAIT(0);
-	pGame->SetWidescreen(false);
-	pGame->Fade(1000, FADE_IN);
-	while (pGame->Fading()) SCRIPT_WAIT(0);
+	Game::Fade(1000, FADE::FADEOUT);
+	while (Game::Fading()) SCRIPT_WAIT(0);
+	Game::SetWidescreen(false);
+	Game::Fade(1000, FADE::FADEIN);
+	while (Game::Fading()) SCRIPT_WAIT(0);
 	pPlayer->Freeze(false);
 
 	Marker* pMissionMarker = new Marker();

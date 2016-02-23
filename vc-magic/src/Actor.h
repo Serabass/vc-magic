@@ -22,6 +22,7 @@ public:
 
 	void Spawn(int iPedType, DWORD dwModel, float fX, float fY, float fZ);
 	void SpawnInPassengerSeat(DWORD* pdwVehicle, int iPedType, DWORD dwModel, int iSeat);
+	void SpawnInPassengerSeat(Vehicle* pVehicle, int iPedType, DWORD dwModel, int iSeat);
 	void SpawnInDriverSeat(DWORD* pdwVehicle, int iPedType, DWORD dwModel);
 	void GiveWeapon(WEAPON dwWeapon, DWORD dwAmmo);
 	void ArmWeapon(WEAPON dwWeapon);
@@ -34,10 +35,17 @@ public:
 	void KillPlayer(DWORD* pdwPlayer);
 	void StealAnyCar();
 
+	void HoldCellPhone(bool hold = true);
+	void HoldCellPhone();
+	void ReleaseCellPhone();
+	void ToggleCellPhone();
+	bool UsingPhone;
+
 	// Not works yet
 	void Follow(Actor * actor);
 	void Follow(Player * player);
 	void DriveCar(DWORD * car);
+	void DriveCar(Vehicle * car);
 };
 
 #endif
