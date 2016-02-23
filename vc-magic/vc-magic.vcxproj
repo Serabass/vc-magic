@@ -127,33 +127,47 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\Actor.h" />
     <ClInclude Include="src\Cheats.h" />
+    <ClInclude Include="src\Fire.h" />
     <ClInclude Include="src\Game.h" />
     <ClInclude Include="src\GameDefines.h" />
     <ClInclude Include="src\GameScripting.h" />
     <ClInclude Include="src\GxtHook.h" />
+    <ClInclude Include="src\Marker.h" />
     <ClInclude Include="src\MissionHook.h" />
     <ClInclude Include="src\MissionThreads.h" />
+    <ClInclude Include="src\Player.h" />
+    <ClInclude Include="src\Police.h" />
     <ClInclude Include="src\Script.h" />
     <ClInclude Include="src\Settings.h" />
+    <ClInclude Include="src\SpecialActor.h" />
     <ClInclude Include="src\Stats.h" />
     <ClInclude Include="src\HUD.h" />
     <ClInclude Include="src\vc-magic.h" />
     <ClInclude Include="src\ScriptClasses.h" />
+    <ClInclude Include="src\Vehicle.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Actor.cpp" />
     <ClCompile Include="src\Cheats.cpp" />
+    <ClCompile Include="src\Fire.cpp" />
     <ClCompile Include="src\Game.cpp" />
     <ClCompile Include="src\GameScripting.cpp" />
     <ClCompile Include="src\GxtHook.cpp" />
+    <ClCompile Include="src\Marker.cpp" />
     <ClCompile Include="src\MissionHook.cpp" />
     <ClCompile Include="src\MissionThreads.cpp" />
+    <ClCompile Include="src\Player.cpp" />
+    <ClCompile Include="src\Police.cpp" />
     <ClCompile Include="src\Script.cpp" />
     <ClCompile Include="src\Settings.cpp" />
+    <ClCompile Include="src\SpecialActor.cpp" />
     <ClCompile Include="src\Stats.cpp" />
     <ClCompile Include="src\HUD.cpp" />
     <ClCompile Include="src\vc-magic.cpp" />
     <ClCompile Include="src\ScriptClasses.cpp" />
+    <ClCompile Include="src\Vehicle.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="src\SCMMod.vcproj" />

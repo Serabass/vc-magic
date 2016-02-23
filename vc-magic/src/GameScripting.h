@@ -1708,6 +1708,15 @@ const SCRIPT_COMMAND restart_if_wasted_at			= { 0x016C, "ffff" };	// x, y, z, a
 const SCRIPT_COMMAND restart_if_busted_at			= { 0x016D, "ffff" };	// x, y, z, a
 const SCRIPT_COMMAND set_actor_steal_any_car		= { 0x0377, "v" };	// x, y, z, a
 const SCRIPT_COMMAND actor_arm_weapon				= { 0x01B9, "vi" };	// x, y, z, a
+const SCRIPT_COMMAND actor_follow_actor				= { 0x01D1, "vv" };	// x, y, z, a
+const SCRIPT_COMMAND actor_follow_player			= { 0x01D2, "vv" };	// x, y, z, a
+const SCRIPT_COMMAND actor_go_to_car_and_drive		= { 0x01D5, "vv" };	// x, y, z, a
+const SCRIPT_COMMAND create_fire					= { 0x02CF, "fffv" };	// x, y, z, a
+const SCRIPT_COMMAND is_fire_extinguished			= { 0x02D0, "v" };	// x, y, z, a
+const SCRIPT_COMMAND destroy_fire					= { 0x02D1, "v" };	// x, y, z, a
+const SCRIPT_COMMAND remove_all_fires				= { 0x031A, "" };	// x, y, z, a
+const SCRIPT_COMMAND create_car_fire				= { 0x0325, "vv" };	// x, y, z, a
+const SCRIPT_COMMAND create_actor_fire				= { 0x0326, "vv" };	// x, y, z, a
 
 
 #endif

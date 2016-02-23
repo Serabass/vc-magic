@@ -126,20 +126,23 @@ char(__cdecl* Game::SetTime)(char, char) = (char(__cdecl*)(char, char))0x487160;
 char(__cdecl* Game::GlassIsBrokenAt)(float, float, float) = (char(__cdecl*)(float, float, float))0x552EE0;
 char(__cdecl* Game::GetGroundZAt)(float, float) = (char(__cdecl*)(float, float))0x4D5540;
 
-int * Game::maxWantedLevelHuman = (int *)0x6910D8;
-int * Game::maxWantedLevel = (int *)0x6910DC;
+int* Game::maxWantedLevelHuman = (int *)0x6910D8;
+int* Game::maxWantedLevel = (int *)0x6910DC;
 
 // VCTime * Game::time; // = (VCTime *)({ (char*)0x0A10B6B, (char*)0x0A10B92 });
 
-char * Game::hour = (char*)0x0A10B6B;
-char * Game::minute = (char*)0x0A10B92;
+char* Game::hour = (char*)0x0A10B6B;
+char* Game::minute = (char*)0x0A10B92;
 
-char * Game::lastTypedChar = (char*)0x0A10942;
-HWND * Game::mainHWND = (HWND*)0x07897A4;
+char* Game::lastTypedChar = (char*)0x0A10942;
+HWND* Game::mainHWND = (HWND*)0x07897A4;
 
 StadiumStrings* Game::stadiumStrings = (StadiumStrings*)STAD_STRING_1;
 int* Game::moonSize = (int*)0x695680;
 Money* Game::money = (Money*)0x94ADC8;
+float* Game::gravity = (float*)0x68F5F0;
+char* Game::carFriction = (char*)0x69A61A;
+bool* Game::freeRespray = (bool*)0xA10AB5;
 
 float* Game::pedDensity = (float*)0x694DC0;
 float* Game::carDensity = (float*)0x686FC8;

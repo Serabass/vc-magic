@@ -51,6 +51,9 @@ public:
 	static int* moonSize;
 
 	static Money* money;
+	static float* gravity;
+	static char* carFriction;
+	static bool* freeRespray;
 
 	static float* pedDensity;
 	static float* carDensity;

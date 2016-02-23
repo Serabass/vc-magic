@@ -8,6 +8,7 @@
 // Inlcudes
 #include "MissionThreads.h"
 #include "GameScripting.h"
+#include "GameDefines.h"
 #include "ScriptClasses.h"
 #include <math.h>
 
@@ -19,36 +20,6 @@ extern Game*	pGame;		// Game stuff.
 extern Player*	pPlayer;	// Player stuff.
 extern GAME_SCRIPT_THREAD* gst;
 extern bool (*WastedBustedCheck)();
-
-
-// Defines
-
-// The SCRIPT_WAIT() define is used with loops within a mission
-// thread  to allow the execution of regular code to continue.
-#define SCRIPT_WAIT(x)									\
-{														\
-	pScript->Wait(x);									\
-	SetEvent(pMission->hContinue);						\
-	WaitForSingleObject(pMission->hExecute, INFINITE);	\
-}
-
-// Used a the bottom of all mission thread functions to clean up.
-#define TERMINATE_THREAD()			\
-{									\
-	pScript->TerminateThread();		\
-	SetEvent(pMission->hContinue);	\
-	DelMission(pMission);			\
-}
-
-// Used at the top of all mission thread functions to wait for execution.
-#define INITIALISE_THREAD()								\
-{														\
-	WaitForSingleObject(pMission->hExecute, INFINITE);	\
-}
-
-// Delete alloctaed memory safely.
-#define SAFE_DELETE(p) { if(p) { delete (p); (p)=NULL; } }
-
 
 // Constants
 const VCPosition_t MissionStart	= {-695.0f, 556.0f, 11.0f, 180.0f};
@@ -477,7 +448,7 @@ DWORD __stdcall ConsoleWatch(LPVOID lpThreadParameter) {
 	freopen_s(&fStdOut, "conout$", "w", stdout);
 	freopen_s(&fStdErr, "conout$", "w", stderr);
 
-	fprintf_s(fStdOut, "Hello!\n", 2);
+	fprintf_s(fStdOut, "Hello!\n");
 	//std::cout.sync_with_stdio();
 	//std::cin.sync_with_stdio();
 	for (;;) {
@@ -499,16 +470,23 @@ void MainScript(SCRIPT_MISSION* pMission)
 	WaitForSingleObject(pMission->hExecute, INFINITE);
 	Vehicle *bike = new Vehicle(pMission, BIKE::SANCHEZ, BikeShop.x, BikeShop.y, BikeShop.z);
 
+	Actor *man = new Actor(pMission);
+	man->Spawn(PEDTYPE::CIVMALE, 5, BikeShop.x, BikeShop.y, BikeShop.z);
+
 	bool OnMission = false;		// Init to true to create the marker on first run through the loop.
 	for (;;)
 	{
 		//v8::Handle<v8::Value> result = script->Run();
 		SCRIPT_WAIT(50);
 			if (GetKeyState(VK_TAB) < 0) {
-
+				man->DriveCar(bike->GetVehicle());
 			}
 
-			Game::money->real = pPlayer->ped->health;
+
+
+			pPlayer->$<float>(0);
+
+			Game::money->real = (int)roundf(pPlayer->ped->health);
 	}
 }
 

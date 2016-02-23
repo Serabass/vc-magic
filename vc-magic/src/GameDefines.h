@@ -8,6 +8,35 @@
 #ifndef GAMEDEFINES_H
 #define GAMEDEFINES_H
 
+// Defines
+
+// The SCRIPT_WAIT() define is used with loops within a mission
+// thread  to allow the execution of regular code to continue.
+#define SCRIPT_WAIT(x)									\
+{														\
+	pScript->Wait(x);									\
+	SetEvent(pMission->hContinue);						\
+	WaitForSingleObject(pMission->hExecute, INFINITE);	\
+}
+
+// Used a the bottom of all mission thread functions to clean up.
+#define TERMINATE_THREAD()			\
+{									\
+	pScript->TerminateThread();		\
+	SetEvent(pMission->hContinue);	\
+	DelMission(pMission);			\
+}
+
+// Used at the top of all mission thread functions to wait for execution.
+#define INITIALISE_THREAD()								\
+{														\
+	WaitForSingleObject(pMission->hExecute, INFINITE);	\
+}
+
+// Delete alloctaed memory safely.
+#define SAFE_DELETE(p) { if(p) { delete (p); (p)=NULL; } }
+
+
 
 enum CAR {
 	LANDSTAL = 130,
