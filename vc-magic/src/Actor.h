@@ -17,10 +17,10 @@ public:
 	~Actor();
 
 	DWORD* GetActor();
-	bool Dead();
+	bool IsDead();
 	bool NearPoint(float fX, float fY, float fZ, float fRX, float fRY, float fRZ, bool bSphere);
 
-	void Spawn(int iPedType, DWORD dwModel, float fX, float fY, float fZ);
+	void Spawn(PEDTYPE iPedType, DWORD dwModel, float fX, float fY, float fZ);
 	void SpawnInPassengerSeat(DWORD* pdwVehicle, int iPedType, DWORD dwModel, int iSeat);
 	void SpawnInPassengerSeat(Vehicle* pVehicle, int iPedType, DWORD dwModel, int iSeat);
 	void SpawnInDriverSeat(DWORD* pdwVehicle, int iPedType, DWORD dwModel);
