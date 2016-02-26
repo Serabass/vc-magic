@@ -32,6 +32,10 @@ public:
 	void SetSiren(bool bSiren);
 	void SetBehaviour(int iBehaviour);
 	bool IsStuck();
+	bool IsBurning();
+	DWORD GetModel();
+	void SetSpeed(float value);
+	bool IsWrecked();
 };
 
 #endif

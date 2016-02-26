@@ -26,6 +26,10 @@ Fire* Fire::CreateOn(Vehicle* vehicle) {
 	return new Fire(m_dwNewFire);
 }
 
+void Fire::DestroyAll() {
+	// $()
+}
+
 
 bool Fire::isExtiguished() {
 	return $(&is_fire_extinguished, m_dwFire)?0:1;

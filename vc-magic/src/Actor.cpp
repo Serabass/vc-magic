@@ -23,7 +23,7 @@ DWORD* Actor::GetActor()
 	return &m_dwActor;
 }
 
-bool Actor::Dead()
+bool Actor::IsDead()
 {
 	return $(&is_actor_dead, &m_dwActor) ? true : false;
 }
@@ -33,10 +33,9 @@ bool Actor::NearPoint(float fX, float fY, float fZ, float fRX, float fRY, float 
 	return $(&is_actor_near_point_3d, &m_dwActor, fX, fY, fZ, fRX, fRY, fRZ, bSphere) ? true : false;
 }
 
-void Actor::Spawn(int iPedType, DWORD dwModel, float fX, float fY, float fZ)
+void Actor::Spawn(PEDTYPE iPedType, DWORD dwModel, float fX, float fY, float fZ)
 {
-	SCRIPT_MISSION* pMission = this->m_pMission;
-	Model::LoadOne(pMission, dwModel);
+	Model::LoadOne(this->m_pMission, dwModel);
 	$(&create_actor, iPedType, dwModel, fX, fY, fZ, &m_dwActor);
 
 	m_bSpawned = true;
@@ -44,8 +43,7 @@ void Actor::Spawn(int iPedType, DWORD dwModel, float fX, float fY, float fZ)
 
 void Actor::SpawnInPassengerSeat(DWORD* pdwVehicle, int iPedType, DWORD dwModel, int iSeat)
 {
-	SCRIPT_MISSION* pMission = this->m_pMission;
-	Model::LoadOne(pMission, dwModel);
+	Model::LoadOne(this->m_pMission, dwModel);
 	$(&create_actor_in_passenger, pdwVehicle, iPedType, dwModel, iSeat, &m_dwActor);
 
 	m_bSpawned = true;
@@ -67,8 +65,7 @@ void Actor::SpawnInDriverSeat(DWORD* pdwVehicle, int iPedType, DWORD dwModel)
 
 void Actor::GiveWeapon(WEAPON dwWeapon, DWORD dwAmmo)
 {
-	SCRIPT_MISSION* pMission = this->m_pMission;
-	Model::LoadOne(pMission, dwWeapon);
+	Model::LoadOne(this->m_pMission, dwWeapon);
 	$(&give_actor_weapon, &m_dwActor, dwWeapon, dwAmmo);
 }
 

@@ -22,7 +22,7 @@ DWORD __stdcall Cheats::Watcher(LPVOID lpThreadParameter) {
 			if (userCheats[i] == nullptr)
 				continue;
 
-			int res = strncmp(Game::lastTypedChars, userCheats[i]->string, strlen(&userCheats[i]->string[0]));
+			int res = strncmp(*Game::lastTypedChars, userCheats[i]->string, strlen(&userCheats[i]->string[0]));
 			char s[10];
 			sprintf_s(s, "%d", strlen(&userCheats[i]->string[0]));
 			SetWindowText(*Game::mainHWND, s);

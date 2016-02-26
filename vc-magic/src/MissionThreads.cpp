@@ -259,13 +259,13 @@ void Mission_TheSample(SCRIPT_MISSION* pMission)
 
 		if (WastedBustedCheck()) goto MissionFailed;
 
-		if (pPhil->Dead())
+		if (pPhil->IsDead())
 		{
 			Text::Now("!PHLDED", 5000, 1);
 			goto MissionFailed;
 		}
 
-		if (pHilary->Dead())
+		if (pHilary->IsDead())
 		{
 			Text::Now("!HILDED", 5000, 1);
 			goto MissionFailed;
@@ -368,13 +368,13 @@ TheyAreOut:
 
 		if (WastedBustedCheck()) goto MissionFailed;
 
-		if (pPhil->Dead())
+		if (pPhil->IsDead())
 		{
 			Text::Now("!PHLDED", 5000, 1);
 			goto MissionFailed;
 		}
 
-		if (pHilary->Dead())
+		if (pHilary->IsDead())
 		{
 			Text::Now("!HILDED", 5000, 1);
 			goto MissionFailed;
@@ -479,9 +479,9 @@ void MainScript(SCRIPT_MISSION* pMission)
 	{
 		//v8::Handle<v8::Value> result = script->Run();
 		SCRIPT_WAIT(50);
-			if (GetKeyState(VK_TAB) < 0) {
-				MessageBoxA(0, Game::lastTypedChars, "", 0);
-			}
+		if (pPlayer->IsPressingHorn()) {
+			pPlayer->GiveMoney(1);
+		}
 	}
 }
 

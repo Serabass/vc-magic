@@ -37,6 +37,7 @@ public:
 	void GiveWeapon(SCRIPT_MISSION* m_pMission, WEAPON dwWeapon, DWORD dwAmmo);
 	void GiveMoney(int iMoney);
 	static int(__cdecl* getStructAddress)();
+	bool IsPressingHorn();
 
 	void HoldCellPhone(bool hold = true);
 	void HoldCellPhone();

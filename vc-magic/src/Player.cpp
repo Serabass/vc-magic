@@ -81,6 +81,12 @@ void Player::GiveMoney(int iMoney)
 	$(&add_to_player_money, &m_dwChar, iMoney);
 }
 
+
+bool Player::IsPressingHorn()
+{
+	return $(&is_player_pressing_horn, &m_dwChar) ? true : false;
+}
+
 void Player::HoldCellPhone(bool hold) {
 	UsingPhone = hold;
 	$(&hold_cellphone, &m_dwActor, hold ? 1 : 0);

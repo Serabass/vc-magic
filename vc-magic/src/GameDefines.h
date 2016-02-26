@@ -295,8 +295,8 @@ enum INTERIOR : DWORD {
 	PRINTWORKS = 18
 };
 
-enum FADE : bool {
-	FADEIN = false,
+enum FADE : bool { // NOT WORKS
+	FADEIN = true,
 	FADEOUT = true
 };
 
@@ -525,5 +525,7 @@ enum FADE : bool {
 #define IDE_COP				1
 #define IDE_SWAT			2
 #define IDE_FBI				3
+
+#define KEY_PRESSED(k)		GetKeyState(k) < 0
 
 #endif

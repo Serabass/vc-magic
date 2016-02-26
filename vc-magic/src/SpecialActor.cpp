@@ -22,9 +22,9 @@ DWORD* SpecialActor::GetActor()
 	return m_pActor->GetActor();
 }
 
-bool SpecialActor::Dead()
+bool SpecialActor::IsDead()
 {
-	return m_pActor->Dead();
+	return m_pActor->IsDead();
 }
 
 bool SpecialActor::NearPoint(float fX, float fY, float fZ, float fRX, float fRY, float fRZ, bool bSphere)
@@ -32,7 +32,7 @@ bool SpecialActor::NearPoint(float fX, float fY, float fZ, float fRX, float fRY,
 	return m_pActor->NearPoint(fX, fY, fZ, fRX, fRY, fRZ, bSphere);
 }
 
-void SpecialActor::Spawn(int iPedType, float fX, float fY, float fZ)
+void SpecialActor::Spawn(PEDTYPE iPedType, float fX, float fY, float fZ)
 {
 	m_pActor->Spawn(iPedType, m_iSlot + 108, fX, fY, fZ);
 }

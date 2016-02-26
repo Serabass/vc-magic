@@ -85,7 +85,29 @@ void Vehicle::SetBehaviour(int iBehaviour)
 
 bool Vehicle::IsStuck()
 {
-	return $(&set_car_driver_behaviour, &m_dwVehicle) ? 1 : 0;
+	return $(&is_car_stuck, &m_dwVehicle) ? 1 : 0;
+}
+
+bool Vehicle::IsBurning()
+{
+	return $(&is_car_burning, &m_dwVehicle) ? 1 : 0;
+}
+
+DWORD Vehicle::GetModel()
+{
+	DWORD dwModel;
+	$(&get_car_model, &m_dwVehicle, &dwModel);
+	return dwModel;
+}
+
+void Vehicle::SetSpeed(float value)
+{
+	$(&set_car_speed_instantly, &m_dwVehicle, value);
+}
+
+bool Vehicle::IsWrecked()
+{
+	return $(&is_car_wrecked, &m_dwVehicle)?true:false;
 }
 
 int(__cdecl* Vehicle::SpawnNearPlayer)(int modelIndex) = (int(__cdecl*)(int modelIndex))0x04AE8F0;

@@ -1612,7 +1612,7 @@ struct CPed {
 };
 
 // Prototypes
-int $(const SCRIPT_COMMAND* $, ...);	// The main scripting function. See notes.
+int $(const SCRIPT_COMMAND* ScriptCmd, ...);	// The main scripting function. See notes.
 
 
 // Constants
@@ -1728,5 +1728,11 @@ const SCRIPT_COMMAND stop_timer						= { 0x014F, "vi" };	// x, y, z, a
 const SCRIPT_COMMAND pause_timer					= { 0x0396, "v" };	// x, y, z, a
 const SCRIPT_COMMAND set_timer_with_text			= { 0x03C3, "vis" };	// x, y, z, a
 const SCRIPT_COMMAND is_car_stuck					= { 0x03CE, "v" };	// x, y, z, a
+const SCRIPT_COMMAND get_car_model					= { 0x0441, "vv" };	// x, y, z, a
+const SCRIPT_COMMAND is_car_burning					= { 0x0495, "v" };	// x, y, z, a
+const SCRIPT_COMMAND set_car_speed_instantly		= { 0x04BA, "vf" };	// x, y, z, a
+const SCRIPT_COMMAND is_player_pressing_horn		= { 0x0122, "v" };	// x, y, z, a
+const SCRIPT_COMMAND is_car_wrecked					= { 0x0119, "v" };	// x, y, z, a
+const SCRIPT_COMMAND wasted_or_busted_scm			= { 0x0112, "" };	// x, y, z, a
 
 #endif

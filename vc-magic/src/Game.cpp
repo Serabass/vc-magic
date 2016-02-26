@@ -10,7 +10,7 @@ bool Game::Fading()
 	return $(&is_fading) ? true : false;
 }
 
-void Game::Fade(int Time, int InOut)
+void Game::Fade(int Time, FADE InOut)
 {
 	$(&set_fade_color, 0, 0, 0);
 	$(&fade, Time, InOut);
@@ -101,6 +101,11 @@ void Game::ShowSaveScreen()
 	$(&show_save_screen);
 }
 
+bool Game::WastedOrBusted()
+{
+	return $(&wasted_or_busted_scm) ? true : false;
+}
+
 bool(__cdecl* Game::SetTime)(char, char) = (bool(__cdecl*)(char, char))0x487160;
 bool(__cdecl* Game::GlassIsBrokenAt)(float, float, float) = (bool(__cdecl*)(float, float, float))0x552EE0;
 double(__cdecl* Game::GetGroundZAt)(float, float) = (double(__cdecl*)(float, float))0x4D5540;
@@ -114,7 +119,7 @@ char* Game::hour = (char*)0x0A10B6B;
 char* Game::minute = (char*)0x0A10B92;
 
 char* Game::lastTypedChar = (char*)0x0A10942;
-LPCSTR Game::lastTypedChars = (LPCSTR)0x0A10942;
+LPCSTR* Game::lastTypedChars = (LPCSTR*)0x0A10942;
 HWND* Game::mainHWND = (HWND*)0x07897A4;
 
 StadiumStrings* Game::stadiumStrings = (StadiumStrings*)STAD_STRING_1;
