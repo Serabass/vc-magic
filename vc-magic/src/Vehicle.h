@@ -14,9 +14,6 @@ public:
 	Vehicle(SCRIPT_MISSION* pMission, DWORD dwModel, float fX, float fY, float fZ, bool bKeepOnDestroy = true);
 	~Vehicle();
 
-
-	static int(__cdecl* SpawnNearPlayer)(int modelIndex);
-
 	DWORD* GetVehicle();
 	int GetHealth();
 	bool NearPoint(float fX, float fY, float fZ, float fRX, float fRY, float fRZ, bool bSphere);
@@ -36,6 +33,22 @@ public:
 	DWORD GetModel();
 	void SetSpeed(float value);
 	bool IsWrecked();
+
+	typedef CVehicle*(__thiscall *TgetStructAddress)(void* pThis, signed int id);
+	static TgetStructAddress getStructAddress;
+
+	CVehicle* getStruct();
+
+	template <typename T>
+	T* $$(int off);
+
+private:
+	typedef CVehicle*(__cdecl* TSpawnNearPlayer)(int modelIndex);
+	static TSpawnNearPlayer SpawnNearPlayer;
 };
+
+template <typename T> T* Vehicle::$$(int off = 0) {
+	return (T*)((int)this->getStruct() + off);
+}
 
 #endif

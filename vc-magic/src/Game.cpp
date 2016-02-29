@@ -41,7 +41,7 @@ void Game::SetCamera(float fX, float fY, float fZ)
 	$(&set_camera, fX, fY, fZ);
 }
 
-void Game::SetWeather(int Weather)
+void Game::SetWeather(Weathers Weather)
 {
 	$(&set_weather, Weather);
 }

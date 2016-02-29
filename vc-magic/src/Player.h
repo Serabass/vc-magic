@@ -36,7 +36,7 @@ public:
 	void SetZAngle(float fAngle);
 	void GiveWeapon(SCRIPT_MISSION* m_pMission, WEAPON dwWeapon, DWORD dwAmmo);
 	void GiveMoney(int iMoney);
-	static int(__cdecl* getStructAddress)();
+	static CPed*(__cdecl* getStruct)();
 	bool IsPressingHorn();
 
 	void HoldCellPhone(bool hold = true);
@@ -44,13 +44,21 @@ public:
 	void ToggleCellPhone();
 	bool UsingPhone;
 
+	// CPed* getStruct();
+
+	VCPosition_t GetPosition();
+
+	typedef void(__cdecl* EnumNearestPedsCallback)(CPed* ped, int index);
+
+	void enumNearestPeds(EnumNearestPedsCallback callback);
+
 	template <typename T>
 	T* $$(int off);
 private:
 };
 
 template <typename T> T* Player::$$(int off = 0) {
-	return (T*)(this->getStructAddress() + off);
+	return (T*)((int)this->getStruct() + off);
 }
 
 #endif

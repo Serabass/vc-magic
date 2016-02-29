@@ -78,7 +78,7 @@ void Player::GiveWeapon(SCRIPT_MISSION* m_pMission, WEAPON dwWeapon, DWORD dwAmm
 
 void Player::GiveMoney(int iMoney)
 {
-	$(&add_to_player_money, &m_dwChar, iMoney);
+	$(&add_money_to_player, &m_dwChar, iMoney);
 }
 
 
@@ -100,4 +100,20 @@ void Player::ToggleCellPhone() {
 	HoldCellPhone( ! UsingPhone);
 }
 
-int(__cdecl* Player::getStructAddress)() = (int(__cdecl*)())0x4BC120;
+CPed*(__cdecl* Player::getStruct)() = (CPed*(__cdecl*)())0x4BC120;
+
+void Player::enumNearestPeds(EnumNearestPedsCallback callback) {
+	int i = 0;
+	for (CPed *ped : this->getStruct()->nearestPeds) {
+		if (ped != 0) {
+			callback(ped, i++);
+		}
+	}
+}
+
+VCPosition_t Player::GetPosition() {
+	VCPosition_t *pos = new VCPosition_t();
+	$(&get_player_position, &m_dwChar, &pos->x, &pos->y, &pos->z);
+	$(&get_player_z_angle, &m_dwChar, &pos->a);
+	return *pos;
+}

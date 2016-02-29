@@ -110,4 +110,11 @@ bool Vehicle::IsWrecked()
 	return $(&is_car_wrecked, &m_dwVehicle)?true:false;
 }
 
-int(__cdecl* Vehicle::SpawnNearPlayer)(int modelIndex) = (int(__cdecl*)(int modelIndex))0x04AE8F0;
+Vehicle::TSpawnNearPlayer Vehicle::SpawnNearPlayer = (TSpawnNearPlayer)0x04AE8F0;
+Vehicle::TgetStructAddress Vehicle::getStructAddress = (TgetStructAddress)0x00451C70;
+
+CVehicle* Vehicle::getStruct() {
+	int* addr = (int*)0xA0FDE4;
+	DWORD id = *this->GetVehicle();
+	return Vehicle::getStructAddress((CVehicle*)*addr, (signed int)id);
+}

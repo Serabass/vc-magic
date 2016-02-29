@@ -133,6 +133,7 @@
     <ClInclude Include="src\Game.h" />
     <ClInclude Include="src\GameDefines.h" />
     <ClInclude Include="src\GameScripting.h" />
+    <ClInclude Include="src\gta-vc.h" />
     <ClInclude Include="src\GxtHook.h" />
     <ClInclude Include="src\Marker.h" />
     <ClInclude Include="src\MissionHook.h" />
@@ -150,6 +151,7 @@
     <ClInclude Include="src\vc-magic.h" />
     <ClInclude Include="src\ScriptClasses.h" />
     <ClInclude Include="src\Vehicle.h" />
+    <ClInclude Include="src\Weather.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Actor.cpp" />
@@ -174,6 +176,7 @@
     <ClCompile Include="src\vc-magic.cpp" />
     <ClCompile Include="src\ScriptClasses.cpp" />
     <ClCompile Include="src\Vehicle.cpp" />
+    <ClCompile Include="src\Weather.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="src\SCMMod.vcproj" />

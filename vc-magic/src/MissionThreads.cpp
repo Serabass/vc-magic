@@ -20,8 +20,8 @@ extern GAME_SCRIPT_THREAD* gst;
 extern bool (*WastedBustedCheck)();
 
 // Constants
-const VCPosition_t MissionStart	= {-695.0f, 556.0f, 11.0f, 180.0f};
-const VCPosition_t BikeShop	= {-594.0f, 670.0f, 10.0f, 140.0f};
+const VCPosition_t MissionStart	= {-534.0f, 644.82f, 11.0f, 0.0f};
+const VCPosition_t BikeShop	= {-537.67f, 641.8f, 11.0f, 0.0f};
 
 // Globals
 bool bMissionEnded = true;	// Mission ended flag.
@@ -466,21 +466,19 @@ void cheatTest() {
 
 void MainScript(SCRIPT_MISSION* pMission)
 {
+
 	// CreateThread(0, 0, &ConsoleWatch, 0, 0, 0);
 	WaitForSingleObject(pMission->hExecute, INFINITE);
-	Vehicle *bike = new Vehicle(pMission, BIKE::SANCHEZ, BikeShop.x, BikeShop.y, BikeShop.z);
-
-	Actor *man = new Actor(pMission);
-	man->Spawn(PEDTYPE::CIVMALE, 5, BikeShop.x, BikeShop.y, BikeShop.z);
+	Vehicle *car = new Vehicle(pMission, CAR::ADMIRAL, BikeShop.x, BikeShop.y, BikeShop.z);
 
 	bool OnMission = false;		// Init to true to create the marker on first run through the loop.
 	
 	for (;;)
 	{
-		//v8::Handle<v8::Value> result = script->Run();
 		SCRIPT_WAIT(50);
-		if (pPlayer->IsPressingHorn()) {
-			pPlayer->GiveMoney(1);
+
+		if (GetKeyState(VK_TAB) <= 0) {
+			car->SetColour(rand() % 94, rand() % 94);
 		}
 	}
 }

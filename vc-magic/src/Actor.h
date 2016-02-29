@@ -41,11 +41,30 @@ public:
 	void ToggleCellPhone();
 	bool UsingPhone;
 
+	CPed* getStruct();
+
 	// Not works yet
 	void Follow(Actor * actor);
 	void Follow(Player * player);
 	void DriveCar(DWORD * car);
 	void DriveCar(Vehicle * car);
+
+	void SetBleeding(bool bleeding);
+	void SetBleeding();
+
+	template <typename T>
+	T* $$(int off);
+
+	typedef bool(__thiscall *TSetModelIndex)(void* pThis, int modelIndex);
+	static TSetModelIndex SetModelIndex;
+private:
+	typedef CPed*(__thiscall *TgetStructAddress)(void* pThis, signed int id);
+	static TgetStructAddress getStructAddress;
 };
+
+template <typename T> T* Actor::$$(int off = 0) {
+	return (T*)((int)this->getStruct() + off);
+}
+
 
 #endif

@@ -21,7 +21,7 @@ extern FARPROC ScriptRestart;
 extern bool bMissionEnded;
 
 // Constants
-const VCPosition_t PlayerStart	= {-592.0f, 670.0f, 10.0f, 240.0f};
+const VCPosition_t PlayerStart	= { -534.0f, 644.82f, 11.0f, 0.0f };
 
 
 // Globals
@@ -351,7 +351,7 @@ void ScriptInit()
 	pPlayer->SetZAngle(PlayerStart.a);
 	Game::SetWastedSpawnPosition(PlayerStart.x, PlayerStart.y, PlayerStart.z, 360.0f-PlayerStart.a);
 	Game::SetBustedSpawnPosition(PlayerStart.x, PlayerStart.y, PlayerStart.z, 360.0f-PlayerStart.a);
-	Game::SetWeather(WEATHER_SUNNY);
+	Game::SetWeather(Weathers::Sunny);
 	Game::Fade(1000, FADE::FADEIN);
 	Game::SelectInterior(INTERIOR_OUTSIDE);
 	pPlayer->Freeze(false);

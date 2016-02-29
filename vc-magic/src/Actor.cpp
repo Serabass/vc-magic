@@ -152,3 +152,20 @@ void Actor::ReleaseCellPhone() {
 void Actor::ToggleCellPhone() {
 	HoldCellPhone( ! UsingPhone);
 }
+
+Actor::TgetStructAddress Actor::getStructAddress = (TgetStructAddress)0x00451CB0;
+Actor::TSetModelIndex Actor::SetModelIndex = (TSetModelIndex)0x0050D900;
+
+CPed* Actor::getStruct() {
+	int* addr = (int*)0x97F2AC;
+	DWORD id = *this->GetActor();
+	return Actor::getStructAddress((CPed*)*addr, (signed int)id);
+}
+
+void Actor::SetBleeding(bool bleeding) {
+	$(&set_actor_bleeding, &m_dwActor, bleeding ? 1 : 0);
+}
+
+void Actor::SetBleeding() {
+	$(&set_actor_bleeding, &m_dwActor, 1);
+}

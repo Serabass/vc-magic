@@ -16,6 +16,7 @@ class Vehicle;
 
 // Includes
 #include "GameScripting.h"
+#include "MissionThreads.h"
 #include "MissionHook.h"
 #include "Game.h"
 #include "Settings.h"
@@ -32,6 +33,7 @@ class Vehicle;
 #include "Police.h"
 #include "Text.h"
 #include "Model.h"
+#include "Weather.h"
 
 //Class definitions
 

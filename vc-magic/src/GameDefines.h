@@ -8,6 +8,8 @@
 #ifndef GAMEDEFINES_H
 #define GAMEDEFINES_H
 
+#include "gta-vc.h"
+
 // Defines
 
 // The SCRIPT_WAIT() define is used with loops within a mission
@@ -299,6 +301,18 @@ enum FADE : bool { // NOT WORKS
 	FADEIN = true,
 	FADEOUT = true
 };
+
+
+enum Weathers : DWORD {
+	Sunny = 0,
+	Cloudy = 1,
+	Raining = 2,
+	Foggy = 3,
+	Extrasunny = 4,
+	Storm = 5,
+	Interior = 6
+};
+
 
 // Defines
 #define MODEL_BGA			"BGA"
