@@ -6,7 +6,7 @@
 class Game
 {
 public:
-	static bool Fading();
+	static bool IsFading();
 
 	static void Fade(int Time, FADE InOut);
 	static void SetMaxWantedLevel(int MaxLevel);
@@ -14,7 +14,7 @@ public:
 	static void SetCurrentTime(int Hours, int Minutes);
 	static void RefreshScreen(float fX, float fY);
 	static void SetCamera(float fX, float fY, float fZ);
-	static void SetWeather(Weathers Weather);
+	static void SetWeather(WEATHER Weather);
 	static void SelectInterior(int Interior);
 	static void PlayMusic(int iMusic);
 	static void SetWidescreen(bool bWidescreen);
@@ -56,6 +56,9 @@ public:
 	static float* pedDensity;
 	static float* carDensity;
 	static float* trafficAccidents;
+	static int* speed;
+	static bool* cameraGreenScanlines;
+	static bool* policeHeliState;
 
 	static void(__cdecl* printString)(float x, float y, int a);
 

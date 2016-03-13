@@ -90,6 +90,9 @@
     <ClInclude Include="src\Weather.h">
       <Filter>Заголовочные файлы</Filter>
     </ClInclude>
+    <ClInclude Include="src\StructReader.h">
+      <Filter>Заголовочные файлы</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\GameScripting.cpp">
@@ -161,8 +164,8 @@
     <ClCompile Include="src\Weather.cpp">
       <Filter>Файлы исходного кода</Filter>
     </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="src\SCMMod.vcproj" />
+    <ClCompile Include="src\StructReader.cpp">
+      <Filter>Файлы исходного кода</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

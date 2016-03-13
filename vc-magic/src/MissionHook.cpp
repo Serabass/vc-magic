@@ -348,12 +348,12 @@ void ScriptInit()
 	Game::SetCamera(PlayerStart.x, PlayerStart.y + 2.0f, PlayerStart.z);
 	pPlayer = new Player(PlayerStart.x, PlayerStart.y, PlayerStart.z);
 	pPlayer->SetSkin(MODEL_SAM);
-	pPlayer->SetZAngle(PlayerStart.a);
+	pPlayer->ZAngle(PlayerStart.a);
 	Game::SetWastedSpawnPosition(PlayerStart.x, PlayerStart.y, PlayerStart.z, 360.0f-PlayerStart.a);
 	Game::SetBustedSpawnPosition(PlayerStart.x, PlayerStart.y, PlayerStart.z, 360.0f-PlayerStart.a);
-	Game::SetWeather(Weathers::Sunny);
+	Game::SetWeather(WEATHER::SUNNY);
 	Game::Fade(1000, FADE::FADEIN);
-	Game::SelectInterior(INTERIOR_OUTSIDE);
+	Game::SelectInterior(INTERIOR::OUTSIDE);
 	pPlayer->Freeze(false);
 
 	MissionHead.hThread = CreateThread(NULL, 0, (LPTHREAD_START_ROUTINE)MainScript, &MissionHead, 0, NULL);

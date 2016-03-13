@@ -31,9 +31,11 @@ public:
 	void SetSkin(char Model[8]);
 	void Freeze(bool bFrozen);
 	void ClearWantedLevel();
-	void SetWantedLevel(int iLevel);
-	void SetHealth(int iHealth);
-	void SetZAngle(float fAngle);
+	void WantedLevel(int iLevel);
+	void Health(int iHealth);
+	int Health();
+	void ZAngle(float fAngle);
+	float ZAngle();
 	void GiveWeapon(SCRIPT_MISSION* m_pMission, WEAPON dwWeapon, DWORD dwAmmo);
 	void GiveMoney(int iMoney);
 	static CPed*(__cdecl* getStruct)();

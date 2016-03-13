@@ -9,8 +9,8 @@ class Cheats {
 private:
 	static DWORD __stdcall Watcher(LPVOID lpThreadParameter);
 public:
-	static char * NUTTERTOOLS;
-	static char * PROFESSIONALTOOLS;
+	static char * strNUTTERTOOLS;
+	static char * strPROFESSIONALTOOLS;
 	static char(__cdecl* check)(char lastPressedChar, char * cheatString);
 
 	static bool* cigarette;

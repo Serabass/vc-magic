@@ -1,6 +1,5 @@
 d:\!programming\c++\vc-magic\vc-magic\debug\vc140.pdb
 d:\!programming\c++\vc-magic\vc-magic\debug\vc140.idb
-d:\!programming\c++\vc-magic\vc-magic\debug\game.obj
 d:\!programming\c++\vc-magic\vc-magic\debug\gamescripting.obj
 d:\!programming\c++\vc-magic\vc-magic\debug\gxthook.obj
 d:\!programming\c++\vc-magic\vc-magic\debug\marker.obj
@@ -14,6 +13,7 @@ d:\!programming\c++\vc-magic\vc-magic\debug\settings.obj
 d:\!programming\c++\vc-magic\vc-magic\debug\specialactor.obj
 d:\!programming\c++\vc-magic\vc-magic\debug\stats.obj
 d:\!programming\c++\vc-magic\vc-magic\debug\hud.obj
+d:\!programming\c++\vc-magic\vc-magic\debug\structreader.obj
 d:\!programming\c++\vc-magic\vc-magic\debug\text.obj
 d:\!programming\c++\vc-magic\vc-magic\debug\timer.obj
 d:\!programming\c++\vc-magic\vc-magic\debug\vc-magic.obj
@@ -23,6 +23,7 @@ d:\!programming\c++\vc-magic\vc-magic\debug\weather.obj
 d:\!programming\c++\vc-magic\vc-magic\debug\actor.obj
 d:\!programming\c++\vc-magic\vc-magic\debug\cheats.obj
 d:\!programming\c++\vc-magic\vc-magic\debug\fire.obj
+d:\!programming\c++\vc-magic\vc-magic\debug\game.obj
 d:\!programming\c++\vc-magic\debug\vc-magic.ilk
 d:\!programming\c++\vc-magic\debug\vc-magic.asi
 d:\!programming\c++\vc-magic\debug\vc-magic.pdb

@@ -55,17 +55,17 @@ void Player::ClearWantedLevel()
 	$(&clear_player_wanted_level, &m_dwChar);
 }
 
-void Player::SetWantedLevel(int iLevel)
+void Player::WantedLevel(int iLevel)
 {
 	$(&set_player_wanted_level, &m_dwChar, iLevel);
 }
 
-void Player::SetHealth(int iHealth)
+void Player::Health(int iHealth)
 {
 	$(&set_player_health, &m_dwChar, iHealth);
 }
 
-void Player::SetZAngle(float fAngle)
+void Player::ZAngle(float fAngle)
 {
 	$(&set_player_z_angle, &m_dwChar, fAngle);
 }

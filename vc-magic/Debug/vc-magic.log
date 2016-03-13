@@ -1,13 +1,15 @@
-﻿Сборка начата 27.02.2016 21:42:35.
+﻿Сборка начата 14.03.2016 0:14:33.
      1>Проект "D:\!programming\C++\vc-magic\vc-magic\vc-magic.vcxproj" в узле 2 (целевые объекты Rebuild).
+     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppClean.targets(76,5): warning : Процесс не может получить доступ к файлу "d:\!programming\c++\vc-magic\vc-magic\debug\vc-magic.tlog\cl.read.1.tlog", так как этот файл используется другим процессом.
      1>ClCompile:
-         D:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _WINDLL /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\" /Fd"Debug\vc140.pdb" /Gd /TP /analyze- /errorReport:prompt src\Actor.cpp src\Cheats.cpp src\Fire.cpp src\Game.cpp src\GameScripting.cpp src\GxtHook.cpp src\Marker.cpp src\MissionHook.cpp src\MissionThreads.cpp src\Model.cpp src\Player.cpp src\Police.cpp src\Script.cpp src\Settings.cpp src\SpecialActor.cpp src\Stats.cpp src\HUD.cpp src\Text.cpp src\Timer.cpp "src\vc-magic.cpp" src\ScriptClasses.cpp src\Vehicle.cpp src\Weather.cpp
+         D:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _WINDLL /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\" /Fd"Debug\vc140.pdb" /Gd /TP /analyze- /errorReport:prompt src\Actor.cpp src\Cheats.cpp src\Fire.cpp src\Game.cpp src\GameScripting.cpp src\GxtHook.cpp src\Marker.cpp src\MissionHook.cpp src\MissionThreads.cpp src\Model.cpp src\Player.cpp src\Police.cpp src\Script.cpp src\Settings.cpp src\SpecialActor.cpp src\Stats.cpp src\HUD.cpp src\StructReader.cpp src\Text.cpp src\Timer.cpp "src\vc-magic.cpp" src\ScriptClasses.cpp src\Vehicle.cpp src\Weather.cpp
          Weather.cpp
          Vehicle.cpp
          ScriptClasses.cpp
          vc-magic.cpp
          Timer.cpp
          Text.cpp
+         StructReader.cpp
          HUD.cpp
          Stats.cpp
          SpecialActor.cpp
@@ -21,9 +23,9 @@
          Marker.cpp
          GxtHook.cpp
          GameScripting.cpp
-         Game.cpp
          Создание кода...
          Компиляция...
+         Game.cpp
          Fire.cpp
          Cheats.cpp
          Actor.cpp
@@ -46,6 +48,7 @@
          Debug\SpecialActor.obj
          Debug\Stats.obj
          Debug\HUD.obj
+         Debug\StructReader.obj
          Debug\Text.obj
          Debug\Timer.obj
          "Debug\vc-magic.obj"
@@ -61,4 +64,4 @@
 
 Сборка успешно завершена.
 
-Затраченное время: 00:00:11.63
+Затраченное время: 00:00:12.80

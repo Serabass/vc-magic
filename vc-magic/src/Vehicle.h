@@ -18,8 +18,8 @@ public:
 	int GetHealth();
 	bool NearPoint(float fX, float fY, float fZ, float fRX, float fRY, float fRZ, bool bSphere);
 
-	void SetColour(int iPrimary, int iSecondary);
-	void SetZAngle(float fAngle);
+	void Colour(int iPrimary, int iSecondary);
+	void ZAngle(float fAngle);
 	void GetRelativeCoordinates(float fX, float fY, float fZ, float* pfX, float* pfY, float* pfZ);
 	void DriveToOnRoad(float fX, float fY, float fZ);
 	void SetMaxSpeed(float fSpeed);
@@ -30,25 +30,34 @@ public:
 	void SetBehaviour(int iBehaviour);
 	bool IsStuck();
 	bool IsBurning();
-	DWORD GetModel();
+	DWORD Model();
 	void SetSpeed(float value);
 	bool IsWrecked();
 
-	typedef CVehicle*(__thiscall *TgetStructAddress)(void* pThis, signed int id);
+	void SetAction(VehicleAction action, WORD time);
+
+	typedef CVehicle*(__thiscall *TgetStructAddress)(int pThis, signed int id);
+	typedef void(__thiscall *TOpenTrunk)(CVehicle* pThis);
 	static TgetStructAddress getStructAddress;
 
 	CVehicle* getStruct();
+	static CVehicle* getStructById(signed int id);
 
 	template <typename T>
-	T* $$(int off);
+	T* $$(VehicleProps off);
+
+	static TOpenTrunk $openTrunk;
+	static TOpenTrunk $openTrunkFully;
+
+	void openTrunk();
 
 private:
 	typedef CVehicle*(__cdecl* TSpawnNearPlayer)(int modelIndex);
 	static TSpawnNearPlayer SpawnNearPlayer;
 };
 
-template <typename T> T* Vehicle::$$(int off = 0) {
-	return (T*)((int)this->getStruct() + off);
+template <typename T> T* Vehicle::$$(VehicleProps off) {
+	return (T*)((int)this->getStruct() + (int)off);
 }
 
 #endif

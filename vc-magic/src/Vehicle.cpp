@@ -1,4 +1,5 @@
 #include "Vehicle.h"
+#include <stdio.h>
 
 //--------------------------------------------------------------------------------
 // ScriptVehicle class functions.
@@ -33,12 +34,12 @@ bool Vehicle::NearPoint(float fX, float fY, float fZ, float fRX, float fRY, floa
 	return $(&is_car_near_point_3d, &m_dwVehicle, fX, fY, fZ, fRX, fRY, fRZ, bSphere) ? true : false;
 }
 
-void Vehicle::SetColour(int iPrimary, int iSecondary)
+void Vehicle::Colour(int iPrimary, int iSecondary)
 {
 	$(&set_car_color, &m_dwVehicle, iPrimary, iSecondary);
 }
 
-void Vehicle::SetZAngle(float fAngle)
+void Vehicle::ZAngle(float fAngle)
 {
 	$(&set_car_z_angle, &m_dwVehicle, fAngle);
 }
@@ -93,7 +94,7 @@ bool Vehicle::IsBurning()
 	return $(&is_car_burning, &m_dwVehicle) ? 1 : 0;
 }
 
-DWORD Vehicle::GetModel()
+DWORD Vehicle::Model()
 {
 	DWORD dwModel;
 	$(&get_car_model, &m_dwVehicle, &dwModel);
@@ -107,14 +108,28 @@ void Vehicle::SetSpeed(float value)
 
 bool Vehicle::IsWrecked()
 {
-	return $(&is_car_wrecked, &m_dwVehicle)?true:false;
+	return $(&is_car_wrecked, &m_dwVehicle) ? true : false;
+}
+
+void Vehicle::SetAction(VehicleAction action, WORD time) {
+	*$$<char>(VehicleProps::action) = action;
+	*$$<WORD>(VehicleProps::actionTime) = time;
 }
 
 Vehicle::TSpawnNearPlayer Vehicle::SpawnNearPlayer = (TSpawnNearPlayer)0x04AE8F0;
 Vehicle::TgetStructAddress Vehicle::getStructAddress = (TgetStructAddress)0x00451C70;
 
+CVehicle* Vehicle::getStructById(signed int id) {
+	return Vehicle::getStructAddress(VEHICLES_ARRAY, id);
+}
+
 CVehicle* Vehicle::getStruct() {
-	int* addr = (int*)0xA0FDE4;
-	DWORD id = *this->GetVehicle();
-	return Vehicle::getStructAddress((CVehicle*)*addr, (signed int)id);
+	return getStructById((signed int)*this->GetVehicle());
+}
+
+Vehicle::TOpenTrunk Vehicle::$openTrunk = (TOpenTrunk)0x00585E20;
+Vehicle::TOpenTrunk Vehicle::$openTrunkFully = (TOpenTrunk)0x00585E60;
+
+void Vehicle::openTrunk() {
+	$openTrunk(getStruct());
 }

@@ -4,10 +4,82 @@
    gta-vc.idb
 */
 
+#include "GameDefines.h"
+
 #define __int8 char
 #define __int16 short
 #define __int32 int
 #define __int64 long long
+
+struct Vector3Df {
+	float x;
+	float y;
+	float z;
+};
+
+enum VehicleProps : int {
+	xRoll = 0x04,
+	yRoll = 0x08,
+	zRoll = 0x0C,
+
+	xDirection = 0x014,
+	yDirection = 0x018C,
+	zDirection = 0x014,
+
+	lastXPos = 0x24,
+	lastYPos = 0x28,
+	lastZPos = 0x2C,
+
+	xCoord = 0x34,
+	yCoord = 0x38,
+	zCoord = 0x3C,
+
+	IDEModel = 0x5C,
+
+	lastCollisionTime = 0x6C,
+
+	xPush = 0x70,
+	yPush = 0x74,
+	zPush = 0x78,
+
+	xTurnSpeed = 0x7C,
+	yTurnSpeed = 0x80,
+	zTurnSpeed = 0x84,
+
+	weight = 0xB8,
+	unknownObjectOnGround = 0xE4,
+	driverBehavior = 0x156,
+	action = 0x157, // WTF
+	actionTime = 0x158, // WTF
+	speed = 0x160,
+	color1 = 0x1A0,
+	color2 = 0x1A1,
+	carVeriation = 0x1A2,
+	alarmDuration = 0x1A4,
+	driver = 0x1A8,
+	passenger1 = 0x1AC,
+	passenger2 = 0x1B0,
+	passenger3 = 0x1B4,
+	numPassengers = 0x1CC,
+	numGettingIn = 0x1CD,
+	gettingInFlags = 0x1CE,
+	gettingOutFlags = 0x1CF,
+	maxPassengers = 0x1D0,
+	steerAngle1 = 0x1E8,
+	steerAngle2 = 0x1EC,
+	acceleratorPedal = 0x1F0,
+	breakPedal = 0x1F4,
+	health = 0x204,
+	lockStatus = 0x230,
+	radioStation = 0x23C,
+	horn = 0x240,
+	siren = 0x245,
+	type = 0x29C,
+	bonnetValues = 0x2A9,
+	trunk = 0x2AA,
+	specialProps = 0x501,
+	carBurnout = 0x5CC
+};
 
 struct CVehicle;
 
@@ -52,7 +124,7 @@ struct CPed
   char gap_1F5[6];
   char someFlags2;
   char gap_1FC[72];
-  char status;
+  char status; // PedStatus
   char gap_245[7];
   char moveState;
   char gap_24D[263];
@@ -98,7 +170,7 @@ struct CVehicle
   char gap_32[30];
   char flags;
   char gap_51[11];
-  char modelIndex;
+  unsigned char modelIndex;
   char gap_5D[19];
   int probIsMoving;
   char gap_74[64];

@@ -5,7 +5,7 @@
 //--------------------------------------------------------------------------------
 // Game class functions.
 //
-bool Game::Fading()
+bool Game::IsFading()
 {
 	return $(&is_fading) ? true : false;
 }
@@ -41,7 +41,7 @@ void Game::SetCamera(float fX, float fY, float fZ)
 	$(&set_camera, fX, fY, fZ);
 }
 
-void Game::SetWeather(Weathers Weather)
+void Game::SetWeather(WEATHER Weather)
 {
 	$(&set_weather, Weather);
 }
@@ -132,20 +132,23 @@ bool* Game::freeRespray = (bool*)0xA10AB5;
 float* Game::pedDensity = (float*)0x694DC0;
 float* Game::carDensity = (float*)0x686FC8;
 float* Game::trafficAccidents = (float*)0x687238;
+int* Game::speed = (int*)0x97F264;
+bool* Game::cameraGreenScanlines = (bool*)0xA10B69;
+bool* Game::policeHeliState = (bool*)0xA10ADB;
 
 void(__cdecl* Game::printString)(float, float, int) = (void(__cdecl*)(float, float, int))0x4D5540;
 
 void Game::LoadWeaponModels(WEAPON weapon) {
 	switch (weapon) {
 	case WEAPON::BAT:
-		Model::Request(264); // WEAPON_MODEL::BAT
+		Model::Request(MODEL::WEAPON_MODEL::BAT); // WEAPON_MODEL::BAT
 		break;
 	case WEAPON::MINIGUN:
-		Model::Request(290); // WEAPON_MODEL::MINIGUN
-		Model::Request(294); // WEAPON_MODEL::MINIGUN2
+		Model::Request(MODEL::WEAPON_MODEL::MINIGUN); // WEAPON_MODEL::MINIGUN
+		Model::Request(MODEL::WEAPON_MODEL::MINIGUN2); // WEAPON_MODEL::MINIGUN2
 		break;
 	case WEAPON::BOMB:
-		Model::Request(291); // WEAPON_MODEL::BOMB
+		Model::Request(MODEL::WEAPON_MODEL::BOMB); // WEAPON_MODEL::BOMB
 		break;
 	}
 }

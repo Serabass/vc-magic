@@ -146,6 +146,7 @@
     <ClInclude Include="src\SpecialActor.h" />
     <ClInclude Include="src\Stats.h" />
     <ClInclude Include="src\HUD.h" />
+    <ClInclude Include="src\StructReader.h" />
     <ClInclude Include="src\Text.h" />
     <ClInclude Include="src\Timer.h" />
     <ClInclude Include="src\vc-magic.h" />
@@ -171,15 +172,13 @@
     <ClCompile Include="src\SpecialActor.cpp" />
     <ClCompile Include="src\Stats.cpp" />
     <ClCompile Include="src\HUD.cpp" />
+    <ClCompile Include="src\StructReader.cpp" />
     <ClCompile Include="src\Text.cpp" />
     <ClCompile Include="src\Timer.cpp" />
     <ClCompile Include="src\vc-magic.cpp" />
     <ClCompile Include="src\ScriptClasses.cpp" />
     <ClCompile Include="src\Vehicle.cpp" />
     <ClCompile Include="src\Weather.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="src\SCMMod.vcproj" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -34,6 +34,7 @@ class Vehicle;
 #include "Text.h"
 #include "Model.h"
 #include "Weather.h"
+#include "StructReader.h"
 
 //Class definitions
 
