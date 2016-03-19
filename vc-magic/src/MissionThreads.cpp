@@ -493,8 +493,8 @@ void MainScript(SCRIPT_MISSION* pMission)
 		#define PLAYERCARPROP(type, var, offset) type var = *StructReader::read<type>(*(type*)0x7E49C0, offset);
 		
 		if (GetKeyState(VK_TAB) < 0) {
-			*Game::policeHeliState = !Game::policeHeliState;
-			print("%d", *Game::policeHeliState);
+			*Police::heliState = !Police::heliState;
+			print("%d", *Police::heliState);
 		}
 	}
 }

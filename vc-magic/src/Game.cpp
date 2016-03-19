@@ -134,7 +134,6 @@ float* Game::carDensity = (float*)0x686FC8;
 float* Game::trafficAccidents = (float*)0x687238;
 int* Game::speed = (int*)0x97F264;
 bool* Game::cameraGreenScanlines = (bool*)0xA10B69;
-bool* Game::policeHeliState = (bool*)0xA10ADB;
 
 void(__cdecl* Game::printString)(float, float, int) = (void(__cdecl*)(float, float, int))0x4D5540;
 

@@ -20,7 +20,8 @@ public:
 	static DWORD* Rhino;
 
 	static DWORD* Weapon1;
-
+	static bool* heliState;
+	static char* EMLightsSize;
 	static void SetModel(SCRIPT_MISSION* pMission, DWORD* address, DWORD model);
 };
 

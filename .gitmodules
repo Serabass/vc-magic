@@ -1,0 +1,3 @@
+[submodule "DCPU16"]
+	path = DCPU16
+	url = https://github.com/Zylann/DCPU16
