@@ -5,7 +5,7 @@
 #include "ScriptClasses.h"
 #include "GameDefines.h"
 
-class Police {
+class VicePolice {
 
 public:
 	static DWORD* Car1;

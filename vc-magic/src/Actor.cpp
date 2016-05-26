@@ -1,171 +1,185 @@
 #include "Actor.h"
 
-//--------------------------------------------------------------------------------
-// Actor class functions.
-//
-Actor::Actor(SCRIPT_MISSION* pMission, bool bKeepOnDestroy)
-{
-	m_pMission = pMission;
-	m_bKeepOnDestroy = bKeepOnDestroy;
-	m_bSpawned = false;
-}
-
-Actor::~Actor()
-{
-	if (m_bSpawned)
+	//--------------------------------------------------------------------------------
+	// Actor class functions.
+	//
+	ViceActor::ViceActor(SCRIPT_MISSION* pMission, bool bKeepOnDestroy)
 	{
-		$(m_bKeepOnDestroy ? &remove_references_to_actor : &destroy_actor_fading, &m_dwActor);
+		m_pMission = pMission;
+		m_bKeepOnDestroy = bKeepOnDestroy;
+		m_bSpawned = false;
 	}
-}
 
-DWORD* Actor::GetActor()
-{
-	return &m_dwActor;
-}
+	ViceActor::~ViceActor()
+	{
+		if (m_bSpawned)
+		{
+			$(m_bKeepOnDestroy ? &remove_references_to_actor : &destroy_actor_fading, &m_dwActor);
+		}
+	}
 
-bool Actor::IsDead()
-{
-	return $(&is_actor_dead, &m_dwActor) ? true : false;
-}
+	DWORD* ViceActor::GetActor()
+	{
+		return &m_dwActor;
+	}
 
-bool Actor::NearPoint(float fX, float fY, float fZ, float fRX, float fRY, float fRZ, bool bSphere)
-{
-	return $(&is_actor_near_point_3d, &m_dwActor, fX, fY, fZ, fRX, fRY, fRZ, bSphere) ? true : false;
-}
+	bool ViceActor::IsDead()
+	{
+		return $(&is_actor_dead, &m_dwActor) ? true : false;
+	}
 
-void Actor::Spawn(PEDTYPE iPedType, DWORD dwModel, float fX, float fY, float fZ)
-{
-	Model::LoadOne(this->m_pMission, dwModel);
-	$(&create_actor, iPedType, dwModel, fX, fY, fZ, &m_dwActor);
+	bool ViceActor::NearPoint(float fX, float fY, float fZ, float fRX, float fRY, float fRZ, bool bSphere)
+	{
+		return $(&is_actor_near_point_3d, &m_dwActor, fX, fY, fZ, fRX, fRY, fRZ, bSphere) ? true : false;
+	}
 
-	m_bSpawned = true;
-}
+	bool ViceActor::NearPoint(ViceVector3Df position, ViceVector3Df radius, bool bSphere)
+	{
+		return $(&is_actor_near_point_3d, &m_dwActor, position.x, position.y, position.z, radius.x, radius.y, radius.z, bSphere) ? true : false;
+	}
 
-void Actor::SpawnInPassengerSeat(DWORD* pdwVehicle, int iPedType, DWORD dwModel, int iSeat)
-{
-	Model::LoadOne(this->m_pMission, dwModel);
-	$(&create_actor_in_passenger, pdwVehicle, iPedType, dwModel, iSeat, &m_dwActor);
+	void ViceActor::Spawn(PEDTYPE iPedType, DWORD dwModel, float fX, float fY, float fZ)
+	{
+		ViceModel::LoadOne(this->m_pMission, dwModel);
+		$(&create_actor, iPedType, dwModel, fX, fY, fZ, &m_dwActor);
 
-	m_bSpawned = true;
-}
+		m_bSpawned = true;
+	}
 
-void Actor::SpawnInPassengerSeat(Vehicle* pVehicle, int iPedType, DWORD dwModel, int iSeat)
-{
-	SpawnInPassengerSeat(pVehicle->GetVehicle(), iPedType, dwModel, iSeat);
-}
+	void ViceActor::Spawn(PEDTYPE iPedType, DWORD dwModel, ViceVector3Df position)
+	{
+		ViceActor::Spawn(iPedType, dwModel, position.x, position.y, position.z);
+	}
 
-void Actor::SpawnInDriverSeat(DWORD* pdwVehicle, int iPedType, DWORD dwModel)
-{
-	SCRIPT_MISSION* pMission = this->m_pMission;
-	Model::LoadOne(pMission, dwModel);
-	$(&create_actor_in_driverseat, pdwVehicle, iPedType, dwModel, &m_dwActor);
+	void ViceActor::SpawnInPassengerSeat(DWORD* pdwVehicle, int iPedType, DWORD dwModel, int iSeat)
+	{
+		ViceModel::LoadOne(this->m_pMission, dwModel);
+		$(&create_actor_in_passenger, pdwVehicle, iPedType, dwModel, iSeat, &m_dwActor);
 
-	m_bSpawned = true;
-}
+		m_bSpawned = true;
+	}
 
-void Actor::GiveWeapon(WEAPON dwWeapon, DWORD dwAmmo)
-{
-	Model::LoadOne(this->m_pMission, dwWeapon);
-	$(&give_actor_weapon, &m_dwActor, dwWeapon, dwAmmo);
-}
+	void ViceActor::SpawnInPassengerSeat(ViceVehicle* pVehicle, int iPedType, DWORD dwModel, int iSeat)
+	{
+		SpawnInPassengerSeat(pVehicle->GetVehicle(), iPedType, dwModel, iSeat);
+	}
 
-void Actor::ArmWeapon(WEAPON dwWeapon)
-{
-	$(&actor_arm_weapon, &m_dwActor, dwWeapon);
-}
+	void ViceActor::SpawnInDriverSeat(DWORD* pdwVehicle, int iPedType, DWORD dwModel)
+	{
+		SCRIPT_MISSION* pMission = this->m_pMission;
+		ViceModel::LoadOne(pMission, dwModel);
+		$(&create_actor_in_driverseat, pdwVehicle, iPedType, dwModel, &m_dwActor);
 
-void Actor::ResetFlags()
-{
-	$(&reset_actor_flags, &m_dwActor);
-}
+		m_bSpawned = true;
+	}
 
-void Actor::SetPedStats(DWORD dwPedStats)
-{
-	$(&set_actor_ped_stats, &m_dwActor, dwPedStats);
-}
+	void ViceActor::GiveWeapon(WEAPON dwWeapon, DWORD dwAmmo)
+	{
+		ViceModel::LoadOne(this->m_pMission, dwWeapon);
+		$(&give_actor_weapon, &m_dwActor, dwWeapon, dwAmmo);
+	}
 
-void Actor::SetWander(bool bWander)
-{
-	$(&toggle_actor_wander, &m_dwActor, bWander);
-}
+	void ViceActor::ArmWeapon(WEAPON dwWeapon)
+	{
+		$(&actor_arm_weapon, &m_dwActor, dwWeapon);
+	}
 
-void Actor::TieToPlayer(DWORD* pdwPlayer)
-{
-	$(&tie_actor_to_player, &m_dwActor, pdwPlayer);
-}
+	void ViceActor::ResetFlags()
+	{
+		$(&reset_actor_flags, &m_dwActor);
+	}
 
-void Actor::LeaveVehicle()
-{
-	$(&make_actor_leave_vehicle, &m_dwActor);
-}
+	void ViceActor::SetPedStats(DWORD dwPedStats)
+	{
+		$(&set_actor_ped_stats, &m_dwActor, dwPedStats);
+	}
 
-void Actor::KillActor(DWORD* pdwActor)
-{
-	$(&set_actor_to_kill_actor, &m_dwActor, pdwActor);
-}
+	void ViceActor::SetWander(bool bWander)
+	{
+		$(&toggle_actor_wander, &m_dwActor, bWander);
+	}
 
-void Actor::KillPlayer(DWORD* pdwPlayer)
-{
-	$(&set_actor_to_kill_player, &m_dwActor, pdwPlayer);
-}
+	void ViceActor::TieToPlayer(DWORD* pdwPlayer)
+	{
+		$(&tie_actor_to_player, &m_dwActor, pdwPlayer);
+	}
 
-void Actor::StealAnyCar()
-{
-	$(&set_actor_steal_any_car, &m_dwActor);
-}
+	void ViceActor::LeaveVehicle()
+	{
+		$(&make_actor_leave_vehicle, &m_dwActor);
+	}
 
-void Actor::Follow(Actor* actor)
-{
-	DWORD* pdwActor = actor->GetActor();
-	$(&actor_follow_actor, pdwActor);
-}
+	void ViceActor::KillActor(DWORD* pdwActor)
+	{
+		$(&set_actor_to_kill_actor, &m_dwActor, pdwActor);
+	}
 
-void Actor::Follow(Player* player)
-{
-	DWORD* pdwPlayerActor = player->GetActor();
-	$(&actor_follow_player, pdwPlayerActor);
-}
+	void ViceActor::KillPlayer(DWORD* pdwPlayer)
+	{
+		$(&set_actor_to_kill_player, &m_dwActor, pdwPlayer);
+	}
 
-void Actor::DriveCar(DWORD* pdwCar)
-{
-	$(&actor_go_to_car_and_drive, &m_dwActor, pdwCar);
-}
+	void ViceActor::KillPlayer(VicePlayer* player)
+	{
+		$(&set_actor_to_kill_player, &m_dwActor, player->GetChar());
+	}
 
-void Actor::DriveCar(Vehicle* pCar)
-{
-	$(&actor_go_to_car_and_drive, &m_dwActor, pCar->GetVehicle());
-}
+	void ViceActor::StealAnyCar()
+	{
+		$(&set_actor_steal_any_car, &m_dwActor);
+	}
 
-void Actor::HoldCellPhone(bool hold) {
-	UsingPhone = hold;
-	$(&hold_cellphone, &m_dwActor, hold ? 1 : 0);
-}
+	void ViceActor::Follow(ViceActor* actor)
+	{
+		$(&actor_follow_actor, actor->GetActor());
+	}
 
-void Actor::HoldCellPhone() {
-	HoldCellPhone(true);
-}
+	void ViceActor::Follow(VicePlayer* player)
+	{
+		DWORD* pdwPlayerActor = player->GetActor();
+		$(&actor_follow_player, pdwPlayerActor);
+	}
 
-void Actor::ReleaseCellPhone() {
-	HoldCellPhone(false);
-}
+	void ViceActor::DriveCar(DWORD* pdwCar)
+	{
+		$(&actor_go_to_car_and_drive, &m_dwActor, pdwCar);
+	}
 
-void Actor::ToggleCellPhone() {
-	HoldCellPhone( ! UsingPhone);
-}
+	void ViceActor::DriveCar(ViceVehicle* pCar)
+	{
+		$(&actor_go_to_car_and_drive, &m_dwActor, pCar->GetVehicle());
+	}
 
-Actor::TgetStructAddress Actor::getStructAddress = (TgetStructAddress)0x00451CB0;
-Actor::TSetModelIndex Actor::SetModelIndex = (TSetModelIndex)0x0050D900;
+	void ViceActor::HoldCellPhone(bool hold) {
+		UsingPhone = hold;
+		$(&hold_cellphone, &m_dwActor, hold ? 1 : 0);
+	}
 
-CPed* Actor::getStruct() {
-	int* addr = (int*)0x97F2AC;
-	DWORD id = *this->GetActor();
-	return Actor::getStructAddress((CPed*)*addr, (signed int)id);
-}
+	void ViceActor::HoldCellPhone() {
+		HoldCellPhone(true);
+	}
 
-void Actor::SetBleeding(bool bleeding) {
-	$(&set_actor_bleeding, &m_dwActor, bleeding ? 1 : 0);
-}
+	void ViceActor::ReleaseCellPhone() {
+		HoldCellPhone(false);
+	}
 
-void Actor::SetBleeding() {
-	$(&set_actor_bleeding, &m_dwActor, 1);
-}
+	void ViceActor::ToggleCellPhone() {
+		HoldCellPhone(!UsingPhone);
+	}
+
+	ViceActor::TgetStructAddress ViceActor::getStructAddress = (TgetStructAddress)0x00451CB0;
+	ViceActor::TSetModelIndex ViceActor::SetModelIndex = (TSetModelIndex)0x0050D900;
+
+	CPed* ViceActor::getStruct() {
+		int* addr = (int*)0x97F2AC;
+		DWORD id = *this->GetActor();
+		return ViceActor::getStructAddress((CPed*)*addr, (signed int)id);
+	}
+
+	void ViceActor::SetBleeding(bool bleeding) {
+		$(&set_actor_bleeding, &m_dwActor, bleeding ? 1 : 0);
+	}
+
+	void ViceActor::SetBleeding() {
+		$(&set_actor_bleeding, &m_dwActor, 1);
+	}

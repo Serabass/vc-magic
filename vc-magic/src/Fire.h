@@ -2,23 +2,22 @@
 
 #ifndef FIRE_H
 #define FIRE_H
+	class ViceFire {
+	private:
+		DWORD m_dwFire;	
+	public:
+		ViceFire(float x, float y, float z);
+		ViceFire(DWORD m_dwFire);
+		~ViceFire();
 
-class Fire {
-private:
-	DWORD m_dwFire;
-public:
-	Fire(float x, float y, float z);
-	Fire(DWORD m_dwFire);
-	~Fire();
+		static ViceFire* CreateOn(ViceActor* actor);
+		static ViceFire* CreateOn(VicePlayer* player);
+		static ViceFire* CreateOn(ViceVehicle* vehicle);
 
-	static Fire* CreateOn(Actor* actor);
-	static Fire* CreateOn(Player* player);
-	static Fire* CreateOn(Vehicle* vehicle);
-
-	static void DestroyAll();
+		static void DestroyAll();
 	
-	bool isExtiguished();
-	void Destroy();
-};
+		bool isExtiguished();
+		void Destroy();
+	};
 
 #endif

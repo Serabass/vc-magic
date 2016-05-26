@@ -4,132 +4,132 @@
 //--------------------------------------------------------------------------------
 // ScriptVehicle class functions.
 //
-Vehicle::Vehicle(SCRIPT_MISSION* pMission, DWORD dwModel, float fX, float fY, float fZ, bool bKeepOnDestroy)
+ViceVehicle::ViceVehicle(SCRIPT_MISSION* pMission, DWORD dwModel, float fX, float fY, float fZ, bool bKeepOnDestroy)
 {
 	m_pMission = pMission;
 	m_bKeepOnDestroy = bKeepOnDestroy;
-	Model::LoadOne(pMission, dwModel);
+	ViceModel::LoadOne(pMission, dwModel);
 	$(&create_car, dwModel, fX, fY, fZ, &m_dwVehicle);
 }
 
-Vehicle::~Vehicle()
+ViceVehicle::~ViceVehicle()
 {
 	$(m_bKeepOnDestroy ? &remove_references_to_car : &destroy_car, &m_dwVehicle);
 }
 
-DWORD* Vehicle::GetVehicle()
+DWORD* ViceVehicle::GetVehicle()
 {
 	return &m_dwVehicle;
 }
 
-int Vehicle::GetHealth()
+int ViceVehicle::GetHealth()
 {
 	int iHealth;
 	$(&get_car_health, &m_dwVehicle, &iHealth);
 	return iHealth;
 }
 
-bool Vehicle::NearPoint(float fX, float fY, float fZ, float fRX, float fRY, float fRZ, bool bSphere)
+bool ViceVehicle::NearPoint(float fX, float fY, float fZ, float fRX, float fRY, float fRZ, bool bSphere)
 {
 	return $(&is_car_near_point_3d, &m_dwVehicle, fX, fY, fZ, fRX, fRY, fRZ, bSphere) ? true : false;
 }
 
-void Vehicle::Colour(int iPrimary, int iSecondary)
+void ViceVehicle::Colour(int iPrimary, int iSecondary)
 {
 	$(&set_car_color, &m_dwVehicle, iPrimary, iSecondary);
 }
 
-void Vehicle::ZAngle(float fAngle)
+void ViceVehicle::ZAngle(float fAngle)
 {
 	$(&set_car_z_angle, &m_dwVehicle, fAngle);
 }
 
-void Vehicle::GetRelativeCoordinates(float fX, float fY, float fZ, float* pfX, float* pfY, float* pfZ)
+void ViceVehicle::GetRelativeCoordinates(float fX, float fY, float fZ, float* pfX, float* pfY, float* pfZ)
 {
 	$(&car_relative_coordinates, &m_dwVehicle, fX, fY, fZ, pfX, pfY, pfZ);
 }
 
-void Vehicle::DriveToOnRoad(float fX, float fY, float fZ)
+void ViceVehicle::DriveToOnRoad(float fX, float fY, float fZ)
 {
 	$(&drive_car_to_point1, &m_dwVehicle, fX, fY, fZ);
 }
 
-void Vehicle::SetMaxSpeed(float fSpeed)
+void ViceVehicle::SetMaxSpeed(float fSpeed)
 {
 	$(&set_car_max_speed, &m_dwVehicle, fSpeed);
 }
 
-void Vehicle::IgnoreTraffic(int iFlag)
+void ViceVehicle::IgnoreTraffic(int iFlag)
 {
 	$(&car_ignore_traffic, &m_dwVehicle, iFlag);
 }
 
-void Vehicle::SetImmuneToNonplayer(bool bImmune)
+void ViceVehicle::SetImmuneToNonplayer(bool bImmune)
 {
 	$(&set_car_immune_to_nonplayer, &m_dwVehicle, bImmune);
 }
 
-void Vehicle::SetDoorStatus(int iStatus)
+void ViceVehicle::SetDoorStatus(int iStatus)
 {
 	$(&set_car_door_status, &m_dwVehicle, iStatus);
 }
 
-void Vehicle::SetSiren(bool bSiren)
+void ViceVehicle::SetSiren(bool bSiren)
 {
 	$(&toggle_car_siren, &m_dwVehicle, bSiren);
 }
 
-void Vehicle::SetBehaviour(int iBehaviour)
+void ViceVehicle::SetBehaviour(int iBehaviour)
 {
 	$(&set_car_driver_behaviour, &m_dwVehicle, iBehaviour);
 }
 
-bool Vehicle::IsStuck()
+bool ViceVehicle::IsStuck()
 {
 	return $(&is_car_stuck, &m_dwVehicle) ? 1 : 0;
 }
 
-bool Vehicle::IsBurning()
+bool ViceVehicle::IsBurning()
 {
 	return $(&is_car_burning, &m_dwVehicle) ? 1 : 0;
 }
 
-DWORD Vehicle::Model()
+DWORD ViceVehicle::ViceModel()
 {
 	DWORD dwModel;
 	$(&get_car_model, &m_dwVehicle, &dwModel);
 	return dwModel;
 }
 
-void Vehicle::SetSpeed(float value)
+void ViceVehicle::SetSpeed(float value)
 {
 	$(&set_car_speed_instantly, &m_dwVehicle, value);
 }
 
-bool Vehicle::IsWrecked()
+bool ViceVehicle::IsWrecked()
 {
 	return $(&is_car_wrecked, &m_dwVehicle) ? true : false;
 }
 
-void Vehicle::SetAction(VehicleAction action, WORD time) {
+void ViceVehicle::SetAction(VehicleAction action, WORD time) {
 	*$$<char>(VehicleProps::action) = action;
 	*$$<WORD>(VehicleProps::actionTime) = time;
 }
 
-Vehicle::TSpawnNearPlayer Vehicle::SpawnNearPlayer = (TSpawnNearPlayer)0x04AE8F0;
-Vehicle::TgetStructAddress Vehicle::getStructAddress = (TgetStructAddress)0x00451C70;
+ViceVehicle::TSpawnNearPlayer ViceVehicle::SpawnNearPlayer = (TSpawnNearPlayer)0x04AE8F0;
+ViceVehicle::TgetStructAddress ViceVehicle::getStructAddress = (TgetStructAddress)0x00451C70;
 
-CVehicle* Vehicle::getStructById(signed int id) {
-	return Vehicle::getStructAddress(VEHICLES_ARRAY, id);
+CVehicle* ViceVehicle::getStructById(signed int id) {
+	return ViceVehicle::getStructAddress(VEHICLES_ARRAY, id);
 }
 
-CVehicle* Vehicle::getStruct() {
+CVehicle* ViceVehicle::getStruct() {
 	return getStructById((signed int)*this->GetVehicle());
 }
 
-Vehicle::TOpenTrunk Vehicle::$openTrunk = (TOpenTrunk)0x00585E20;
-Vehicle::TOpenTrunk Vehicle::$openTrunkFully = (TOpenTrunk)0x00585E60;
+ViceVehicle::TOpenTrunk ViceVehicle::$openTrunk = (TOpenTrunk)0x00585E20;
+ViceVehicle::TOpenTrunk ViceVehicle::$openTrunkFully = (TOpenTrunk)0x00585E60;
 
-void Vehicle::openTrunk() {
+void ViceVehicle::openTrunk() {
 	$openTrunk(getStruct());
 }

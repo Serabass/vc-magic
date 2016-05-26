@@ -3,15 +3,15 @@
 #ifndef SCPECIALACTOR_H
 #define SCPECIALACTOR_H
 
-class SpecialActor
+class ViceSpecialActor
 {
 private:
 	SCRIPT_MISSION* m_pMission;
-	Actor* m_pActor;
+	ViceActor* m_pActor;
 	int m_iSlot;
 public:
-	SpecialActor(SCRIPT_MISSION* pMission, int iSlot, char Model[8]);
-	~SpecialActor();
+	ViceSpecialActor(SCRIPT_MISSION* pMission, int iSlot, char ViceModel[8]);
+	~ViceSpecialActor();
 
 	DWORD* GetActor();
 	bool IsDead();

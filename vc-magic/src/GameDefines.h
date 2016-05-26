@@ -16,7 +16,7 @@
 // thread  to allow the execution of regular code to continue.
 #define SCRIPT_WAIT(x)										\
 {															\
-	Script::Wait(x);										\
+	ViceScript::Wait(x);										\
 	if (pMission != NULL) {									\
 		SetEvent(pMission->hContinue);						\
 		WaitForSingleObject(pMission->hExecute, INFINITE);	\
@@ -26,7 +26,7 @@
 // Used a the bottom of all mission thread functions to clean up.
 #define TERMINATE_THREAD()			\
 {									\
-	Script::TerminateThread();		\
+	ViceScript::TerminateThread();		\
 	SetEvent(pMission->hContinue);	\
 	DelMission(pMission);			\
 }

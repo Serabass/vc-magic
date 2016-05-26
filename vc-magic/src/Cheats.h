@@ -5,7 +5,7 @@
 
 #define MAX_USER_CHEATS 10
 
-class Cheats {
+class ViceCheats {
 private:
 	static DWORD __stdcall Watcher(LPVOID lpThreadParameter);
 public:

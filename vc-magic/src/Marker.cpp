@@ -3,12 +3,12 @@
 //--------------------------------------------------------------------------------
 // ScriptMarker class functions.
 //
-Marker::Marker()
+ViceMarker::ViceMarker()
 {
 	m_dwMarker = 0;
 }
 
-Marker::~Marker()
+ViceMarker::~ViceMarker()
 {
 	if (m_bCreated)
 	{
@@ -16,22 +16,22 @@ Marker::~Marker()
 	}
 }
 
-void Marker::TieToActor(DWORD* pdwActor, int iSize, int iType)
+void ViceMarker::TieToActor(DWORD* pdwActor, int iSize, int iType)
 {
 	$(&tie_marker_to_actor, pdwActor, iSize, iType, &m_dwMarker);
 }
 
-void Marker::TieToVehicle(DWORD* pdwVehicle, int iSize, int iType)
+void ViceMarker::TieToVehicle(DWORD* pdwVehicle, int iSize, int iType)
 {
 	$(&tie_marker_to_car, pdwVehicle, iSize, iType, &m_dwMarker);
 }
 
-void Marker::SphereAndIcon(float x, float y, float z, int iIcon)
+void ViceMarker::SphereAndIcon(float x, float y, float z, int iIcon)
 {
 	$(&create_icon_marker_sphere, x, y, z, iIcon, &m_dwMarker);
 }
 
-void Marker::ShowOnRadar(int iSize)
+void ViceMarker::ShowOnRadar(int iSize)
 {
 	if (m_bCreated)
 	{
@@ -39,7 +39,7 @@ void Marker::ShowOnRadar(int iSize)
 	}
 }
 
-void Marker::SetColor(int iColour)
+void ViceMarker::SetColor(int iColour)
 {
 	if (m_bCreated)
 	{

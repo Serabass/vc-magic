@@ -4,7 +4,7 @@
 #define SCRIPT_H
 #include "ScriptClasses.h"
 
-class Script
+class ViceScript
 {
 public:
 	static void CreateThread(int StartIP);

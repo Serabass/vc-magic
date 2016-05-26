@@ -10,9 +10,23 @@
 
 #define STRUCT_OFFSET(T, baseAddr, offset) (T*)(baseAddr + offset)
 
-class Actor;
-class Player;
-class Vehicle;
+	class ViceActor;
+	class VicePlayer;
+	class ViceVehicle;
+	class ViceFire;
+	class ViceSpecialActor;
+	class ViceText;
+	class ViceCheats;
+	class ViceGame;
+	class ViceHUD;
+	class ViceMarker;
+	class ViceModel;
+	class VicePolice;
+	class ViceScript;
+	class ViceSettings;
+	class ViceStructReader;
+	class ViceTimer;
+	class ViceWeather;
 
 // Includes
 #include "GameScripting.h"

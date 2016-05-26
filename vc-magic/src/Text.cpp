@@ -1,21 +1,21 @@
 #include "Text.h"
 
-void Text::StyledOneNumber(char Text[8], int iNumber, int iTime, int iStyle)
+void ViceText::StyledOneNumber(char ViceText[8], int iNumber, int iTime, int iStyle)
 {
-	$(&text_1number_styled, Text, iNumber, iTime, iStyle);
+	$(&text_1number_styled, ViceText, iNumber, iTime, iStyle);
 }
 
-void Text::Styled(char Text[8], int iTime, int iStyle)
+void ViceText::Styled(char ViceText[8], int iTime, int iStyle)
 {
-	$(&text_styled, Text, iTime, iStyle);
+	$(&text_styled, ViceText, iTime, iStyle);
 }
 
-void Text::Now(char Text[8], int iTime, int iStyle)
+void ViceText::Now(char ViceText[8], int iTime, int iStyle)
 {
-	$(&text_now, Text, iTime, iStyle);
+	$(&text_now, ViceText, iTime, iStyle);
 }
 
-void Text::ClearAll()
+void ViceText::ClearAll()
 {
 	$(&text_clear_all);
 }

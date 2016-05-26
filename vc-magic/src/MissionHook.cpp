@@ -28,7 +28,7 @@ const VCPosition_t PlayerStart	= { -534.0f, 644.82f, 11.0f, 0.0f };
 bool bScriptInit	= false;// Has the script been initialised?
 bool bShutdown		= false;// Are we shutting down?
 
-Player*	pPlayer;	// Player stuff.
+VicePlayer*	pPlayer;	// Player stuff.
 
 SCRIPT_MISSION MissionHead;	// Head of the mission structures linked list.
 DWORD MissionCount = 1;		// Counter used for mission ids.
@@ -186,7 +186,7 @@ void AddMission(void (*MissionFunc)(SCRIPT_MISSION*))
 	pMission->hContinue = CreateEvent(NULL, false, false, NULL);// Create continuation event.
 
 	pMission->hThread = CreateThread(NULL, 0, (LPTHREAD_START_ROUTINE)MissionFunc, pMission, 0, NULL);
-	Script::CreateThread(pMission->Id);
+	ViceScript::CreateThread(pMission->Id);
 }
 
 //--------------------------------------------------------------------------------------------
@@ -339,21 +339,21 @@ void ScriptInit()
 
 	gst->dwScriptIP = MissionHead.Id;
 
-	Script::NameThread("MAIN");
-	Game::Fade(0, FADE::FADEOUT);
-	Game::SetMaxWantedLevel(6);
-	Game::SetWastedBustedCheck(true);
-	Game::SetCurrentTime(20, 0);
-	Game::RefreshScreen(PlayerStart.x, PlayerStart.y);
-	Game::SetCamera(PlayerStart.x, PlayerStart.y + 2.0f, PlayerStart.z);
-	pPlayer = new Player(PlayerStart.x, PlayerStart.y, PlayerStart.z);
+	ViceScript::NameThread("MAIN");
+	ViceGame::Fade(0, FADE::FADEOUT);
+	ViceGame::SetMaxWantedLevel(6);
+	ViceGame::SetWastedBustedCheck(true);
+	ViceGame::SetCurrentTime(20, 0);
+	ViceGame::RefreshScreen(PlayerStart.x, PlayerStart.y);
+	ViceGame::SetCamera(PlayerStart.x, PlayerStart.y + 2.0f, PlayerStart.z);
+	pPlayer = new VicePlayer(PlayerStart.x, PlayerStart.y, PlayerStart.z);
 	pPlayer->SetSkin(MODEL_SAM);
 	pPlayer->ZAngle(PlayerStart.a);
-	Game::SetWastedSpawnPosition(PlayerStart.x, PlayerStart.y, PlayerStart.z, 360.0f-PlayerStart.a);
-	Game::SetBustedSpawnPosition(PlayerStart.x, PlayerStart.y, PlayerStart.z, 360.0f-PlayerStart.a);
-	Game::SetWeather(WEATHER::SUNNY);
-	Game::Fade(1000, FADE::FADEIN);
-	Game::SelectInterior(INTERIOR::OUTSIDE);
+	ViceGame::SetWastedSpawnPosition(PlayerStart.x, PlayerStart.y, PlayerStart.z, 360.0f-PlayerStart.a);
+	ViceGame::SetBustedSpawnPosition(PlayerStart.x, PlayerStart.y, PlayerStart.z, 360.0f-PlayerStart.a);
+	ViceGame::SetWeather(WEATHER::SUNNY);
+	ViceGame::Fade(1000, FADE::FADEIN);
+	ViceGame::SelectInterior(INTERIOR::OUTSIDE);
 	pPlayer->Freeze(false);
 
 	MissionHead.hThread = CreateThread(NULL, 0, (LPTHREAD_START_ROUTINE)MainScript, &MissionHead, 0, NULL);

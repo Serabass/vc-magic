@@ -4,7 +4,7 @@
 #define TIMER_H
 #include "ScriptClasses.h"
 
-class Timer {
+class ViceTimer {
 protected:
 	DWORD* m_dwTimer;
 public:
@@ -14,13 +14,13 @@ public:
 		DOWN = 1
 	};
 
-	Timer(DIRECTION dir);
-	Timer();
+	ViceTimer(DIRECTION dir);
+	ViceTimer();
 	void Stop();
 	void Pause();
 };
 
-class TextTimer : Timer {
+class TextTimer : ViceTimer {
 public:
 	TextTimer(DIRECTION dir, char * text);
 };

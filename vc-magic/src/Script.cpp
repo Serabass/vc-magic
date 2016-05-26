@@ -2,22 +2,22 @@
 
 // Functions
 
-void Script::CreateThread(int StartIP)
+void ViceScript::CreateThread(int StartIP)
 {
 	$(&create_thread, StartIP);
 }
 
-void Script::TerminateThread()
+void ViceScript::TerminateThread()
 {
 	$(&end_thread);
 }
 
-void Script::NameThread(char ThreadName[8])
+void ViceScript::NameThread(char ThreadName[8])
 {
 	$(&name_thread, ThreadName);
 }
 
-void Script::Wait(int msTime)
+void ViceScript::Wait(int msTime)
 {
 	$(&wait, msTime);
 }

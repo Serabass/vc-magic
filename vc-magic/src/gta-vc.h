@@ -11,7 +11,7 @@
 #define __int32 int
 #define __int64 long long
 
-struct Vector3Df {
+struct ViceVector3Df {
 	float x;
 	float y;
 	float z;

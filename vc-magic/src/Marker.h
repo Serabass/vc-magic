@@ -3,14 +3,14 @@
 #ifndef MARKER_H
 #define MARKER_H
 
-class Marker
+class ViceMarker
 {
 private:
 	DWORD m_dwMarker;
 	bool m_bCreated;
 public:
-	Marker();
-	~Marker();
+	ViceMarker();
+	~ViceMarker();
 
 	void TieToActor(DWORD* pdwActor, int iSize, int iType);
 	void TieToVehicle(DWORD* pdwVehicle, int iSize, int iType);

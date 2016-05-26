@@ -1,23 +1,23 @@
 #include "Timer.h"
 
-Timer::Timer(DIRECTION dir)
+ViceTimer::ViceTimer(DIRECTION dir)
 {
 	$(&create_timer, &m_dwTimer, dir);
 }
 
-Timer::Timer()
+ViceTimer::ViceTimer()
 {
 
 }
 
-void Timer::Stop() {
+void ViceTimer::Stop() {
 	$(&stop_timer, &m_dwTimer);
 }
 
-void Timer::Pause() {
+void ViceTimer::Pause() {
 	$(&pause_timer, &m_dwTimer);
 }
 
-TextTimer::TextTimer(DIRECTION dir, char* text) : Timer() {
+TextTimer::TextTimer(DIRECTION dir, char* text) : ViceTimer() {
 	$(&set_timer_with_text, &m_dwTimer, dir, text);
 }

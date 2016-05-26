@@ -3,7 +3,7 @@
 #ifndef WEATHER_H
 #define WEATHER_H
 
-class Weather {
+class ViceWeather {
 public:
 	static void(__cdecl* AddRain)();
 };

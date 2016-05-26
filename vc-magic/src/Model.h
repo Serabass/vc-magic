@@ -4,7 +4,7 @@
 #define MODEL_H
 #include "ScriptClasses.h"
 
-class Model {
+class ViceModel {
 public:
 	static bool Available(DWORD dwModel);
 	static bool Request(DWORD dwModel);

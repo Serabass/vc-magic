@@ -1,31 +1,31 @@
 #include "Model.h"
 
 
-bool Model::Request(DWORD dwModel)
+bool ViceModel::Request(DWORD dwModel)
 {
 	return $(&request_model, dwModel) ? true : false;
 }
 
-bool Model::Release(DWORD dwModel)
+bool ViceModel::Release(DWORD dwModel)
 {
 	return $(&release_model, dwModel) ? true : false;
 }
 
-bool Model::LoadAllRequested()
+bool ViceModel::LoadAllRequested()
 {
 	return $(&load_requested_models) ? true : false;
 }
 
-bool Model::Available(DWORD dwModel)
+bool ViceModel::Available(DWORD dwModel)
 {
 	return $(&is_model_available, dwModel) ? true : false;
 }
 
-void Model::LoadOne(SCRIPT_MISSION* pMission, DWORD dwModel)
+void ViceModel::LoadOne(SCRIPT_MISSION* pMission, DWORD dwModel)
 {
-	if (!Model::Available(dwModel)) {
-		Model::Request(dwModel);
-		Model::LoadAllRequested();
-		while (!Model::Available(dwModel)) SCRIPT_WAIT(0);
+	if (!ViceModel::Available(dwModel)) {
+		ViceModel::Request(dwModel);
+		ViceModel::LoadAllRequested();
+		while (!ViceModel::Available(dwModel)) SCRIPT_WAIT(0);
 	}
 }

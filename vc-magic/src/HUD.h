@@ -4,7 +4,7 @@
 #define HUD_H
 
 
-class HUD {
+class ViceHUD {
 public:
 	static stHUD* hudData;
 	static LPSTR moneyFormat;

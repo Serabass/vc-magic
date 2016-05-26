@@ -5,7 +5,7 @@
 #ifndef STRUCTREADER_H
 #define STRUCTREADER_H
 
-class StructReader
+class ViceStructReader
 {
 public:
 	template <typename T>
@@ -13,7 +13,7 @@ public:
 };
 
 
-template <typename T> T* StructReader::read(int address, int offset) {
+template <typename T> T* ViceStructReader::read(int address, int offset) {
 	return (T*)(address + offset);
 }
 

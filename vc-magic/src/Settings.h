@@ -3,7 +3,7 @@
 #ifndef SETTINGS_H
 #define SETTINGS_H
 
-class Settings {
+class ViceSettings {
 public:
 	static char* subtitlesEnabled;
 	static char* wideScreenEnabled;

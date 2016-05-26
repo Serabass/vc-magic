@@ -4,15 +4,15 @@
 #define VEHICLE_H
 
 
-class Vehicle
+class ViceVehicle
 {
 private:
 	DWORD m_dwVehicle;
 	SCRIPT_MISSION* m_pMission;
 	bool m_bKeepOnDestroy;
 public:
-	Vehicle(SCRIPT_MISSION* pMission, DWORD dwModel, float fX, float fY, float fZ, bool bKeepOnDestroy = true);
-	~Vehicle();
+	ViceVehicle(SCRIPT_MISSION* pMission, DWORD dwModel, float fX, float fY, float fZ, bool bKeepOnDestroy = true);
+	~ViceVehicle();
 
 	DWORD* GetVehicle();
 	int GetHealth();
@@ -30,7 +30,7 @@ public:
 	void SetBehaviour(int iBehaviour);
 	bool IsStuck();
 	bool IsBurning();
-	DWORD Model();
+	DWORD ViceModel();
 	void SetSpeed(float value);
 	bool IsWrecked();
 
@@ -56,7 +56,7 @@ private:
 	static TSpawnNearPlayer SpawnNearPlayer;
 };
 
-template <typename T> T* Vehicle::$$(VehicleProps off) {
+template <typename T> T* ViceVehicle::$$(VehicleProps off) {
 	return (T*)((int)this->getStruct() + (int)off);
 }
 

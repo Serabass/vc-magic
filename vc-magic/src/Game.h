@@ -3,7 +3,7 @@
 #ifndef GAME_H
 #define GAME_H
 
-class Game
+class ViceGame
 {
 public:
 	static bool IsFading();
@@ -14,7 +14,7 @@ public:
 	static void SetCurrentTime(int Hours, int Minutes);
 	static void RefreshScreen(float fX, float fY);
 	static void SetCamera(float fX, float fY, float fZ);
-	static void SetWeather(WEATHER Weather);
+	static void SetWeather(WEATHER ViceWeather);
 	static void SelectInterior(int Interior);
 	static void PlayMusic(int iMusic);
 	static void SetWidescreen(bool bWidescreen);
