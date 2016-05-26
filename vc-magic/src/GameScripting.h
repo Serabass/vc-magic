@@ -197,6 +197,7 @@ const SCRIPT_COMMAND tie_marker_to_car				= { 0x0161, "viiv" };	// var_car, ukn,
 const SCRIPT_COMMAND tie_marker_to_actor			= { 0x0162, "viiv" };	// var_actor, ukn, ukn, var_marker
 const SCRIPT_COMMAND disable_marker					= { 0x0164, "v" };		// var_marker
 const SCRIPT_COMMAND set_marker_color				= { 0x0165, "vi" };		// var_marker, color
+const SCRIPT_COMMAND create_marker_above_car		= { 0x0186, "vv" };		// var_car, var_marker
 const SCRIPT_COMMAND set_marker_brightness			= { 0x0166, "vi" };		// var_marker, brightness
 const SCRIPT_COMMAND create_marker					= { 0x0167, "fffiiv" };	// x, y, z, ukn, ukn, var_marker
 const SCRIPT_COMMAND show_on_radar					= { 0x0168, "vi" };		// var_marker, size
@@ -244,5 +245,13 @@ const SCRIPT_COMMAND wasted_or_busted_scm			= { 0x0112, "" };	// x, y, z, a
 const SCRIPT_COMMAND get_player_position			= { 0x0054, "vvvv" };	// x, y, z, a
 const SCRIPT_COMMAND get_player_z_angle				= { 0x0170, "vv" };	// x, y, z, a
 const SCRIPT_COMMAND set_actor_bleeding				= { 0x0332, "vi" };	// x, y, z, a
+const SCRIPT_COMMAND force_weather					= { 0x01B5, "i" };	// weather_index
+const SCRIPT_COMMAND release_weather				= { 0x01B7, "" };	// weather_index
+const SCRIPT_COMMAND make_car_very_heavy			= { 0x01EC, "vi" };	// car, bool_is_heavy
+const SCRIPT_COMMAND set_player_ignored_by_cops		= { 0x01F7, "vi" };	// player_char, bool_ignored
+const SCRIPT_COMMAND clear_rampage_kills			= { 0x0297, "" };	// player_char, bool_ignored
+const SCRIPT_COMMAND get_rampage_kills				= { 0x0298, "i" };	// model_id
+const SCRIPT_COMMAND get_rampage_status				= { 0x01FA, "i" };	// model_id
+const SCRIPT_COMMAND init_rampage					= { 0x01F9, "siiiiiiis" };
 
 #endif

@@ -6,6 +6,9 @@
 class ViceWeather {
 public:
 	static void(__cdecl* AddRain)();
+	static void Force(WEATHER weather);
+	static void Set(WEATHER weather);
+	static void Release();
 };
 
 #endif

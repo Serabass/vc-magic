@@ -142,6 +142,7 @@
     <ClInclude Include="src\Model.h" />
     <ClInclude Include="src\Player.h" />
     <ClInclude Include="src\Police.h" />
+    <ClInclude Include="src\Rampage.h" />
     <ClInclude Include="src\Script.h" />
     <ClInclude Include="src\Settings.h" />
     <ClInclude Include="src\SpecialActor.h" />
@@ -168,6 +169,7 @@
     <ClCompile Include="src\Model.cpp" />
     <ClCompile Include="src\Player.cpp" />
     <ClCompile Include="src\Police.cpp" />
+    <ClCompile Include="src\Rampage.cpp" />
     <ClCompile Include="src\Script.cpp" />
     <ClCompile Include="src\Settings.cpp" />
     <ClCompile Include="src\SpecialActor.cpp" />

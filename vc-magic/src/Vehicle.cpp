@@ -116,6 +116,10 @@ void ViceVehicle::SetAction(VehicleAction action, WORD time) {
 	*$$<WORD>(VehicleProps::actionTime) = time;
 }
 
+void ViceVehicle::MakeVeryHeavy(bool heavy) {
+	$(&make_car_very_heavy, &m_dwVehicle, heavy);
+}
+
 ViceVehicle::TSpawnNearPlayer ViceVehicle::SpawnNearPlayer = (TSpawnNearPlayer)0x04AE8F0;
 ViceVehicle::TgetStructAddress ViceVehicle::getStructAddress = (TgetStructAddress)0x00451C70;
 

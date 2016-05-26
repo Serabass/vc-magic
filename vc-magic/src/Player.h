@@ -33,6 +33,7 @@ public:
 	void ClearWantedLevel();
 	void WantedLevel(int iLevel);
 	void Health(int iHealth);
+	void IgnoredByCops(bool ignored);
 	int Health();
 	void ZAngle(float fAngle);
 	float ZAngle();

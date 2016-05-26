@@ -117,3 +117,7 @@ VCPosition_t VicePlayer::GetPosition() {
 	$(&get_player_z_angle, &m_dwChar, &pos->a);
 	return *pos;
 }
+
+void VicePlayer::IgnoredByCops(bool ignored) {
+	$(&set_player_ignored_by_cops, &m_dwChar, ignored);
+}

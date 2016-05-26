@@ -33,6 +33,7 @@ public:
 	DWORD ViceModel();
 	void SetSpeed(float value);
 	bool IsWrecked();
+	void MakeVeryHeavy(bool heavy);
 
 	void SetAction(VehicleAction action, WORD time);
 

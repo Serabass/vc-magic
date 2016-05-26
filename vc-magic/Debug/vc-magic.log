@@ -1,7 +1,7 @@
-﻿Сборка начата 27.05.2016 2:17:08.
+﻿Сборка начата 27.05.2016 3:58:43.
      1>Проект "D:\!programming\C++\vc-magic\vc-magic\vc-magic.vcxproj" в узле 2 (целевые объекты Rebuild).
      1>ClCompile:
-         D:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _WINDLL /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\" /Fd"Debug\vc140.pdb" /Gd /TP /analyze- /errorReport:prompt src\Actor.cpp src\Cheats.cpp src\Fire.cpp src\Game.cpp src\GameScripting.cpp src\GxtHook.cpp src\Marker.cpp src\MissionHook.cpp src\MissionThreads.cpp src\Model.cpp src\Player.cpp src\Police.cpp src\Script.cpp src\Settings.cpp src\SpecialActor.cpp src\Stats.cpp src\HUD.cpp src\StructReader.cpp src\Text.cpp src\Timer.cpp "src\vc-magic.cpp" src\ScriptClasses.cpp src\Vehicle.cpp src\Weather.cpp
+         D:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _WINDLL /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\" /Fd"Debug\vc140.pdb" /Gd /TP /analyze- /errorReport:prompt src\Actor.cpp src\Cheats.cpp src\Fire.cpp src\Game.cpp src\GameScripting.cpp src\GxtHook.cpp src\Marker.cpp src\MissionHook.cpp src\MissionThreads.cpp src\Model.cpp src\Player.cpp src\Police.cpp src\Rampage.cpp src\Script.cpp src\Settings.cpp src\SpecialActor.cpp src\Stats.cpp src\HUD.cpp src\StructReader.cpp src\Text.cpp src\Timer.cpp "src\vc-magic.cpp" src\ScriptClasses.cpp src\Vehicle.cpp src\Weather.cpp
          Weather.cpp
          Vehicle.cpp
          ScriptClasses.cpp
@@ -14,6 +14,7 @@
          SpecialActor.cpp
          Settings.cpp
          Script.cpp
+         Rampage.cpp
          Police.cpp
          Player.cpp
          Model.cpp
@@ -21,9 +22,9 @@
          MissionHook.cpp
          Marker.cpp
          GxtHook.cpp
-         GameScripting.cpp
          Создание кода...
          Компиляция...
+         GameScripting.cpp
          Game.cpp
          Fire.cpp
          Cheats.cpp
@@ -42,6 +43,7 @@
          Debug\Model.obj
          Debug\Player.obj
          Debug\Police.obj
+         Debug\Rampage.obj
          Debug\Script.obj
          Debug\Settings.obj
          Debug\SpecialActor.obj
@@ -63,4 +65,4 @@
 
 Сборка успешно завершена.
 
-Затраченное время: 00:00:19.43
+Затраченное время: 00:00:14.01

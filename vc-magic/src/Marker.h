@@ -10,6 +10,7 @@ private:
 	bool m_bCreated;
 public:
 	ViceMarker();
+	ViceMarker(DWORD dwMarker);
 	~ViceMarker();
 
 	void TieToActor(DWORD* pdwActor, int iSize, int iType);
@@ -17,6 +18,9 @@ public:
 	void SphereAndIcon(float x, float y, float z, int iIcon);
 	void ShowOnRadar(int iSize);
 	void SetColor(int iColour);
+	void SetBrightness(int iBrightness);
+
+	static ViceMarker* CreateAboveCar(DWORD* dwCar);
 };
 
 #endif

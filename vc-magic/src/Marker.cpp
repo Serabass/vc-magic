@@ -8,6 +8,11 @@ ViceMarker::ViceMarker()
 	m_dwMarker = 0;
 }
 
+ViceMarker::ViceMarker(DWORD dwMarker)
+{
+	m_dwMarker = dwMarker;
+}
+
 ViceMarker::~ViceMarker()
 {
 	if (m_bCreated)
@@ -46,3 +51,19 @@ void ViceMarker::SetColor(int iColour)
 		$(&set_marker_color, &m_dwMarker, iColour);
 	}
 }
+
+void ViceMarker::SetBrightness(int iBrightness)
+{
+	if (m_bCreated)
+	{
+		$(&set_marker_color, &m_dwMarker, iBrightness);
+	}
+}
+
+
+ViceMarker* ViceMarker::CreateAboveCar(DWORD* dwCar) {
+	DWORD m_dwMarker;
+	$(&create_marker_above_car, &m_dwMarker, dwCar);
+	return new ViceMarker(m_dwMarker);
+}
+

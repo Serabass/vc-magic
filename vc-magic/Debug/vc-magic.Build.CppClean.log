@@ -1,6 +1,5 @@
 d:\!programming\c++\vc-magic\vc-magic\debug\vc140.pdb
 d:\!programming\c++\vc-magic\vc-magic\debug\vc140.idb
-d:\!programming\c++\vc-magic\vc-magic\debug\gamescripting.obj
 d:\!programming\c++\vc-magic\vc-magic\debug\gxthook.obj
 d:\!programming\c++\vc-magic\vc-magic\debug\marker.obj
 d:\!programming\c++\vc-magic\vc-magic\debug\missionhook.obj
@@ -8,6 +7,7 @@ d:\!programming\c++\vc-magic\vc-magic\debug\missionthreads.obj
 d:\!programming\c++\vc-magic\vc-magic\debug\model.obj
 d:\!programming\c++\vc-magic\vc-magic\debug\player.obj
 d:\!programming\c++\vc-magic\vc-magic\debug\police.obj
+d:\!programming\c++\vc-magic\vc-magic\debug\rampage.obj
 d:\!programming\c++\vc-magic\vc-magic\debug\script.obj
 d:\!programming\c++\vc-magic\vc-magic\debug\settings.obj
 d:\!programming\c++\vc-magic\vc-magic\debug\specialactor.obj
@@ -24,6 +24,7 @@ d:\!programming\c++\vc-magic\vc-magic\debug\actor.obj
 d:\!programming\c++\vc-magic\vc-magic\debug\cheats.obj
 d:\!programming\c++\vc-magic\vc-magic\debug\fire.obj
 d:\!programming\c++\vc-magic\vc-magic\debug\game.obj
+d:\!programming\c++\vc-magic\vc-magic\debug\gamescripting.obj
 d:\!programming\c++\vc-magic\debug\vc-magic.ilk
 d:\!programming\c++\vc-magic\debug\vc-magic.asi
 d:\!programming\c++\vc-magic\debug\vc-magic.pdb

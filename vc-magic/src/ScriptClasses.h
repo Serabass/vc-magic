@@ -27,6 +27,7 @@
 	class ViceStructReader;
 	class ViceTimer;
 	class ViceWeather;
+	class ViceRampage;
 
 // Includes
 #include "GameScripting.h"
@@ -49,6 +50,7 @@
 #include "Model.h"
 #include "Weather.h"
 #include "StructReader.h"
+#include "Rampage.h"
 
 //Class definitions
 

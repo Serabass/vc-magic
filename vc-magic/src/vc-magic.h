@@ -1,11 +1,11 @@
 /*
 	file:
-		SCMMod.h
+		vc-magic.h
 	desc:
-		This is the header file for SCMMod.cpp
+		This is the header file for vc-magic.cpp
 */
 
-#ifndef SCMMOD_H
-#define SCMMOD_H
+#ifndef VCMAGIC_H
+#define VCMAGIC_H
 
 #endif
