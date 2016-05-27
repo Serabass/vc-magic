@@ -95,6 +95,24 @@ bool ViceGame::WastedOrBusted()
 	return $(&wasted_or_busted_scm) ? true : false;
 }
 
+void ViceGame::PutHiddenPackage(VCPosition_t position) {
+	$(&put_hidden_package_at, position.x, position.y, position.z);
+}
+
+int ViceGame::GetHiddenPackagesFound() {
+	int result;
+	$(&get_hidden_packages_found, &result);
+	return result;
+}
+
+void ViceGame::IncrementProgress(int by) {
+	$(&increment_progress, by);
+}
+
+void ViceGame::SetTotalHiddenPackages(int count) {
+	$(&set_total_hidden_packages, count);
+}
+
 bool(__cdecl* ViceGame::SetTime)(char, char) = (bool(__cdecl*)(char, char))0x487160;
 bool(__cdecl* ViceGame::GlassIsBrokenAt)(float, float, float) = (bool(__cdecl*)(float, float, float))0x552EE0;
 double(__cdecl* ViceGame::GetGroundZAt)(float, float) = (double(__cdecl*)(float, float))0x4D5540;

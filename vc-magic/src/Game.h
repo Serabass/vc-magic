@@ -13,7 +13,6 @@ const SCRIPT_COMMAND get_max_wanted_level = { 0x057B, "v" };		// MaxLevel
 const SCRIPT_COMMAND set_wasted_busted_check = { 0x0111, "i" };		// Check(1/0)
 const SCRIPT_COMMAND set_current_time = { 0x00C0, "ii" };		// Hours, Minutes
 const SCRIPT_COMMAND refresh_screen = { 0x04E4, "ff" };		// x, y
-const SCRIPT_COMMAND set_camera = { 0x03CB, "fff" };	// x, y, z
 const SCRIPT_COMMAND select_interior = { 0x04BB, "i" };		// INTERIOR_*
 const SCRIPT_COMMAND play_music = { 0x0394, "i" };		// music
 const SCRIPT_COMMAND toggle_widescreen = { 0x02A3, "i" };		// widescreen(1/0)
@@ -23,6 +22,10 @@ const SCRIPT_COMMAND show_save_screen = { 0x03D8, "" };	// x, y, z, a
 const SCRIPT_COMMAND wasted_or_busted_scm = { 0x0112, "" };	// x, y, z, a
 const SCRIPT_COMMAND set_taxi_boost_jump = { 0x0572, "i" };
 const SCRIPT_COMMAND set_rubbish = { 0x03AD, "i" }; // boolean
+const SCRIPT_COMMAND put_hidden_package_at = { 0x02EC, "fff" };
+const SCRIPT_COMMAND set_total_hidden_packages = { 0x02ED, "i" };
+const SCRIPT_COMMAND get_hidden_packages_found = { 0x03E1, "v" };
+const SCRIPT_COMMAND increment_progress = { 0x030C, "i" };
 
 class ViceGame
 {
@@ -49,16 +52,9 @@ public:
 	static void ShowSaveScreen();
 	static bool WastedOrBusted();
 
-	// 02EC
 	static void PutHiddenPackage(VCPosition_t position);
-
-	// 02ED
 	static void SetTotalHiddenPackages(int count);
-
-	// 03E1
-	static void GetHiddenPackagesFound();
-
-	// 030C
+	static int GetHiddenPackagesFound();
 	static void IncrementProgress(int by);
 
 	static bool(__cdecl* SetTime)(char hour, char minute);

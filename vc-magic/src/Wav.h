@@ -2,26 +2,25 @@
 
 #ifndef WAV_H
 #define WAV_H
+
+const SCRIPT_COMMAND load_wav = { 0x03CF, "sv" };
+const SCRIPT_COMMAND wav_loaded = { 0x03D0, "v" };
+const SCRIPT_COMMAND play_wav = { 0x03D1, "v" };
+const SCRIPT_COMMAND wav_ended = { 0x03D2, "v" };
+const SCRIPT_COMMAND unload_wav = { 0x040D, "v" };
+const SCRIPT_COMMAND set_wav_position = { 0x03D7, "vfff" };
+
 	class ViceWav {
 	private:
 		DWORD m_dwWav;
 	public:
-		// 03CF
 		ViceWav(char GTXStringWavName[8]);
-
-		// 040D
 		~ViceWav();
 
-		// 03D0
 		bool IsLoaded();
-
-		// 03D2
 		bool IsEnded();
-
-		// 03D1
 		void Play();
 
-		// 03D7
 		void SetPosition(VCPosition_t position);
 	};
 
