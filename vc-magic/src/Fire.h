@@ -17,7 +17,6 @@
 		static void DestroyAll();
 	
 		bool isExtiguished();
-		void Destroy();
 	};
 
 #endif
