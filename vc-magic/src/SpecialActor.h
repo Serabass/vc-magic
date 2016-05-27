@@ -2,6 +2,7 @@
 
 #ifndef SCPECIALACTOR_H
 #define SCPECIALACTOR_H
+const SCRIPT_COMMAND load_special_actor = { 0x023C, "is" };		// SPECIAL_*, MODEL_*
 
 class ViceSpecialActor
 {

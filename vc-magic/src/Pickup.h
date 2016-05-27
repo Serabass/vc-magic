@@ -2,6 +2,11 @@
 
 #ifndef PICKUP_H
 #define PICKUP_H
+
+const SCRIPT_COMMAND pickup_is_picked_up = { 0x0214, "v" };
+const SCRIPT_COMMAND destroy_pickup = { 0x0215, "v" };
+const SCRIPT_COMMAND create_default_pickup = { 0x0213, "iifffv" };
+
 	class VicePickup {
 	private:
 		DWORD m_dwPickup;

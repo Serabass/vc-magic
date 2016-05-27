@@ -3,6 +3,39 @@
 #ifndef VEHICLE_H
 #define VEHICLE_H
 
+const SCRIPT_COMMAND create_car = { 0x00A5, "ifffv" };	// (CAR_*|BIKE_*|BOAT_*), x, y, z, var_car
+const SCRIPT_COMMAND set_car_color = { 0x0229, "vii" };	// var_car col1 col2
+const SCRIPT_COMMAND destroy_car = { 0x00A6, "v" };		// var_car
+const SCRIPT_COMMAND set_car_z_angle = { 0x0175, "vf" };		// var_car, angle
+const SCRIPT_COMMAND car_relative_coordinates = { 0x0407, "vfffvvv" };// var_car, x, y, z, var_x, var_y, var_z
+const SCRIPT_COMMAND set_car_max_speed = { 0x00AD, "vf" };		// var_car, speed
+const SCRIPT_COMMAND drive_car_to_point1 = { 0x02c2, "vfff" };	// var_car, x, y, z
+const SCRIPT_COMMAND car_ignore_traffic = { 0x00AE, "vi" };		// var_car, flag
+const SCRIPT_COMMAND set_car_immune_to_nonplayer = { 0x02aa, "vi" };		// var_car, immune(1/0)
+const SCRIPT_COMMAND set_car_door_status = { 0x020A, "vi" };		// var_car, status
+const SCRIPT_COMMAND remove_references_to_car = { 0x01C3, "v" };		// var_car
+const SCRIPT_COMMAND get_car_health = { 0x0227, "vv" };		// var_car, var_health
+const SCRIPT_COMMAND toggle_car_siren = { 0x0397, "vi" };		// var_car, siren(1/0)
+const SCRIPT_COMMAND set_car_driver_behaviour = { 0x00AF, "vi" };		// var_car, behaviour
+const SCRIPT_COMMAND is_car_near_point_3d = { 0x01AF, "vffffffi" };//	var_car, x, y, z, rx, ry, rz, b
+const SCRIPT_COMMAND is_car_stuck = { 0x03CE, "v" };	// x, y, z, a
+const SCRIPT_COMMAND get_car_model = { 0x0441, "vv" };	// x, y, z, a
+const SCRIPT_COMMAND is_car_burning = { 0x0495, "v" };	// x, y, z, a
+const SCRIPT_COMMAND is_car_tire_deflated = { 0x0496, "vi" };	// x, y, z, a
+const SCRIPT_COMMAND deflate_car_tire = { 0x04FE, "vi" };	// x, y, z, a
+const SCRIPT_COMMAND set_car_speed_instantly = { 0x04BA, "vf" };	// x, y, z, a
+const SCRIPT_COMMAND is_car_wrecked = { 0x0119, "v" };	// x, y, z, a
+const SCRIPT_COMMAND make_car_very_heavy = { 0x01EC, "vi" };	// car, bool_is_heavy
+const SCRIPT_COMMAND is_car_hit_by_weapon = { 0x031E, "vi" };
+const SCRIPT_COMMAND set_car_watertight = { 0x039C, "vi" }; // vehicle, boolean
+const SCRIPT_COMMAND car_race_to = { 0x039F, "vff" }; // vehicle, x, y
+const SCRIPT_COMMAND car_ram_car = { 0x032C, "vv" }; // car, car
+const SCRIPT_COMMAND explode_car = { 0x020B, "v" };
+const SCRIPT_COMMAND car_close_all_doors = { 0x0508, "v" };
+const SCRIPT_COMMAND car_open_trunk = { 0x050B, "v" };
+const SCRIPT_COMMAND get_car_speed = { 0x02E3, "vv" };
+const SCRIPT_COMMAND car_stopped = { 0x01C1, "v" };
+const SCRIPT_COMMAND car_flipped = { 0x020D, "v" };
 
 class ViceVehicle
 {

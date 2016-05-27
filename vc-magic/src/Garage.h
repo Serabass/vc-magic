@@ -2,6 +2,11 @@
 
 #ifndef GARAGE_H
 #define GARAGE_H
+
+const SCRIPT_COMMAND open_garage = { 0x0360, "v" };
+const SCRIPT_COMMAND close_garage = { 0x0361, "v" };
+const SCRIPT_COMMAND is_garage_closed = { 0x03B1, "v" };
+
 	class ViceGarage {
 	private:
 		DWORD m_dwGarage;	

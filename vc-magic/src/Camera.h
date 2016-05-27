@@ -2,6 +2,15 @@
 
 #ifndef CAMERA_H
 #define CAMERA_H
+
+const SCRIPT_COMMAND set_camera_behind_player = { 0x0373, "" };		// -/-
+const SCRIPT_COMMAND camera_on_vehicle = { 0x0158, "vii" };	// var_car, ukn, ukn
+const SCRIPT_COMMAND restore_camera = { 0x015A, "" };		// -/-
+const SCRIPT_COMMAND point_camera = { 0x0160, "fffi" };	// x, y, z, type
+const SCRIPT_COMMAND restore_camera_jumpcut = { 0x02EB, "" };		// -/-
+const SCRIPT_COMMAND set_camera_position = { 0x015F, "ffffff" }; // x, y, z, vx, vy, vz
+const SCRIPT_COMMAND shake_camera = { 0x0003, "i" };
+
 	class ViceCamera {
 	private:
 

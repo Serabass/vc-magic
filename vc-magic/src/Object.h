@@ -2,6 +2,11 @@
 
 #ifndef OBJECT_H
 #define OBJECT_H
+
+const SCRIPT_COMMAND create_object_at = { 0x0107, "ifffv" };
+const SCRIPT_COMMAND destroy_object = { 0x0108, "v" };
+const SCRIPT_COMMAND object_is_damaged = { 0x0366, "v" };
+
 	class ViceObject {
 	private:
 		DWORD m_dwObject;

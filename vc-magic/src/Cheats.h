@@ -4,6 +4,7 @@
 #define CHEATS_H
 
 #define MAX_USER_CHEATS 10
+const SCRIPT_COMMAND are_car_cheats_used = { 0x0445, "" };
 
 class ViceCheats {
 private:
