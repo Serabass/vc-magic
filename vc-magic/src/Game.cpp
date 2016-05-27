@@ -122,6 +122,8 @@ int* ViceGame::maxWantedLevel = (int *)0x6910DC;
 char* ViceGame::hour = (char*)0x0A10B6B;
 char* ViceGame::minute = (char*)0x0A10B92;
 
+bool* ViceGame::taxiBoostJump = (bool*)0x0A10B3A;
+
 char* ViceGame::lastTypedChar = (char*)0x0A10942;
 LPCSTR* ViceGame::lastTypedChars = (LPCSTR*)0x0A10942;
 HWND* ViceGame::mainHWND = (HWND*)0x07897A4;

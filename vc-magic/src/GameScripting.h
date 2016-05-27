@@ -263,5 +263,6 @@ const SCRIPT_COMMAND clear_weapons_from_player		= { 0x03B8, "v" };
 const SCRIPT_COMMAND are_car_cheats_used			= { 0x0445, "" };
 const SCRIPT_COMMAND set_radio_station				= { 0x041E, "ii" };
 const SCRIPT_COMMAND set_kaufman_radio				= { 0x0551, "i" };
+const SCRIPT_COMMAND set_taxi_boost_jump			= { 0x0572, "i" };
 
 #endif

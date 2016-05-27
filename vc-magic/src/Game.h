@@ -51,6 +51,9 @@ public:
 	static char* hour;
 	static char* minute;
 
+	// 0572
+	static bool* taxiBoostJump;
+
 	static char* lastTypedChar;
 	static LPCSTR* lastTypedChars;
 	static HWND* mainHWND;

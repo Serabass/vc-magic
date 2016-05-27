@@ -39,6 +39,9 @@
 		void KillPlayer(VicePlayer* player);
 		void StealAnyCar();
 
+		// 04AD
+		bool InWater();
+
 		void HoldCellPhone(bool hold = true);
 		void HoldCellPhone();
 		void ReleaseCellPhone();

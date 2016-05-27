@@ -36,6 +36,12 @@ public:
 	void MakeVeryHeavy(bool heavy);
 	bool IsHitByWeapon(WEAPON weapon);
 
+	// 020B
+	void Explode();
+
+	// 020D
+	void IsFlipped();
+
 	void SetAction(VehicleAction action, WORD time);
 
 	typedef CVehicle*(__thiscall *TgetStructAddress)(int pThis, signed int id);
@@ -52,6 +58,7 @@ public:
 	static TOpenTrunk $openTrunkFully;
 
 	void openTrunk();
+
 
 private:
 	typedef CVehicle*(__cdecl* TSpawnNearPlayer)(int modelIndex);
