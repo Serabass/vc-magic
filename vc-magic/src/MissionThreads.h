@@ -19,6 +19,12 @@ struct VCPosition_t
 	float x, y, z, a;
 };
 
+// Structures
+struct VCRGB
+{
+	int r, g, b;
+};
+
 
 // Prototypes
 void TestMission(SCRIPT_MISSION* pMission);

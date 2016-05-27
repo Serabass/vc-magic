@@ -9,6 +9,7 @@ public:
 	static bool IsFading();
 
 	static void Fade(int Time, FADE InOut);
+	static void SetFadeColor(VCRGB color);
 	static void SetMaxWantedLevel(int MaxLevel);
 	static void SetWastedBustedCheck(bool Check);
 	static void SetCurrentTime(int Hours, int Minutes);

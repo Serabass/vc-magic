@@ -42,7 +42,7 @@
 		// 015F
 		static void SetPosition(VCPosition_t position, VCPosition_t rotation);
 
-		// 015F
+		// 
 		static void Point(VCPosition_t position, int switchStyle);
 
 		static bool* GreenScanlines;

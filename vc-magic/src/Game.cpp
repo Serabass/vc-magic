@@ -12,8 +12,12 @@ bool ViceGame::IsFading()
 
 void ViceGame::Fade(int Time, FADE InOut)
 {
-	$(&set_fade_color, 0, 0, 0);
 	$(&fade, Time, InOut);
+}
+
+void ViceGame::SetFadeColor(VCRGB color)
+{
+	$(&set_fade_color, color.r, color.g, color.b);
 }
 
 void ViceGame::SetMaxWantedLevel(int MaxLevel)
