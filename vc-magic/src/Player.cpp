@@ -55,6 +55,17 @@ void VicePlayer::Freeze(bool bFrozen)
 	$(&freeze_player, &m_dwChar, bFrozen ? 0 : 1);
 }
 
+void VicePlayer::PutAt(float fX, float fY, float fZ)
+{
+	$(&put_player_at, &m_dwChar, fX, fY, fZ);
+}
+
+int VicePlayer::GetMoney() {
+	int money;
+	$(&get_player_money, &m_dwChar, &money);
+	return money;
+}
+
 void VicePlayer::ClearWantedLevel()
 {
 	$(&clear_player_wanted_level, &m_dwChar);

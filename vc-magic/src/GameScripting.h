@@ -284,5 +284,9 @@ const SCRIPT_COMMAND actor_look_at_player			= { 0x020F, "vv" };
 const SCRIPT_COMMAND actor_in_water					= { 0x04AD, "v" };
 const SCRIPT_COMMAND car_close_all_doors			= { 0x0508, "v" };
 const SCRIPT_COMMAND car_open_trunk					= { 0x050B, "v" };
+const SCRIPT_COMMAND put_player_at					= { 0x0055, "vfff" };
+const SCRIPT_COMMAND create_object_at				= { 0x0107, "ifffv" };
+const SCRIPT_COMMAND destroy_object					= { 0x0108, "v" };
+const SCRIPT_COMMAND get_player_money				= { 0x010B, "vv" };
 
 #endif

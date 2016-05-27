@@ -23,11 +23,11 @@ public:
 
 	DWORD* GetChar();
 	DWORD* GetActor();
-	ViceActor* CreateActor();
 
 	bool NearPoint(float fX, float fY, float fZ, float fRX, float fRY, float fRZ, bool bSphere);
 	bool NearPointOnFoot(float fX, float fY, float fZ, float fRX, float fRY, float fRZ, bool bSphere);
 
+	void PutAt(float fX, float fY, float fZ);
 	void SetSkin(char ViceModel[8]);
 	void Freeze(bool bFrozen);
 	void ClearWantedLevel();
@@ -41,6 +41,7 @@ public:
 	float ZAngle();
 	void GiveWeapon(SCRIPT_MISSION* m_pMission, WEAPON dwWeapon, DWORD dwAmmo);
 	void GiveMoney(int iMoney);
+	int GetMoney();
 	static CPed*(__cdecl* getStruct)();
 	bool IsPressingHorn();
 	void ClearWeapons();

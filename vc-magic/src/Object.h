@@ -6,10 +6,7 @@
 	private:
 		DWORD m_dwObject;
 	public:
-		// 0107
 		ViceObject(int objectId, VCPosition_t position);
-
-		// 0108
 		~ViceObject();
 
 		// 02F3
