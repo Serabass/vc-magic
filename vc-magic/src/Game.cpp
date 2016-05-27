@@ -45,11 +45,6 @@ void ViceGame::SetCamera(float fX, float fY, float fZ)
 	$(&set_camera, fX, fY, fZ);
 }
 
-void ViceGame::SetWeather(WEATHER ViceWeather)
-{
-	$(&set_weather, ViceWeather);
-}
-
 void ViceGame::SelectInterior(int Interior)
 {
 	$(&select_interior, Interior);
@@ -65,11 +60,6 @@ void ViceGame::SetWidescreen(bool bWidescreen)
 	$(&toggle_widescreen, bWidescreen);
 }
 
-void ViceGame::SetCameraBehindPlayer()
-{
-	$(&set_camera_behind_player);
-}
-
 void ViceGame::SetCameraOnVehicle(DWORD* pdwVehicle)
 {
 	$(&camera_on_vehicle, pdwVehicle, 15, 2);	// What are 15 + 2 for?
@@ -78,11 +68,6 @@ void ViceGame::SetCameraOnVehicle(DWORD* pdwVehicle)
 void ViceGame::PointCamera(float fX, float fY, float fZ, int iType)
 {
 	$(&point_camera, fX, fY, fZ, iType);
-}
-
-void ViceGame::RestoreCameraJumpcut()
-{
-	$(&restore_camera_jumpcut);
 }
 
 void ViceGame::SetCameraPosition(float fX1, float fY1, float fZ1, float fX2, float fY2, float fZ2)

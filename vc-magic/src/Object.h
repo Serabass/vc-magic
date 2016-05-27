@@ -33,7 +33,7 @@
 		// 01C4
 		void RemoveRefs();
 
-		// 01C4
+		// 029B
 		void Init(); // ?????
 
 		// 034D

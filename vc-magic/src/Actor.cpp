@@ -188,8 +188,7 @@
 	void ViceActor::SetBleeding() {
 		$(&set_actor_bleeding, &m_dwActor, 1);
 	}
-
-
+	
 	bool ViceActor::IsHitByWeapon(WEAPON weapon) {
 		return $(&is_actor_hit_by_weapon, &m_dwActor, weapon) ? true : false;
 	}

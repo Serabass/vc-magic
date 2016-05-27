@@ -351,7 +351,7 @@ void ScriptInit()
 	pPlayer->ZAngle(PlayerStart.a);
 	ViceGame::SetWastedSpawnPosition(PlayerStart.x, PlayerStart.y, PlayerStart.z, 360.0f-PlayerStart.a);
 	ViceGame::SetBustedSpawnPosition(PlayerStart.x, PlayerStart.y, PlayerStart.z, 360.0f-PlayerStart.a);
-	ViceGame::SetWeather(WEATHER::SUNNY);
+	ViceWeather::Set(WEATHER::SUNNY);
 	ViceGame::Fade(1000, FADE::FADEIN);
 	ViceGame::SelectInterior(INTERIOR::OUTSIDE);
 	pPlayer->Freeze(false);

@@ -15,7 +15,6 @@
 		// 032A
 		static void SetBehindMode(int mode);
 
-		// 0373
 		static void SetBehindPlayer();
 
 		// 03C8
@@ -36,8 +35,7 @@
 		// 015A
 		static void Restore();
 
-		// 02EB
-		static void RestoreWithJumpCut();
+		static void RestoreWithJumpcut();
 
 		// 015F
 		static void SetPosition(VCPosition_t position, VCPosition_t rotation);

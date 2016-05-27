@@ -1,7 +1,7 @@
-﻿Сборка начата 27.05.2016 22:57:52.
+﻿Сборка начата 28.05.2016 0:35:47.
      1>Проект "D:\!programming\C++\vc-magic\vc-magic\vc-magic.vcxproj" в узле 2 (целевые объекты Rebuild).
      1>ClCompile:
-         D:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _WINDLL /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\" /Fd"Debug\vc140.pdb" /Gd /TP /analyze- /errorReport:prompt src\Actor.cpp src\Camera.cpp src\Cheats.cpp src\Fire.cpp src\Game.cpp src\GameScripting.cpp src\Gang.cpp src\Garage.cpp src\GxtHook.cpp src\Marker.cpp src\MissionHook.cpp src\MissionThreads.cpp src\Model.cpp src\Object.cpp src\Pickup.cpp src\Player.cpp src\Police.cpp src\Radio.cpp src\Rampage.cpp src\Script.cpp src\Settings.cpp src\Sound.cpp src\SpecialActor.cpp src\Sphere.cpp src\Stats.cpp src\HUD.cpp src\StructReader.cpp src\Text.cpp src\Timer.cpp "src\vc-magic.cpp" src\ScriptClasses.cpp src\Vehicle.cpp src\Wav.cpp src\Weather.cpp src\Zone.cpp
+         D:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _WINDLL /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\" /Fd"Debug\vc140.pdb" /Gd /TP /analyze- /errorReport:prompt src\Actor.cpp src\Camera.cpp src\Cheats.cpp src\Checkpoint.cpp src\Fire.cpp src\Game.cpp src\GameScripting.cpp src\Gang.cpp src\Garage.cpp src\GxtHook.cpp src\Marker.cpp src\MissionHook.cpp src\MissionThreads.cpp src\Model.cpp src\Object.cpp src\Phone.cpp src\Pickup.cpp src\Player.cpp src\Police.cpp src\Radio.cpp src\Rampage.cpp src\Script.cpp src\Settings.cpp src\Sound.cpp src\SpecialActor.cpp src\Sphere.cpp src\Stats.cpp src\HUD.cpp src\StructReader.cpp src\Text.cpp src\Timer.cpp "src\vc-magic.cpp" src\ScriptClasses.cpp src\Vehicle.cpp src\Wav.cpp src\Weather.cpp src\Zone.cpp
          Zone.cpp
          Weather.cpp
          Wav.cpp
@@ -25,6 +25,7 @@
          Создание кода...
          Компиляция...
          Pickup.cpp
+         Phone.cpp
          Object.cpp
          Model.cpp
          MissionThreads.cpp
@@ -36,6 +37,7 @@
          GameScripting.cpp
          Game.cpp
          Fire.cpp
+         Checkpoint.cpp
          Cheats.cpp
          Camera.cpp
          Actor.cpp
@@ -44,6 +46,7 @@
          D:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\!programming\C++\vc-magic\Debug\vc-magic.asi" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /Debug /PDB:"D:\!programming\C++\vc-magic\Debug\vc-magic.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\!programming\C++\vc-magic\Debug\vc-magic.lib" /MACHINE:X86 /DLL Debug\Actor.obj
          Debug\Camera.obj
          Debug\Cheats.obj
+         Debug\Checkpoint.obj
          Debug\Fire.obj
          Debug\Game.obj
          Debug\GameScripting.obj
@@ -55,6 +58,7 @@
          Debug\MissionThreads.obj
          Debug\Model.obj
          Debug\Object.obj
+         Debug\Phone.obj
          Debug\Pickup.obj
          Debug\Player.obj
          Debug\Police.obj
@@ -85,4 +89,4 @@
 
 Сборка успешно завершена.
 
-Затраченное время: 00:00:21.21
+Затраченное время: 00:00:22.78

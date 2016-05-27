@@ -15,16 +15,13 @@ public:
 	static void SetCurrentTime(int Hours, int Minutes);
 	static void RefreshScreen(float fX, float fY);
 	static void SetCamera(float fX, float fY, float fZ);
-	static void SetWeather(WEATHER ViceWeather);
 	static void SelectInterior(int Interior);
 	static void PlayMusic(int iMusic);
 	static void SetWidescreen(bool bWidescreen);
-	static void SetCameraBehindPlayer();
 	static void SetCameraOnVehicle(DWORD* pdwVehicle);
 	
 	// TODO Learn about iType and create an enum
 	static void PointCamera(float fX, float fY, float fZ, int iType);
-	static void RestoreCameraJumpcut();
 	static void SetCameraPosition(float fX1, float fY1, float fZ1, float fX2, float fY2, float fZ2);
 	static void SetWastedSpawnPosition(float fX, float fY, float fZ, float fZAngle);
 	static void SetBustedSpawnPosition(float fX, float fY, float fZ, float fZAngle);

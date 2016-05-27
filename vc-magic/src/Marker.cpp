@@ -56,7 +56,7 @@ void ViceMarker::SetBrightness(int iBrightness)
 {
 	if (m_bCreated)
 	{
-		$(&set_marker_color, &m_dwMarker, iBrightness);
+		$(&set_marker_brightness, &m_dwMarker, iBrightness);
 	}
 }
 
@@ -64,6 +64,19 @@ void ViceMarker::SetBrightness(int iBrightness)
 ViceMarker* ViceMarker::CreateAboveCar(DWORD* dwCar) {
 	DWORD m_dwMarker;
 	$(&create_marker_above_car, &m_dwMarker, dwCar);
+	return new ViceMarker(m_dwMarker);
+}
+
+
+ViceMarker* ViceMarker::CreateAboveActor(DWORD* dwActor) {
+	DWORD m_dwMarker;
+	$(&create_marker_above_actor, &m_dwMarker, dwActor);
+	return new ViceMarker(m_dwMarker);
+}
+
+ViceMarker* ViceMarker::CreateAboveObject(DWORD* dwActor) {
+	DWORD m_dwMarker;
+	$(&create_marker_above_object, &m_dwMarker, dwActor);
 	return new ViceMarker(m_dwMarker);
 }
 

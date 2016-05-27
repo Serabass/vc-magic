@@ -94,6 +94,11 @@ bool ViceVehicle::IsBurning()
 	return $(&is_car_burning, &m_dwVehicle) ? 1 : 0;
 }
 
+bool ViceVehicle::IsTireDeflated(int index)
+{
+	return $(&is_car_tire_deflated, &m_dwVehicle, index) ? 1 : 0;
+}
+
 DWORD ViceVehicle::ViceModel()
 {
 	DWORD dwModel;

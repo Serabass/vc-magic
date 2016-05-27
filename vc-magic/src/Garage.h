@@ -17,7 +17,7 @@
 		bool HasCar(ViceVehicle* vehicle);
 
 		// 02FA
-		void SetType(int type);
+		void SetType(int type); // Enum?f
 
 		// 0329
 		void ResprayDone();

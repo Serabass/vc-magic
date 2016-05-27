@@ -45,6 +45,11 @@ void VicePlayer::SetSkin(char ViceModel[8])
 	$(&refresh_actor_skin, &m_dwActor);
 }
 
+void VicePlayer::ArmWeapon(WEAPON dwWeapon)
+{
+	$(&player_arm_weapon, &m_dwChar, dwWeapon);
+}
+
 void VicePlayer::Freeze(bool bFrozen)
 {
 	$(&freeze_player, &m_dwChar, bFrozen ? 0 : 1);
@@ -58,6 +63,11 @@ void VicePlayer::ClearWantedLevel()
 void VicePlayer::WantedLevel(int iLevel)
 {
 	$(&set_player_wanted_level, &m_dwChar, iLevel);
+}
+
+void VicePlayer::MinWantedLevel(int iLevel)
+{
+	$(&set_player_min_wanted_level, &m_dwChar, iLevel);
 }
 
 void VicePlayer::Health(int iHealth)

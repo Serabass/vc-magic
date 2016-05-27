@@ -28,7 +28,7 @@
 
 
 	void ViceFire::DestroyAll() {
-		// $()
+		$(&remove_all_fires);
 	}
 
 

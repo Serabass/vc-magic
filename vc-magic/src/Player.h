@@ -32,8 +32,10 @@ public:
 	void Freeze(bool bFrozen);
 	void ClearWantedLevel();
 	void WantedLevel(int iLevel);
+	void MinWantedLevel(int iLevel);
 	void Health(int iHealth);
 	void SetIgnoredByCops(bool ignored);
+	void ArmWeapon(WEAPON dwWeapon);
 	int Health();
 	void ZAngle(float fAngle);
 	float ZAngle();

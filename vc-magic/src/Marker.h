@@ -21,6 +21,8 @@ public:
 	void SetBrightness(int iBrightness);
 
 	static ViceMarker* CreateAboveCar(DWORD* dwCar);
+	static ViceMarker* CreateAboveActor(DWORD* dwActor);
+	static ViceMarker* CreateAboveObject(DWORD* dwObject);
 };
 
 #endif

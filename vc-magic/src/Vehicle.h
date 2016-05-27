@@ -30,6 +30,7 @@ public:
 	void SetBehaviour(int iBehaviour);
 	bool IsStuck();
 	bool IsBurning();
+	bool IsTireDeflated(int index);
 	DWORD ViceModel();
 	void SetSpeed(float value);
 	bool IsWrecked();

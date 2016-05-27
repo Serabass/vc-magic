@@ -223,8 +223,8 @@ void Mission_TheSample(SCRIPT_MISSION* pMission)
 	ViceGame::Fade(1000, FADE::FADEOUT);
 	while (ViceGame::IsFading()) SCRIPT_WAIT(0);
 	pPlayer->ZAngle(MissionStart.a);
-	ViceGame::RestoreCameraJumpcut();
-	ViceGame::SetCameraBehindPlayer();
+	ViceCamera::RestoreWithJumpcut();
+	ViceCamera::SetBehindPlayer();
 	ViceGame::SetWidescreen(false);
 	ViceGame::Fade(1000, FADE::FADEIN);
 	while (ViceGame::IsFading()) SCRIPT_WAIT(0);
@@ -233,8 +233,8 @@ void Mission_TheSample(SCRIPT_MISSION* pMission)
 	SCRIPT_WAIT(500);
 	ViceText::Now("!SENTI", 2000, 1);
 	SCRIPT_WAIT(2000);
-	ViceGame::RestoreCameraJumpcut();
-	ViceGame::SetCameraBehindPlayer();
+	ViceCamera::RestoreWithJumpcut();
+	ViceCamera::SetBehindPlayer();
 	pPlayer->Freeze(false);
 
 	// Swat van marker.

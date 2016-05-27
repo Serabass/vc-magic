@@ -131,6 +131,7 @@
     <ClInclude Include="src\Actor.h" />
     <ClInclude Include="src\Camera.h" />
     <ClInclude Include="src\Cheats.h" />
+    <ClInclude Include="src\Checkpoint.h" />
     <ClInclude Include="src\Fire.h" />
     <ClInclude Include="src\Game.h" />
     <ClInclude Include="src\GameDefines.h" />
@@ -144,6 +145,7 @@
     <ClInclude Include="src\MissionThreads.h" />
     <ClInclude Include="src\Model.h" />
     <ClInclude Include="src\Object.h" />
+    <ClInclude Include="src\Phone.h" />
     <ClInclude Include="src\Pickup.h" />
     <ClInclude Include="src\Player.h" />
     <ClInclude Include="src\Police.h" />
@@ -170,6 +172,7 @@
     <ClCompile Include="src\Actor.cpp" />
     <ClCompile Include="src\Camera.cpp" />
     <ClCompile Include="src\Cheats.cpp" />
+    <ClCompile Include="src\Checkpoint.cpp" />
     <ClCompile Include="src\Fire.cpp" />
     <ClCompile Include="src\Game.cpp" />
     <ClCompile Include="src\GameScripting.cpp" />
@@ -181,6 +184,7 @@
     <ClCompile Include="src\MissionThreads.cpp" />
     <ClCompile Include="src\Model.cpp" />
     <ClCompile Include="src\Object.cpp" />
+    <ClCompile Include="src\Phone.cpp" />
     <ClCompile Include="src\Pickup.cpp" />
     <ClCompile Include="src\Player.cpp" />
     <ClCompile Include="src\Police.cpp" />
