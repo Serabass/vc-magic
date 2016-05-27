@@ -109,6 +109,28 @@
 		$(&make_actor_leave_vehicle, &m_dwActor);
 	}
 
+	bool ViceActor::FiringWeapon()
+	{
+		return !!$(&actor_firing_weapon, &m_dwActor);
+	}
+
+	bool ViceActor::Walking()
+	{
+		return !!$(&actor_walking, &m_dwActor);
+	}
+
+	float ViceActor::GetZAngle()
+	{
+		float zAngle;
+		$(&get_actor_zangle, &m_dwActor, &zAngle);
+		return zAngle;
+	}
+
+	void ViceActor::SetZAngle(float value)
+	{
+		$(&set_actor_zangle, &m_dwActor, value);
+	}
+
 	void ViceActor::Kill()
 	{
 		$(&kill_actor, &m_dwActor);
@@ -204,7 +226,15 @@
 	void ViceActor::LookAt(VicePlayer* player) {
 		$(&actor_look_at_player, &m_dwActor, player->GetChar());
 	}
-
+	
 	bool ViceActor::InWater() {
-		return $(&actor_in_water, &m_dwActor);
+		return !!$(&actor_in_water, &m_dwActor);
+	}
+
+	void ViceActor::Avoid(VicePlayer* player) {
+		$(&actor_avoid_player, player->GetChar());
+	}
+
+	void ViceActor::Kill(VicePlayer* player) {
+		$(&actor_kill_player, player->GetChar());
 	}

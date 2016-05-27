@@ -45,8 +45,7 @@
 		// 035D
 		void MakeTargetable();
 
-		// 0366
-		void IsDamaged();
+		bool IsDamaged();
 
 		// 0381
 		void Throw(VCPosition_t distance);

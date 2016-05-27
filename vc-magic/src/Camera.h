@@ -6,8 +6,6 @@
 	private:
 
 	public:
-		ViceCamera();
-		~ViceCamera();
 
 		// 0003
 		static void Shake(int time);

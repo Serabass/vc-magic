@@ -12,3 +12,7 @@ void ViceCamera::SetBehindPlayer()
 {
 	$(&set_camera_behind_player);
 }
+
+void ViceCamera::Shake(int time) {
+	$(&shake_camera, time);
+}

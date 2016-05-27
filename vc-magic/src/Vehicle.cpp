@@ -116,9 +116,26 @@ void ViceVehicle::SetSpeed(float value)
 	$(&set_car_speed_instantly, &m_dwVehicle, value);
 }
 
-bool ViceVehicle::IsWrecked()
+float ViceVehicle::GetSpeed()
 {
-	return $(&is_car_wrecked, &m_dwVehicle) ? true : false;
+	float speed;
+	$(&set_car_speed_instantly, &m_dwVehicle, &speed);
+	return speed;
+}
+
+bool ViceVehicle::Wrecked()
+{
+	return !!$(&is_car_wrecked, &m_dwVehicle);
+}
+
+bool ViceVehicle::Stopped()
+{
+	return !!$(&car_stopped, &m_dwVehicle);
+}
+
+bool ViceVehicle::Flipped()
+{
+	return !!$(&car_flipped, &m_dwVehicle);
 }
 
 void ViceVehicle::SetAction(VehicleAction action, WORD time) {

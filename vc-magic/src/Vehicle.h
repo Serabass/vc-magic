@@ -36,15 +36,13 @@ public:
 	void SetSpeed(float value);
 	void CloseAllDoors();
 	void OpenTrunk();
-	bool IsWrecked();
+	bool Wrecked();
 	void MakeVeryHeavy(bool heavy);
 	bool IsHitByWeapon(WEAPON weapon);
-
-	// 020B
+	float GetSpeed();
 	void Explode();
-
-	// 020D
-	void IsFlipped();
+	bool Stopped();
+	bool Flipped();
 
 	void SetWatertight(bool watertight);
 

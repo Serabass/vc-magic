@@ -22,10 +22,8 @@
 		// 0329
 		void ResprayDone();
 
-		// 0360
 		void Open();
 
-		// 0361
 		void Close();
 
 		// 03B1

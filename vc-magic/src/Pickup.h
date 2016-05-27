@@ -7,8 +7,6 @@
 		DWORD m_dwPickup;
 	public:
 		VicePickup(DWORD m_dwPickup);
-
-		// 0215
 		~VicePickup();
 
 		// 0213
@@ -23,7 +21,6 @@
 		// 055B
 		static VicePickup* CreateClothes(MODEL skin, VCPosition_t position);
 
-		// 0214
 		bool IsPickedUp();
 
 

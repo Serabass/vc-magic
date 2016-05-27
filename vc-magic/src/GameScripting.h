@@ -288,5 +288,22 @@ const SCRIPT_COMMAND put_player_at					= { 0x0055, "vfff" };
 const SCRIPT_COMMAND create_object_at				= { 0x0107, "ifffv" };
 const SCRIPT_COMMAND destroy_object					= { 0x0108, "v" };
 const SCRIPT_COMMAND get_player_money				= { 0x010B, "vv" };
+const SCRIPT_COMMAND shake_camera					= { 0x0003, "i" };
+const SCRIPT_COMMAND object_is_damaged				= { 0x0366, "v" };
+const SCRIPT_COMMAND open_garage					= { 0x0360, "v" };
+const SCRIPT_COMMAND close_garage					= { 0x0361, "v" };
+const SCRIPT_COMMAND is_garage_closed				= { 0x03B1, "v" };
+const SCRIPT_COMMAND pickup_is_picked_up			= { 0x0214, "v" };
+const SCRIPT_COMMAND get_car_speed					= { 0x02E3, "vv" };
+const SCRIPT_COMMAND actor_firing_weapon			= { 0x02E0, "v" };
+const SCRIPT_COMMAND actor_walking					= { 0x0126, "v" };
+const SCRIPT_COMMAND get_actor_zangle				= { 0x0172, "vv" };
+const SCRIPT_COMMAND set_actor_zangle				= { 0x0173, "vf" };
+const SCRIPT_COMMAND car_stopped					= { 0x01C1, "v" };
+const SCRIPT_COMMAND car_flipped					= { 0x020D, "v" };
+const SCRIPT_COMMAND destroy_pickup					= { 0x0215, "v" };
+const SCRIPT_COMMAND create_default_pickup			= { 0x0213, "iifffv" };
+const SCRIPT_COMMAND actor_avoid_player				= { 0x01D0, "vv" };
+const SCRIPT_COMMAND actor_kill_player				= { 0x01CC, "vv" };
 
 #endif

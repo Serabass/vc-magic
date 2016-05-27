@@ -40,6 +40,10 @@
 		void KillPlayer(DWORD* pdwPlayer);
 		void KillPlayer(VicePlayer* player);
 		void StealAnyCar();
+		bool FiringWeapon();
+		bool Walking();
+		float GetZAngle();
+		void SetZAngle(float value);
 
 		bool InWater();
 
@@ -52,6 +56,10 @@
 		bool UsingPhone;
 
 		CPed* getStruct();
+
+
+		void Avoid(VicePlayer* player);
+		void Kill(VicePlayer* player);
 
 		// Not works yet
 		void Follow(ViceActor * actor);
