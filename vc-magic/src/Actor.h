@@ -31,15 +31,16 @@
 		void ResetFlags();
 		void SetPedStats(DWORD dwPedStats);
 		void SetWander(bool bWander);
-		void TieToPlayer(DWORD* pdwPlayer);
+		void TieToPlayer(DWORD* pdwPlayer); // TODO: Replace DWORD to VicePlayer
 		void LeaveVehicle();
+		void LookAt(ViceActor* actor);
+		void LookAt(VicePlayer* player);
 		void Kill();
 		void KillActor(DWORD* pdwActor);
 		void KillPlayer(DWORD* pdwPlayer);
 		void KillPlayer(VicePlayer* player);
 		void StealAnyCar();
 
-		// 04AD
 		bool InWater();
 
 		void SetMoney(int amount);

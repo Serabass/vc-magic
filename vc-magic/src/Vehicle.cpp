@@ -94,6 +94,11 @@ bool ViceVehicle::IsBurning()
 	return $(&is_car_burning, &m_dwVehicle) ? 1 : 0;
 }
 
+void ViceVehicle::SetTireDeflated(int index, bool deflated)
+{
+	$(&is_car_tire_deflated, &m_dwVehicle, index, deflated);
+}
+
 bool ViceVehicle::IsTireDeflated(int index)
 {
 	return $(&is_car_tire_deflated, &m_dwVehicle, index) ? 1 : 0;
@@ -157,4 +162,17 @@ void ViceVehicle::RaceTo(float X, float Y) {
 
 void ViceVehicle::Ram(ViceVehicle *vehicle) {
 	$(&car_ram_car, &m_dwVehicle, vehicle->GetVehicle());
+}
+
+void ViceVehicle::Explode() {
+	$(&explode_car, &m_dwVehicle);
+}
+
+void ViceVehicle::CloseAllDoors() {
+	$(&car_close_all_doors, &m_dwVehicle);
+}
+
+
+void ViceVehicle::OpenTrunk() {
+	$(&car_open_trunk, &m_dwVehicle);
 }

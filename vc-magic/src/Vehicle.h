@@ -31,8 +31,11 @@ public:
 	bool IsStuck();
 	bool IsBurning();
 	bool IsTireDeflated(int index);
+	void SetTireDeflated(int index, bool deflated);
 	DWORD ViceModel();
 	void SetSpeed(float value);
+	void CloseAllDoors();
+	void OpenTrunk();
 	bool IsWrecked();
 	void MakeVeryHeavy(bool heavy);
 	bool IsHitByWeapon(WEAPON weapon);

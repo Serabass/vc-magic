@@ -196,3 +196,15 @@
 	void ViceActor::SetMoney(int amount) {
 		$(&set_actor_money, &m_dwActor, amount);
 	}
+
+	void ViceActor::LookAt(ViceActor* actor) {
+		$(&actor_look_at_actor, &m_dwActor, actor->GetActor());
+	}
+
+	void ViceActor::LookAt(VicePlayer* player) {
+		$(&actor_look_at_player, &m_dwActor, player->GetChar());
+	}
+
+	bool ViceActor::InWater() {
+		return $(&actor_in_water, &m_dwActor);
+	}

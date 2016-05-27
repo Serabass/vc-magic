@@ -7,13 +7,13 @@
 		DWORD m_dwSound;
 	public:
 		// 018D
-		ViceSound(int audioEventId, float x, float y, float z);
+		ViceSound(int audioEventId, VCPosition_t position);
 
 		// 018E
 		~ViceSound();
 
 		// 018C
-		static void Play(int audioEventId, float x, float y, float z);
+		void Play(VCPosition_t position);
 	};
 
 #endif

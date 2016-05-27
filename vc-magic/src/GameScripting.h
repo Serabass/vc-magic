@@ -243,6 +243,7 @@ const SCRIPT_COMMAND is_car_stuck					= { 0x03CE, "v" };	// x, y, z, a
 const SCRIPT_COMMAND get_car_model					= { 0x0441, "vv" };	// x, y, z, a
 const SCRIPT_COMMAND is_car_burning					= { 0x0495, "v" };	// x, y, z, a
 const SCRIPT_COMMAND is_car_tire_deflated			= { 0x0496, "vi" };	// x, y, z, a
+const SCRIPT_COMMAND deflate_car_tire				= { 0x04FE, "vi" };	// x, y, z, a
 const SCRIPT_COMMAND set_car_speed_instantly		= { 0x04BA, "vf" };	// x, y, z, a
 const SCRIPT_COMMAND is_player_pressing_horn		= { 0x0122, "v" };	// x, y, z, a
 const SCRIPT_COMMAND is_car_wrecked					= { 0x0119, "v" };	// x, y, z, a
@@ -274,4 +275,14 @@ const SCRIPT_COMMAND car_race_to					= { 0x039F, "vff" }; // vehicle, x, y
 const SCRIPT_COMMAND set_rubbish					= { 0x03AD, "i" }; // boolean
 const SCRIPT_COMMAND set_actor_money				= { 0x03FE, "vi" }; // boolean
 const SCRIPT_COMMAND car_ram_car					= { 0x032C, "vv" }; // car, car
+const SCRIPT_COMMAND create_sound_at				= { 0x018D, "fffiv" };
+const SCRIPT_COMMAND stop_sound					    = { 0x018E, "v" };
+const SCRIPT_COMMAND play_sound_at					= { 0x018C, "ifff" };
+const SCRIPT_COMMAND explode_car					= { 0x020B, "v" };
+const SCRIPT_COMMAND actor_look_at_actor			= { 0x020E, "vv" };
+const SCRIPT_COMMAND actor_look_at_player			= { 0x020F, "vv" };
+const SCRIPT_COMMAND actor_in_water					= { 0x04AD, "v" };
+const SCRIPT_COMMAND car_close_all_doors			= { 0x0508, "v" };
+const SCRIPT_COMMAND car_open_trunk					= { 0x050B, "v" };
+
 #endif
