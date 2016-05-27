@@ -31,7 +31,6 @@ const SCRIPT_COMMAND is_garage_closed = { 0x03B1, "v" };
 
 		void Close();
 
-		// 03B1
 		bool IsDoorClosed();
 
 		// 03BB

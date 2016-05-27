@@ -8,6 +8,11 @@ ViceMarker::ViceMarker()
 	m_dwMarker = 0;
 }
 
+ViceMarker::ViceMarker(VCPosition_t position, int color, int flag)
+{
+	$(&create_marker, position.x, position.y, position.z, color, flag, &m_dwMarker);
+}
+
 ViceMarker::ViceMarker(DWORD dwMarker)
 {
 	m_dwMarker = dwMarker;

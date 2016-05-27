@@ -5,8 +5,6 @@
 const SCRIPT_COMMAND text_styled = { 0x00BA, "sii" };	// TEXT, time, style
 const SCRIPT_COMMAND text_now = { 0x00BC, "sii" };	// TEXT, time, style
 const SCRIPT_COMMAND text_1number_styled = { 0x01E3, "siii" };	// TEXT, number, time, style
-const SCRIPT_COMMAND text_lowpriority = { 0x00BB, "sii" };	// x, y, z, a
-const SCRIPT_COMMAND text_highpriority = { 0x00BC, "sii" };	// x, y, z, a
 const SCRIPT_COMMAND text_clear_all = { 0x00BE, "" };	// x, y, z, a
 
 class ViceText {

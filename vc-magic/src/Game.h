@@ -21,7 +21,6 @@ const SCRIPT_COMMAND restart_if_busted_at = { 0x016D, "ffff" };	// x, y, z, a
 const SCRIPT_COMMAND show_save_screen = { 0x03D8, "" };	// x, y, z, a
 const SCRIPT_COMMAND wasted_or_busted_scm = { 0x0112, "" };	// x, y, z, a
 const SCRIPT_COMMAND set_taxi_boost_jump = { 0x0572, "i" };
-const SCRIPT_COMMAND set_rubbish = { 0x03AD, "i" }; // boolean
 const SCRIPT_COMMAND put_hidden_package_at = { 0x02EC, "fff" };
 const SCRIPT_COMMAND set_total_hidden_packages = { 0x02ED, "i" };
 const SCRIPT_COMMAND get_hidden_packages_found = { 0x03E1, "v" };

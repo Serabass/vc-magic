@@ -118,7 +118,13 @@ void VicePlayer::HoldCellPhone() {
 }
 
 void VicePlayer::ToggleCellPhone() {
-	HoldCellPhone( ! UsingPhone);
+	HoldCellPhone(!UsingPhone);
+}
+
+int VicePlayer::Health() {
+	int result;
+	$(&get_player_health, &result);
+	return result;
 }
 
 CPed*(__cdecl* VicePlayer::getStruct)() = (CPed*(__cdecl*)())0x4BC120;

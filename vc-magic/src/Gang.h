@@ -8,7 +8,7 @@
 	public:
 		ViceGang(int id);
 
-		static ViceGang Get(int id);
+		static ViceGang* Get(int id);
 
 		// 0235
 		void SetModels(MODEL model1, MODEL model2);
