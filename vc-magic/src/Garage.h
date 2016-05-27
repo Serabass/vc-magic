@@ -20,7 +20,7 @@
 		void SetType(int type);
 
 		// 0329
-		void IsResprayDone(int type);
+		void ResprayDone();
 
 		// 0360
 		void Open();

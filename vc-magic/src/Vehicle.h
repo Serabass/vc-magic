@@ -62,6 +62,7 @@ public:
 	static TOpenTrunk $openTrunkFully;
 
 	void openTrunk();
+	void Ram(ViceVehicle *vehicle);
 
 
 private:

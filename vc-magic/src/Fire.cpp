@@ -26,6 +26,7 @@
 		return new ViceFire(m_dwNewFire);
 	}
 
+
 	void ViceFire::DestroyAll() {
 		// $()
 	}

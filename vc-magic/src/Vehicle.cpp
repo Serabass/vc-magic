@@ -149,3 +149,7 @@ void ViceVehicle::SetWatertight(bool watertight) {
 void ViceVehicle::RaceTo(float X, float Y) {
 	$(&car_race_to, &m_dwVehicle, X, Y);
 }
+
+void ViceVehicle::Ram(ViceVehicle *vehicle) {
+	$(&car_ram_car, &m_dwVehicle, vehicle->GetVehicle());
+}

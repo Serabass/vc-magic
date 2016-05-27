@@ -1,6 +1,5 @@
 d:\!programming\c++\vc-magic\vc-magic\debug\vc140.pdb
 d:\!programming\c++\vc-magic\vc-magic\debug\vc140.idb
-d:\!programming\c++\vc-magic\vc-magic\debug\pickup.obj
 d:\!programming\c++\vc-magic\vc-magic\debug\player.obj
 d:\!programming\c++\vc-magic\vc-magic\debug\police.obj
 d:\!programming\c++\vc-magic\vc-magic\debug\radio.obj
@@ -18,6 +17,7 @@ d:\!programming\c++\vc-magic\vc-magic\debug\timer.obj
 d:\!programming\c++\vc-magic\vc-magic\debug\vc-magic.obj
 d:\!programming\c++\vc-magic\vc-magic\debug\scriptclasses.obj
 d:\!programming\c++\vc-magic\vc-magic\debug\vehicle.obj
+d:\!programming\c++\vc-magic\vc-magic\debug\wav.obj
 d:\!programming\c++\vc-magic\vc-magic\debug\weather.obj
 d:\!programming\c++\vc-magic\vc-magic\debug\zone.obj
 d:\!programming\c++\vc-magic\vc-magic\debug\actor.obj
@@ -34,6 +34,7 @@ d:\!programming\c++\vc-magic\vc-magic\debug\missionhook.obj
 d:\!programming\c++\vc-magic\vc-magic\debug\missionthreads.obj
 d:\!programming\c++\vc-magic\vc-magic\debug\model.obj
 d:\!programming\c++\vc-magic\vc-magic\debug\object.obj
+d:\!programming\c++\vc-magic\vc-magic\debug\pickup.obj
 d:\!programming\c++\vc-magic\debug\vc-magic.ilk
 d:\!programming\c++\vc-magic\debug\vc-magic.asi
 d:\!programming\c++\vc-magic\debug\vc-magic.pdb

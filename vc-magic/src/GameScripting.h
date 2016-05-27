@@ -268,5 +268,5 @@ const SCRIPT_COMMAND set_car_watertight				= { 0x039C, "vi" }; // vehicle, boole
 const SCRIPT_COMMAND car_race_to					= { 0x039F, "vff" }; // vehicle, x, y
 const SCRIPT_COMMAND set_rubbish					= { 0x03AD, "i" }; // boolean
 const SCRIPT_COMMAND set_actor_money				= { 0x03FE, "vi" }; // boolean
-
+const SCRIPT_COMMAND car_ram_car					= { 0x032C, "vv" }; // car, car
 #endif
