@@ -134,6 +134,7 @@ Money* ViceGame::money = (Money*)0x94ADC8;
 float* ViceGame::gravity = (float*)0x68F5F0;
 char* ViceGame::carFriction = (char*)0x69A61A;
 bool* ViceGame::freeRespray = (bool*)0xA10AB5;
+bool* ViceGame::rubbishVisible = (bool*)0xA10B54;
 
 float* ViceGame::pedDensity = (float*)0x694DC0;
 float* ViceGame::carDensity = (float*)0x686FC8;

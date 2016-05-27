@@ -18,6 +18,6 @@ void ViceTimer::Pause() {
 	$(&pause_timer, &m_dwTimer);
 }
 
-TextTimer::TextTimer(DIRECTION dir, char* text) : ViceTimer() {
+ViceTextTimer::ViceTextTimer(DIRECTION dir, char* text) : ViceTimer() {
 	$(&set_timer_with_text, &m_dwTimer, dir, text);
 }

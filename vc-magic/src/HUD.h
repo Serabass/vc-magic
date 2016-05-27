@@ -8,6 +8,8 @@ class ViceHUD {
 public:
 	static stHUD* hudData;
 	static LPSTR moneyFormat;
+
+
 };
 
 

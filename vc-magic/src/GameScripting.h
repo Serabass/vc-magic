@@ -264,5 +264,9 @@ const SCRIPT_COMMAND are_car_cheats_used			= { 0x0445, "" };
 const SCRIPT_COMMAND set_radio_station				= { 0x041E, "ii" };
 const SCRIPT_COMMAND set_kaufman_radio				= { 0x0551, "i" };
 const SCRIPT_COMMAND set_taxi_boost_jump			= { 0x0572, "i" };
+const SCRIPT_COMMAND set_car_watertight				= { 0x039C, "vi" }; // vehicle, boolean
+const SCRIPT_COMMAND car_race_to					= { 0x039F, "vff" }; // vehicle, x, y
+const SCRIPT_COMMAND set_rubbish					= { 0x03AD, "i" }; // boolean
+const SCRIPT_COMMAND set_actor_money				= { 0x03FE, "vi" }; // boolean
 
 #endif

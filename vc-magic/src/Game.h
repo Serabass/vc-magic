@@ -37,6 +37,9 @@ public:
 	// 02ED
 	static void SetTotalHiddenPackages(int count);
 
+	// 03E1
+	static void GetHiddenPackagesFound();
+
 	// 030C
 	static void IncrementProgress(int by);
 
@@ -65,6 +68,7 @@ public:
 	static float* gravity;
 	static char* carFriction;
 	static bool* freeRespray;
+	static bool* rubbishVisible;
 
 	static float* pedDensity;
 	static float* carDensity;

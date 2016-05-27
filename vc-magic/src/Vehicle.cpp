@@ -141,3 +141,11 @@ void ViceVehicle::openTrunk() {
 bool ViceVehicle::IsHitByWeapon(WEAPON weapon) {
 	return $(&is_car_hit_by_weapon, &m_dwVehicle, weapon) ? true : false;
 }
+
+void ViceVehicle::SetWatertight(bool watertight) {
+	$(&set_car_watertight, &m_dwVehicle, watertight);
+}
+
+void ViceVehicle::RaceTo(float X, float Y) {
+	$(&car_race_to, &m_dwVehicle, X, Y);
+}

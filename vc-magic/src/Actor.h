@@ -42,6 +42,8 @@
 		// 04AD
 		bool InWater();
 
+		void SetMoney(int amount);
+
 		void HoldCellPhone(bool hold = true);
 		void HoldCellPhone();
 		void ReleaseCellPhone();

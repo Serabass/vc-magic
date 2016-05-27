@@ -15,5 +15,8 @@ class ViceRampage {
 	static int GetStatus();
 	static void ClearKills();
 	static int GetKills(MODEL model);
+
+	// 0408
+	static int SetTotal(int count);
 };
 #endif

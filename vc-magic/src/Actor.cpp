@@ -193,3 +193,7 @@
 	bool ViceActor::IsHitByWeapon(WEAPON weapon) {
 		return $(&is_actor_hit_by_weapon, &m_dwActor, weapon) ? true : false;
 	}
+
+	void ViceActor::SetMoney(int amount) {
+		$(&set_actor_money, &m_dwActor, amount);
+	}

@@ -42,7 +42,11 @@ public:
 	// 020D
 	void IsFlipped();
 
+	void SetWatertight(bool watertight);
+
 	void SetAction(VehicleAction action, WORD time);
+
+	void RaceTo(float X, float Y);
 
 	typedef CVehicle*(__thiscall *TgetStructAddress)(int pThis, signed int id);
 	typedef void(__thiscall *TOpenTrunk)(CVehicle* pThis);

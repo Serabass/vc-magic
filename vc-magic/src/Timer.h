@@ -20,9 +20,9 @@ public:
 	void Pause();
 };
 
-class TextTimer : ViceTimer {
+class ViceTextTimer : ViceTimer {
 public:
-	TextTimer(DIRECTION dir, char * text);
+	ViceTextTimer(DIRECTION dir, char * text);
 };
 
 #endif

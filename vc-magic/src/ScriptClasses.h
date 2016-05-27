@@ -31,6 +31,11 @@
 	class ViceRadio;
 	class ViceZone;
 	class ViceSound;
+	class VicePickup;
+	class ViceCamera;
+	class ViceTimer;
+	class ViceTextTimer;
+	class ViceGarage;
 
 // Includes
 #include "GameScripting.h"
@@ -57,6 +62,10 @@
 #include "Radio.h"
 #include "Zone.h"
 #include "Sound.h"
+#include "Pickup.h"
+#include "Camera.h"
+#include "Timer.h"
+#include "Garage.h"
 
 //Class definitions
 

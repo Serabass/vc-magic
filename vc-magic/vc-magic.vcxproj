@@ -162,6 +162,7 @@
     <ClInclude Include="src\vc-magic.h" />
     <ClInclude Include="src\ScriptClasses.h" />
     <ClInclude Include="src\Vehicle.h" />
+    <ClInclude Include="src\Wav.h" />
     <ClInclude Include="src\Weather.h" />
     <ClInclude Include="src\Zone.h" />
   </ItemGroup>
@@ -198,6 +199,7 @@
     <ClCompile Include="src\vc-magic.cpp" />
     <ClCompile Include="src\ScriptClasses.cpp" />
     <ClCompile Include="src\Vehicle.cpp" />
+    <ClCompile Include="src\Wav.cpp" />
     <ClCompile Include="src\Weather.cpp" />
     <ClCompile Include="src\Zone.cpp" />
   </ItemGroup>
