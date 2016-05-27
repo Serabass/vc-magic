@@ -36,6 +36,10 @@
 	class ViceTimer;
 	class ViceTextTimer;
 	class ViceGarage;
+	class ViceWav;
+	class ViceCheckpoint;
+	class VicePhone;
+	class ViceSphere;
 
 // Includes
 #include "GameScripting.h"
@@ -66,6 +70,10 @@
 #include "Camera.h"
 #include "Timer.h"
 #include "Garage.h"
+#include "Wav.h"
+#include "Checkpoint.h"
+#include "Phone.h"
+#include "Sphere.h"
 
 //Class definitions
 
