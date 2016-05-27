@@ -71,7 +71,8 @@ enum VehicleProps : int {
 	breakPedal = 0x1F4,
 	health = 0x204,
 	lockStatus = 0x230,
-	radioStation = 0x23C,
+	
+	Station = 0x23C,
 	horn = 0x240,
 	siren = 0x245,
 	type = 0x29C,

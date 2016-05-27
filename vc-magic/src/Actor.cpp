@@ -109,6 +109,11 @@
 		$(&make_actor_leave_vehicle, &m_dwActor);
 	}
 
+	void ViceActor::Kill()
+	{
+		$(&kill_actor, &m_dwActor);
+	}
+
 	void ViceActor::KillActor(DWORD* pdwActor)
 	{
 		$(&set_actor_to_kill_actor, &m_dwActor, pdwActor);
@@ -182,4 +187,9 @@
 
 	void ViceActor::SetBleeding() {
 		$(&set_actor_bleeding, &m_dwActor, 1);
+	}
+
+
+	bool ViceActor::IsHitByWeapon(WEAPON weapon) {
+		return $(&is_actor_hit_by_weapon, &m_dwActor, weapon) ? true : false;
 	}

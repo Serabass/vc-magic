@@ -28,6 +28,9 @@
 	class ViceTimer;
 	class ViceWeather;
 	class ViceRampage;
+	class ViceRadio;
+	class ViceZone;
+	class ViceSound;
 
 // Includes
 #include "GameScripting.h"
@@ -51,6 +54,9 @@
 #include "Weather.h"
 #include "StructReader.h"
 #include "Rampage.h"
+#include "Radio.h"
+#include "Zone.h"
+#include "Sound.h"
 
 //Class definitions
 

@@ -142,10 +142,13 @@
     <ClInclude Include="src\Model.h" />
     <ClInclude Include="src\Player.h" />
     <ClInclude Include="src\Police.h" />
+    <ClInclude Include="src\Radio.h" />
     <ClInclude Include="src\Rampage.h" />
     <ClInclude Include="src\Script.h" />
     <ClInclude Include="src\Settings.h" />
+    <ClInclude Include="src\Sound.h" />
     <ClInclude Include="src\SpecialActor.h" />
+    <ClInclude Include="src\Sphere.h" />
     <ClInclude Include="src\Stats.h" />
     <ClInclude Include="src\HUD.h" />
     <ClInclude Include="src\StructReader.h" />
@@ -155,6 +158,7 @@
     <ClInclude Include="src\ScriptClasses.h" />
     <ClInclude Include="src\Vehicle.h" />
     <ClInclude Include="src\Weather.h" />
+    <ClInclude Include="src\Zone.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Actor.cpp" />
@@ -169,10 +173,13 @@
     <ClCompile Include="src\Model.cpp" />
     <ClCompile Include="src\Player.cpp" />
     <ClCompile Include="src\Police.cpp" />
+    <ClCompile Include="src\Radio.cpp" />
     <ClCompile Include="src\Rampage.cpp" />
     <ClCompile Include="src\Script.cpp" />
     <ClCompile Include="src\Settings.cpp" />
+    <ClCompile Include="src\Sound.cpp" />
     <ClCompile Include="src\SpecialActor.cpp" />
+    <ClCompile Include="src\Sphere.cpp" />
     <ClCompile Include="src\Stats.cpp" />
     <ClCompile Include="src\HUD.cpp" />
     <ClCompile Include="src\StructReader.cpp" />
@@ -182,6 +189,7 @@
     <ClCompile Include="src\ScriptClasses.cpp" />
     <ClCompile Include="src\Vehicle.cpp" />
     <ClCompile Include="src\Weather.cpp" />
+    <ClCompile Include="src\Zone.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

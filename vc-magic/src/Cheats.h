@@ -21,6 +21,7 @@ public:
 	static bool RegisterUserCheat(char *string, void(__cdecl* callback)());
 
 	static void WatchCheats();
+	static bool AreCarCheatsActivated();
 };
 
 

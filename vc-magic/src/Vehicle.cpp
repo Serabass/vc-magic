@@ -137,3 +137,7 @@ ViceVehicle::TOpenTrunk ViceVehicle::$openTrunkFully = (TOpenTrunk)0x00585E60;
 void ViceVehicle::openTrunk() {
 	$openTrunk(getStruct());
 }
+
+bool ViceVehicle::IsHitByWeapon(WEAPON weapon) {
+	return $(&is_car_hit_by_weapon, &m_dwVehicle, weapon) ? true : false;
+}

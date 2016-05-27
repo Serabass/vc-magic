@@ -34,6 +34,7 @@ public:
 	void SetSpeed(float value);
 	bool IsWrecked();
 	void MakeVeryHeavy(bool heavy);
+	bool IsHitByWeapon(WEAPON weapon);
 
 	void SetAction(VehicleAction action, WORD time);
 

@@ -33,7 +33,7 @@ public:
 	void ClearWantedLevel();
 	void WantedLevel(int iLevel);
 	void Health(int iHealth);
-	void IgnoredByCops(bool ignored);
+	void SetIgnoredByCops(bool ignored);
 	int Health();
 	void ZAngle(float fAngle);
 	float ZAngle();
@@ -41,12 +41,14 @@ public:
 	void GiveMoney(int iMoney);
 	static CPed*(__cdecl* getStruct)();
 	bool IsPressingHorn();
+	void ClearWeapons();
 
 	void HoldCellPhone(bool hold = true);
 	void HoldCellPhone();
 	void ToggleCellPhone();
 	bool UsingPhone;
 
+	void Kill();
 	// CPed* getStruct();
 
 	VCPosition_t GetPosition();

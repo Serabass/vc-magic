@@ -30,6 +30,15 @@ public:
 	static void ShowSaveScreen();
 	static bool WastedOrBusted();
 
+	// 02EC
+	static void PutHiddenPackage(VCPosition_t position);
+
+	// 02ED
+	static void SetTotalHiddenPackages(int count);
+
+	// 030C
+	static void IncrementProgress(int by);
+
 	static bool(__cdecl* SetTime)(char hour, char minute);
 	static bool(__cdecl* GlassIsBrokenAt)(float x, float y, float z);
 	static double(__cdecl* GetGroundZAt)(float x, float y);
@@ -57,7 +66,6 @@ public:
 	static float* carDensity;
 	static float* trafficAccidents;
 	static int* speed;
-	static bool* cameraGreenScanlines;
 	static bool* policeHeliState;
 
 	static void(__cdecl* printString)(float x, float y, int a);

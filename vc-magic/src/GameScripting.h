@@ -253,5 +253,15 @@ const SCRIPT_COMMAND clear_rampage_kills			= { 0x0297, "" };	// player_char, boo
 const SCRIPT_COMMAND get_rampage_kills				= { 0x0298, "i" };	// model_id
 const SCRIPT_COMMAND get_rampage_status				= { 0x01FA, "i" };	// model_id
 const SCRIPT_COMMAND init_rampage					= { 0x01F9, "siiiiiiis" };
+const SCRIPT_COMMAND is_car_hit_by_weapon			= { 0x031E, "vi" };
+const SCRIPT_COMMAND is_actor_hit_by_weapon			= { 0x031D, "vi" };
+const SCRIPT_COMMAND kill_actor						= { 0x0321, "v" };
+const SCRIPT_COMMAND kill_player					= { 0x0322, "v" };
+const SCRIPT_COMMAND create_sphere					= { 0x03BC, "ffffi" };
+const SCRIPT_COMMAND destroy_sphere					= { 0x03BD, "v" };
+const SCRIPT_COMMAND clear_weapons_from_player		= { 0x03B8, "v" };
+const SCRIPT_COMMAND are_car_cheats_used			= { 0x0445, "" };
+const SCRIPT_COMMAND set_radio_station				= { 0x041E, "ii" };
+const SCRIPT_COMMAND set_kaufman_radio				= { 0x0551, "i" };
 
 #endif

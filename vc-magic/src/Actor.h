@@ -33,6 +33,7 @@
 		void SetWander(bool bWander);
 		void TieToPlayer(DWORD* pdwPlayer);
 		void LeaveVehicle();
+		void Kill();
 		void KillActor(DWORD* pdwActor);
 		void KillPlayer(DWORD* pdwPlayer);
 		void KillPlayer(VicePlayer* player);
@@ -54,6 +55,8 @@
 
 		void SetBleeding(bool bleeding);
 		void SetBleeding();
+
+		bool IsHitByWeapon(WEAPON weapon);
 
 		template <typename T>
 		T* $$(int off);
