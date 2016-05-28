@@ -203,3 +203,7 @@ ViceActor* ViceVehicle::GetDriver() {
 void ViceVehicle::SetSprayable(bool value) {
 	$(&set_car_sprayable, &m_dwVehicle, value);
 }
+
+bool ViceVehicle::Sunk() {
+	return !!$(&is_car_sunk, &m_dwVehicle);
+}

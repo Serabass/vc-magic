@@ -49,6 +49,7 @@ const SCRIPT_COMMAND is_actor_photographed = { 0x04C5, "v" };
 const SCRIPT_COMMAND get_actor_health = { 0x0226, "vv" };
 const SCRIPT_COMMAND set_actor_health = { 0x0223, "vf" };
 const SCRIPT_COMMAND actor_run_to = { 0x0239, "vff" };
+const SCRIPT_COMMAND actor_on_foot = { 0x044B, "v" };
 
 	class ViceActor
 	{
@@ -112,6 +113,8 @@ const SCRIPT_COMMAND actor_run_to = { 0x0239, "vff" };
 		void Avoid(VicePlayer* player);
 		void Kill(VicePlayer* player);
 		void RunTo(float x, float y);
+
+		bool OnFoot();
 
 		// Not works yet
 		void Follow(ViceActor * actor);

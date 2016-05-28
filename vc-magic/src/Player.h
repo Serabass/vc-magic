@@ -29,6 +29,8 @@ const SCRIPT_COMMAND clear_weapons_from_player = { 0x03B8, "v" };
 const SCRIPT_COMMAND put_player_at = { 0x0055, "vfff" };
 const SCRIPT_COMMAND get_player_money = { 0x010B, "vv" };
 const SCRIPT_COMMAND is_player_stopped = { 0x029F, "v" };
+const SCRIPT_COMMAND is_player_defined = { 0x0256, "v" };
+const SCRIPT_COMMAND player_on_foot = { 0x044A, "v" };
 
 struct PlayerStruct {
 
@@ -67,10 +69,12 @@ public:
 	void GiveWeapon(SCRIPT_MISSION* m_pMission, WEAPON dwWeapon, DWORD dwAmmo);
 	void GiveMoney(int iMoney);
 	int GetMoney();
+	bool OnFoot();
 	static CPed*(__cdecl* getStruct)();
 	bool IsPressingHorn();
 	void ClearWeapons();
 	bool IsStopped();
+	bool Defined();
 
 	void HoldCellPhone(bool hold = true);
 	void HoldCellPhone();

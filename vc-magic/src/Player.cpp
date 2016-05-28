@@ -160,3 +160,11 @@ void VicePlayer::Kill() {
 bool VicePlayer::IsStopped() {
 	return !!$(&is_player_stopped, &m_dwChar);
 }
+
+bool VicePlayer::Defined() {
+	return !!$(&is_player_defined, &m_dwChar);
+}
+
+bool VicePlayer::OnFoot() {
+	return !!$(&player_on_foot, &m_dwChar);
+}

@@ -271,3 +271,7 @@
 	void ViceActor::RunTo(float x, float y) {
 		$(&actor_run_to, &m_dwActor, x, y);
 	}
+
+	bool ViceActor::OnFoot() {
+		return !!$(&actor_on_foot, &m_dwActor);
+	}
