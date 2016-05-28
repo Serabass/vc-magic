@@ -31,7 +31,7 @@ int ViceVehicle::GetHealth()
 
 bool ViceVehicle::NearPoint(float fX, float fY, float fZ, float fRX, float fRY, float fRZ, bool bSphere)
 {
-	return $(&is_car_near_point_3d, &m_dwVehicle, fX, fY, fZ, fRX, fRY, fRZ, bSphere) ? true : false;
+	return !!$(&is_car_near_point_3d, &m_dwVehicle, fX, fY, fZ, fRX, fRY, fRZ, bSphere);
 }
 
 void ViceVehicle::Colour(int iPrimary, int iSecondary)
@@ -166,7 +166,7 @@ void ViceVehicle::openTrunk() {
 }
 
 bool ViceVehicle::IsHitByWeapon(WEAPON weapon) {
-	return $(&is_car_hit_by_weapon, &m_dwVehicle, weapon) ? true : false;
+	return !!$(&is_car_hit_by_weapon, &m_dwVehicle, weapon);
 }
 
 void ViceVehicle::SetWatertight(bool watertight) {
@@ -211,5 +211,17 @@ bool ViceVehicle::Sunk() {
 float ViceVehicle::GetZAngle() {
 	float result;
 	$(&get_car_zangle, &m_dwVehicle, &result);
+	return result;
+}
+
+int ViceVehicle::GetNumPassengers() {
+	int result;
+	$(&get_car_num_passengers, &m_dwVehicle, &result);
+	return result;
+}
+
+int ViceVehicle::GetMaxPassengers() {
+	int result;
+	$(&get_car_max_passengers, &m_dwVehicle, &result);
 	return result;
 }

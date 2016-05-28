@@ -52,5 +52,5 @@ bool ViceCheats::RegisterUserCheat(char *string, void(__cdecl* callback)()) {
 }
 
 bool ViceCheats::AreCarCheatsActivated() {
-	return $(&are_car_cheats_used) ? true : false;
+	return !!$(&are_car_cheats_used);
 }

@@ -7,7 +7,7 @@
 //
 bool ViceGame::IsFading()
 {
-	return $(&is_fading) ? true : false;
+	return !!$(&is_fading);
 }
 
 void ViceGame::Fade(int Time, FADE InOut)
@@ -92,7 +92,7 @@ void ViceGame::ShowSaveScreen()
 
 bool ViceGame::WastedOrBusted()
 {
-	return $(&wasted_or_busted_scm) ? true : false;
+	return !!$(&wasted_or_busted_scm);
 }
 
 void ViceGame::PutHiddenPackage(VCPosition_t position) {

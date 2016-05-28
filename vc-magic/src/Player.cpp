@@ -30,12 +30,12 @@ DWORD* VicePlayer::GetActor()
 
 bool VicePlayer::NearPoint(float fX, float fY, float fZ, float fRX, float fRY, float fRZ, bool bSphere)
 {
-	return $(&is_player_near_point_3d, &m_dwChar, fX, fY, fZ, fRX, fRY, fRZ, bSphere) ? true : false;
+	return !!$(&is_player_near_point_3d, &m_dwChar, fX, fY, fZ, fRX, fRY, fRZ, bSphere);
 }
 
 bool VicePlayer::NearPointOnFoot(float fX, float fY, float fZ, float fRX, float fRY, float fRZ, bool bSphere)
 {
-	return $(&player_near_point_on_foot, &m_dwChar, fX, fY, fZ, fRX, fRY, fRZ, bSphere) ? true : false;
+	return !!$(&player_near_point_on_foot, &m_dwChar, fX, fY, fZ, fRX, fRY, fRZ, bSphere);
 }
 
 void VicePlayer::SetSkin(char ViceModel[8])
@@ -105,7 +105,7 @@ void VicePlayer::GiveMoney(int iMoney)
 
 bool VicePlayer::IsPressingHorn()
 {
-	return $(&is_player_pressing_horn, &m_dwChar) ? true : false;
+	return !!$(&is_player_pressing_horn, &m_dwChar);
 }
 
 void VicePlayer::HoldCellPhone(bool hold) {

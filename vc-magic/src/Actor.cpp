@@ -32,17 +32,17 @@
 
 	bool ViceActor::IsDead()
 	{
-		return $(&is_actor_dead, &m_dwActor) ? true : false;
+		return !!$(&is_actor_dead, &m_dwActor);
 	}
 
 	bool ViceActor::NearPoint(float fX, float fY, float fZ, float fRX, float fRY, float fRZ, bool bSphere)
 	{
-		return $(&is_actor_near_point_3d, &m_dwActor, fX, fY, fZ, fRX, fRY, fRZ, bSphere) ? true : false;
+		return !!$(&is_actor_near_point_3d, &m_dwActor, fX, fY, fZ, fRX, fRY, fRZ, bSphere);
 	}
 
 	bool ViceActor::NearPoint(ViceVector3Df position, ViceVector3Df radius, bool bSphere)
 	{
-		return $(&is_actor_near_point_3d, &m_dwActor, position.x, position.y, position.z, radius.x, radius.y, radius.z, bSphere) ? true : false;
+		return !!$(&is_actor_near_point_3d, &m_dwActor, position.x, position.y, position.z, radius.x, radius.y, radius.z, bSphere);
 	}
 
 	void ViceActor::Spawn(PEDTYPE iPedType, DWORD dwModel, float fX, float fY, float fZ)
@@ -223,7 +223,7 @@
 	}
 	
 	bool ViceActor::IsHitByWeapon(WEAPON weapon) {
-		return $(&is_actor_hit_by_weapon, &m_dwActor, weapon) ? true : false;
+		return !!$(&is_actor_hit_by_weapon, &m_dwActor, weapon);
 	}
 
 	void ViceActor::SetMoney(int amount) {

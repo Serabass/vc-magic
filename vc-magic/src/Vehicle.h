@@ -40,6 +40,8 @@ const SCRIPT_COMMAND car_get_driver = { 0x046C, "vv" };
 const SCRIPT_COMMAND set_car_sprayable = { 0x0294, "vi" };
 const SCRIPT_COMMAND is_car_sunk = { 0x02BF, "v" };
 const SCRIPT_COMMAND get_car_zangle = { 0x0174, "vv" };
+const SCRIPT_COMMAND get_car_num_passengers = { 0x01E9, "vv" };
+const SCRIPT_COMMAND get_car_max_passengers = { 0x01EA, "vv" };
 
 class ViceVehicle
 {
@@ -83,6 +85,8 @@ public:
 	bool Sunk();
 	void SetSprayable(bool value);
 	float GetZAngle();
+	int GetNumPassengers();
+	int GetMaxPassengers();
 
 	void SetWatertight(bool watertight);
 
