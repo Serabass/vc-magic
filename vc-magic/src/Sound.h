@@ -11,13 +11,8 @@ const SCRIPT_COMMAND play_sound_at = { 0x018C, "ifff" };
 	private:
 		DWORD m_dwSound;
 	public:
-		// 018D
 		ViceSound(int audioEventId, VCPosition_t position);
-
-		// 018E
 		~ViceSound();
-
-		// 018C
 		void Play(VCPosition_t position);
 	};
 

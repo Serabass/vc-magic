@@ -32,6 +32,8 @@ const SCRIPT_COMMAND is_player_stopped = { 0x029F, "v" };
 const SCRIPT_COMMAND is_player_defined = { 0x0256, "v" };
 const SCRIPT_COMMAND player_on_foot = { 0x044A, "v" };
 const SCRIPT_COMMAND get_player_wanted_level = { 0x01C0, "vv" };
+const SCRIPT_COMMAND set_player_drunk_visuals = { 0x052C, "vi" };
+const SCRIPT_COMMAND set_player_visible = { 0x0336, "vi" };
 
 struct PlayerStruct {
 
@@ -84,9 +86,12 @@ public:
 	bool UsingPhone;
 
 	void Kill();
+	void SetDrunkVisuals(int val);
 	// CPed* getStruct();
 
 	VCPosition_t GetPosition();
+
+	void SetVisible(bool visible);
 
 	typedef void(__cdecl* EnumNearestPedsCallback)(CPed* ped, int index);
 

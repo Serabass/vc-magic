@@ -8,15 +8,15 @@
 const SCRIPT_COMMAND clear_rampage_kills = { 0x0297, "" };	// player_char, bool_ignored
 const SCRIPT_COMMAND get_rampage_kills = { 0x0298, "iv" };	// model_id
 const SCRIPT_COMMAND get_rampage_status = { 0x01FA, "i" };	// model_id
-const SCRIPT_COMMAND init_rampage = { 0x01F9, "siiiiiiis" };
+const SCRIPT_COMMAND init_rampage = { 0x01F9, "siiiiiii" };
 
 class ViceRampage {
 
+public:
 	static void Init(char GTXStringOnInit[8], WEAPON weapon,
 		int timeLimit, int killsAmount,
-		MODEL pedForKill1, MODEL pedForKill2,
-		MODEL pedForKill3, MODEL pedForKill4,
-		char GXTEntryOnComplete[8]);
+		MODEL::IDE pedForKill1, MODEL::IDE pedForKill2,
+		MODEL::IDE pedForKill3, MODEL::IDE pedForKill4);
 
 	static int GetStatus();
 	static void ClearKills();

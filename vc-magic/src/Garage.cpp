@@ -1,5 +1,8 @@
 #include "Garage.h"
 
+#define VICEGARAGE_RETURN_BOOLEAN_1ARG(cmd) \
+		return !!$(&cmd, &m_dwGarage);
+
 void ViceGarage::Open() {
 	$(&open_garage, &m_dwGarage);
 }
@@ -9,7 +12,7 @@ void ViceGarage::Close() {
 }
 
 bool ViceGarage::IsDoorClosed() {
-	return !!$(&is_garage_closed, &m_dwGarage);
+	VICEGARAGE_RETURN_BOOLEAN_1ARG(is_garage_closed);
 }
 
 void ViceGarage::SetAcceptCar(ViceVehicle* vehicle) {
@@ -17,5 +20,9 @@ void ViceGarage::SetAcceptCar(ViceVehicle* vehicle) {
 }
 
 bool ViceGarage::HasCar() {
-	return !!$(&garage_has_car, &m_dwGarage);
+	VICEGARAGE_RETURN_BOOLEAN_1ARG(garage_has_car);
+}
+
+bool ViceGarage::ResprayDone() {
+	VICEGARAGE_RETURN_BOOLEAN_1ARG(garage_respray_done);
 }

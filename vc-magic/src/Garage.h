@@ -8,6 +8,7 @@ const SCRIPT_COMMAND close_garage = { 0x0361, "v" };
 const SCRIPT_COMMAND is_garage_closed = { 0x03B1, "v" };
 const SCRIPT_COMMAND garage_has_car = { 0x03B1, "v" };
 const SCRIPT_COMMAND set_garage_accept_car = { 0x021B, "vv" };
+const SCRIPT_COMMAND garage_respray_done = { 0x0329, "v" };
 
 	class ViceGarage {
 	private:
@@ -25,9 +26,7 @@ const SCRIPT_COMMAND set_garage_accept_car = { 0x021B, "vv" };
 
 		// 02FA
 		void SetType(int type); // Enum?f
-
-		// 0329
-		void ResprayDone();
+		bool ResprayDone();
 
 		void Open();
 

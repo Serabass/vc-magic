@@ -479,15 +479,15 @@ void print(char *format, ...) {
 
 void MainScript(SCRIPT_MISSION* pMission)
 {
+	bool ws = false;
 	for (;;)
 	{
 		SCRIPT_WAIT(100);
 
 		#define PLAYERCARPROP(type, var, offset) type var = *ViceStructReader::read<type>(*(type*)0x7E49C0, offset);
 		
-		if (GetKeyState(VK_TAB) < 0) {
-			*VicePolice::heliState = !VicePolice::heliState;
-			print("%d", *VicePolice::heliState);
+		if (KEY_PRESSED(VK_TAB)) {
+			pPlayer->SetVisible(ws = !ws);
 		}
 	}
 }

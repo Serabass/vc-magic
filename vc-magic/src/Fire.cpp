@@ -17,6 +17,7 @@
 		CREATE_FIRE(create_actor_fire, actor->GetActor());
 	}
 
+	// Works!
 	ViceFire* ViceFire::CreateOn(VicePlayer* player) {
 		CREATE_FIRE(create_actor_fire, player->GetActor());
 	}

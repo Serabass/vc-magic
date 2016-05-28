@@ -428,4 +428,9 @@ enum PedStatus : char { // http://www.gtamodding.com/wiki/Memory_Addresses_(VC)#
 
 #define VEHICLES_ARRAY		*(int *)0xA0FDE4
 
+
+
+#define CLASSMETHOD(cls, type, name) type cls::name
+
+
 #endif

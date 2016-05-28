@@ -50,6 +50,8 @@ const SCRIPT_COMMAND get_actor_health = { 0x0226, "vv" };
 const SCRIPT_COMMAND set_actor_health = { 0x0223, "vf" };
 const SCRIPT_COMMAND actor_run_to = { 0x0239, "vff" };
 const SCRIPT_COMMAND actor_on_foot = { 0x044B, "v" };
+const SCRIPT_COMMAND set_actor_weapon_accuracy = { 0x02E2, "vi" };
+const SCRIPT_COMMAND get_actor_position = { 0x00A0, "vvvv" };	// x, y, z, a
 
 	class ViceActor
 	{
@@ -109,10 +111,13 @@ const SCRIPT_COMMAND actor_on_foot = { 0x044B, "v" };
 
 		CPed* getStruct();
 
+		VCPosition_t GetPosition();
+
 
 		void Avoid(VicePlayer* player);
 		void Kill(VicePlayer* player);
 		void RunTo(float x, float y);
+		void SetWeaponAccuracy(int accuracy);
 
 		bool OnFoot();
 

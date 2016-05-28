@@ -276,3 +276,14 @@
 	bool ViceActor::OnFoot() {
 		return !!$(&actor_on_foot, &m_dwActor);
 	}
+
+	void ViceActor::SetWeaponAccuracy(int accuracy) {
+		$(&set_actor_weapon_accuracy, &m_dwActor, accuracy);
+	}
+
+	VCPosition_t ViceActor::GetPosition() {
+		VCPosition_t *pos = new VCPosition_t();
+		$(&get_actor_position, &m_dwActor, &pos->x, &pos->y, &pos->z);
+		$(&get_actor_zangle, &m_dwActor, &pos->a);
+		return *pos;
+	}

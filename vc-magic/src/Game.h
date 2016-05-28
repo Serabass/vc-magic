@@ -26,6 +26,8 @@ const SCRIPT_COMMAND set_total_hidden_packages = { 0x02ED, "i" };
 const SCRIPT_COMMAND get_hidden_packages_found = { 0x03E1, "v" };
 const SCRIPT_COMMAND increment_progress = { 0x030C, "i" };
 const SCRIPT_COMMAND set_total_missions = { 0x042C, "i" };
+const SCRIPT_COMMAND create_swat_rope_at = { 0x0503, "iifffv" };
+const SCRIPT_COMMAND get_groundz_at = { 0x02CE, "fffv" };
 
 class ViceGame
 {
@@ -51,6 +53,7 @@ public:
 	static void SetBustedSpawnPosition(float fX, float fY, float fZ, float fZAngle);
 	static void ShowSaveScreen();
 	static bool WastedOrBusted();
+	static void CreateSWATRope(int id, int model, VCPosition_t pos);
 
 	static void PutHiddenPackage(VCPosition_t position);
 	static void SetTotalHiddenPackages(int count);
@@ -61,6 +64,8 @@ public:
 	static bool(__cdecl* SetTime)(char hour, char minute);
 	static bool(__cdecl* GlassIsBrokenAt)(float x, float y, float z);
 	static double(__cdecl* GetGroundZAt)(float x, float y);
+
+
 
 	static int* maxWantedLevelHuman;
 	static int* maxWantedLevel;

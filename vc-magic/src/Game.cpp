@@ -55,6 +55,7 @@ void ViceGame::PlayMusic(int iMusic)
 	$(&play_music, iMusic);
 }
 
+// Works!
 void ViceGame::SetWidescreen(bool bWidescreen)
 {
 	$(&toggle_widescreen, bWidescreen);
@@ -85,6 +86,7 @@ void ViceGame::SetBustedSpawnPosition(float fX, float fY, float fZ, float fZAngl
 	$(&restart_if_busted_at, fX, fY, fZ, fZAngle);
 }
 
+// Works!
 void ViceGame::ShowSaveScreen()
 {
 	$(&show_save_screen);
@@ -115,6 +117,11 @@ void ViceGame::SetTotalHiddenPackages(int count) {
 
 void ViceGame::SetTotalMissions(int count) {
 	$(&set_total_missions, count);
+}
+
+void ViceGame::CreateSWATRope(int id, int model, VCPosition_t pos) {
+	int s;
+	$(&create_swat_rope_at, id, model, pos.x, pos.y, pos.z, &s);
 }
 
 bool(__cdecl* ViceGame::SetTime)(char, char) = (bool(__cdecl*)(char, char))0x487160;
