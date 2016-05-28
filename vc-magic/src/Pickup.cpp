@@ -18,3 +18,9 @@ VicePickup* VicePickup::CreateDefault(int id, int type, VCPosition_t position) {
 	$(&create_default_pickup, id, type, position.x, position.y, position.z, &m_dwPickup);
 	return new VicePickup(m_dwPickup);
 }
+
+VicePickup* VicePickup::CreateCash(int amount, VCPosition_t position) {
+	DWORD m_dwPickup;
+	$(&create_cash_pickup, amount, position.x, position.y, position.z, &m_dwPickup);
+	return new VicePickup(m_dwPickup);
+}

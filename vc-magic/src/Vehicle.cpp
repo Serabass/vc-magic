@@ -1,6 +1,12 @@
 #include "Vehicle.h"
 #include <stdio.h>
 
+
+#define VICEVEHICLE_RETURN_RESULT_1ARG(type, cmd) \
+				type result; \
+				$(&cmd, &m_dwVehicle, &result); \
+				return result;
+
 //--------------------------------------------------------------------------------
 // ScriptVehicle class functions.
 //
@@ -24,9 +30,12 @@ DWORD* ViceVehicle::GetVehicle()
 
 int ViceVehicle::GetHealth()
 {
-	int iHealth;
-	$(&get_car_health, &m_dwVehicle, &iHealth);
-	return iHealth;
+	VICEVEHICLE_RETURN_RESULT_1ARG(int, get_car_health)
+}
+
+void ViceVehicle::SetHealth(int health)
+{
+	$(&set_car_health, &m_dwVehicle, health);
 }
 
 bool ViceVehicle::NearPoint(float fX, float fY, float fZ, float fRX, float fRY, float fRZ, bool bSphere)
@@ -106,9 +115,7 @@ bool ViceVehicle::IsTireDeflated(int index)
 
 DWORD ViceVehicle::ViceModel()
 {
-	DWORD dwModel;
-	$(&get_car_model, &m_dwVehicle, &dwModel);
-	return dwModel;
+	VICEVEHICLE_RETURN_RESULT_1ARG(DWORD, get_car_model);
 }
 
 void ViceVehicle::SetSpeed(float value)
@@ -118,9 +125,7 @@ void ViceVehicle::SetSpeed(float value)
 
 float ViceVehicle::GetSpeed()
 {
-	float speed;
-	$(&set_car_speed_instantly, &m_dwVehicle, &speed);
-	return speed;
+	VICEVEHICLE_RETURN_RESULT_1ARG(float, get_car_speed);
 }
 
 bool ViceVehicle::Wrecked()
@@ -209,19 +214,17 @@ bool ViceVehicle::Sunk() {
 }
 
 float ViceVehicle::GetZAngle() {
-	float result;
-	$(&get_car_zangle, &m_dwVehicle, &result);
-	return result;
+	VICEVEHICLE_RETURN_RESULT_1ARG(float, get_car_zangle);
 }
 
 int ViceVehicle::GetNumPassengers() {
-	int result;
-	$(&get_car_num_passengers, &m_dwVehicle, &result);
-	return result;
+	VICEVEHICLE_RETURN_RESULT_1ARG(int, get_car_num_passengers);
 }
 
 int ViceVehicle::GetMaxPassengers() {
-	int result;
-	$(&get_car_max_passengers, &m_dwVehicle, &result);
-	return result;
+	VICEVEHICLE_RETURN_RESULT_1ARG(int, get_car_max_passengers);
+}
+
+void ViceVehicle::TurnOffEngine() {
+	$(&car_turn_off_engine, &m_dwVehicle);
 }

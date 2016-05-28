@@ -3,6 +3,11 @@
 // Externals
 extern VicePlayer*	pPlayer;
 
+#define VICEPLAYER_RETURN_RESULT_1ARG(type, cmd) \
+				type result; \
+				$(&cmd, &m_dwChar, &result); \
+				return result;
+
 //--------------------------------------------------------------------------------
 // ScriptPlayer class functions.
 //
@@ -170,7 +175,5 @@ bool VicePlayer::OnFoot() {
 }
 
 int VicePlayer::GetWantedLevel() {
-	int result;
-	$(&get_player_wanted_level, &m_dwChar, &result);
-	return result;
+	VICEPLAYER_RETURN_RESULT_1ARG(int, get_player_wanted_level)
 }

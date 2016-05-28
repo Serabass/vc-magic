@@ -1,5 +1,10 @@
 #include "Actor.h"
 
+#define VICEACTOR_RETURN_RESULT_1ARG(type, cmd) \
+				type result; \
+				$(&cmd, &m_dwActor, &result); \
+				return result;
+
 	//--------------------------------------------------------------------------------
 	// Actor class functions.
 	//
@@ -128,9 +133,7 @@
 
 	float ViceActor::GetZAngle()
 	{
-		float zAngle;
-		$(&get_actor_zangle, &m_dwActor, &zAngle);
-		return zAngle;
+		VICEACTOR_RETURN_RESULT_1ARG(float, get_actor_zangle);
 	}
 
 	void ViceActor::SetZAngle(float value)
@@ -259,9 +262,7 @@
 	}
 
 	float ViceActor::GetHealth() {
-		float result;
-		$(&get_actor_health, &m_dwActor, &result);
-		return result;
+		VICEACTOR_RETURN_RESULT_1ARG(float, get_actor_health);
 	}
 
 	void ViceActor::SetHealth(float value) {

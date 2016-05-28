@@ -6,6 +6,7 @@
 const SCRIPT_COMMAND pickup_is_picked_up = { 0x0214, "v" };
 const SCRIPT_COMMAND destroy_pickup = { 0x0215, "v" };
 const SCRIPT_COMMAND create_default_pickup = { 0x0213, "iifffv" };
+const SCRIPT_COMMAND create_cash_pickup = { 0x02E1, "ifffv" };
 
 	class VicePickup {
 	private:
@@ -14,10 +15,7 @@ const SCRIPT_COMMAND create_default_pickup = { 0x0213, "iifffv" };
 		VicePickup(DWORD m_dwPickup);
 		~VicePickup();
 
-		// 0213
 		static VicePickup* CreateDefault(int id, int type, VCPosition_t position);
-
-		// 02E1
 		static VicePickup* CreateCash(int amount, VCPosition_t position);
 
 		// 032B

@@ -42,6 +42,8 @@ const SCRIPT_COMMAND is_car_sunk = { 0x02BF, "v" };
 const SCRIPT_COMMAND get_car_zangle = { 0x0174, "vv" };
 const SCRIPT_COMMAND get_car_num_passengers = { 0x01E9, "vv" };
 const SCRIPT_COMMAND get_car_max_passengers = { 0x01EA, "vv" };
+const SCRIPT_COMMAND set_car_health = { 0x0224, "vf" };
+const SCRIPT_COMMAND car_turn_off_engine = { 0x02D4, "v" };
 
 class ViceVehicle
 {
@@ -55,6 +57,7 @@ public:
 
 	DWORD* GetVehicle();
 	int GetHealth();
+	void SetHealth(int health);
 	bool NearPoint(float fX, float fY, float fZ, float fRX, float fRY, float fRZ, bool bSphere);
 
 	void Colour(int iPrimary, int iSecondary);
@@ -87,6 +90,7 @@ public:
 	float GetZAngle();
 	int GetNumPassengers();
 	int GetMaxPassengers();
+	void TurnOffEngine();
 
 	void SetWatertight(bool watertight);
 
