@@ -5,6 +5,8 @@
 		This file contains game constants that you can use in scripting commands.
 */
 
+#include <stdio.h>
+
 #ifndef GAMEDEFINES_H
 #define GAMEDEFINES_H
 
@@ -48,7 +50,8 @@ public:
 		NUL = 0,
 		COP = 1,
 		SWAT = 2,
-		FBI = 3
+		FBI = 3,
+		HFYST = 9
 	};
 
 	enum CAR : DWORD {

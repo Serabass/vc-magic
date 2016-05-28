@@ -52,6 +52,10 @@ private:
 	DWORD m_dwActor;
 public:
 
+	/*operator ViceActor*() {
+		return new ViceActor(*GetActor());
+	}
+	*/
 	CPed* ped;
 
 	VicePlayer(float fX, float fY, float fZ);

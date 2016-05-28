@@ -168,13 +168,12 @@
 
 	void ViceActor::Follow(ViceActor* actor)
 	{
-		$(&actor_follow_actor, actor->GetActor());
+		$(&actor_follow_actor, &m_dwActor, actor->GetActor());
 	}
 
 	void ViceActor::Follow(VicePlayer* player)
 	{
-		DWORD* pdwPlayerActor = player->GetActor();
-		$(&actor_follow_player, pdwPlayerActor);
+		$(&actor_follow_actor, &m_dwActor, player->GetActor());
 	}
 
 	void ViceActor::DriveCar(DWORD* pdwCar)
@@ -261,11 +260,11 @@
 		return !!$(&is_actor_photographed, &m_dwActor);
 	}
 
-	float ViceActor::GetHealth() {
-		VICEACTOR_RETURN_RESULT_1ARG(float, get_actor_health);
+	int ViceActor::GetHealth() {
+		VICEACTOR_RETURN_RESULT_1ARG(int, get_actor_health);
 	}
 
-	void ViceActor::SetHealth(float value) {
+	void ViceActor::SetHealth(int value) {
 		$(&get_actor_health, &m_dwActor, value);
 	}
 
@@ -299,4 +298,12 @@
 	// Doesn't work! Game crushes
 	void ViceActor::DestroyCar(ViceVehicle* car) {
 		$(&actor_destroy_car, &m_dwActor, car->GetVehicle());
+	}
+
+	void ViceActor::WalkTo(float x, float y) {
+		$(&actor_walk_to, &m_dwActor, x, y);
+	}
+
+	void ViceActor::MakeConverse(ViceActor* actor) {
+		$(&actors_make_converse, &m_dwActor, actor->GetActor());
 	}

@@ -480,34 +480,35 @@ void cheatTest() {
 	ViceGame::money->real += 100000;
 }
 
-void callback(CPed *ped, int index) {
-	ped->health = 0;
-}
-
-void print(char *format, ...) {
-	char s[100];
-	va_list argptr;
-	va_start(argptr, format);
-	vsprintf_s(s, format, argptr);
-	va_end(argptr);
-	SetWindowText(*ViceGame::mainHWND, s);
-}
-
 void MainScript(SCRIPT_MISSION* pMission)
 {
+	const VCPosition_t CopShop = { 350.0f, -527.0f, 10.0f, 0.0f };
 
 	ViceVehicle* pBike = new ViceVehicle(pMission, MODEL::CAR::ADMIRAL, BikeShop, false);
 	pBike->Colour(57, 57);
 
+	ViceActorGroup* gr = new ViceActorGroup();
 	ViceActor* p = new ViceActor(pMission);
+	p->Spawn(PEDTYPE::CIVMALE, MODEL::HFYST, BikeShop.x, BikeShop.y, BikeShop.z);
 
-	p->Spawn(PEDTYPE::COP, MODEL::COP, BikeShop.x, BikeShop.y, BikeShop.z);
+	gr->leader = p;
+	
+	// p->Follow(pPlayer);
+
+	for (int i = 0; i < 10; i++) {
+		ViceActor* p = new ViceActor(pMission);
+		p->Spawn(PEDTYPE::CIVMALE, MODEL::HFYST, BikeShop.x, BikeShop.y, BikeShop.z);
+		gr->AddMember(p);
+	}
 
 	for (;;)
 	{
 		SCRIPT_WAIT(100);
 
-		p->DestroyCar(pBike);
+		if (KEY_PRESSED(VK_TAB)) {
+			gr->leader->WalkTo(CopShop.x, CopShop.y);
+			gr->UpdateBehavior();
+		}
 	}
 }
 

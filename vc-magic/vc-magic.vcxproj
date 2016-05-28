@@ -129,6 +129,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="src\Actor.h" />
+    <ClInclude Include="src\ActorGroup.h" />
     <ClInclude Include="src\Camera.h" />
     <ClInclude Include="src\Cheats.h" />
     <ClInclude Include="src\Checkpoint.h" />
@@ -138,6 +139,7 @@
     <ClInclude Include="src\GameScripting.h" />
     <ClInclude Include="src\Gang.h" />
     <ClInclude Include="src\Garage.h" />
+    <ClInclude Include="src\Geom.h" />
     <ClInclude Include="src\gta-vc.h" />
     <ClInclude Include="src\GxtHook.h" />
     <ClInclude Include="src\Marker.h" />
@@ -161,6 +163,7 @@
     <ClInclude Include="src\StructReader.h" />
     <ClInclude Include="src\Text.h" />
     <ClInclude Include="src\Timer.h" />
+    <ClInclude Include="src\Utils.h" />
     <ClInclude Include="src\vc-magic.h" />
     <ClInclude Include="src\ScriptClasses.h" />
     <ClInclude Include="src\Vehicle.h" />
@@ -170,6 +173,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Actor.cpp" />
+    <ClCompile Include="src\ActorGroup.cpp" />
     <ClCompile Include="src\Camera.cpp" />
     <ClCompile Include="src\Cheats.cpp" />
     <ClCompile Include="src\Checkpoint.cpp" />
@@ -178,6 +182,7 @@
     <ClCompile Include="src\GameScripting.cpp" />
     <ClCompile Include="src\Gang.cpp" />
     <ClCompile Include="src\Garage.cpp" />
+    <ClCompile Include="src\Geom.cpp" />
     <ClCompile Include="src\GxtHook.cpp" />
     <ClCompile Include="src\Marker.cpp" />
     <ClCompile Include="src\MissionHook.cpp" />
@@ -200,6 +205,7 @@
     <ClCompile Include="src\StructReader.cpp" />
     <ClCompile Include="src\Text.cpp" />
     <ClCompile Include="src\Timer.cpp" />
+    <ClCompile Include="src\Utils.cpp" />
     <ClCompile Include="src\vc-magic.cpp" />
     <ClCompile Include="src\ScriptClasses.cpp" />
     <ClCompile Include="src\Vehicle.cpp" />

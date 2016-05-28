@@ -47,14 +47,16 @@ const SCRIPT_COMMAND actor_set_is_criminal = { 0x0433, "vi" };
 const SCRIPT_COMMAND actor_remove_weapons = { 0x048F, "v" };
 const SCRIPT_COMMAND is_actor_photographed = { 0x04C5, "v" };
 const SCRIPT_COMMAND get_actor_health = { 0x0226, "vv" };
-const SCRIPT_COMMAND set_actor_health = { 0x0223, "vf" };
+const SCRIPT_COMMAND set_actor_health = { 0x0223, "vi" };
 const SCRIPT_COMMAND actor_run_to = { 0x0239, "vff" };
 const SCRIPT_COMMAND actor_on_foot = { 0x044B, "v" };
 const SCRIPT_COMMAND set_actor_weapon_accuracy = { 0x02E2, "vi" };
 const SCRIPT_COMMAND get_actor_position = { 0x00A0, "vvvv" };	// x, y, z, a
 const SCRIPT_COMMAND actor_in_car = { 0x0448, "vv" };
 const SCRIPT_COMMAND actor_in_a_car = { 0x0449, "v" };
-const SCRIPT_COMMAND actor_destroy_car = { 0x01D9, "vv" };
+const SCRIPT_COMMAND actor_destroy_car = {0x01D9, "vv" };
+const SCRIPT_COMMAND actor_walk_to = { 0x0211, "vff" };
+const SCRIPT_COMMAND actors_make_converse = { 0x03F9, "vvi" };
 
 	class ViceActor
 	{
@@ -99,12 +101,13 @@ const SCRIPT_COMMAND actor_destroy_car = { 0x01D9, "vv" };
 		void SetIsCriminal(bool value);
 		void RemoveWeapons();
 		bool IsPhotographed();
+		void MakeConverse(ViceActor* actor);
 
 		bool InWater();
 
 		void SetMoney(int amount);
-		float GetHealth();
-		void SetHealth(float value);
+		int GetHealth();
+		void SetHealth(int value);
 
 		void HoldCellPhone(bool hold = true);
 		void HoldCellPhone();
@@ -129,6 +132,8 @@ const SCRIPT_COMMAND actor_destroy_car = { 0x01D9, "vv" };
 		void Follow(VicePlayer * player);
 		void DriveCar(DWORD * car);
 		void DriveCar(ViceVehicle * car);
+
+		void WalkTo(float x, float y);
 
 		void SetBleeding(bool bleeding);
 		void SetBleeding();
