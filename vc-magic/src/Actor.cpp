@@ -10,6 +10,13 @@
 		m_bSpawned = false;
 	}
 
+	ViceActor::ViceActor(DWORD dwActor)
+	{
+		m_dwActor = dwActor;
+
+		// How to get a pMission?
+	}
+
 	ViceActor::~ViceActor()
 	{
 		if (m_bSpawned)
@@ -194,6 +201,10 @@
 		HoldCellPhone(!UsingPhone);
 	}
 
+	void ViceActor::SetIsCriminal(bool value) {
+		$(&actor_set_is_criminal, &m_dwActor, value);
+	}
+
 	ViceActor::TgetStructAddress ViceActor::getStructAddress = (TgetStructAddress)0x00451CB0;
 	ViceActor::TSetModelIndex ViceActor::SetModelIndex = (TSetModelIndex)0x0050D900;
 
@@ -237,4 +248,26 @@
 
 	void ViceActor::Kill(VicePlayer* player) {
 		$(&actor_kill_player, player->GetChar());
+	}
+
+	void ViceActor::RemoveWeapons() {
+		$(&actor_remove_weapons, &m_dwActor);
+	}
+
+	bool ViceActor::IsPhotographed() {
+		return !!$(&is_actor_photographed, &m_dwActor);
+	}
+
+	float ViceActor::GetHealth() {
+		float result;
+		$(&get_actor_health, &m_dwActor, &result);
+		return result;
+	}
+
+	void ViceActor::SetHealth(float value) {
+		$(&get_actor_health, &m_dwActor, value);
+	}
+
+	void ViceActor::RunTo(float x, float y) {
+		$(&actor_run_to, &m_dwActor, x, y);
 	}

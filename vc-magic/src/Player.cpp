@@ -156,3 +156,7 @@ void VicePlayer::ClearWeapons() {
 void VicePlayer::Kill() {
 	$(&kill_player, &m_dwChar);
 }
+
+bool VicePlayer::IsStopped() {
+	return !!$(&is_player_stopped, &m_dwChar);
+}

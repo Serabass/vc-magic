@@ -28,6 +28,7 @@ const SCRIPT_COMMAND kill_player = { 0x0322, "v" };
 const SCRIPT_COMMAND clear_weapons_from_player = { 0x03B8, "v" };
 const SCRIPT_COMMAND put_player_at = { 0x0055, "vfff" };
 const SCRIPT_COMMAND get_player_money = { 0x010B, "vv" };
+const SCRIPT_COMMAND is_player_stopped = { 0x029F, "v" };
 
 struct PlayerStruct {
 
@@ -69,6 +70,7 @@ public:
 	static CPed*(__cdecl* getStruct)();
 	bool IsPressingHorn();
 	void ClearWeapons();
+	bool IsStopped();
 
 	void HoldCellPhone(bool hold = true);
 	void HoldCellPhone();

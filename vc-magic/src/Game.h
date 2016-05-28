@@ -25,6 +25,7 @@ const SCRIPT_COMMAND put_hidden_package_at = { 0x02EC, "fff" };
 const SCRIPT_COMMAND set_total_hidden_packages = { 0x02ED, "i" };
 const SCRIPT_COMMAND get_hidden_packages_found = { 0x03E1, "v" };
 const SCRIPT_COMMAND increment_progress = { 0x030C, "i" };
+const SCRIPT_COMMAND set_total_missions = { 0x042C, "i" };
 
 class ViceGame
 {
@@ -55,6 +56,7 @@ public:
 	static void SetTotalHiddenPackages(int count);
 	static int GetHiddenPackagesFound();
 	static void IncrementProgress(int by);
+	static void SetTotalMissions(int count);
 
 	static bool(__cdecl* SetTime)(char hour, char minute);
 	static bool(__cdecl* GlassIsBrokenAt)(float x, float y, float z);

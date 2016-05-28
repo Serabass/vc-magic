@@ -6,6 +6,8 @@
 const SCRIPT_COMMAND open_garage = { 0x0360, "v" };
 const SCRIPT_COMMAND close_garage = { 0x0361, "v" };
 const SCRIPT_COMMAND is_garage_closed = { 0x03B1, "v" };
+const SCRIPT_COMMAND garage_has_car = { 0x03B1, "v" };
+const SCRIPT_COMMAND set_garage_accept_car = { 0x021B, "vv" };
 
 	class ViceGarage {
 	private:
@@ -19,7 +21,7 @@ const SCRIPT_COMMAND is_garage_closed = { 0x03B1, "v" };
 		void SetAcceptCar(ViceVehicle* vehicle);
 
 		// 021C
-		bool HasCar(ViceVehicle* vehicle);
+		bool HasCar();
 
 		// 02FA
 		void SetType(int type); // Enum?f

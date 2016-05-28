@@ -43,6 +43,12 @@ const SCRIPT_COMMAND get_actor_zangle = { 0x0172, "vv" };
 const SCRIPT_COMMAND set_actor_zangle = { 0x0173, "vf" };
 const SCRIPT_COMMAND actor_avoid_player = { 0x01D0, "vv" };
 const SCRIPT_COMMAND actor_kill_player = { 0x01CC, "vv" };
+const SCRIPT_COMMAND actor_set_is_criminal = { 0x0433, "vi" };
+const SCRIPT_COMMAND actor_remove_weapons = { 0x048F, "v" };
+const SCRIPT_COMMAND is_actor_photographed = { 0x04C5, "v" };
+const SCRIPT_COMMAND get_actor_health = { 0x0226, "vv" };
+const SCRIPT_COMMAND set_actor_health = { 0x0223, "vf" };
+const SCRIPT_COMMAND actor_run_to = { 0x0239, "vff" };
 
 	class ViceActor
 	{
@@ -53,6 +59,7 @@ const SCRIPT_COMMAND actor_kill_player = { 0x01CC, "vv" };
 		bool m_bSpawned;
 	public:
 		ViceActor(SCRIPT_MISSION* pMission, bool bKeepOnDestroy = true);
+		ViceActor(DWORD m_dwActor);
 		~ViceActor();
 
 		DWORD* GetActor();
@@ -83,10 +90,15 @@ const SCRIPT_COMMAND actor_kill_player = { 0x01CC, "vv" };
 		bool Walking();
 		float GetZAngle();
 		void SetZAngle(float value);
+		void SetIsCriminal(bool value);
+		void RemoveWeapons();
+		bool IsPhotographed();
 
 		bool InWater();
 
 		void SetMoney(int amount);
+		float GetHealth();
+		void SetHealth(float value);
 
 		void HoldCellPhone(bool hold = true);
 		void HoldCellPhone();
@@ -99,6 +111,7 @@ const SCRIPT_COMMAND actor_kill_player = { 0x01CC, "vv" };
 
 		void Avoid(VicePlayer* player);
 		void Kill(VicePlayer* player);
+		void RunTo(float x, float y);
 
 		// Not works yet
 		void Follow(ViceActor * actor);

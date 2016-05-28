@@ -193,3 +193,13 @@ void ViceVehicle::CloseAllDoors() {
 void ViceVehicle::OpenTrunk() {
 	$(&car_open_trunk, &m_dwVehicle);
 }
+
+ViceActor* ViceVehicle::GetDriver() {
+	DWORD dwActor;
+	$(&car_get_driver, &m_dwVehicle, &dwActor);
+	return new ViceActor(dwActor);
+}
+
+void ViceVehicle::SetSprayable(bool value) {
+	$(&set_car_sprayable, &m_dwVehicle, value);
+}

@@ -36,6 +36,8 @@ const SCRIPT_COMMAND car_open_trunk = { 0x050B, "v" };
 const SCRIPT_COMMAND get_car_speed = { 0x02E3, "vv" };
 const SCRIPT_COMMAND car_stopped = { 0x01C1, "v" };
 const SCRIPT_COMMAND car_flipped = { 0x020D, "v" };
+const SCRIPT_COMMAND car_get_driver = { 0x046C, "vv" };
+const SCRIPT_COMMAND set_car_sprayable = { 0x0294, "vi" };
 
 class ViceVehicle
 {
@@ -76,12 +78,14 @@ public:
 	void Explode();
 	bool Stopped();
 	bool Flipped();
+	void SetSprayable(bool value);
 
 	void SetWatertight(bool watertight);
 
 	void SetAction(VehicleAction action, WORD time);
 
 	void RaceTo(float X, float Y);
+	ViceActor* GetDriver();
 
 	typedef CVehicle*(__thiscall *TgetStructAddress)(int pThis, signed int id);
 	typedef void(__thiscall *TOpenTrunk)(CVehicle* pThis);

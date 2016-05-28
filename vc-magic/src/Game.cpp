@@ -113,6 +113,10 @@ void ViceGame::SetTotalHiddenPackages(int count) {
 	$(&set_total_hidden_packages, count);
 }
 
+void ViceGame::SetTotalMissions(int count) {
+	$(&set_total_missions, count);
+}
+
 bool(__cdecl* ViceGame::SetTime)(char, char) = (bool(__cdecl*)(char, char))0x487160;
 bool(__cdecl* ViceGame::GlassIsBrokenAt)(float, float, float) = (bool(__cdecl*)(float, float, float))0x552EE0;
 double(__cdecl* ViceGame::GetGroundZAt)(float, float) = (double(__cdecl*)(float, float))0x4D5540;
