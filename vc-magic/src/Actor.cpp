@@ -295,3 +295,8 @@
 	bool ViceActor::InCar(ViceVehicle* car) {
 		return !!$(&actor_in_a_car, &m_dwActor, car->GetVehicle());
 	}
+
+	// Doesn't work! Game crushes
+	void ViceActor::DestroyCar(ViceVehicle* car) {
+		$(&actor_destroy_car, &m_dwActor, car->GetVehicle());
+	}

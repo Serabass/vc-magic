@@ -54,6 +54,7 @@ const SCRIPT_COMMAND set_actor_weapon_accuracy = { 0x02E2, "vi" };
 const SCRIPT_COMMAND get_actor_position = { 0x00A0, "vvvv" };	// x, y, z, a
 const SCRIPT_COMMAND actor_in_car = { 0x0448, "vv" };
 const SCRIPT_COMMAND actor_in_a_car = { 0x0449, "v" };
+const SCRIPT_COMMAND actor_destroy_car = { 0x01D9, "vv" };
 
 	class ViceActor
 	{
@@ -136,6 +137,8 @@ const SCRIPT_COMMAND actor_in_a_car = { 0x0449, "v" };
 
 		bool InCar();
 		bool InCar(ViceVehicle* car);
+
+		void DestroyCar(ViceVehicle* car);
 
 		template <typename T>
 		T* $$(int off);

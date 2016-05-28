@@ -501,17 +501,13 @@ void MainScript(SCRIPT_MISSION* pMission)
 
 	ViceActor* p = new ViceActor(pMission);
 
-	p->SpawnInDriverSeat(pBike->GetVehicle(), PEDTYPE::COP, MODEL::COP);
-	
+	p->Spawn(PEDTYPE::COP, MODEL::COP, BikeShop.x, BikeShop.y, BikeShop.z);
+
 	for (;;)
 	{
 		SCRIPT_WAIT(100);
-		pBike->SetToPsychoDriver();
-		pBike->DriveTo(pPlayer->GetPosition());
 
-		if (KEY_PRESSED(VK_TAB)) {
-			pPlayer->GetCar(); //->SetSpeed(1000);
-		}
+		p->DestroyCar(pBike);
 	}
 }
 
