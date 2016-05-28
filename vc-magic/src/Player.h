@@ -31,6 +31,7 @@ const SCRIPT_COMMAND get_player_money = { 0x010B, "vv" };
 const SCRIPT_COMMAND is_player_stopped = { 0x029F, "v" };
 const SCRIPT_COMMAND is_player_defined = { 0x0256, "v" };
 const SCRIPT_COMMAND player_on_foot = { 0x044A, "v" };
+const SCRIPT_COMMAND get_player_wanted_level = { 0x01C0, "vv" };
 
 struct PlayerStruct {
 
@@ -66,6 +67,7 @@ public:
 	int Health();
 	void ZAngle(float fAngle);
 	float ZAngle();
+	int GetWantedLevel();
 	void GiveWeapon(SCRIPT_MISSION* m_pMission, WEAPON dwWeapon, DWORD dwAmmo);
 	void GiveMoney(int iMoney);
 	int GetMoney();

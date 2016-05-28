@@ -168,3 +168,9 @@ bool VicePlayer::Defined() {
 bool VicePlayer::OnFoot() {
 	return !!$(&player_on_foot, &m_dwChar);
 }
+
+int VicePlayer::GetWantedLevel() {
+	int result;
+	$(&get_player_wanted_level, &m_dwChar, &result);
+	return result;
+}

@@ -2,15 +2,20 @@
 
 #ifndef ZONE_H
 #define ZONE_H
+
+//const SCRIPT_COMMAND set_zone_car_info = { 0x0152, "siiiiiiiiiiii" };
+//const SCRIPT_COMMAND set_zone_gang_info = { 0x015C, "siiiiiiiiiiii" };
+const SCRIPT_COMMAND set_zone_pedgroup_info = { 0x0324, "sii" };
+//const SCRIPT_COMMAND set_zone_carclass_info = { 0x04EC, "siiiiiiiiiiii" };
+
 	class ViceZone {
 	private:
 		char zoneName[8];
 	public:
-		ViceZone(char GTXStringZoneName[8]);
+		ViceZone(char zoneName[8]);
 		ViceZone();
 		~ViceZone();
 
-		// 0152
 		void SetCarInfo(int v1, int v2, int v3, int v4,
 						int v5, int v6, int v7, int v8,
 						int v9, int v10, int v11, int v12);
@@ -20,12 +25,10 @@
 							 int v5, int v6, int v7, int v8,
 							 int v9, int v10, int v11, int v12);
 
-		// 015C
 		void SetGangInfo(int v1, int v2, int v3, int v4,
 							 int v5, int v6, int v7, int v8,
 							 int v9, int v10, int v11, int v12);
 
-		// 0324
 		void SetPedGroupInfo(int v1, int v2);
 
 		// 02DD

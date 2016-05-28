@@ -207,3 +207,9 @@ void ViceVehicle::SetSprayable(bool value) {
 bool ViceVehicle::Sunk() {
 	return !!$(&is_car_sunk, &m_dwVehicle);
 }
+
+float ViceVehicle::GetZAngle() {
+	float result;
+	$(&get_car_zangle, &m_dwVehicle, &result);
+	return result;
+}

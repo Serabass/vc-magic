@@ -39,6 +39,7 @@ const SCRIPT_COMMAND car_flipped = { 0x020D, "v" };
 const SCRIPT_COMMAND car_get_driver = { 0x046C, "vv" };
 const SCRIPT_COMMAND set_car_sprayable = { 0x0294, "vi" };
 const SCRIPT_COMMAND is_car_sunk = { 0x02BF, "v" };
+const SCRIPT_COMMAND get_car_zangle = { 0x0174, "vv" };
 
 class ViceVehicle
 {
@@ -81,6 +82,7 @@ public:
 	bool Flipped();
 	bool Sunk();
 	void SetSprayable(bool value);
+	float GetZAngle();
 
 	void SetWatertight(bool watertight);
 
