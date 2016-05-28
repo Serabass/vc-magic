@@ -10,12 +10,12 @@
 //--------------------------------------------------------------------------------
 // ScriptVehicle class functions.
 //
-ViceVehicle::ViceVehicle(SCRIPT_MISSION* pMission, DWORD dwModel, float fX, float fY, float fZ, bool bKeepOnDestroy)
+ViceVehicle::ViceVehicle(SCRIPT_MISSION* pMission, DWORD dwModel, VCPosition_t position, bool bKeepOnDestroy)
 {
 	m_pMission = pMission;
 	m_bKeepOnDestroy = bKeepOnDestroy;
 	ViceModel::LoadOne(pMission, dwModel);
-	$(&create_car, dwModel, fX, fY, fZ, &m_dwVehicle);
+	$(&create_car, dwModel, position.x, position.y, position.z, &m_dwVehicle);
 }
 
 ViceVehicle::~ViceVehicle()
@@ -48,14 +48,20 @@ void ViceVehicle::Colour(int iPrimary, int iSecondary)
 	$(&set_car_color, &m_dwVehicle, iPrimary, iSecondary);
 }
 
+void ViceVehicle::Colour(VCColor color) {
+	$(&set_car_color, &m_dwVehicle, color.primary, color.secondary);
+}
+
 void ViceVehicle::ZAngle(float fAngle)
 {
 	$(&set_car_z_angle, &m_dwVehicle, fAngle);
 }
 
-void ViceVehicle::GetRelativeCoordinates(float fX, float fY, float fZ, float* pfX, float* pfY, float* pfZ)
+VCPosition_t ViceVehicle::GetRelativeCoordinates(float fX, float fY, float fZ)
 {
-	$(&car_relative_coordinates, &m_dwVehicle, fX, fY, fZ, pfX, pfY, pfZ);
+	VCPosition_t result;
+	$(&car_relative_coordinates, &m_dwVehicle, fX, fY, fZ, &result.x, &result.y, &result.z);
+	return result;
 }
 
 void ViceVehicle::DriveToOnRoad(float fX, float fY, float fZ)

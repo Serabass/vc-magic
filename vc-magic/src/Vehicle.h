@@ -52,7 +52,7 @@ private:
 	SCRIPT_MISSION* m_pMission;
 	bool m_bKeepOnDestroy;
 public:
-	ViceVehicle(SCRIPT_MISSION* pMission, DWORD dwModel, float fX, float fY, float fZ, bool bKeepOnDestroy = true);
+	ViceVehicle(SCRIPT_MISSION* pMission, DWORD dwModel, VCPosition_t position, bool bKeepOnDestroy = true);
 	~ViceVehicle();
 
 	DWORD* GetVehicle();
@@ -61,8 +61,9 @@ public:
 	bool NearPoint(float fX, float fY, float fZ, float fRX, float fRY, float fRZ, bool bSphere);
 
 	void Colour(int iPrimary, int iSecondary);
+	void Colour(VCColor color);
 	void ZAngle(float fAngle);
-	void GetRelativeCoordinates(float fX, float fY, float fZ, float* pfX, float* pfY, float* pfZ);
+	VCPosition_t GetRelativeCoordinates(float fX, float fY, float fZ);
 	void DriveToOnRoad(float fX, float fY, float fZ);
 	void SetMaxSpeed(float fSpeed);
 	void IgnoreTraffic(int iFlag);

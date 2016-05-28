@@ -31,17 +31,28 @@ void ViceCamera::Set(VCPosition_t position) {
 	$(&set_camera, position.x, position.y, position.z);
 }
 
-void ViceCamera::AtPlayer(VicePlayer* player, int mode, int switchStyle) {
+void ViceCamera::At(VicePlayer* player, int mode, int switchStyle) {
 	$(&camera_on_player, player->GetChar(), mode, switchStyle);
 }
 
-void ViceCamera::AtActor(ViceActor* actor, int mode, int switchStyle) {
-	$(&camera_on_player, actor->GetActor(), mode, switchStyle);
+void ViceCamera::At(ViceActor* actor, int mode, int switchStyle) {
+	$(&camera_on_actor, actor->GetActor(), mode, switchStyle);
 }
 
-void ViceCamera::AtVehicle(ViceVehicle* vehicle, int mode, int switchStyle) {
-	$(&camera_on_player, vehicle->GetVehicle(), mode, switchStyle);
+void ViceCamera::At(ViceVehicle* vehicle, int mode, int switchStyle) {
+	$(&camera_on_vehicle, vehicle->GetVehicle(), mode, switchStyle);
 }
+
+void ViceCamera::Point(VCPosition_t position, int iSwitchStyle)
+{
+	$(&point_camera, position.x, position.y, position.z, iSwitchStyle);
+}
+
+void ViceCamera::SetPosition(VCPosition_t position, VCPosition_t rotation)
+{
+	$(&set_camera_position, position.x, position.y, position.z, rotation.x, rotation.y, rotation.z);
+}
+
 
 void ViceCamera::Restore() {
 	$(&restore_camera);

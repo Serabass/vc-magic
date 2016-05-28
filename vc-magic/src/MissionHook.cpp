@@ -345,7 +345,7 @@ void ScriptInit()
 	ViceGame::SetWastedBustedCheck(true);
 	ViceGame::SetCurrentTime(20, 0);
 	ViceGame::RefreshScreen(PlayerStart.x, PlayerStart.y);
-	ViceGame::SetCamera(PlayerStart.x, PlayerStart.y + 2.0f, PlayerStart.z);
+	ViceCamera::Set({ PlayerStart.x, PlayerStart.y + 2.0f, PlayerStart.z });
 	pPlayer = new VicePlayer(PlayerStart.x, PlayerStart.y, PlayerStart.z);
 	pPlayer->SetSkin(MODEL_SAM);
 	pPlayer->ZAngle(PlayerStart.a);

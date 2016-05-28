@@ -40,11 +40,6 @@ void ViceGame::RefreshScreen(float fX, float fY)
 	$(&refresh_screen, fX, fY);
 }
 
-void ViceGame::SetCamera(float fX, float fY, float fZ)
-{
-	$(&set_camera, fX, fY, fZ);
-}
-
 void ViceGame::SelectInterior(int Interior)
 {
 	$(&select_interior, Interior);
@@ -59,21 +54,6 @@ void ViceGame::PlayMusic(int iMusic)
 void ViceGame::SetWidescreen(bool bWidescreen)
 {
 	$(&toggle_widescreen, bWidescreen);
-}
-
-void ViceGame::SetCameraOnVehicle(DWORD* pdwVehicle)
-{
-	$(&camera_on_vehicle, pdwVehicle, 15, 2);	// What are 15 + 2 for?
-}
-
-void ViceGame::PointCamera(float fX, float fY, float fZ, int iType)
-{
-	$(&point_camera, fX, fY, fZ, iType);
-}
-
-void ViceGame::SetCameraPosition(float fX1, float fY1, float fZ1, float fX2, float fY2, float fZ2)
-{
-	$(&set_camera_position, fX1, fY1, fZ1, fX2, fY2, fZ2);
 }
 
 void ViceGame::SetWastedSpawnPosition(float fX, float fY, float fZ, float fZAngle)

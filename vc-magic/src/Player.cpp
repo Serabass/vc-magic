@@ -134,7 +134,7 @@ int VicePlayer::Health() {
 
 CPed*(__cdecl* VicePlayer::getStruct)() = (CPed*(__cdecl*)())0x4BC120;
 
-void VicePlayer::enumNearestPeds(EnumNearestPedsCallback callback) {
+void VicePlayer::EnumNearestPeds(EnumNearestPedsCallback callback) {
 	int i = 0;
 	for (CPed *ped : this->getStruct()->nearestPeds) {
 		if (ped != 0) {

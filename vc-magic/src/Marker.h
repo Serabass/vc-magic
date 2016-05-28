@@ -2,6 +2,7 @@
 
 #ifndef MARKER_H
 #define MARKER_H
+
 const SCRIPT_COMMAND tie_marker_to_car = { 0x0161, "viiv" };	// var_car, ukn, ukn, var_marker
 const SCRIPT_COMMAND tie_marker_to_actor = { 0x0162, "viiv" };	// var_actor, ukn, ukn, var_marker
 const SCRIPT_COMMAND disable_marker = { 0x0164, "v" };		// var_marker

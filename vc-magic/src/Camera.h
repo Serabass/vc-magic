@@ -26,9 +26,9 @@ const SCRIPT_COMMAND set_camera = { 0x03CB, "fff" };	// x, y, z
 		static void SetBeforePlayer();
 		static void Set(VCPosition_t position); // ? 
 
-		static void AtPlayer(VicePlayer* player, int mode, int switchStyle);
-		static void AtVehicle(ViceVehicle* vehicle, int mode, int switchStyle);
-		static void AtActor(ViceActor* actor, int mode, int switchStyle);
+		static void At(VicePlayer* player, int mode, int switchStyle);
+		static void At(ViceVehicle* vehicle, int mode, int switchStyle);
+		static void At(ViceActor* actor, int mode, int switchStyle);
 		static void Restore();
 
 		static void RestoreWithJumpcut();

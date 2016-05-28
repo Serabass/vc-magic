@@ -42,6 +42,21 @@ bool bMissionEnded = true;	// Mission ended flag.
 //			This is a pointer to the mission script strucutre for the mission assosiated
 //			with this thread.
 //
+
+void Example_1_Lambda(SCRIPT_MISSION* pMission)
+{
+	for (;;)
+	{
+		SCRIPT_WAIT(100);
+
+		if (KEY_PRESSED(VK_TAB)) {
+			pPlayer->EnumNearestPeds([](CPed *ped, int index) {
+				ped->health = 0;
+			});
+		}
+	}
+}
+
 void Mission_TheSample(SCRIPT_MISSION* pMission)
 {
 	INITIALISE_THREAD();
@@ -58,7 +73,7 @@ void Mission_TheSample(SCRIPT_MISSION* pMission)
 	const int iRunningWantedLevel	= 2;
 	const int iEscapedWantedLevel	= 3;
 
-	float fX, fY, fZ;
+	VCPosition_t fPosition;
 
 	ViceVehicle* pDebugCar		= NULL;
 	ViceVehicle* pCopCar		= NULL;
@@ -86,22 +101,22 @@ void Mission_TheSample(SCRIPT_MISSION* pMission)
 	while (ViceGame::IsFading()) SCRIPT_WAIT(0);
 
 	// Car for debugging.
-	pDebugCar = new ViceVehicle(pMission, MODEL::CAR::SENTINEL, PlayerCar.x, PlayerCar.y, PlayerCar.z);
+	pDebugCar = new ViceVehicle(pMission, MODEL::CAR::SENTINEL, PlayerCar);
 	pDebugCar->ZAngle(PlayerCar.a);
 	pDebugCar->Colour(57, 57);
 
 	// Create the cop car.
-	pCopCar = new ViceVehicle(pMission, MODEL::CAR::POLICE, CopsStart.x, CopsStart.y, CopsStart.z);
+	pCopCar = new ViceVehicle(pMission, MODEL::CAR::POLICE, CopsStart);
 
 	// Get position for swat van relaitve to cop car.
-	pCopCar->GetRelativeCoordinates(0.0, 12.0, 0.0, &fX, &fY, &fZ);
+	fPosition = pCopCar->GetRelativeCoordinates(0.0, 12.0, 0.0);
 	// Create swat van.
-	pSwatVan = new ViceVehicle(pMission, MODEL::CAR::ENFORCER, fX, fY, fZ);
+	pSwatVan = new ViceVehicle(pMission, MODEL::CAR::ENFORCER, fPosition);
 
 	// Get position for fbi car relaitve to swat van.
-	pSwatVan->GetRelativeCoordinates(0.0, 12.0, 0.0, &fX, &fY, &fZ);
+	fPosition = pSwatVan->GetRelativeCoordinates(0.0, 12.0, 0.0);
 	// Create fbi car.
-	pFBICar = new ViceVehicle(pMission, MODEL::CAR::FBIRANCH, fX, fY, fZ);
+	pFBICar = new ViceVehicle(pMission, MODEL::CAR::FBIRANCH, fPosition);
 
 	// Create Hilary.
 	pHilary = new ViceSpecialActor(pMission, 1, MODEL_IGHLARY);
@@ -201,23 +216,23 @@ void Mission_TheSample(SCRIPT_MISSION* pMission)
 	pPlayer->Health(100);
 
 	// Continue with intro.
-	pSwatVan->GetRelativeCoordinates(-8.0, 30.0, 3.0, &fX, &fY, &fZ);
-	ViceGame::SetCameraPosition(fX, fY, fZ, 0.0f, 0.0f, 0.0f);
-	ViceGame::SetCameraOnVehicle(pSwatVan->GetVehicle());
+	fPosition = pSwatVan->GetRelativeCoordinates(-8.0, 30.0, 3.0);
+	ViceCamera::SetPosition(fPosition, { 0.0f, 0.0f, 0.0f });
+	ViceCamera::At(pSwatVan, 15, 2);
 	ViceGame::SetWidescreen(true);
 	SCRIPT_WAIT(1000);
 	ViceGame::Fade(1000, FADE::FADEIN);
 	while (ViceGame::IsFading()) SCRIPT_WAIT(0);
 	ViceText::Now("!CAUGHT", 4000, 1);
 	SCRIPT_WAIT(4000);
-	pSwatVan->GetRelativeCoordinates(-8.0, 30.0, 3.0, &fX, &fY, &fZ);
-	ViceGame::SetCameraPosition(fX, fY, fZ, 0.0f, 0.0f, 0.0f);
-	ViceGame::SetCameraOnVehicle(pSwatVan->GetVehicle());
+	fPosition = pSwatVan->GetRelativeCoordinates(-8.0, 30.0, 3.0);
+	ViceCamera::SetPosition(fPosition, { 0.0f, 0.0f, 0.0f });
+	ViceCamera::At(pSwatVan, 15, 2);
 	ViceText::Now("!TAKEN", 4000, 1);
 	SCRIPT_WAIT(4000);
-	pSwatVan->GetRelativeCoordinates(-8.0, 30.0, 3.0, &fX, &fY, &fZ);
-	ViceGame::SetCameraPosition(fX, fY, fZ, 0.0f, 0.0f, 0.0f);
-	ViceGame::SetCameraOnVehicle(pSwatVan->GetVehicle());
+	fPosition = pSwatVan->GetRelativeCoordinates(-8.0, 30.0, 3.0);
+	ViceCamera::SetPosition(fPosition, { 0.0f, 0.0f, 0.0f });
+	ViceCamera::At(pSwatVan, 15, 2);
 	ViceText::Now("!GETEM", 4000, 1);
 	SCRIPT_WAIT(4000);
 	ViceGame::Fade(1000, FADE::FADEOUT);
@@ -228,8 +243,9 @@ void Mission_TheSample(SCRIPT_MISSION* pMission)
 	ViceGame::SetWidescreen(false);
 	ViceGame::Fade(1000, FADE::FADEIN);
 	while (ViceGame::IsFading()) SCRIPT_WAIT(0);
-	ViceGame::SetCameraPosition(MissionStart.x, MissionStart.y, MissionStart.z + 2.0f, 0.0f, 0.0f, 0.0f);
-	ViceGame::PointCamera(PlayerCar.x, PlayerCar.y, PlayerCar.z, 1);
+	ViceCamera::SetPosition({ MissionStart.x, MissionStart.y, MissionStart.z + 2.0f }, { 0.0f, 0.0f, 0.0f });
+	
+	ViceCamera::Point(PlayerCar, 1);
 	SCRIPT_WAIT(500);
 	ViceText::Now("!SENTI", 2000, 1);
 	SCRIPT_WAIT(2000);
@@ -253,8 +269,8 @@ void Mission_TheSample(SCRIPT_MISSION* pMission)
 		if (pFBICar->GetHealth() > 250)
 		{
 			// Fbi car - follow the swat van!
-			pSwatVan->GetRelativeCoordinates(0.0, 12.0, 0.0, &fX, &fY, &fZ);
-			pFBICar->DriveToOnRoad(fX, fY, fZ);
+			fPosition = pSwatVan->GetRelativeCoordinates(0.0, 12.0, 0.0);
+			pFBICar->DriveToOnRoad(fPosition.x, fPosition.y, fPosition.z);
 		}
 
 		if (WastedBustedCheck()) goto MissionFailed;
@@ -484,10 +500,10 @@ void MainScript(SCRIPT_MISSION* pMission)
 	{
 		SCRIPT_WAIT(100);
 
-		#define PLAYERCARPROP(type, var, offset) type var = *ViceStructReader::read<type>(*(type*)0x7E49C0, offset);
-		
 		if (KEY_PRESSED(VK_TAB)) {
-			pPlayer->SetVisible(ws = !ws);
+			pPlayer->EnumNearestPeds([](CPed *ped, int index) {
+				ped->health = 0;
+			});
 		}
 	}
 }
@@ -508,7 +524,7 @@ void MainScript_example(SCRIPT_MISSION* pMission)
 {
 	WaitForSingleObject(pMission->hExecute, INFINITE);
 
-	ViceVehicle* pBike = new ViceVehicle(pMission, MODEL::BIKE::PCJ600, BikeShop.x, BikeShop.y, BikeShop.z, false);
+	ViceVehicle* pBike = new ViceVehicle(pMission, MODEL::BIKE::PCJ600, BikeShop, false);
 	pBike->ZAngle(BikeShop.a);
 	pBike->Colour(57, 57);
 

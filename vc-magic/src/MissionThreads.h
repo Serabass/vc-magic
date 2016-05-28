@@ -16,13 +16,23 @@
 // Structures
 struct VCPosition_t
 {
-	float x, y, z, a;
+	float x;
+	float y;
+	float z;
+	float a;
+};
+
+struct VCColor {
+	int primary;
+	int secondary;
 };
 
 // Structures
 struct VCRGB
 {
-	int r, g, b;
+	int r;
+	int g;
+	int b;
 };
 
 

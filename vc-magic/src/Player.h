@@ -95,7 +95,7 @@ public:
 
 	typedef void(__cdecl* EnumNearestPedsCallback)(CPed* ped, int index);
 
-	void enumNearestPeds(EnumNearestPedsCallback callback);
+	void EnumNearestPeds(EnumNearestPedsCallback callback);
 
 	template <typename T>
 	T* $$(int off);
