@@ -287,3 +287,11 @@
 		$(&get_actor_zangle, &m_dwActor, &pos->a);
 		return *pos;
 	}
+
+	bool ViceActor::InCar() {
+		return !!$(&actor_in_a_car, &m_dwActor);
+	}
+
+	bool ViceActor::InCar(ViceVehicle* car) {
+		return !!$(&actor_in_a_car, &m_dwActor, car->GetVehicle());
+	}

@@ -15,7 +15,7 @@ const SCRIPT_COMMAND create_actor_fire = { 0x0326, "vv" };	// x, y, z, a
 	private:
 		DWORD m_dwFire;	
 	public:
-		ViceFire(float x, float y, float z);
+		ViceFire(VCPosition_t position);
 		ViceFire(DWORD m_dwFire);
 		~ViceFire();
 

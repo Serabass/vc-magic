@@ -34,6 +34,12 @@ const SCRIPT_COMMAND player_on_foot = { 0x044A, "v" };
 const SCRIPT_COMMAND get_player_wanted_level = { 0x01C0, "vv" };
 const SCRIPT_COMMAND set_player_drunk_visuals = { 0x052C, "vi" };
 const SCRIPT_COMMAND set_player_visible = { 0x0336, "vi" };
+const SCRIPT_COMMAND get_player_car = { 0x00DA, "vv" };
+const SCRIPT_COMMAND set_sensivity_to_crime = { 0x03C7, "f" };
+const SCRIPT_COMMAND get_player_ammo = { 0x0419, "viv" };
+const SCRIPT_COMMAND player_in_car = { 0x0442, "vv" };
+const SCRIPT_COMMAND player_in_a_car = { 0x0443, "v" };
+const SCRIPT_COMMAND player_driving_boat = { 0x04A8, "v" };
 
 struct PlayerStruct {
 
@@ -91,7 +97,17 @@ public:
 
 	VCPosition_t GetPosition();
 
+	ViceVehicle* GetCar();
+	void SetSensivityToCrime(float value);
+
 	void SetVisible(bool visible);
+
+	int GetAmmo(int weaponIndex); // use Enum plz
+
+	bool InCar();
+	bool InCar(ViceVehicle* car);
+
+	bool DrivingBoat();
 
 	typedef void(__cdecl* EnumNearestPedsCallback)(CPed* ped, int index);
 

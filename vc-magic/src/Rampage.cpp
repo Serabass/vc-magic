@@ -23,3 +23,7 @@ int ViceRampage::GetKills(MODEL model) {
 	$(&get_rampage_kills, model, &result);
 	return result;
 }
+
+void ViceRampage::SetTotal(int total) {
+	$(&set_total_rampages, total);
+}

@@ -44,6 +44,9 @@ const SCRIPT_COMMAND get_car_num_passengers = { 0x01E9, "vv" };
 const SCRIPT_COMMAND get_car_max_passengers = { 0x01EA, "vv" };
 const SCRIPT_COMMAND set_car_health = { 0x0224, "vf" };
 const SCRIPT_COMMAND car_turn_off_engine = { 0x02D4, "v" };
+const SCRIPT_COMMAND car_drive_to = { 0x00A7, "vfff" };
+const SCRIPT_COMMAND set_car_to_psycho_driver = { 0x00A8, "v" };
+const SCRIPT_COMMAND set_car_to_normal_driver = { 0x00A9, "v" };
 
 class ViceVehicle
 {
@@ -53,6 +56,7 @@ private:
 	bool m_bKeepOnDestroy;
 public:
 	ViceVehicle(SCRIPT_MISSION* pMission, DWORD dwModel, VCPosition_t position, bool bKeepOnDestroy = true);
+	ViceVehicle(DWORD m_dwVehicle);
 	~ViceVehicle();
 
 	DWORD* GetVehicle();
@@ -64,7 +68,7 @@ public:
 	void Colour(VCColor color);
 	void ZAngle(float fAngle);
 	VCPosition_t GetRelativeCoordinates(float fX, float fY, float fZ);
-	void DriveToOnRoad(float fX, float fY, float fZ);
+	void DriveToOnRoad(VCPosition_t position);
 	void SetMaxSpeed(float fSpeed);
 	void IgnoreTraffic(int iFlag);
 	void SetImmuneToNonplayer(bool bImmune);
@@ -95,6 +99,10 @@ public:
 
 	void SetWatertight(bool watertight);
 
+	void DriveTo(VCPosition_t destination);
+	void SetToPsychoDriver();
+	void SetToNormalDriver();
+
 	void SetAction(VehicleAction action, WORD time);
 
 	void RaceTo(float X, float Y);
@@ -107,8 +115,7 @@ public:
 	CVehicle* getStruct();
 	static CVehicle* getStructById(signed int id);
 
-	template <typename T>
-	T* $$(VehicleProps off);
+	template <typename T> T* $$(VehicleProps off);
 
 	static TOpenTrunk $openTrunk;
 	static TOpenTrunk $openTrunkFully;

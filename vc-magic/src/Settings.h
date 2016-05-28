@@ -5,8 +5,8 @@
 
 class ViceSettings {
 public:
-	static char* subtitlesEnabled;
-	static char* wideScreenEnabled;
+	static bool* subtitlesEnabled;
+	static bool* wideScreenEnabled;
 	static char* sfxVolume;
 	static char* musicVolume;
 	static VCPoint2D* mouse;

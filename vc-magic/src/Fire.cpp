@@ -5,8 +5,8 @@
 		$(&cmd, entity, &m_dwNewFire); \
 		return new ViceFire(m_dwNewFire);
 
-	ViceFire::ViceFire(float x, float y, float z) {
-		$(&create_fire, x, y, z, &m_dwFire);
+	ViceFire::ViceFire(VCPosition_t position) {
+		$(&create_fire, position.x, position.y, position.z, &m_dwFire);
 	}
 
 	ViceFire::ViceFire(DWORD m_dwFire) {

@@ -16,6 +16,11 @@ ViceVehicle::ViceVehicle(SCRIPT_MISSION* pMission, DWORD dwModel, VCPosition_t p
 	m_bKeepOnDestroy = bKeepOnDestroy;
 	ViceModel::LoadOne(pMission, dwModel);
 	$(&create_car, dwModel, position.x, position.y, position.z, &m_dwVehicle);
+	this->ZAngle(position.a);
+}
+
+ViceVehicle::ViceVehicle(DWORD m_dwVehicle) {
+	this->m_dwVehicle = m_dwVehicle;
 }
 
 ViceVehicle::~ViceVehicle()
@@ -64,9 +69,9 @@ VCPosition_t ViceVehicle::GetRelativeCoordinates(float fX, float fY, float fZ)
 	return result;
 }
 
-void ViceVehicle::DriveToOnRoad(float fX, float fY, float fZ)
+void ViceVehicle::DriveToOnRoad(VCPosition_t position)
 {
-	$(&drive_car_to_point1, &m_dwVehicle, fX, fY, fZ);
+	$(&drive_car_to_point1, &m_dwVehicle, position.x, position.y, position.z);
 }
 
 void ViceVehicle::SetMaxSpeed(float fSpeed)
@@ -234,3 +239,16 @@ int ViceVehicle::GetMaxPassengers() {
 void ViceVehicle::TurnOffEngine() {
 	$(&car_turn_off_engine, &m_dwVehicle);
 }
+
+void ViceVehicle::DriveTo(VCPosition_t position) {
+	$(&car_drive_to, &m_dwVehicle, position.x, position.y, position.z);
+}
+
+void ViceVehicle::SetToPsychoDriver() {
+	$(&set_car_to_psycho_driver, &m_dwVehicle);
+}
+
+void ViceVehicle::SetToNormalDriver() {
+	$(&set_car_to_normal_driver, &m_dwVehicle);
+}
+

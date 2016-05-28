@@ -12,7 +12,7 @@ private:
 	DWORD m_dwSphere;
 
 public:
-	ViceSphere(float X, float Y, float Z, float radius);
+	ViceSphere(VCPosition_t position, float radius);
 	~ViceSphere();
 };
 #endif

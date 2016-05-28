@@ -151,3 +151,12 @@ void ViceGame::LoadWeaponModels(WEAPON weapon) {
 		break;
 	}
 }
+
+void ViceGame::BlowUpRCBuggy() {
+	$(&blow_up_rc_buggy);
+}
+
+bool ViceGame::IsGermanGame() {
+	return !!$(&is_german_game);
+}
+

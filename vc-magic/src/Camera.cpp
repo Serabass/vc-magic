@@ -53,7 +53,6 @@ void ViceCamera::SetPosition(VCPosition_t position, VCPosition_t rotation)
 	$(&set_camera_position, position.x, position.y, position.z, rotation.x, rotation.y, rotation.z);
 }
 
-
 void ViceCamera::Restore() {
 	$(&restore_camera);
 }

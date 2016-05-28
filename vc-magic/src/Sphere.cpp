@@ -1,7 +1,7 @@
 #include "Sphere.h"
 
-ViceSphere::ViceSphere(float X, float Y, float Z, float radius) {
-	$(&create_sphere, X, Y, Z, &m_dwSphere);
+ViceSphere::ViceSphere(VCPosition_t position, float radius) {
+	$(&create_sphere, position.x, position.y, position.z, &m_dwSphere);
 }
 
 ViceSphere::~ViceSphere() {

@@ -33,10 +33,8 @@ const SCRIPT_COMMAND set_camera = { 0x03CB, "fff" };	// x, y, z
 
 		static void RestoreWithJumpcut();
 
-		// 015F
 		static void SetPosition(VCPosition_t position, VCPosition_t rotation);
 
-		// 
 		static void Point(VCPosition_t position, int switchStyle);
 
 		static bool* GreenScanlines;

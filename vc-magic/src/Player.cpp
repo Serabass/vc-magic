@@ -177,3 +177,32 @@ bool VicePlayer::OnFoot() {
 int VicePlayer::GetWantedLevel() {
 	VICEPLAYER_RETURN_RESULT_1ARG(int, get_player_wanted_level)
 }
+
+ViceVehicle* VicePlayer::GetCar() {
+	DWORD dwCar;
+	$(&get_player_car, &m_dwChar, &dwCar);
+	return new ViceVehicle(dwCar);
+}
+
+void VicePlayer::SetSensivityToCrime(float value) {
+	$(&set_sensivity_to_crime, value);
+}
+
+
+int VicePlayer::GetAmmo(int weaponIndex) {
+	int ammo;
+	$(&get_player_ammo, &m_dwChar, &ammo);
+	return ammo;
+}
+
+bool VicePlayer::InCar() {
+	return !!$(&player_in_a_car, &m_dwChar);
+}
+
+bool VicePlayer::InCar(ViceVehicle* car) {
+	return !!$(&player_in_a_car, &m_dwChar, car->GetVehicle());
+}
+
+bool VicePlayer::DrivingBoat() {
+	return !!$(&player_driving_boat, &m_dwChar);
+}

@@ -28,6 +28,8 @@ const SCRIPT_COMMAND increment_progress = { 0x030C, "i" };
 const SCRIPT_COMMAND set_total_missions = { 0x042C, "i" };
 const SCRIPT_COMMAND create_swat_rope_at = { 0x0503, "iifffv" };
 const SCRIPT_COMMAND get_groundz_at = { 0x02CE, "fffv" };
+const SCRIPT_COMMAND blow_up_rc_buggy = { 0x0409, "" };
+const SCRIPT_COMMAND is_german_game = { 0x040C, "" };
 
 class ViceGame
 {
@@ -95,6 +97,8 @@ public:
 	static void(__cdecl* printString)(float x, float y, int a);
 
 	static void LoadWeaponModels(WEAPON);
+	static void BlowUpRCBuggy();
+	static bool IsGermanGame();
 };
 
 #endif

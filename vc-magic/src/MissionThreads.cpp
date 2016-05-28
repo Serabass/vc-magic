@@ -204,9 +204,9 @@ void Mission_TheSample(SCRIPT_MISSION* pMission)
 	pFBICar->SetSiren(true);
 
 	// Drive to the police headquaters.
-	pCopCar->DriveToOnRoad(CopShop.x, CopShop.y, CopShop.z);
-	pSwatVan->DriveToOnRoad(CopShop.x, CopShop.y, CopShop.z);
-	pFBICar->DriveToOnRoad(CopShop.x, CopShop.y, CopShop.z);
+	pCopCar->DriveToOnRoad(CopShop);
+	pSwatVan->DriveToOnRoad(CopShop);
+	pFBICar->DriveToOnRoad(CopShop);
 
 	pSwatVan->SetDoorStatus(2);
 
@@ -270,7 +270,7 @@ void Mission_TheSample(SCRIPT_MISSION* pMission)
 		{
 			// Fbi car - follow the swat van!
 			fPosition = pSwatVan->GetRelativeCoordinates(0.0, 12.0, 0.0);
-			pFBICar->DriveToOnRoad(fPosition.x, fPosition.y, fPosition.z);
+			pFBICar->DriveToOnRoad(fPosition);
 		}
 
 		if (WastedBustedCheck()) goto MissionFailed;
@@ -495,15 +495,22 @@ void print(char *format, ...) {
 
 void MainScript(SCRIPT_MISSION* pMission)
 {
-	bool ws = false;
+
+	ViceVehicle* pBike = new ViceVehicle(pMission, MODEL::CAR::ADMIRAL, BikeShop, false);
+	pBike->Colour(57, 57);
+
+	ViceActor* p = new ViceActor(pMission);
+
+	p->SpawnInDriverSeat(pBike->GetVehicle(), PEDTYPE::COP, MODEL::COP);
+	
 	for (;;)
 	{
 		SCRIPT_WAIT(100);
+		pBike->SetToPsychoDriver();
+		pBike->DriveTo(pPlayer->GetPosition());
 
 		if (KEY_PRESSED(VK_TAB)) {
-			pPlayer->EnumNearestPeds([](CPed *ped, int index) {
-				ped->health = 0;
-			});
+			pPlayer->GetCar(); //->SetSpeed(1000);
 		}
 	}
 }
