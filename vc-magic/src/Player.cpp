@@ -200,7 +200,7 @@ bool VicePlayer::InCar() {
 }
 
 bool VicePlayer::InCar(ViceVehicle* car) {
-	return !!$(&player_in_a_car, &m_dwChar, car->GetVehicle());
+	return !!$(&player_in_car, &m_dwChar, car->GetVehicle());
 }
 
 bool VicePlayer::DrivingBoat() {

@@ -293,7 +293,7 @@
 	}
 
 	bool ViceActor::InCar(ViceVehicle* car) {
-		return !!$(&actor_in_a_car, &m_dwActor, car->GetVehicle());
+		return !!$(&actor_in_car, &m_dwActor, car->GetVehicle());
 	}
 
 	// Doesn't work! Game crushes
