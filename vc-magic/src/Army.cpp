@@ -15,7 +15,6 @@ void ViceArmy::EnumSoldiers(EnumSoldiersCallback callback) {
 	}
 }
 
-
 void ViceArmy::CordonOffArea() {
 	std::vector<VCPoint2D> points;
 	for (ViceActor* soldier : soldiers) {

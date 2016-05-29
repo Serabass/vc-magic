@@ -12,6 +12,7 @@
 		ViceActor* captain;
 		ViceAreaRect area;
 		ViceArmy();
+		~ViceArmy();
 		
 		MODEL::IDE models[4] = {
 			MODEL::IDE::ARMY,

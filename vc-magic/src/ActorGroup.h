@@ -10,6 +10,7 @@
 		ViceActor* leader;
 		VCPosition_t center;
 		ViceActorGroup();
+		~ViceActorGroup();
 
 		std::vector<ViceActor*> members;
 
