@@ -68,3 +68,11 @@ void ViceText::UseGXTTable(GXTKey string) {
 void ViceText::DisplayMessageAtStadium(int messageId) {
 	$(&display_message_at_stadium, messageId);
 }
+
+void ViceText::EnableTextDraw() {
+	$(&enable_text_draw, 1);
+}
+
+void ViceText::DisableTextDraw() {
+	$(&enable_text_draw, 0);
+}

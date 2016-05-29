@@ -191,3 +191,11 @@ float ViceGame::GetPercentageCompleted() {
 	$(&get_percentage_completed, &result);
 	return result;
 }
+
+void ViceGame::LoadSplash(GXTKey splash) {
+	$(&load_splash, splash);
+}
+
+void ViceGame::LoadEndOfGameAudio() {
+	$(&load_end_of_game_audio);
+}

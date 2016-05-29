@@ -72,6 +72,9 @@ const SCRIPT_COMMAND move_actor_from_car_passengerseat_to_driverseat = { 0x04F3,
 const SCRIPT_COMMAND actor_in_range_of_player = { 0x0320, "vv" };
 const SCRIPT_COMMAND create_random_actor_in_vehicle_driverseat = { 0x0560, "vv" };
 const SCRIPT_COMMAND stop_actor = { 0x0579, "v" };
+const SCRIPT_COMMAND put_actor_into_turret_on_car = { 0x0464, "vvfffifi" };
+const SCRIPT_COMMAND remove_actor_from_turret_mode = { 0x0465, "v" };
+const SCRIPT_COMMAND actor_leave_car_and_flee = { 0x046B, "vv" };
 
 	class ViceActor
 	{
@@ -184,6 +187,11 @@ const SCRIPT_COMMAND stop_actor = { 0x0579, "v" };
 		void ClearLastWeaponDamage();
 		void SetLockedWhileInVehicle(bool locked);
 		void SetLockedWhileInVehicle();
+
+		void PutIntoTurretAtCar(ViceVehicle* car, VCPosition_t offset, int position, WEAPON weapon);
+		void RemoveFromTurretMode();
+
+		void LeaveCarAndFlee(ViceVehicle* car);
 
 		void Drive(ViceVehicle* car);
 

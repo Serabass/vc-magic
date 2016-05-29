@@ -392,3 +392,16 @@
 	void ViceActor::Stop() {
 		$(&stop_actor, &m_dwActor);
 	}
+
+	// Check!!!
+	void ViceActor::PutIntoTurretAtCar(ViceVehicle* car, VCPosition_t offset, int position, WEAPON weapon) {
+		$(&put_actor_into_turret_on_car, &m_dwActor, car->GetVehicle(), offset.x, offset.y, offset.z, position, offset.a, (int)weapon);
+	}
+
+	void ViceActor::RemoveFromTurretMode() {
+		$(&remove_actor_from_turret_mode, &m_dwActor);
+	}
+
+	void ViceActor::LeaveCarAndFlee(ViceVehicle* car) {
+		$(&actor_leave_car_and_flee, &m_dwActor, car->GetVehicle());
+	}

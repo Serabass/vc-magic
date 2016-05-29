@@ -36,6 +36,8 @@ const SCRIPT_COMMAND enable_rc_car_detonation = { 0x04D6, "i" };
 const SCRIPT_COMMAND set_streaming = { 0x03AF, "i" };
 const SCRIPT_COMMAND set_rubbish = { 0x03AD, "i" };
 const SCRIPT_COMMAND get_percentage_completed = { 0x058C, "v" };
+const SCRIPT_COMMAND load_splash = { 0x044D, "s" };
+const SCRIPT_COMMAND load_end_of_game_audio = { 0x0451, "" };
 
 class ViceGame
 {
@@ -115,6 +117,9 @@ public:
 	static void SetRubbish(bool value);
 
 	static float GetGroundZAt(VCPosition_t position);
+
+	static void LoadSplash(GXTKey splash);
+	static void LoadEndOfGameAudio();
 };
 
 #endif
