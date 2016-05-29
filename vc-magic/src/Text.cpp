@@ -40,7 +40,23 @@ void ViceText::RemoveText(GXTKey message)
 {
 	$(&remove_text, message);
 }
+
 void ViceText::RemoveStyledText(GXTKey message)
 {
 	$(&remove_styled_text, message);
+}
+
+void ViceText::Draw(GXTKey message, VCPoint2D position)
+{
+	$(&text_draw, message, position.x, position.y);
+}
+
+void ViceText::SetDrawColor(VCRGBA color)
+{
+	$(&set_text_draw_color, color.r, color.g, color.b, color.a);
+}
+
+void ViceText::SetLineWidth(float width)
+{
+	$(&set_text_linewidth, width);
 }

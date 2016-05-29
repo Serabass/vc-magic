@@ -7,6 +7,7 @@ const SCRIPT_COMMAND pickup_is_picked_up = { 0x0214, "v" };
 const SCRIPT_COMMAND destroy_pickup = { 0x0215, "v" };
 const SCRIPT_COMMAND create_default_pickup = { 0x0213, "iifffv" };
 const SCRIPT_COMMAND create_cash_pickup = { 0x02E1, "ifffv" };
+const SCRIPT_COMMAND create_clothes_pickup = { 0x02E1, "ifffv" };
 
 	class VicePickup {
 	private:
@@ -21,7 +22,6 @@ const SCRIPT_COMMAND create_cash_pickup = { 0x02E1, "ifffv" };
 		// 032B
 		static VicePickup* CreateWeapon(MODEL model, WEAPON weapon, int ammo, VCPosition_t position);
 
-		// 055B
 		static VicePickup* CreateClothes(MODEL skin, VCPosition_t position);
 		
 		ViceMarker* CreateMarker();

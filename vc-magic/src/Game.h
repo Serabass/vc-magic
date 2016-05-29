@@ -64,9 +64,9 @@ public:
 	static void IncrementProgress(int by);
 	static void SetTotalMissions(int count);
 
-	static bool(__cdecl* SetTime)(char hour, char minute);
-	static bool(__cdecl* GlassIsBrokenAt)(float x, float y, float z);
-	static double(__cdecl* GetGroundZAt)(float x, float y);
+	static bool(__cdecl* setTime)(char hour, char minute);
+	static bool(__cdecl* glassIsBrokenAt)(float x, float y, float z);
+	static double(__cdecl* getGroundZAt)(float x, float y);
 
 
 
@@ -111,6 +111,8 @@ public:
 	static void EnableRCCarDetonation(bool value);
 	static void SetStreaming(bool value);
 	static void SetRubbish(bool value);
+
+	static float GetGroundZAt(VCPosition_t position);
 };
 
 #endif

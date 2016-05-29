@@ -11,6 +11,9 @@ const SCRIPT_COMMAND text_box = { 0x03E5, "s" };
 const SCRIPT_COMMAND remove_text_box = { 0x03E6, "" };
 const SCRIPT_COMMAND remove_text = { 0x03D5, "s" };
 const SCRIPT_COMMAND remove_styled_text = { 0x03D6, "s" };
+const SCRIPT_COMMAND text_draw = { 0x033E, "ffs" };
+const SCRIPT_COMMAND set_text_draw_color = { 0x0340, "iiii" };
+const SCRIPT_COMMAND set_text_linewidth = { 0x0343, "f" };
 
 class ViceText {
 public:
@@ -23,6 +26,9 @@ public:
 	static void RemoveTextBox();
 	static void RemoveText(GXTKey message);
 	static void RemoveStyledText(GXTKey message);
+	static void Draw(GXTKey message, VCPoint2D position);
+	static void SetDrawColor(VCRGBA color);
+	static void SetLineWidth(float width);
 };
 
 #endif

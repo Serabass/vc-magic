@@ -2,7 +2,8 @@
 
 #ifndef SCPECIALACTOR_H
 #define SCPECIALACTOR_H
-const SCRIPT_COMMAND load_special_actor = { 0x023C, "is" };		// SPECIAL_*, MODEL_*
+const SCRIPT_COMMAND load_special_actor = { 0x023C, "is" };
+const SCRIPT_COMMAND unload_special_actor = { 0x0296, "i" };
 
 class ViceSpecialActor
 {
@@ -24,8 +25,5 @@ public:
 	void TieToPlayer(DWORD* pdwPlayer);
 	void LeaveVehicle();
 	void SetWander(bool bWander);
-
-	// 0296 or destructor?
-	void Unload();
 };
 #endif

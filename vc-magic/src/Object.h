@@ -7,6 +7,7 @@ const SCRIPT_COMMAND create_object_at = { 0x0107, "ifffv" };
 const SCRIPT_COMMAND destroy_object = { 0x0108, "v" };
 const SCRIPT_COMMAND object_is_damaged = { 0x0366, "v" };
 const SCRIPT_COMMAND object_exists = { 0x03CA, "v" };
+const SCRIPT_COMMAND make_object_targetable = { 0x035D, "v" };
 
 	class ViceObject {
 	private:
@@ -48,7 +49,6 @@ const SCRIPT_COMMAND object_exists = { 0x03CA, "v" };
 		// 035C
 		void PlaceRelativeToCar(ViceVehicle* vehicle, VCPosition_t offset);
 
-		// 035D
 		void MakeTargetable();
 
 		ViceMarker* CreateMarker();

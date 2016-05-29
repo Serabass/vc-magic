@@ -104,9 +104,9 @@ void ViceGame::CreateSWATRope(int id, int model, VCPosition_t pos) {
 	$(&create_swat_rope_at, id, model, pos.x, pos.y, pos.z, &s);
 }
 
-bool(__cdecl* ViceGame::SetTime)(char, char) = (bool(__cdecl*)(char, char))0x487160;
-bool(__cdecl* ViceGame::GlassIsBrokenAt)(float, float, float) = (bool(__cdecl*)(float, float, float))0x552EE0;
-double(__cdecl* ViceGame::GetGroundZAt)(float, float) = (double(__cdecl*)(float, float))0x4D5540;
+bool(__cdecl* ViceGame::setTime)(char, char) = (bool(__cdecl*)(char, char))0x487160;
+bool(__cdecl* ViceGame::glassIsBrokenAt)(float, float, float) = (bool(__cdecl*)(float, float, float))0x552EE0;
+double(__cdecl* ViceGame::getGroundZAt)(float, float) = (double(__cdecl*)(float, float))0x4D5540;
 
 int* ViceGame::maxWantedLevelHuman = (int *)0x6910D8;
 int* ViceGame::maxWantedLevel = (int *)0x6910DC;
@@ -178,4 +178,10 @@ void ViceGame::SetStreaming(bool value) {
 
 void ViceGame::SetRubbish(bool value) {
 	$(&set_rubbish, (int)value);
+}
+
+float ViceGame::GetGroundZAt(VCPosition_t position) {
+	float result;
+	$(&get_groundz_at, position.x, position.y, position.z, &result);
+	return result;
 }

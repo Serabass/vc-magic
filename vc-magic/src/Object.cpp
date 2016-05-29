@@ -19,3 +19,7 @@ bool ViceObject::Exists() {
 ViceMarker* ViceObject::CreateMarker() {
 	return ViceMarker::CreateAboveObject(&m_dwObject);
 }
+
+void ViceObject::MakeTargetable() {
+	$(&make_object_targetable, &m_dwObject);
+}

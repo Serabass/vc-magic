@@ -14,6 +14,7 @@ ViceSpecialActor::ViceSpecialActor(SCRIPT_MISSION* pMission, int iSlot, GXTKey V
 
 ViceSpecialActor::~ViceSpecialActor()
 {
+	$(&unload_special_actor, m_iSlot); // m_iSlot ?
 	delete m_pActor;
 }
 

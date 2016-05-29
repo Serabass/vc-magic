@@ -35,6 +35,14 @@ struct VCRGB
 	int b;
 };
 
+struct VCRGBA
+{
+	int r;
+	int g;
+	int b;
+	int a;
+};
+
 
 // Prototypes
 void TestMission(SCRIPT_MISSION* pMission);

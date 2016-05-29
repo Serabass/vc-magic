@@ -25,6 +25,12 @@ VicePickup* VicePickup::CreateCash(int amount, VCPosition_t position) {
 	return new VicePickup(m_dwPickup);
 }
 
+VicePickup* VicePickup::CreateClothes(MODEL skin, VCPosition_t position) {
+	DWORD m_dwPickup;
+	$(&create_clothes_pickup, position.x, position.y, position.z, &m_dwPickup);
+	return new VicePickup(m_dwPickup);
+}
+
 
 ViceMarker* VicePickup::CreateMarker() {
 	return ViceMarker::CreateAbovePickup(&m_dwPickup);
