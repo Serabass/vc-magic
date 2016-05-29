@@ -42,3 +42,15 @@ void ViceGarage::SetType(int type) {
 void ViceGarage::SetDoorTypeToSwingOpen() {
 	$(&set_garage_door_type_to_swing_open, &m_dwGarage);
 }
+
+void ViceGarage::SetCameraFollowsPlayer() {
+	$(&set_garage_camera_follows_player, &m_dwGarage);
+}
+
+bool ViceGarage::ContainsNeededCar(int probSlot) {
+	return !!$(&garage_contains_neededcar, &m_dwGarage, probSlot);
+}
+
+void ViceGarage::SetMaxCars(int count) {
+	$(&garage_set_max_cars, &m_dwGarage, count);
+}
