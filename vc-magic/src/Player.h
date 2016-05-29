@@ -43,6 +43,10 @@ const SCRIPT_COMMAND player_driving_boat = { 0x04A8, "v" };
 const SCRIPT_COMMAND player_look_at_actor = { 0x0210, "vv" };
 const SCRIPT_COMMAND player_has_weapon = { 0x0490, "vi" };
 const SCRIPT_COMMAND is_player_controllable = { 0x03EE, "v" };
+const SCRIPT_COMMAND player_driving = { 0x00E0, "v" };
+const SCRIPT_COMMAND player_driving_car = { 0x00DC, "vv" };
+const SCRIPT_COMMAND player_driving_vehicle_type = { 0x00DE, "vi" };
+const SCRIPT_COMMAND set_player_fast_reload = { 0x0331, "vi" };
 
 struct PlayerStruct {
 
@@ -119,6 +123,12 @@ public:
 	bool DrivingBoat();
 	bool HasWeapon(WEAPON weapon);
 	bool IsControllable();
+	bool Driving();
+	bool Driving(ViceVehicle* car);
+	bool Driving(MODEL::CAR carModelIndex);
+
+	void SetFastReload(bool value);
+	void SetFastReload();
 
 	typedef void(__cdecl* EnumNearestPedsCallback)(CPed* ped, int index);
 

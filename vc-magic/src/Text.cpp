@@ -19,3 +19,18 @@ void ViceText::ClearAll()
 {
 	$(&text_clear_all);
 }
+
+void ViceText::ClearSmallMessagesOnly()
+{
+	$(&text_clear_small_messages_only);
+}
+
+void ViceText::TextBox(char message[8])
+{
+	$(&text_box, message); // or &message
+}
+
+void ViceText::RemoveTextBox()
+{
+	$(&remove_text_box);
+}

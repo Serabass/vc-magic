@@ -256,3 +256,23 @@ bool ViceVehicle::Airborne() {
 	return !!$(&car_airborne, &m_dwVehicle);
 }
 
+void ViceVehicle::SetNotDamagedWhenUpsideDown(bool value) {
+	$(&set_car_not_damaged_when_upside_down, &m_dwVehicle, (int)value);
+}
+
+VCColor* ViceVehicle::GetColor() {
+	VCColor* result = {};
+	$(&car_get_color, &m_dwVehicle, &result->primary, &result->secondary);
+	return result;
+}
+
+VCPosition_t* ViceVehicle::GetPosition() {
+	VCPosition_t* result = {};
+	$(&get_car_position, &m_dwVehicle, &result->x, &result->y, &result->z);
+	return result;
+}
+
+
+void ViceVehicle::SetPosition(VCPosition_t* position) {
+	$(&set_car_position, &m_dwVehicle, position->x, position->y, position->z);
+}

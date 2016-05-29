@@ -48,6 +48,10 @@ const SCRIPT_COMMAND car_drive_to = { 0x00A7, "vfff" };
 const SCRIPT_COMMAND set_car_to_psycho_driver = { 0x00A8, "v" };
 const SCRIPT_COMMAND set_car_to_normal_driver = { 0x00A9, "v" };
 const SCRIPT_COMMAND car_airborne = { 0x01F3, "v" };
+const SCRIPT_COMMAND set_car_not_damaged_when_upside_down = { 0x03ED, "vi" };
+const SCRIPT_COMMAND car_get_color = { 0x03F3, "vvv" };
+const SCRIPT_COMMAND get_car_position = { 0x00AA, "vvvv" };
+const SCRIPT_COMMAND set_car_position = { 0x00AB, "vfff" };
 
 class ViceVehicle
 {
@@ -67,6 +71,7 @@ public:
 
 	void Colour(int iPrimary, int iSecondary);
 	void Colour(VCColor color);
+	VCColor* GetColor();
 	void ZAngle(float fAngle);
 	VCPosition_t GetRelativeCoordinates(float fX, float fY, float fZ);
 	void DriveToOnRoad(VCPosition_t position);
@@ -104,6 +109,9 @@ public:
 	void DriveTo(VCPosition_t destination);
 	void SetToPsychoDriver();
 	void SetToNormalDriver();
+	void SetNotDamagedWhenUpsideDown(bool value);
+	VCPosition_t* GetPosition();
+	void SetPosition(VCPosition_t* position);
 
 	void SetAction(VehicleAction action, WORD time);
 

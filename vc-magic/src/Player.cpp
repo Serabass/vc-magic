@@ -218,3 +218,23 @@ bool VicePlayer::HasWeapon(WEAPON weapon) {
 bool VicePlayer::IsControllable() {
 	return !!$(&is_player_controllable, &m_dwChar);
 }
+
+bool VicePlayer::Driving() {
+	return !!$(&player_driving, &m_dwChar);
+}
+
+bool VicePlayer::Driving(ViceVehicle* car) {
+	return !!$(&player_driving, &m_dwChar, car->GetVehicle());
+}
+
+bool VicePlayer::Driving(MODEL::CAR car) {
+	return !!$(&player_driving, &m_dwChar, (int)car);
+}
+
+void VicePlayer::SetFastReload(bool value) {
+	$(&set_player_fast_reload, &m_dwChar, (int)value);
+}
+
+void VicePlayer::SetFastReload() {
+	$(&set_player_fast_reload, &m_dwChar, 1);
+}
