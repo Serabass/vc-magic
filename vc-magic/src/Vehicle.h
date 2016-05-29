@@ -104,7 +104,11 @@ public:
 	void TurnOffEngine();
 	bool Airborne();
 
+	void ClearLastWeaponDamage();
+
 	void SetWatertight(bool watertight);
+
+	ViceMarker* CreateMarker();
 
 	void DriveTo(VCPosition_t destination);
 	void SetToPsychoDriver();

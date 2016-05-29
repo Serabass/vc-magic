@@ -76,7 +76,7 @@ public:
 	bool NearPointOnFoot(float fX, float fY, float fZ, float fRX, float fRY, float fRZ, bool bSphere);
 
 	void PutAt(float fX, float fY, float fZ);
-	void SetSkin(char ViceModel[8]);
+	void SetSkin(GXTKey ViceModel);
 	void Freeze(bool bFrozen);
 	void ClearWantedLevel();
 	void WantedLevel(int iLevel);
@@ -107,7 +107,7 @@ public:
 	void SetDrunkVisuals(int val);
 	// CPed* getStruct();
 
-	VCPosition_t GetPosition();
+	VCPosition_t GetPosition(); // TODO: Add an ZAngle getter
 
 	ViceVehicle* GetCar();
 	void SetSensivityToCrime(float value);
@@ -135,8 +135,10 @@ public:
 	void SetInfiniteRun();
 
 	typedef void(__cdecl* EnumNearestPedsCallback)(CPed* ped, int index);
+	typedef void(__cdecl* EnumNearestPedsWithNoIndexCallback)(CPed* ped);
 
 	void EnumNearestPeds(EnumNearestPedsCallback callback);
+	void EnumNearestPeds(EnumNearestPedsWithNoIndexCallback callback);
 
 	template <typename T>
 	T* $$(int off);

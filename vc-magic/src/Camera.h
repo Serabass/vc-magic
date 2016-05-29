@@ -15,6 +15,7 @@ const SCRIPT_COMMAND restore_camera_jumpcut = { 0x02EB, "" };		// -/-
 const SCRIPT_COMMAND set_camera_position = { 0x015F, "ffffff" }; // x, y, z, vx, vy, vz
 const SCRIPT_COMMAND shake_camera = { 0x0003, "i" };
 const SCRIPT_COMMAND set_camera = { 0x03CB, "fff" };	// x, y, z
+const SCRIPT_COMMAND set_camera_pointing_time = { 0x0460, "fi" };
 
 	class ViceCamera {
 	private:
@@ -32,6 +33,7 @@ const SCRIPT_COMMAND set_camera = { 0x03CB, "fff" };	// x, y, z
 		static void Restore();
 
 		static void RestoreWithJumpcut();
+		static void SetPointingTime(float wtf, int time);
 
 		static void SetPosition(VCPosition_t position, VCPosition_t rotation);
 

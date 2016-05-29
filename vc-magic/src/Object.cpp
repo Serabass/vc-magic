@@ -15,3 +15,7 @@ bool ViceObject::IsDamaged() {
 bool ViceObject::Exists() {
 	return !!$(&object_exists, &m_dwObject);
 }
+
+ViceMarker* ViceObject::CreateMarker() {
+	return ViceMarker::CreateAboveObject(&m_dwObject);
+}

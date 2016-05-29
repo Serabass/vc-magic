@@ -14,7 +14,7 @@ const SCRIPT_COMMAND set_total_rampages = { 0x0408, "i" };
 class ViceRampage {
 
 public:
-	static void Init(char GTXStringOnInit[8], WEAPON weapon,
+	static void Init(GXTKey GTXStringOnInit, WEAPON weapon,
 		int timeLimit, int killsAmount,
 		MODEL::IDE pedForKill1, MODEL::IDE pedForKill2,
 		MODEL::IDE pedForKill3, MODEL::IDE pedForKill4);

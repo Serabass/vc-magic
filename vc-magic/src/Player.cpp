@@ -43,7 +43,7 @@ bool VicePlayer::NearPointOnFoot(float fX, float fY, float fZ, float fRX, float 
 	return !!$(&player_near_point_on_foot, &m_dwChar, fX, fY, fZ, fRX, fRY, fRZ, bSphere);
 }
 
-void VicePlayer::SetSkin(char ViceModel[8])
+void VicePlayer::SetSkin(GXTKey ViceModel)
 {
 	$(&set_actor_skin, &m_dwActor, ViceModel);
 	$(&load_requested_models);
@@ -139,6 +139,15 @@ void VicePlayer::EnumNearestPeds(EnumNearestPedsCallback callback) {
 	for (CPed *ped : this->getStruct()->nearestPeds) {
 		if (ped != 0) {
 			callback(ped, i++);
+		}
+	}
+}
+
+void VicePlayer::EnumNearestPeds(EnumNearestPedsWithNoIndexCallback callback) {
+	int i = 0;
+	for (CPed *ped : this->getStruct()->nearestPeds) {
+		if (ped != 0) {
+			callback(ped);
 		}
 	}
 }
@@ -245,4 +254,8 @@ void VicePlayer::SetInfiniteRun(bool value) {
 
 void VicePlayer::SetInfiniteRun() {
 	$(&set_player_infinite_run, &m_dwChar, 1);
+}
+
+void VicePlayer::SetDrunkVisuals(int value) {
+	$(&set_player_drunk_visuals, &m_dwChar, value);
 }

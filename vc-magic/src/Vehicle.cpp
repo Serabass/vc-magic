@@ -276,3 +276,12 @@ VCPosition_t* ViceVehicle::GetPosition() {
 void ViceVehicle::SetPosition(VCPosition_t* position) {
 	$(&set_car_position, &m_dwVehicle, position->x, position->y, position->z);
 }
+
+void ViceVehicle::ClearLastWeaponDamage() {
+	$(&set_actor_clear_last_weapon_damage, &m_dwVehicle);
+}
+
+
+ViceMarker* ViceVehicle::CreateMarker() {
+	return ViceMarker::CreateAboveCar(&m_dwVehicle);
+}

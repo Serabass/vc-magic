@@ -14,7 +14,7 @@ const SCRIPT_COMMAND set_wav_position = { 0x03D7, "vfff" };
 	private:
 		DWORD m_dwWav;
 	public:
-		ViceWav(char GTXStringWavName[8]);
+		ViceWav(GXTKey GTXStringWavName);
 		~ViceWav();
 
 		bool IsLoaded();

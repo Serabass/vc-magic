@@ -1,6 +1,6 @@
 #include "Zone.h"
 
-ViceZone::ViceZone(char zoneName[8]) {
+ViceZone::ViceZone(GXTKey zoneName) {
 	*this->zoneName = *zoneName; // ???
 }
 

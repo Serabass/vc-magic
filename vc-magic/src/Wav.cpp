@@ -1,6 +1,6 @@
 #include "Wav.h"
 
-ViceWav::ViceWav(char GTXStringWavName[8]) {
+ViceWav::ViceWav(GXTKey GTXStringWavName) {
 	$(&load_wav, GTXStringWavName, &m_dwWav);
 }
 

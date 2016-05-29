@@ -56,3 +56,7 @@ void ViceCamera::SetPosition(VCPosition_t position, VCPosition_t rotation)
 void ViceCamera::Restore() {
 	$(&restore_camera);
 }
+
+void ViceCamera::SetPointingTime(float wtf, int time) {
+	$(&set_camera_pointing_time, wtf, time);
+}

@@ -9,16 +9,20 @@ const SCRIPT_COMMAND text_clear_all = { 0x00BE, "" };	// x, y, z, a
 const SCRIPT_COMMAND text_clear_small_messages_only = { 0x03EB, "" };	// x, y, z, a
 const SCRIPT_COMMAND text_box = { 0x03E5, "s" };
 const SCRIPT_COMMAND remove_text_box = { 0x03E6, "" };
+const SCRIPT_COMMAND remove_text = { 0x03D5, "s" };
+const SCRIPT_COMMAND remove_styled_text = { 0x03D6, "s" };
 
 class ViceText {
 public:
-	static void StyledOneNumber(char ViceText[8], int iNumber, int iTime, int iStyle);
-	static void Styled(char ViceText[8], int iTime, int iStyle);
-	static void Now(char ViceText[8], int iTime, int iStyle);
+	static void StyledOneNumber(GXTKey ViceText, int iNumber, int iTime, int iStyle);
+	static void Styled(GXTKey ViceText, int iTime, int iStyle);
+	static void Now(GXTKey ViceText, int iTime, int iStyle);
 	static void ClearAll();
 	static void ClearSmallMessagesOnly();
-	static void TextBox(char message[8]);
+	static void TextBox(GXTKey message);
 	static void RemoveTextBox();
+	static void RemoveText(GXTKey message);
+	static void RemoveStyledText(GXTKey message);
 };
 
 #endif

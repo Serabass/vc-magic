@@ -23,6 +23,8 @@ const SCRIPT_COMMAND create_cash_pickup = { 0x02E1, "ifffv" };
 
 		// 055B
 		static VicePickup* CreateClothes(MODEL skin, VCPosition_t position);
+		
+		ViceMarker* CreateMarker();
 
 		bool IsPickedUp();
 

@@ -14,6 +14,7 @@ const SCRIPT_COMMAND set_marker_brightness = { 0x0166, "vi" };		// var_marker, b
 const SCRIPT_COMMAND create_marker = { 0x0167, "fffiiv" };	// x, y, z, ukn, ukn, var_marker
 const SCRIPT_COMMAND show_on_radar = { 0x0168, "vi" };		// var_marker, size
 const SCRIPT_COMMAND create_icon_marker_sphere = { 0x02A7, "fffiv" };
+const SCRIPT_COMMAND create_marker_above_pickup = { 0x03DC, "vv" };
 
 class ViceMarker
 {
@@ -26,6 +27,7 @@ public:
 	ViceMarker(DWORD dwMarker);
 	~ViceMarker();
 
+
 	void TieToActor(DWORD* pdwActor, int iSize, int iType);
 	void TieToVehicle(DWORD* pdwVehicle, int iSize, int iType);
 	void SphereAndIcon(float x, float y, float z, int iIcon);
@@ -33,6 +35,8 @@ public:
 	void SetColor(int iColour);
 	void SetBrightness(int iBrightness);
 
+	// TODO: Make it with objects and overloaded CreateAbove()
+	static ViceMarker* CreateAbovePickup(DWORD* dwPickup);
 	static ViceMarker* CreateAboveCar(DWORD* dwCar);
 	static ViceMarker* CreateAboveActor(DWORD* dwActor);
 	static ViceMarker* CreateAboveObject(DWORD* dwObject);

@@ -12,7 +12,7 @@ void ViceScript::TerminateThread()
 	$(&end_thread);
 }
 
-void ViceScript::NameThread(char ThreadName[8])
+void ViceScript::NameThread(GXTKey ThreadName)
 {
 	$(&name_thread, ThreadName);
 }

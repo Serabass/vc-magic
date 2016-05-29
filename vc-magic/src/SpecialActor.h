@@ -11,7 +11,7 @@ private:
 	ViceActor* m_pActor;
 	int m_iSlot;
 public:
-	ViceSpecialActor(SCRIPT_MISSION* pMission, int iSlot, char ViceModel[8]);
+	ViceSpecialActor(SCRIPT_MISSION* pMission, int iSlot, GXTKey ViceModel);
 	~ViceSpecialActor();
 
 	DWORD* GetActor();
@@ -24,5 +24,8 @@ public:
 	void TieToPlayer(DWORD* pdwPlayer);
 	void LeaveVehicle();
 	void SetWander(bool bWander);
+
+	// 0296 or destructor?
+	void Unload();
 };
 #endif

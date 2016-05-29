@@ -30,6 +30,13 @@
 		}
 	}
 
+	// Works!
+	ViceActor* ViceActor::CreateRandom(VCPosition_t position) {
+		DWORD actor;
+		$(&create_random_actor, position.x, position.y, position.z, &actor);
+		return new ViceActor(actor);
+	}
+
 	DWORD* ViceActor::GetActor()
 	{
 		return &m_dwActor;
@@ -252,6 +259,10 @@
 		$(&actor_kill_player, player->GetChar());
 	}
 
+	void ViceActor::Kill(ViceActor* actor) {
+		$(&actor_kill_actor, actor->GetActor());
+	}
+
 	void ViceActor::RemoveWeapons() {
 		$(&actor_remove_weapons, &m_dwActor);
 	}
@@ -296,7 +307,7 @@
 	}
 
 	// Doesn't work! Game crushes
-	void ViceActor::DestroyCar(ViceVehicle* car) {
+	void ViceActor::Destroy(ViceVehicle* car) {
 		$(&actor_destroy_car, &m_dwActor, car->GetVehicle());
 	}
 
@@ -330,4 +341,35 @@
 		int result;
 		$(&get_actor_armor, &m_dwActor, &result);
 		return result;
+	}
+
+	void ViceActor::ClearLastWeaponDamage() {
+		$(&set_actor_clear_last_weapon_damage, &m_dwActor);
+	}
+
+	bool ViceActor::DrivingAMotorbike() {
+		return !!$(&actor_driving_a_motorbike, &m_dwActor);
+	}
+
+	bool ViceActor::LookingAtDeath(PEDTYPE pedtype) {
+		return !!$(&actor_looking_at_death_of_actor_with_pedtype, &m_dwActor, (int)pedtype);
+	}
+	void ViceActor::SetLockedWhileInVehicle(bool locked) {
+		$(&set_actor_locked_while_in_vehicle, &m_dwActor, (int)locked);
+	}
+
+	void ViceActor::SetLockedWhileInVehicle() {
+		$(&set_actor_locked_while_in_vehicle, &m_dwActor, 1);
+	}
+
+	ViceMarker* ViceActor::CreateMarker() {
+		return ViceMarker::CreateAboveActor(&m_dwActor);
+	}
+
+	void ViceActor::SeatAsPassenger(ViceVehicle* car) {
+		$(&actor_seat_as_passenger_in_car, &m_dwActor, car->GetVehicle());
+	}
+
+	void ViceActor::Drive(ViceVehicle* car) {
+		$(&actor_drive_car, &m_dwActor, car->GetVehicle());
 	}

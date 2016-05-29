@@ -3,7 +3,7 @@
 //--------------------------------------------------------------------------------
 // ScriptSpecialActor class functions.
 //
-ViceSpecialActor::ViceSpecialActor(SCRIPT_MISSION* pMission, int iSlot, char ViceModel[8])
+ViceSpecialActor::ViceSpecialActor(SCRIPT_MISSION* pMission, int iSlot, GXTKey ViceModel)
 {
 	m_pMission = pMission;
 	m_iSlot = iSlot;

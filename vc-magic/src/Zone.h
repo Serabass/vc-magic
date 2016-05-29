@@ -10,9 +10,9 @@ const SCRIPT_COMMAND set_zone_pedgroup_info = { 0x0324, "sii" };
 
 	class ViceZone {
 	private:
-		char zoneName[8];
+		GXTKey zoneName;
 	public:
-		ViceZone(char zoneName[8]);
+		ViceZone(GXTKey zoneName);
 		ViceZone();
 		~ViceZone();
 

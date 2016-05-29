@@ -24,3 +24,8 @@ VicePickup* VicePickup::CreateCash(int amount, VCPosition_t position) {
 	$(&create_cash_pickup, amount, position.x, position.y, position.z, &m_dwPickup);
 	return new VicePickup(m_dwPickup);
 }
+
+
+ViceMarker* VicePickup::CreateMarker() {
+	return ViceMarker::CreateAbovePickup(&m_dwPickup);
+}

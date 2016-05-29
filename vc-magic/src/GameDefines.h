@@ -42,6 +42,8 @@
 // Delete alloctaed memory safely.
 #define SAFE_DELETE(p) { if(p) { delete (p); (p)=NULL; } }
 
+typedef char GXTKey[8];
+
 #define PLAYERORCAR 0x7E49C0
 
 class MODEL {

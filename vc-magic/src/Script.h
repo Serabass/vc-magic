@@ -14,7 +14,7 @@ class ViceScript
 public:
 	static void CreateThread(int StartIP);
 	static void TerminateThread();
-	static void NameThread(char ThreadName[8]);
+	static void NameThread(GXTKey ThreadName);
 	static void Wait(int msTime);
 };
 

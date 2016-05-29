@@ -51,6 +51,8 @@ const SCRIPT_COMMAND object_exists = { 0x03CA, "v" };
 		// 035D
 		void MakeTargetable();
 
+		ViceMarker* CreateMarker();
+
 		bool IsDamaged();
 
 		bool Exists();

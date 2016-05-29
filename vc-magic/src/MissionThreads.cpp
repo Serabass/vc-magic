@@ -50,9 +50,7 @@ void Example_1_Lambda(SCRIPT_MISSION* pMission)
 		SCRIPT_WAIT(100);
 
 		if (KEY_PRESSED(VK_TAB)) {
-			pPlayer->EnumNearestPeds([](CPed *ped, int index) {
-				ped->health = 0;
-			});
+
 		}
 	}
 }
@@ -491,9 +489,6 @@ void MainScript(SCRIPT_MISSION* pMission)
 	{
 		SCRIPT_WAIT(1000);
 
-		if (KEY_PRESSED(VK_TAB)) {
-			// *ViceGame::speed = 100;
-		}
 	}
 }
 

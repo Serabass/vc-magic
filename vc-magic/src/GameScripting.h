@@ -35,7 +35,7 @@ struct GAME_SCRIPT_THREAD	// 0x88 bytes total.
 {							// - Credit to CyQ & PatrickW
 	void* pNext;			// 0x00
 	void* pPrev;			// 0x04
-	char strName[8];		// 0x08
+	GXTKey strName;			// 0x08
 	DWORD dwScriptIP;		// 0x10
 	DWORD dwReturnStack[6];	// 0x14
 	DWORD dwStackPointer;	// 0x2C

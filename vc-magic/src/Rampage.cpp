@@ -1,7 +1,7 @@
 #include "Rampage.h"
 
 // Works!
-void ViceRampage::Init(char GTXStringOnInit[8], WEAPON weapon,
+void ViceRampage::Init(GXTKey GTXStringOnInit, WEAPON weapon,
 	int timeLimit, int killsAmount,
 	MODEL::IDE pedForKill1, MODEL::IDE pedForKill2,
 	MODEL::IDE pedForKill3, MODEL::IDE pedForKill4) {

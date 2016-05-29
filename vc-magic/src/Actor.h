@@ -60,6 +60,14 @@ const SCRIPT_COMMAND actors_make_converse = { 0x03F9, "vvi" };
 const SCRIPT_COMMAND get_actor_car = { 0x03C0, "vv" };
 const SCRIPT_COMMAND lock_actor_in_current_position = { 0x04D7, "vi" };
 const SCRIPT_COMMAND get_actor_armor = { 0x04DD, "vv" };
+const SCRIPT_COMMAND set_actor_clear_last_weapon_damage = { 0x0467, "v" };
+const SCRIPT_COMMAND actor_driving_a_motorbike = { 0x047A, "v" };
+const SCRIPT_COMMAND actor_looking_at_death_of_actor_with_pedtype = { 0x0480, "vi" };
+const SCRIPT_COMMAND create_random_actor = { 0x0376, "fffv" };
+const SCRIPT_COMMAND set_actor_locked_while_in_vehicle = { 0x039E, "vi" };
+const SCRIPT_COMMAND actor_kill_actor = { 0x01CB, "vv" };
+const SCRIPT_COMMAND actor_seat_as_passenger_in_car = { 0x01D4, "vv" };
+const SCRIPT_COMMAND actor_drive_car = { 0x01D5, "vv" };
 
 	class ViceActor
 	{
@@ -72,6 +80,8 @@ const SCRIPT_COMMAND get_actor_armor = { 0x04DD, "vv" };
 		ViceActor(SCRIPT_MISSION* pMission, bool bKeepOnDestroy = true);
 		ViceActor(DWORD m_dwActor);
 		~ViceActor();
+
+		static ViceActor* CreateRandom(VCPosition_t positon);
 
 		DWORD* GetActor();
 		bool IsDead();
@@ -106,6 +116,8 @@ const SCRIPT_COMMAND get_actor_armor = { 0x04DD, "vv" };
 		bool IsPhotographed();
 		void MakeConverse(ViceActor* actor);
 
+		bool DrivingAMotorbike();
+
 		ViceVehicle* GetCar();
 
 		bool InWater();
@@ -113,6 +125,8 @@ const SCRIPT_COMMAND get_actor_armor = { 0x04DD, "vv" };
 		void SetMoney(int amount);
 		int GetHealth();
 		void SetHealth(int value);
+
+		void SeatAsPassenger(ViceVehicle* car);
 
 		void HoldCellPhone(bool hold = true);
 		void HoldCellPhone();
@@ -127,8 +141,11 @@ const SCRIPT_COMMAND get_actor_armor = { 0x04DD, "vv" };
 
 		void Avoid(VicePlayer* player);
 		void Kill(VicePlayer* player);
+		void Kill(ViceActor* actor);
 		void RunTo(float x, float y);
 		void SetWeaponAccuracy(int accuracy);
+
+		bool LookingAtDeath(PEDTYPE pedtype);
 
 		bool OnFoot();
 
@@ -148,11 +165,18 @@ const SCRIPT_COMMAND get_actor_armor = { 0x04DD, "vv" };
 		bool InCar();
 		bool InCar(ViceVehicle* car);
 
-		void DestroyCar(ViceVehicle* car);
+		void Destroy(ViceVehicle* car);
 		void Lock(bool value);
 		void Lock();
 		void Unlock();
 		int GetArmor();
+		void ClearLastWeaponDamage();
+		void SetLockedWhileInVehicle(bool locked);
+		void SetLockedWhileInVehicle();
+
+		void Drive(ViceVehicle* car);
+
+		ViceMarker* CreateMarker();
 
 		template <typename T>
 		T* $$(int off);

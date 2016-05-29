@@ -72,7 +72,6 @@ ViceMarker* ViceMarker::CreateAboveCar(DWORD* dwCar) {
 	return new ViceMarker(m_dwMarker);
 }
 
-
 ViceMarker* ViceMarker::CreateAboveActor(DWORD* dwActor) {
 	DWORD m_dwMarker;
 	$(&create_marker_above_actor, &m_dwMarker, dwActor);
@@ -85,3 +84,8 @@ ViceMarker* ViceMarker::CreateAboveObject(DWORD* dwActor) {
 	return new ViceMarker(m_dwMarker);
 }
 
+ViceMarker* ViceMarker::CreateAbovePickup(DWORD* dwPickup) {
+	DWORD m_dwMarker;
+	$(&create_marker_above_pickup, &m_dwMarker, dwPickup);
+	return new ViceMarker(m_dwMarker);
+}
