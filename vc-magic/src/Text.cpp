@@ -60,3 +60,11 @@ void ViceText::SetLineWidth(float width)
 {
 	$(&set_text_linewidth, width);
 }
+
+void ViceText::UseGXTTable(GXTKey string) {
+	$(&use_gxt_table, string);
+}
+
+void ViceText::DisplayMessageAtStadium(int messageId) {
+	$(&display_message_at_stadium, messageId);
+}

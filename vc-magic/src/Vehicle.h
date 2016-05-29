@@ -52,6 +52,8 @@ const SCRIPT_COMMAND set_car_not_damaged_when_upside_down = { 0x03ED, "vi" };
 const SCRIPT_COMMAND car_get_color = { 0x03F3, "vvv" };
 const SCRIPT_COMMAND get_car_position = { 0x00AA, "vvvv" };
 const SCRIPT_COMMAND set_car_position = { 0x00AB, "vfff" };
+const SCRIPT_COMMAND set_car_tires_vulnerable = { 0x053F, "vi" };
+const SCRIPT_COMMAND set_car_clear_last_weapon_damage = { 0x0468, "v" };
 
 class ViceVehicle
 {
@@ -116,6 +118,8 @@ public:
 	void SetNotDamagedWhenUpsideDown(bool value);
 	VCPosition_t* GetPosition();
 	void SetPosition(VCPosition_t* position);
+
+	void SetTiresVulnerable(bool value);
 
 	void SetAction(VehicleAction action, WORD time);
 

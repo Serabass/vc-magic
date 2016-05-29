@@ -185,3 +185,9 @@ float ViceGame::GetGroundZAt(VCPosition_t position) {
 	$(&get_groundz_at, position.x, position.y, position.z, &result);
 	return result;
 }
+
+float ViceGame::GetPercentageCompleted() {
+	float result;
+	$(&get_percentage_completed, &result);
+	return result;
+}

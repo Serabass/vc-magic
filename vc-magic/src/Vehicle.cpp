@@ -278,10 +278,14 @@ void ViceVehicle::SetPosition(VCPosition_t* position) {
 }
 
 void ViceVehicle::ClearLastWeaponDamage() {
-	$(&set_actor_clear_last_weapon_damage, &m_dwVehicle);
+	$(&set_car_clear_last_weapon_damage, &m_dwVehicle);
 }
 
 
 ViceMarker* ViceVehicle::CreateMarker() {
 	return ViceMarker::CreateAboveCar(&m_dwVehicle);
+}
+
+void ViceVehicle::SetTiresVulnerable(bool value) {
+	$(&set_car_tires_vulnerable, &m_dwVehicle, value);
 }

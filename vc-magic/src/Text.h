@@ -14,6 +14,8 @@ const SCRIPT_COMMAND remove_styled_text = { 0x03D6, "s" };
 const SCRIPT_COMMAND text_draw = { 0x033E, "ffs" };
 const SCRIPT_COMMAND set_text_draw_color = { 0x0340, "iiii" };
 const SCRIPT_COMMAND set_text_linewidth = { 0x0343, "f" };
+const SCRIPT_COMMAND use_gxt_table = { 0x054C, "s" };
+const SCRIPT_COMMAND display_message_at_stadium = { 0x054D, "i" };
 
 class ViceText {
 public:
@@ -29,6 +31,8 @@ public:
 	static void Draw(GXTKey message, VCPoint2D position);
 	static void SetDrawColor(VCRGBA color);
 	static void SetLineWidth(float width);
+	static void UseGXTTable(GXTKey string);
+	static void DisplayMessageAtStadium(int messageId); // Use Enum plz
 };
 
 #endif

@@ -35,6 +35,7 @@ const SCRIPT_COMMAND set_free_paynspray_to = { 0x0335, "i" };
 const SCRIPT_COMMAND enable_rc_car_detonation = { 0x04D6, "i" };
 const SCRIPT_COMMAND set_streaming = { 0x03AF, "i" };
 const SCRIPT_COMMAND set_rubbish = { 0x03AD, "i" };
+const SCRIPT_COMMAND get_percentage_completed = { 0x058C, "v" };
 
 class ViceGame
 {
@@ -63,6 +64,7 @@ public:
 	static int GetHiddenPackagesFound();
 	static void IncrementProgress(int by);
 	static void SetTotalMissions(int count);
+	static float GetPercentageCompleted();
 
 	static bool(__cdecl* setTime)(char hour, char minute);
 	static bool(__cdecl* glassIsBrokenAt)(float x, float y, float z);
