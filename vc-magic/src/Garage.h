@@ -10,20 +10,19 @@ const SCRIPT_COMMAND garage_has_car = { 0x03B1, "v" };
 const SCRIPT_COMMAND set_garage_accept_car = { 0x021B, "vv" };
 const SCRIPT_COMMAND garage_respray_done = { 0x0329, "v" };
 const SCRIPT_COMMAND set_garage_type = { 0x02FA, "vi" };
+const SCRIPT_COMMAND create_garage = { 0x0219, "iffffffffv" };
+const SCRIPT_COMMAND set_garage_door_type_to_swing_open = { 0x03BB, "v" };
 
 	class ViceGarage {
 	private:
 		DWORD m_dwGarage;	
 	public:
-		// 0219
-		ViceGarage(VCPosition_t start, VCPosition_t end /*,  ... */);
+		ViceGarage(int type /*Enum plz*/, VCPosition_t start, VCPosition_t end, VCPoint2D depth);
 		
 		ViceGarage(DWORD m_dwGarage);
 
-		// 021B
 		void SetAcceptCar(ViceVehicle* vehicle);
 
-		// 021C
 		bool HasCar();
 		void SetType(int type); // Enum?f
 		bool ResprayDone();
@@ -34,7 +33,6 @@ const SCRIPT_COMMAND set_garage_type = { 0x02FA, "vi" };
 
 		bool IsDoorClosed();
 
-		// 03BB
 		void SetDoorTypeToSwingOpen();
 
 		// 03D4

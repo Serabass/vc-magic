@@ -160,3 +160,6 @@ bool ViceGame::IsGermanGame() {
 	return !!$(&is_german_game);
 }
 
+void ViceGame::CreateRandomCarForCarPark(VCPosition_t position) {
+	$(&create_random_car_for_carpark, position.x, position.y, position.z, position.a);
+}

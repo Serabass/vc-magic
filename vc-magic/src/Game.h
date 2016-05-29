@@ -30,6 +30,7 @@ const SCRIPT_COMMAND create_swat_rope_at = { 0x0503, "iifffv" };
 const SCRIPT_COMMAND get_groundz_at = { 0x02CE, "fffv" };
 const SCRIPT_COMMAND blow_up_rc_buggy = { 0x0409, "" };
 const SCRIPT_COMMAND is_german_game = { 0x040C, "" };
+const SCRIPT_COMMAND create_random_car_for_carpark = { 0x03C5, "ffff" };
 
 class ViceGame
 {
@@ -99,6 +100,8 @@ public:
 	static void LoadWeaponModels(WEAPON);
 	static void BlowUpRCBuggy();
 	static bool IsGermanGame();
+
+	static void CreateRandomCarForCarPark(VCPosition_t position);
 };
 
 #endif

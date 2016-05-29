@@ -206,3 +206,7 @@ bool VicePlayer::InCar(ViceVehicle* car) {
 bool VicePlayer::DrivingBoat() {
 	return !!$(&player_driving_boat, &m_dwChar);
 }
+
+void VicePlayer::LookAt(ViceActor* actor) {
+	$(&player_look_at_actor, &m_dwChar, actor->GetActor());
+}

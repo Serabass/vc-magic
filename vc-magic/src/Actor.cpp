@@ -307,3 +307,9 @@
 	void ViceActor::MakeConverse(ViceActor* actor) {
 		$(&actors_make_converse, &m_dwActor, actor->GetActor());
 	}
+
+	ViceVehicle* ViceActor::GetCar() {
+		DWORD car;
+		$(&get_actor_car, &m_dwActor, &car);
+		return new ViceVehicle(car);
+	}

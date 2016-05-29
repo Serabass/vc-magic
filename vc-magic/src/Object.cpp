@@ -11,3 +11,7 @@ ViceObject::~ViceObject() {
 bool ViceObject::IsDamaged() {
 	return !!$(&object_is_damaged);
 }
+
+bool ViceObject::Exists() {
+	return !!$(&object_exists, &m_dwObject);
+}

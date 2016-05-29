@@ -40,6 +40,7 @@ const SCRIPT_COMMAND get_player_ammo = { 0x0419, "viv" };
 const SCRIPT_COMMAND player_in_car = { 0x0442, "vv" };
 const SCRIPT_COMMAND player_in_a_car = { 0x0443, "v" };
 const SCRIPT_COMMAND player_driving_boat = { 0x04A8, "v" };
+const SCRIPT_COMMAND player_look_at_actor = { 0x0210, "vv" };
 
 struct PlayerStruct {
 
@@ -107,6 +108,8 @@ public:
 	void SetVisible(bool visible);
 
 	int GetAmmo(int weaponIndex); // use Enum plz
+
+	void LookAt(ViceActor* actor);
 
 	bool InCar();
 	bool InCar(ViceVehicle* car);

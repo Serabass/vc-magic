@@ -57,6 +57,7 @@ const SCRIPT_COMMAND actor_in_a_car = { 0x0449, "v" };
 const SCRIPT_COMMAND actor_destroy_car = {0x01D9, "vv" };
 const SCRIPT_COMMAND actor_walk_to = { 0x0211, "vff" };
 const SCRIPT_COMMAND actors_make_converse = { 0x03F9, "vvi" };
+const SCRIPT_COMMAND get_actor_car = { 0x03C0, "vv" };
 
 	class ViceActor
 	{
@@ -102,6 +103,8 @@ const SCRIPT_COMMAND actors_make_converse = { 0x03F9, "vvi" };
 		void RemoveWeapons();
 		bool IsPhotographed();
 		void MakeConverse(ViceActor* actor);
+
+		ViceVehicle* GetCar();
 
 		bool InWater();
 

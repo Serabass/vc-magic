@@ -6,6 +6,7 @@
 const SCRIPT_COMMAND create_object_at = { 0x0107, "ifffv" };
 const SCRIPT_COMMAND destroy_object = { 0x0108, "v" };
 const SCRIPT_COMMAND object_is_damaged = { 0x0366, "v" };
+const SCRIPT_COMMAND object_exists = { 0x03CA, "v" };
 
 	class ViceObject {
 	private:
@@ -52,6 +53,8 @@ const SCRIPT_COMMAND object_is_damaged = { 0x0366, "v" };
 
 		bool IsDamaged();
 
+		bool Exists();
+		
 		// 0381
 		void Throw(VCPosition_t distance);
 
@@ -65,9 +68,6 @@ const SCRIPT_COMMAND object_is_damaged = { 0x0366, "v" };
 
 		// 03AE
 		static void RemoveObjectsFromCube(VCPosition_t start, VCPosition_t end);
-
-		// 03CA
-		bool Exists();
 
 		// 0453
 		void SetRotation(VCPosition_t rotation);

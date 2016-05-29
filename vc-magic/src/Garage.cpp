@@ -3,6 +3,10 @@
 #define VICEGARAGE_RETURN_BOOLEAN_1ARG(cmd) \
 		return !!$(&cmd, &m_dwGarage);
 
+ViceGarage::ViceGarage(int type /*Enum plz*/, VCPosition_t start, VCPosition_t end, VCPoint2D depth) {
+	$(&create_garage, type, start.x, start.y, start.z, end.x, end.y, end.z, depth.x, depth.y);
+}
+
 ViceGarage::ViceGarage(DWORD m_dwGarage) {
 	this->m_dwGarage = m_dwGarage;
 }
@@ -33,4 +37,8 @@ bool ViceGarage::ResprayDone() {
 
 void ViceGarage::SetType(int type) {
 	$(&set_garage_type, m_dwGarage, type);
+}
+
+void ViceGarage::SetDoorTypeToSwingOpen() {
+	$(&set_garage_door_type_to_swing_open, &m_dwGarage);
 }
