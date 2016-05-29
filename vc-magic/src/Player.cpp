@@ -238,3 +238,11 @@ void VicePlayer::SetFastReload(bool value) {
 void VicePlayer::SetFastReload() {
 	$(&set_player_fast_reload, &m_dwChar, 1);
 }
+
+void VicePlayer::SetInfiniteRun(bool value) {
+	$(&set_player_infinite_run, &m_dwChar, (int)value);
+}
+
+void VicePlayer::SetInfiniteRun() {
+	$(&set_player_infinite_run, &m_dwChar, 1);
+}
