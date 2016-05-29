@@ -252,3 +252,7 @@ void ViceVehicle::SetToNormalDriver() {
 	$(&set_car_to_normal_driver, &m_dwVehicle);
 }
 
+bool ViceVehicle::Airborne() {
+	return !!$(&car_airborne, &m_dwVehicle);
+}
+

@@ -51,7 +51,9 @@ public:
 		COP = 1,
 		SWAT = 2,
 		FBI = 3,
-		HFYST = 9
+		ARMY = 4,
+		MEDIC = 5,
+		FIREMAN = 6
 	};
 
 	enum CAR : DWORD {

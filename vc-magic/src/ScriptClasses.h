@@ -43,6 +43,8 @@
 	class ViceActorGroup;
 	class ViceGeom;
 	class ViceUtils;
+	class ViceArmy;
+	struct ViceAreaRect;
 
 // Includes
 #include "GameScripting.h"
@@ -80,6 +82,8 @@
 #include "ActorGroup.h"
 #include "Geom.h"
 #include "Utils.h"
+#include "AreaRect.h"
+#include "Army.h"
 
 //Class definitions
 

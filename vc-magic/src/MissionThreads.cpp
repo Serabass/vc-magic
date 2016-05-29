@@ -487,27 +487,12 @@ void MainScript(SCRIPT_MISSION* pMission)
 	ViceVehicle* pBike = new ViceVehicle(pMission, MODEL::CAR::ADMIRAL, BikeShop, false);
 	pBike->Colour(57, 57);
 
-	ViceActorGroup* gr = new ViceActorGroup();
-	ViceActor* p = new ViceActor(pMission);
-	p->Spawn(PEDTYPE::CIVMALE, MODEL::HFYST, BikeShop.x, BikeShop.y, BikeShop.z);
-
-	gr->leader = p;
-	
-	// p->Follow(pPlayer);
-
-	for (int i = 0; i < 10; i++) {
-		ViceActor* p = new ViceActor(pMission);
-		p->Spawn(PEDTYPE::CIVMALE, MODEL::HFYST, BikeShop.x, BikeShop.y, BikeShop.z);
-		gr->AddMember(p);
-	}
-
 	for (;;)
 	{
-		SCRIPT_WAIT(100);
+		SCRIPT_WAIT(1000);
 
 		if (KEY_PRESSED(VK_TAB)) {
-			gr->leader->WalkTo(CopShop.x, CopShop.y);
-			gr->UpdateBehavior();
+			// *ViceGame::speed = 100;
 		}
 	}
 }

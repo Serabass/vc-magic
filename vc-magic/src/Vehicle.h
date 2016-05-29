@@ -47,6 +47,7 @@ const SCRIPT_COMMAND car_turn_off_engine = { 0x02D4, "v" };
 const SCRIPT_COMMAND car_drive_to = { 0x00A7, "vfff" };
 const SCRIPT_COMMAND set_car_to_psycho_driver = { 0x00A8, "v" };
 const SCRIPT_COMMAND set_car_to_normal_driver = { 0x00A9, "v" };
+const SCRIPT_COMMAND car_airborne = { 0x01F3, "v" };
 
 class ViceVehicle
 {
@@ -96,6 +97,7 @@ public:
 	int GetNumPassengers();
 	int GetMaxPassengers();
 	void TurnOffEngine();
+	bool Airborne();
 
 	void SetWatertight(bool watertight);
 

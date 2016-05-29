@@ -11,7 +11,7 @@ void ViceActorGroup::AddMember(ViceActor* actor) {
 
 void ViceActorGroup::UpdateBehavior() {
 	for (size_t i = 0; i < members.size(); i++) {
-		members.at(i)->Follow(leader);
+		members[i]->Follow(leader);
 	}
 }
 
