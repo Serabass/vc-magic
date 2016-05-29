@@ -68,6 +68,10 @@ const SCRIPT_COMMAND set_actor_locked_while_in_vehicle = { 0x039E, "vi" };
 const SCRIPT_COMMAND actor_kill_actor = { 0x01CB, "vv" };
 const SCRIPT_COMMAND actor_seat_as_passenger_in_car = { 0x01D4, "vv" };
 const SCRIPT_COMMAND actor_drive_car = { 0x01D5, "vv" };
+const SCRIPT_COMMAND move_actor_from_car_passengerseat_to_driverseat = { 0x04F3, "v" };
+const SCRIPT_COMMAND actor_in_range_of_player = { 0x0320, "vv" };
+const SCRIPT_COMMAND create_random_actor_in_vehicle_driverseat = { 0x0560, "vv" };
+const SCRIPT_COMMAND stop_actor = { 0x0579, "v" };
 
 	class ViceActor
 	{
@@ -82,6 +86,7 @@ const SCRIPT_COMMAND actor_drive_car = { 0x01D5, "vv" };
 		~ViceActor();
 
 		static ViceActor* CreateRandom(VCPosition_t positon);
+		static ViceActor* CreateRandomInVehicleDriverseat(ViceVehicle* car);
 
 		DWORD* GetActor();
 		bool IsDead();
@@ -106,7 +111,7 @@ const SCRIPT_COMMAND actor_drive_car = { 0x01D5, "vv" };
 		void KillActor(DWORD* pdwActor);
 		void KillPlayer(DWORD* pdwPlayer);
 		void KillPlayer(VicePlayer* player);
-		void StealAnyCar();
+		void StealAnyVehicle();
 		bool FiringWeapon();
 		bool Walking();
 		float GetZAngle();
@@ -117,6 +122,10 @@ const SCRIPT_COMMAND actor_drive_car = { 0x01D5, "vv" };
 		void MakeConverse(ViceActor* actor);
 
 		bool DrivingAMotorbike();
+
+		void Stop();
+
+		bool InRangeOfPlayer(VicePlayer* player);
 
 		ViceVehicle* GetCar();
 
@@ -145,6 +154,8 @@ const SCRIPT_COMMAND actor_drive_car = { 0x01D5, "vv" };
 		void RunTo(float x, float y);
 		void SetWeaponAccuracy(int accuracy);
 
+		void MoveActorFromCarPassengerseatToDriverseat();
+
 		bool LookingAtDeath(PEDTYPE pedtype);
 
 		bool OnFoot();
@@ -152,8 +163,8 @@ const SCRIPT_COMMAND actor_drive_car = { 0x01D5, "vv" };
 		// Not works yet
 		void Follow(ViceActor * actor);
 		void Follow(VicePlayer * player);
-		void DriveCar(DWORD * car);
-		void DriveCar(ViceVehicle * car);
+		void DriveVehicle(DWORD * car);
+		void DriveVehicle(ViceVehicle * car);
 
 		void WalkTo(float x, float y);
 

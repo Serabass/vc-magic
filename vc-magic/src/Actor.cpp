@@ -37,6 +37,13 @@
 		return new ViceActor(actor);
 	}
 
+	ViceActor* ViceActor::CreateRandomInVehicleDriverseat(ViceVehicle* vehicle) {
+		DWORD actor;
+		$(&create_random_actor_in_vehicle_driverseat, vehicle->GetVehicle(), &actor);
+		return new ViceActor(actor);
+	}
+
+
 	DWORD* ViceActor::GetActor()
 	{
 		return &m_dwActor;
@@ -168,7 +175,7 @@
 		$(&set_actor_to_kill_player, &m_dwActor, player->GetChar());
 	}
 
-	void ViceActor::StealAnyCar()
+	void ViceActor::StealAnyVehicle()
 	{
 		$(&set_actor_steal_any_car, &m_dwActor);
 	}
@@ -183,12 +190,12 @@
 		$(&actor_follow_actor, &m_dwActor, player->GetActor());
 	}
 
-	void ViceActor::DriveCar(DWORD* pdwCar)
+	void ViceActor::DriveVehicle(DWORD* pdwCar)
 	{
 		$(&actor_go_to_car_and_drive, &m_dwActor, pdwCar);
 	}
 
-	void ViceActor::DriveCar(ViceVehicle* pCar)
+	void ViceActor::DriveVehicle(ViceVehicle* pCar)
 	{
 		$(&actor_go_to_car_and_drive, &m_dwActor, pCar->GetVehicle());
 	}
@@ -372,4 +379,16 @@
 
 	void ViceActor::Drive(ViceVehicle* car) {
 		$(&actor_drive_car, &m_dwActor, car->GetVehicle());
+	}
+
+	void ViceActor::MoveActorFromCarPassengerseatToDriverseat() {
+		$(&move_actor_from_car_passengerseat_to_driverseat, &m_dwActor);
+	}
+
+	bool ViceActor::InRangeOfPlayer(VicePlayer* player) {
+		return !!$(&actor_in_range_of_player, &m_dwActor, player->GetChar());
+	}
+
+	void ViceActor::Stop() {
+		$(&stop_actor, &m_dwActor);
 	}

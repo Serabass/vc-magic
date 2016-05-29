@@ -54,6 +54,8 @@ const SCRIPT_COMMAND get_car_position = { 0x00AA, "vvvv" };
 const SCRIPT_COMMAND set_car_position = { 0x00AB, "vfff" };
 const SCRIPT_COMMAND set_car_tires_vulnerable = { 0x053F, "vi" };
 const SCRIPT_COMMAND set_car_clear_last_weapon_damage = { 0x0468, "v" };
+const SCRIPT_COMMAND is_car_waiting_for_world_collision = { 0x04F1, "v" };
+const SCRIPT_COMMAND set_vehicle_action = { 0x03A2, "vi" };
 
 class ViceVehicle
 {
@@ -109,6 +111,10 @@ public:
 	void ClearLastWeaponDamage();
 
 	void SetWatertight(bool watertight);
+
+	bool IsWaitingForWorldCollision();
+
+	void SetAction(int action); // Use enum?
 
 	ViceMarker* CreateMarker();
 

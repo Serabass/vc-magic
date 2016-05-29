@@ -23,3 +23,11 @@ ViceMarker* ViceObject::CreateMarker() {
 void ViceObject::MakeTargetable() {
 	$(&make_object_targetable, &m_dwObject);
 }
+
+void ViceObject::KeepInMemory(bool keep) {
+	$(&keep_object_in_memory, &m_dwObject, (int)keep);
+}
+
+void ViceObject::KeepInMemory() {
+	$(&keep_object_in_memory, &m_dwObject, 1);
+}

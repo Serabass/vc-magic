@@ -8,6 +8,7 @@ const SCRIPT_COMMAND destroy_object = { 0x0108, "v" };
 const SCRIPT_COMMAND object_is_damaged = { 0x0366, "v" };
 const SCRIPT_COMMAND object_exists = { 0x03CA, "v" };
 const SCRIPT_COMMAND make_object_targetable = { 0x035D, "v" };
+const SCRIPT_COMMAND keep_object_in_memory = { 0x0550, "vi" };
 
 	class ViceObject {
 	private:
@@ -80,8 +81,8 @@ const SCRIPT_COMMAND make_object_targetable = { 0x035D, "v" };
 		// 04E7
 		bool IsInWater();
 
-		// 0550
-		void SetKeepInMemory(bool keep);
+		void KeepInMemory(bool keep);
+		void KeepInMemory();
 
 		// 0566
 		void SetInterior(int interior);

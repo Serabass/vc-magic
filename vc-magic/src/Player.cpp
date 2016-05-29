@@ -259,3 +259,7 @@ void VicePlayer::SetInfiniteRun() {
 void VicePlayer::SetDrunkVisuals(int value) {
 	$(&set_player_drunk_visuals, &m_dwChar, value);
 }
+
+bool VicePlayer::IsPlayerSkinEquals(GXTKey skin) {
+	return !!$(&is_player_skin_equals, skin);
+}

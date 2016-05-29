@@ -48,6 +48,7 @@ const SCRIPT_COMMAND player_driving_car = { 0x00DC, "vv" };
 const SCRIPT_COMMAND player_driving_vehicle_type = { 0x00DE, "vi" };
 const SCRIPT_COMMAND set_player_fast_reload = { 0x0331, "vi" };
 const SCRIPT_COMMAND set_player_infinite_run = { 0x0330, "vi" };
+const SCRIPT_COMMAND is_player_skin_equals = { 0x0500, "vs" };
 
 struct PlayerStruct {
 
@@ -133,6 +134,8 @@ public:
 
 	void SetInfiniteRun(bool value);
 	void SetInfiniteRun();
+
+	bool IsPlayerSkinEquals(GXTKey skin);
 
 	typedef void(__cdecl* EnumNearestPedsCallback)(CPed* ped, int index);
 	typedef void(__cdecl* EnumNearestPedsWithNoIndexCallback)(CPed* ped);

@@ -289,3 +289,11 @@ ViceMarker* ViceVehicle::CreateMarker() {
 void ViceVehicle::SetTiresVulnerable(bool value) {
 	$(&set_car_tires_vulnerable, &m_dwVehicle, value);
 }
+
+bool ViceVehicle::IsWaitingForWorldCollision() {
+	return !!$(&is_car_waiting_for_world_collision, &m_dwVehicle);
+}
+
+void ViceVehicle::SetAction(int action) {
+	$(&set_vehicle_action, &m_dwVehicle, action);
+}
