@@ -41,6 +41,8 @@ const SCRIPT_COMMAND player_in_car = { 0x0442, "vv" };
 const SCRIPT_COMMAND player_in_a_car = { 0x0443, "v" };
 const SCRIPT_COMMAND player_driving_boat = { 0x04A8, "v" };
 const SCRIPT_COMMAND player_look_at_actor = { 0x0210, "vv" };
+const SCRIPT_COMMAND player_has_weapon = { 0x0490, "vi" };
+const SCRIPT_COMMAND is_player_controllable = { 0x03EE, "v" };
 
 struct PlayerStruct {
 
@@ -115,6 +117,8 @@ public:
 	bool InCar(ViceVehicle* car);
 
 	bool DrivingBoat();
+	bool HasWeapon(WEAPON weapon);
+	bool IsControllable();
 
 	typedef void(__cdecl* EnumNearestPedsCallback)(CPed* ped, int index);
 

@@ -163,3 +163,19 @@ bool ViceGame::IsGermanGame() {
 void ViceGame::CreateRandomCarForCarPark(VCPosition_t position) {
 	$(&create_random_car_for_carpark, position.x, position.y, position.z, position.a);
 }
+
+void ViceGame::SetFreePaynspray(bool value) {
+	$(&set_free_paynspray_to, (int)value);
+}
+
+void ViceGame::EnableRCCarDetonation(bool value) {
+	$(&enable_rc_car_detonation, (int)value);
+}
+
+void ViceGame::SetStreaming(bool value) {
+	$(&set_streaming, (int)value);
+}
+
+void ViceGame::SetRubbish(bool value) {
+	$(&set_rubbish, (int)value);
+}

@@ -31,6 +31,10 @@ const SCRIPT_COMMAND get_groundz_at = { 0x02CE, "fffv" };
 const SCRIPT_COMMAND blow_up_rc_buggy = { 0x0409, "" };
 const SCRIPT_COMMAND is_german_game = { 0x040C, "" };
 const SCRIPT_COMMAND create_random_car_for_carpark = { 0x03C5, "ffff" };
+const SCRIPT_COMMAND set_free_paynspray_to = { 0x0335, "i" };
+const SCRIPT_COMMAND enable_rc_car_detonation = { 0x04D6, "i" };
+const SCRIPT_COMMAND set_streaming = { 0x03AF, "i" };
+const SCRIPT_COMMAND set_rubbish = { 0x03AD, "i" };
 
 class ViceGame
 {
@@ -102,6 +106,11 @@ public:
 	static bool IsGermanGame();
 
 	static void CreateRandomCarForCarPark(VCPosition_t position);
+	static void SetFreePaynspray(bool value);
+
+	static void EnableRCCarDetonation(bool value);
+	static void SetStreaming(bool value);
+	static void SetRubbish(bool value);
 };
 
 #endif

@@ -58,6 +58,8 @@ const SCRIPT_COMMAND actor_destroy_car = {0x01D9, "vv" };
 const SCRIPT_COMMAND actor_walk_to = { 0x0211, "vff" };
 const SCRIPT_COMMAND actors_make_converse = { 0x03F9, "vvi" };
 const SCRIPT_COMMAND get_actor_car = { 0x03C0, "vv" };
+const SCRIPT_COMMAND lock_actor_in_current_position = { 0x04D7, "vi" };
+const SCRIPT_COMMAND get_actor_armor = { 0x04DD, "vv" };
 
 	class ViceActor
 	{
@@ -147,6 +149,10 @@ const SCRIPT_COMMAND get_actor_car = { 0x03C0, "vv" };
 		bool InCar(ViceVehicle* car);
 
 		void DestroyCar(ViceVehicle* car);
+		void Lock(bool value);
+		void Lock();
+		void Unlock();
+		int GetArmor();
 
 		template <typename T>
 		T* $$(int off);

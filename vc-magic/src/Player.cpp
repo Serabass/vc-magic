@@ -210,3 +210,11 @@ bool VicePlayer::DrivingBoat() {
 void VicePlayer::LookAt(ViceActor* actor) {
 	$(&player_look_at_actor, &m_dwChar, actor->GetActor());
 }
+
+bool VicePlayer::HasWeapon(WEAPON weapon) {
+	return !!$(&player_has_weapon, &m_dwChar, (int)weapon);
+}
+
+bool VicePlayer::IsControllable() {
+	return !!$(&is_player_controllable, &m_dwChar);
+}

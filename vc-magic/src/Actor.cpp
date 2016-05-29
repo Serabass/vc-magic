@@ -313,3 +313,21 @@
 		$(&get_actor_car, &m_dwActor, &car);
 		return new ViceVehicle(car);
 	}
+
+	void ViceActor::Lock(bool value) {
+		$(&lock_actor_in_current_position, &m_dwActor, (int)value);
+	}
+
+	void ViceActor::Lock() {
+		$(&lock_actor_in_current_position, &m_dwActor, 1);
+	}
+
+	void ViceActor::Unlock() {
+		$(&lock_actor_in_current_position, &m_dwActor, 0);
+	}
+
+	int ViceActor::GetArmor() {
+		int result;
+		$(&get_actor_armor, &m_dwActor, &result);
+		return result;
+	}
