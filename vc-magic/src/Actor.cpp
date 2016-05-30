@@ -43,6 +43,18 @@
 		return new ViceActor(actor);
 	}
 
+	ViceActor* ViceActor::GetRandomActorInZone(GXTKey zoneName, bool civilian, bool gang, bool criminal) {
+		DWORD actor;
+		$(&get_random_actor_in_zone, zoneName, (int)civilian, (int)gang, (int)criminal, &actor);
+		return new ViceActor(actor);
+	}
+
+	ViceActor* ViceActor::GetRandomActorInZone(ViceZone* zone, bool civilian, bool gang, bool criminal) {
+		DWORD actor;
+		$(&get_random_actor_in_zone, zone->zoneName, (int)civilian, (int)gang, (int)criminal, &actor);
+		return new ViceActor(actor);
+	}
+
 
 	DWORD* ViceActor::GetActor()
 	{
@@ -263,11 +275,11 @@
 	}
 
 	void ViceActor::Kill(VicePlayer* player) {
-		$(&actor_kill_player, player->GetChar());
+		$(&actor_kill_player, &m_dwActor, player->GetChar());
 	}
 
 	void ViceActor::Kill(ViceActor* actor) {
-		$(&actor_kill_actor, actor->GetActor());
+		$(&actor_kill_actor, &m_dwActor, actor->GetActor());
 	}
 
 	void ViceActor::RemoveWeapons() {
@@ -314,7 +326,7 @@
 	}
 
 	// Doesn't work! Game crushes
-	void ViceActor::Destroy(ViceVehicle* car) {
+	void ViceActor::DestroyCar(ViceVehicle* car) {
 		$(&actor_destroy_car, &m_dwActor, car->GetVehicle());
 	}
 
@@ -404,4 +416,24 @@
 
 	void ViceActor::LeaveCarAndFlee(ViceVehicle* car) {
 		$(&actor_leave_car_and_flee, &m_dwActor, car->GetVehicle());
+	}
+
+	void ViceActor::SetCanBeShotInACar(bool value) {
+		$(&set_actor_can_be_shot_in_a_car, &m_dwActor, (int)value);
+	}
+
+	void ViceActor::SetCanBeShotInACar() {
+		$(&set_actor_can_be_shot_in_a_car, &m_dwActor, 1);
+	}
+
+	void ViceActor::DoKungFuStance(ViceActor* actor) {
+		$(&actor_do_kung_fu_stance_towards_actor, &m_dwActor, actor->GetActor());
+	}
+
+	void ViceActor::ClearLeader() {
+		$(&actor_clear_leader, &m_dwActor);
+	}
+
+	void ViceActor::DestroyInstantly() {
+		$(&destroy_actor_instantly, &m_dwActor);
 	}

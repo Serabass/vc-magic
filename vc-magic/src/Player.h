@@ -49,6 +49,9 @@ const SCRIPT_COMMAND player_driving_vehicle_type = { 0x00DE, "vi" };
 const SCRIPT_COMMAND set_player_fast_reload = { 0x0331, "vi" };
 const SCRIPT_COMMAND set_player_infinite_run = { 0x0330, "vi" };
 const SCRIPT_COMMAND is_player_skin_equals = { 0x0500, "vs" };
+const SCRIPT_COMMAND make_player_fireproof = { 0x055D, "vi" };
+const SCRIPT_COMMAND player_aiming_at_actor = { 0x0457, "vv" };
+const SCRIPT_COMMAND player_driving_a_motorbike = { 0x047E, "v" };
 
 struct PlayerStruct {
 
@@ -77,6 +80,8 @@ public:
 	bool NearPointOnFoot(float fX, float fY, float fZ, float fRX, float fRY, float fRZ, bool bSphere);
 
 	void PutAt(float fX, float fY, float fZ);
+	void PutAt(VCPosition_t position);
+
 	void SetSkin(GXTKey ViceModel);
 	void Freeze(bool bFrozen);
 	void ClearWantedLevel();
@@ -114,10 +119,12 @@ public:
 	void SetSensivityToCrime(float value);
 
 	void SetVisible(bool visible);
+	void SetVisible();
 
-	int GetAmmo(int weaponIndex); // use Enum plz
+	int GetAmmo(WEAPON weaponIndex); // use Enum plz
 
 	void LookAt(ViceActor* actor);
+	bool AimingAt(ViceActor* actor);
 
 	bool InCar();
 	bool InCar(ViceVehicle* car);
@@ -136,6 +143,10 @@ public:
 	void SetInfiniteRun();
 
 	bool IsPlayerSkinEquals(GXTKey skin);
+	void MakeFireproof(bool fireproof);
+	void MakeFireproof();
+
+	bool DrivingAMotorbike();
 
 	typedef void(__cdecl* EnumNearestPedsCallback)(CPed* ped, int index);
 	typedef void(__cdecl* EnumNearestPedsWithNoIndexCallback)(CPed* ped);

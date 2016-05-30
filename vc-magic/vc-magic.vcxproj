@@ -128,6 +128,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\AbstractObject.h" />
     <ClInclude Include="src\Actor.h" />
     <ClInclude Include="src\ActorGroup.h" />
     <ClInclude Include="src\ActorsClock.h" />
@@ -144,6 +145,7 @@
     <ClInclude Include="src\Garage.h" />
     <ClInclude Include="src\Geom.h" />
     <ClInclude Include="src\gta-vc.h" />
+    <ClInclude Include="src\GXTBuilder.h" />
     <ClInclude Include="src\GxtHook.h" />
     <ClInclude Include="src\Marker.h" />
     <ClInclude Include="src\MissionHook.h" />
@@ -156,6 +158,7 @@
     <ClInclude Include="src\Police.h" />
     <ClInclude Include="src\Radio.h" />
     <ClInclude Include="src\Rampage.h" />
+    <ClInclude Include="src\Route.h" />
     <ClInclude Include="src\Script.h" />
     <ClInclude Include="src\Settings.h" />
     <ClInclude Include="src\Sound.h" />
@@ -175,6 +178,7 @@
     <ClInclude Include="src\Zone.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\AbstractObject.cpp" />
     <ClCompile Include="src\Actor.cpp" />
     <ClCompile Include="src\ActorGroup.cpp" />
     <ClCompile Include="src\ActorsClock.cpp" />
@@ -189,6 +193,7 @@
     <ClCompile Include="src\Gang.cpp" />
     <ClCompile Include="src\Garage.cpp" />
     <ClCompile Include="src\Geom.cpp" />
+    <ClCompile Include="src\GXTBuilder.cpp" />
     <ClCompile Include="src\GxtHook.cpp" />
     <ClCompile Include="src\Marker.cpp" />
     <ClCompile Include="src\MissionHook.cpp" />
@@ -201,6 +206,7 @@
     <ClCompile Include="src\Police.cpp" />
     <ClCompile Include="src\Radio.cpp" />
     <ClCompile Include="src\Rampage.cpp" />
+    <ClCompile Include="src\Route.cpp" />
     <ClCompile Include="src\Script.cpp" />
     <ClCompile Include="src\Settings.cpp" />
     <ClCompile Include="src\Sound.cpp" />

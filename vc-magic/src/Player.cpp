@@ -198,9 +198,9 @@ void VicePlayer::SetSensivityToCrime(float value) {
 }
 
 
-int VicePlayer::GetAmmo(int weaponIndex) {
+int VicePlayer::GetAmmo(WEAPON weaponIndex) {
 	int ammo;
-	$(&get_player_ammo, &m_dwChar, &ammo);
+	$(&get_player_ammo, &m_dwChar, weaponIndex, &ammo);
 	return ammo;
 }
 
@@ -262,4 +262,29 @@ void VicePlayer::SetDrunkVisuals(int value) {
 
 bool VicePlayer::IsPlayerSkinEquals(GXTKey skin) {
 	return !!$(&is_player_skin_equals, skin);
+}
+
+void VicePlayer::MakeFireproof(bool fireproof) {
+	$(&make_player_fireproof, (int)fireproof);
+}
+
+void VicePlayer::MakeFireproof() {
+	$(&make_player_fireproof, 1);
+}
+
+void VicePlayer::SetVisible(bool visible) {
+	$(&set_player_visible, (int)visible);
+}
+
+void VicePlayer::SetVisible() {
+	$(&set_player_visible, 1);
+}
+
+bool VicePlayer::AimingAt(ViceActor* actor) {
+	return !!$(&player_aiming_at_actor, &m_dwChar, actor->GetActor());
+}
+
+
+bool VicePlayer::DrivingAMotorbike() {
+	return !!$(&player_driving_a_motorbike, &m_dwChar);
 }

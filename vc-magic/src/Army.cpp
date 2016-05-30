@@ -4,6 +4,16 @@ ViceArmy::ViceArmy() {
 
 }
 
+ViceArmy::~ViceArmy() {
+	std::vector<ViceActor*>::iterator it = soldiers.begin();
+
+	while (it != soldiers.end()) {
+		delete *it; // Correct?
+	}
+
+	delete captain;
+}
+
 void ViceArmy::AddSoldier(ViceActor* actor) {
 	soldiers.push_back(actor);
 }

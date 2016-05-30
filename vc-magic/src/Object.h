@@ -9,6 +9,7 @@ const SCRIPT_COMMAND object_is_damaged = { 0x0366, "v" };
 const SCRIPT_COMMAND object_exists = { 0x03CA, "v" };
 const SCRIPT_COMMAND make_object_targetable = { 0x035D, "v" };
 const SCRIPT_COMMAND keep_object_in_memory = { 0x0550, "vi" };
+const SCRIPT_COMMAND object_set_rotation = { 0x0453, "vfff" };
 
 	class ViceObject {
 	private:
@@ -23,8 +24,8 @@ const SCRIPT_COMMAND keep_object_in_memory = { 0x0550, "vi" };
 		// 0176
 		float GetZAngle();
 
-		// 0176
-		float SetZAngle();
+		// 0177
+		void SetZAngle(float zAngle);
 
 		// 0188
 		ViceMarker* CreateMarkerAbove();

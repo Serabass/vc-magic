@@ -3,6 +3,7 @@
 #ifndef SCPECIALACTOR_H
 #define SCPECIALACTOR_H
 const SCRIPT_COMMAND load_special_actor = { 0x023C, "is" };
+const SCRIPT_COMMAND special_actor_loaded = { 0x023D, "i" };
 const SCRIPT_COMMAND unload_special_actor = { 0x0296, "i" };
 
 class ViceSpecialActor
@@ -18,6 +19,8 @@ public:
 	DWORD* GetActor();
 	bool IsDead();
 	bool NearPoint(float fX, float fY, float fZ, float fRX, float fRY, float fRZ, bool bSphere);
+
+	bool Loaded();
 
 	void Spawn(PEDTYPE iPedType, float fX, float fY, float fZ);
 	void SpawnInPassengerSeat(DWORD* pdwVehicle, int iPedType, int iSeat);

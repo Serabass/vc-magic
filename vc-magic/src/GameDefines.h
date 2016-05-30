@@ -6,6 +6,8 @@
 */
 
 #include <stdio.h>
+#include <vector>
+#include <iterator>
 
 #ifndef GAMEDEFINES_H
 #define GAMEDEFINES_H
@@ -39,10 +41,11 @@
 	WaitForSingleObject(pMission->hExecute, INFINITE);	\
 }
 
-// Delete alloctaed memory safely.
+// Delete allocated memory safely.
 #define SAFE_DELETE(p) { if(p) { delete (p); (p)=NULL; } }
 
 typedef char GXTKey[8];
+
 
 #define PLAYERORCAR 0x7E49C0
 
@@ -248,7 +251,10 @@ enum WEAPON : DWORD {
 	ROCKETLA = 30,
 	FLAME = 31,
 	M60 = 32,
-	MINIGUN = 33
+	MINIGUN = 33,
+	DETONATOR = 34,
+	HELIGUN = 35,
+	CAMERA = 36
 };
 
 enum PEDTYPE : DWORD {

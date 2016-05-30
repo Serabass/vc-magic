@@ -9,9 +9,8 @@ const SCRIPT_COMMAND set_zone_pedgroup_info = { 0x0324, "sii" };
 //const SCRIPT_COMMAND set_zone_carclass_info = { 0x04EC, "siiiiiiiiiiii" };
 
 	class ViceZone {
-	private:
-		GXTKey zoneName;
 	public:
+		GXTKey zoneName;
 		ViceZone(GXTKey zoneName);
 		ViceZone();
 		~ViceZone();

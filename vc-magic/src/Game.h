@@ -102,6 +102,7 @@ public:
 	static float* trafficAccidents;
 	static int* speed;
 	static bool* policeHeliState;
+	static VCRGBA* fontColor;
 
 	static void(__cdecl* printString)(float x, float y, int a);
 
@@ -120,6 +121,7 @@ public:
 
 	static void LoadSplash(GXTKey splash);
 	static void LoadEndOfGameAudio();
+
 };
 
 #endif

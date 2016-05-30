@@ -31,3 +31,7 @@ void ViceObject::KeepInMemory(bool keep) {
 void ViceObject::KeepInMemory() {
 	$(&keep_object_in_memory, &m_dwObject, 1);
 }
+
+void ViceObject::SetRotation(VCPosition_t rotation) {
+	$(&object_set_rotation, &m_dwObject, rotation.x, rotation.y, rotation.z);
+}

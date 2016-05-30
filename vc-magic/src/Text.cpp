@@ -51,6 +51,16 @@ void ViceText::Draw(GXTKey message, VCPoint2D position)
 	$(&text_draw, message, position.x, position.y);
 }
 
+void ViceText::Draw(GXTKey message, VCPoint2D position, int number)
+{
+	$(&text_draw_1num, position.x, position.y, message, number);
+}
+
+void ViceText::Draw(GXTKey message, VCPoint2D position, int number1, int number2)
+{
+	$(&text_draw_2num, position.x, position.y, message, number1, number2);
+}
+
 void ViceText::SetDrawColor(VCRGBA color)
 {
 	$(&set_text_draw_color, color.r, color.g, color.b, color.a);

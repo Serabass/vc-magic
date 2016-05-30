@@ -44,6 +44,7 @@
 	class ViceGeom;
 	class ViceUtils;
 	class ViceArmy;
+	class GXTBuilder;
 	struct ViceAreaRect;
 
 // Includes
@@ -84,6 +85,7 @@
 #include "Utils.h"
 #include "AreaRect.h"
 #include "Army.h"
+#include "GXTBuilder.h"
 
 //Class definitions
 

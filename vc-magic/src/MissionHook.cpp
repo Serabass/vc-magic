@@ -21,7 +21,7 @@ extern FARPROC ScriptRestart;
 extern bool bMissionEnded;
 
 // Constants
-const VCPosition_t PlayerStart	= { -534.0f, 644.82f, 11.0f, 180.0f };
+const VCPosition_t PlayerStart	= { -534.0f, 644.82f, 11.0f, 0.0f };
 
 
 // Globals

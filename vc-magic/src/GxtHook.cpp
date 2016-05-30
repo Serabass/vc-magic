@@ -35,6 +35,7 @@ spookie_dot_gxt GxtEntries[] =
 	"!BRING",	L"Bring Phil and Hilary to the safehouse!",
 	"!PHLDED",	L"Phil is dead!",
 	"!HILDED",	L"Hilary is dead!",
+	"!TEST1N",	L"TEST MESSAGE 1 NUM: ~1~!",
 	"!GONNER",	L"The swat van made it to the police headquaters!",
 };
 

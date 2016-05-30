@@ -297,3 +297,8 @@ bool ViceVehicle::IsWaitingForWorldCollision() {
 void ViceVehicle::SetAction(int action) {
 	$(&set_vehicle_action, &m_dwVehicle, action);
 }
+
+
+bool ViceVehicle::PassengerSeatFree(int seatIndex) {
+	return !!$(&car_passenger_seat_free, &m_dwVehicle, seatIndex);
+}

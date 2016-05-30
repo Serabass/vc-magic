@@ -75,6 +75,11 @@ const SCRIPT_COMMAND stop_actor = { 0x0579, "v" };
 const SCRIPT_COMMAND put_actor_into_turret_on_car = { 0x0464, "vvfffifi" };
 const SCRIPT_COMMAND remove_actor_from_turret_mode = { 0x0465, "v" };
 const SCRIPT_COMMAND actor_leave_car_and_flee = { 0x046B, "vv" };
+const SCRIPT_COMMAND set_actor_can_be_shot_in_a_car = { 0x054A, "vi" };
+const SCRIPT_COMMAND get_random_actor_in_zone = { 0x02DD, "siiiv" };
+const SCRIPT_COMMAND actor_do_kung_fu_stance_towards_actor = { 0x04C6, "vv" };
+const SCRIPT_COMMAND actor_clear_leader = { 0x01E0, "v" };
+const SCRIPT_COMMAND destroy_actor_instantly = { 0x009B, "v" };
 
 	class ViceActor
 	{
@@ -90,6 +95,8 @@ const SCRIPT_COMMAND actor_leave_car_and_flee = { 0x046B, "vv" };
 
 		static ViceActor* CreateRandom(VCPosition_t positon);
 		static ViceActor* CreateRandomInVehicleDriverseat(ViceVehicle* car);
+		static ViceActor* GetRandomActorInZone(GXTKey zoneName, bool civilian, bool gang, bool criminal);
+		static ViceActor* GetRandomActorInZone(ViceZone* zone, bool civilian, bool gang, bool criminal);
 
 		DWORD* GetActor();
 		bool IsDead();
@@ -179,7 +186,10 @@ const SCRIPT_COMMAND actor_leave_car_and_flee = { 0x046B, "vv" };
 		bool InCar();
 		bool InCar(ViceVehicle* car);
 
-		void Destroy(ViceVehicle* car);
+		void SetCanBeShotInACar();
+		void SetCanBeShotInACar(bool value);
+
+		void DestroyCar(ViceVehicle* car);
 		void Lock(bool value);
 		void Lock();
 		void Unlock();
@@ -194,6 +204,11 @@ const SCRIPT_COMMAND actor_leave_car_and_flee = { 0x046B, "vv" };
 		void LeaveCarAndFlee(ViceVehicle* car);
 
 		void Drive(ViceVehicle* car);
+		void DoKungFuStance(ViceActor* actor);
+
+		void ClearLeader();
+
+		void DestroyInstantly();
 
 		ViceMarker* CreateMarker();
 

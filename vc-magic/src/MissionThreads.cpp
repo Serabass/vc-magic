@@ -21,10 +21,14 @@ extern bool (*WastedBustedCheck)();
 
 // Constants
 const VCPosition_t MissionStart	= {-534.0f, 644.82f, 11.0f, 0.0f};
-const VCPosition_t BikeShop	= {-537.67f, 641.8f, 11.0f, 0.0f};
+const VCPosition_t BikeShop = { -537.67f, 641.8f, 11.0f, 0.0f };
+const VCPosition_t BikeShop2 = { -514.26f, 641.84f, 11.0f, 0.0f };
+const VCPosition_t CopShop = { 350.0f, -527.0f, 10.0f, 0.0f };
 
 // Globals
 bool bMissionEnded = true;	// Mission ended flag.
+
+FILE *consoleStdIn, *consoleStdOut, *consoleStdErr;
 
 // Functions
 
@@ -449,26 +453,17 @@ MissionCleanup:
 
 DWORD __stdcall ConsoleWatch(LPVOID lpThreadParameter) {
 
-	FILE *fStdIn, *fStdOut, *fStdErr;
-
 	// this is in my class constructor
 
 	AllocConsole();
-	freopen_s(&fStdIn, "conin$", "r", stdin);
-	freopen_s(&fStdOut, "conout$", "w", stdout);
-	freopen_s(&fStdErr, "conout$", "w", stderr);
+	freopen_s(&consoleStdIn, "conin$", "r", stdin);
+	freopen_s(&consoleStdOut, "conout$", "w", stdout);
+	freopen_s(&consoleStdErr, "conout$", "w", stderr);
 
-	fprintf_s(fStdOut, "Hello!\n");
-	//std::cout.sync_with_stdio();
-	//std::cin.sync_with_stdio();
+	fprintf_s(consoleStdOut, "Hello!\n");
+
 	for (;;) {
-		if (GetKeyState(VK_TAB) < 0) {
-			/*
-			fprintf_s(fStdOut, "Enter:");
-			fscanf_s(fStdIn, "%d %d", Game::hour, Game::minute);
-			fprintf_s(fStdOut, "\n");
-			*/
-		}
+		fprintf_s(consoleStdOut, "X:%d Y:%d\n", ViceSettings::mouse->x, ViceSettings::mouse->y);
 	}
 
 	return 0;
@@ -480,15 +475,29 @@ void cheatTest() {
 
 void MainScript(SCRIPT_MISSION* pMission)
 {
-	const VCPosition_t CopShop = { 350.0f, -527.0f, 10.0f, 0.0f };
+	INITIALISE_THREAD();
 
-	ViceVehicle* pBike = new ViceVehicle(pMission, MODEL::CAR::ADMIRAL, BikeShop, false);
-	pBike->Colour(57, 57);
+	CreateThread(0, 0, &ConsoleWatch, 0, 0, 0);
+
+	ViceVehicle* car = new ViceVehicle(pMission, MODEL::CAR::BANSHEE, BikeShop, false);
+
+	VCPosition_t fPosition = car->GetRelativeCoordinates(-8.0, 30.0, 3.0);
 
 	for (;;)
 	{
-		SCRIPT_WAIT(1000);
+		SCRIPT_WAIT(10);
+		if (KEY_PRESSED(VK_UP)) {
+			fPosition.z++;
+		} else if (KEY_PRESSED(VK_DOWN)) {
+			fPosition.z--;
+		} else if (KEY_PRESSED(VK_LEFT)) {
+			fPosition.x++;
+		} else if (KEY_PRESSED(VK_RIGHT)) {
+			fPosition.x--;
+		}
 
+		ViceCamera::SetPosition(fPosition, { 0.0f, 0.0f, 0.0f });
+		ViceCamera::At(car, 15, 2);
 	}
 }
 

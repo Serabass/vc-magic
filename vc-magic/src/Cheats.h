@@ -3,7 +3,6 @@
 #ifndef CHEATS_H
 #define CHEATS_H
 
-#define MAX_USER_CHEATS 10
 const SCRIPT_COMMAND are_car_cheats_used = { 0x0445, "" };
 
 class ViceCheats {
@@ -17,10 +16,12 @@ public:
 	static bool* cigarette;
 	static bool* greenLights;
 
-	static UserCheat* userCheats[MAX_USER_CHEATS];
+	static std::vector<UserCheat*> userCheats;
 
-	static bool RegisterUserCheat(char *string, void(__cdecl* callback)());
+	// Doesn't work
+	static void RegisterUserCheat(char *string, void(__cdecl* callback)());
 
+	// Doesn't work
 	static void WatchCheats();
 	static bool AreCarCheatsActivated();
 };

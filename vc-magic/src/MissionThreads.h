@@ -20,6 +20,14 @@ struct VCPosition_t
 	float y;
 	float z;
 	float a;
+
+	void NormalizeZAxis() {
+		//z = ViceGame::GetGroundZAt(*this);
+	}
+
+	float GetGroundZ() {
+		return 0;// ViceGame::GetGroundZAt(*this);
+	}
 };
 
 struct VCColor {
@@ -35,11 +43,8 @@ struct VCRGB
 	int b;
 };
 
-struct VCRGBA
+struct VCRGBA : VCRGB
 {
-	int r;
-	int g;
-	int b;
 	int a;
 };
 

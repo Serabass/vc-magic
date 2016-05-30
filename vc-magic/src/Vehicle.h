@@ -56,6 +56,7 @@ const SCRIPT_COMMAND set_car_tires_vulnerable = { 0x053F, "vi" };
 const SCRIPT_COMMAND set_car_clear_last_weapon_damage = { 0x0468, "v" };
 const SCRIPT_COMMAND is_car_waiting_for_world_collision = { 0x04F1, "v" };
 const SCRIPT_COMMAND set_vehicle_action = { 0x03A2, "vi" };
+const SCRIPT_COMMAND car_passenger_seat_free = { 0x0431, "vi" };
 
 class ViceVehicle
 {
@@ -135,6 +136,8 @@ public:
 	typedef CVehicle*(__thiscall *TgetStructAddress)(int pThis, signed int id);
 	typedef void(__thiscall *TOpenTrunk)(CVehicle* pThis);
 	static TgetStructAddress getStructAddress;
+
+	bool PassengerSeatFree(int seatIndex);
 
 	CVehicle* getStruct();
 	static CVehicle* getStructById(signed int id);
