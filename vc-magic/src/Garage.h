@@ -3,18 +3,18 @@
 #ifndef GARAGE_H
 #define GARAGE_H
 
-const SCRIPT_COMMAND open_garage = { 0x0360, "v" };
-const SCRIPT_COMMAND close_garage = { 0x0361, "v" };
-const SCRIPT_COMMAND is_garage_closed = { 0x03B1, "v" };
-const SCRIPT_COMMAND garage_has_car = { 0x03B1, "v" };
-const SCRIPT_COMMAND set_garage_accept_car = { 0x021B, "vv" };
-const SCRIPT_COMMAND garage_respray_done = { 0x0329, "v" };
-const SCRIPT_COMMAND set_garage_type = { 0x02FA, "vi" };
-const SCRIPT_COMMAND create_garage = { 0x0219, "iffffffffv" };
-const SCRIPT_COMMAND set_garage_door_type_to_swing_open = { 0x03BB, "v" };
-const SCRIPT_COMMAND set_garage_camera_follows_player = { 0x03DA, "v" };
-const SCRIPT_COMMAND garage_contains_neededcar = { 0x03D4, "vi" };
-const SCRIPT_COMMAND garage_set_max_cars = { 0x057A, "vi" };
+OPCODE(0360, "v", open_garage);
+OPCODE(0361, "v", close_garage);
+OPCODE(03B1, "v", is_garage_closed);
+OPCODE(03B1, "v", garage_has_car);
+OPCODE(021B, "vv", set_garage_accept_car);
+OPCODE(0329, "v", garage_respray_done);
+OPCODE(02FA, "vi", set_garage_type);
+OPCODE(0219, "iffffffffv", create_garage);
+OPCODE(03BB, "v", set_garage_door_type_to_swing_open);
+OPCODE(03DA, "v", set_garage_camera_follows_player);
+OPCODE(03D4, "vi", garage_contains_neededcar);
+OPCODE(057A, "vi", garage_set_max_cars);
 
 	class ViceGarage {
 	private:

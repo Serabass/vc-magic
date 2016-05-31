@@ -3,60 +3,62 @@
 #ifndef VEHICLE_H
 #define VEHICLE_H
 
-const SCRIPT_COMMAND create_car = { 0x00A5, "ifffv" };	// (CAR_*|BIKE_*|BOAT_*), x, y, z, var_car
-const SCRIPT_COMMAND set_car_color = { 0x0229, "vii" };	// var_car col1 col2
-const SCRIPT_COMMAND destroy_car = { 0x00A6, "v" };		// var_car
-const SCRIPT_COMMAND set_car_z_angle = { 0x0175, "vf" };		// var_car, angle
-const SCRIPT_COMMAND car_relative_coordinates = { 0x0407, "vfffvvv" };// var_car, x, y, z, var_x, var_y, var_z
-const SCRIPT_COMMAND set_car_max_speed = { 0x00AD, "vf" };		// var_car, speed
-const SCRIPT_COMMAND drive_car_to_point1 = { 0x02c2, "vfff" };	// var_car, x, y, z
-const SCRIPT_COMMAND car_ignore_traffic = { 0x00AE, "vi" };		// var_car, flag
-const SCRIPT_COMMAND set_car_immune_to_nonplayer = { 0x02aa, "vi" };		// var_car, immune(1/0)
-const SCRIPT_COMMAND set_car_door_status = { 0x020A, "vi" };		// var_car, status
-const SCRIPT_COMMAND remove_references_to_car = { 0x01C3, "v" };		// var_car
-const SCRIPT_COMMAND get_car_health = { 0x0227, "vv" };		// var_car, var_health
-const SCRIPT_COMMAND toggle_car_siren = { 0x0397, "vi" };		// var_car, siren(1/0)
-const SCRIPT_COMMAND set_car_driver_behaviour = { 0x00AF, "vi" };		// var_car, behaviour
-const SCRIPT_COMMAND is_car_near_point_3d = { 0x01AF, "vffffffi" };//	var_car, x, y, z, rx, ry, rz, b
-const SCRIPT_COMMAND is_car_stuck = { 0x03CE, "v" };	// x, y, z, a
-const SCRIPT_COMMAND get_car_model = { 0x0441, "vv" };	// x, y, z, a
-const SCRIPT_COMMAND is_car_burning = { 0x0495, "v" };	// x, y, z, a
-const SCRIPT_COMMAND is_car_tire_deflated = { 0x0496, "vi" };	// x, y, z, a
-const SCRIPT_COMMAND deflate_car_tire = { 0x04FE, "vi" };	// x, y, z, a
-const SCRIPT_COMMAND set_car_speed_instantly = { 0x04BA, "vf" };	// x, y, z, a
-const SCRIPT_COMMAND is_car_wrecked = { 0x0119, "v" };	// x, y, z, a
-const SCRIPT_COMMAND make_car_very_heavy = { 0x01EC, "vi" };	// car, bool_is_heavy
-const SCRIPT_COMMAND is_car_hit_by_weapon = { 0x031E, "vi" };
-const SCRIPT_COMMAND set_car_watertight = { 0x039C, "vi" }; // vehicle, boolean
-const SCRIPT_COMMAND car_race_to = { 0x039F, "vff" }; // vehicle, x, y
-const SCRIPT_COMMAND car_ram_car = { 0x032C, "vv" }; // car, car
-const SCRIPT_COMMAND explode_car = { 0x020B, "v" };
-const SCRIPT_COMMAND car_close_all_doors = { 0x0508, "v" };
-const SCRIPT_COMMAND car_open_trunk = { 0x050B, "v" };
-const SCRIPT_COMMAND get_car_speed = { 0x02E3, "vv" };
-const SCRIPT_COMMAND car_stopped = { 0x01C1, "v" };
-const SCRIPT_COMMAND car_flipped = { 0x020D, "v" };
-const SCRIPT_COMMAND car_get_driver = { 0x046C, "vv" };
-const SCRIPT_COMMAND set_car_sprayable = { 0x0294, "vi" };
-const SCRIPT_COMMAND is_car_sunk = { 0x02BF, "v" };
-const SCRIPT_COMMAND get_car_zangle = { 0x0174, "vv" };
-const SCRIPT_COMMAND get_car_num_passengers = { 0x01E9, "vv" };
-const SCRIPT_COMMAND get_car_max_passengers = { 0x01EA, "vv" };
-const SCRIPT_COMMAND set_car_health = { 0x0224, "vf" };
-const SCRIPT_COMMAND car_turn_off_engine = { 0x02D4, "v" };
-const SCRIPT_COMMAND car_drive_to = { 0x00A7, "vfff" };
-const SCRIPT_COMMAND set_car_to_psycho_driver = { 0x00A8, "v" };
-const SCRIPT_COMMAND set_car_to_normal_driver = { 0x00A9, "v" };
-const SCRIPT_COMMAND car_airborne = { 0x01F3, "v" };
-const SCRIPT_COMMAND set_car_not_damaged_when_upside_down = { 0x03ED, "vi" };
-const SCRIPT_COMMAND car_get_color = { 0x03F3, "vvv" };
-const SCRIPT_COMMAND get_car_position = { 0x00AA, "vvvv" };
-const SCRIPT_COMMAND set_car_position = { 0x00AB, "vfff" };
-const SCRIPT_COMMAND set_car_tires_vulnerable = { 0x053F, "vi" };
-const SCRIPT_COMMAND set_car_clear_last_weapon_damage = { 0x0468, "v" };
-const SCRIPT_COMMAND is_car_waiting_for_world_collision = { 0x04F1, "v" };
-const SCRIPT_COMMAND set_vehicle_action = { 0x03A2, "vi" };
-const SCRIPT_COMMAND car_passenger_seat_free = { 0x0431, "vi" };
+OPCODE(00A5, "ifffv", create_car);	// (CAR_*|BIKE_*|BOAT_*), x, y, z, var_car
+OPCODE(0229, "vii", set_car_color);	// var_car col1 col2
+OPCODE(00A6, "v", destroy_car);		// var_car
+OPCODE(0175, "vf", set_car_z_angle);		// var_car, angle
+OPCODE(0407, "vfffvvv", car_relative_coordinates);// var_car, x, y, z, var_x, var_y, var_z
+OPCODE(00AD, "vf", set_car_max_speed);		// var_car, speed
+OPCODE(02c2, "vfff", drive_car_to_point1);	// var_car, x, y, z
+OPCODE(00AE, "vi", car_ignore_traffic);		// var_car, flag
+OPCODE(02aa, "vi", set_car_immune_to_nonplayer);		// var_car, immune(1/0)
+OPCODE(020A, "vi", set_car_door_status);		// var_car, status
+OPCODE(01C3, "v", remove_references_to_car);		// var_car
+OPCODE(0227, "vv", get_car_health);		// var_car, var_health
+OPCODE(0397, "vi", toggle_car_siren);		// var_car, siren(1/0)
+OPCODE(00AF, "vi", set_car_driver_behaviour);		// var_car, behaviour
+OPCODE(01AF, "vffffffi", is_car_near_point_3d);//	var_car, x, y, z, rx, ry, rz, b
+OPCODE(03CE, "v", is_car_stuck);	// x, y, z, a
+OPCODE(0441, "vv", get_car_model);	// x, y, z, a
+OPCODE(0495, "v", is_car_burning);	// x, y, z, a
+OPCODE(0496, "vi", is_car_tire_deflated);	// x, y, z, a
+OPCODE(04FE, "vi", deflate_car_tire);	// x, y, z, a
+OPCODE(04BA, "vf", set_car_speed_instantly);	// x, y, z, a
+OPCODE(0119, "v", is_car_wrecked);	// x, y, z, a
+OPCODE(01EC, "vi", make_car_very_heavy);	// car, bool_is_heavy
+OPCODE(031E, "vi", is_car_hit_by_weapon);
+OPCODE(039C, "vi", set_car_watertight); // vehicle, boolean
+OPCODE(039F, "vff", car_race_to); // vehicle, x, y
+OPCODE(032C, "vv", car_ram_car); // car, car
+OPCODE(020B, "v", explode_car);
+OPCODE(0508, "v", car_close_all_doors);
+OPCODE(050B, "v", car_open_trunk);
+OPCODE(02E3, "vv", get_car_speed);
+OPCODE(01C1, "v", car_stopped);
+OPCODE(020D, "v", car_flipped);
+OPCODE(046C, "vv", car_get_driver);
+OPCODE(0294, "vi", set_car_sprayable);
+OPCODE(02BF, "v", is_car_sunk);
+OPCODE(0174, "vv", get_car_zangle);
+OPCODE(01E9, "vv", get_car_num_passengers);
+OPCODE(01EA, "vv", get_car_max_passengers);
+OPCODE(0224, "vf", set_car_health);
+OPCODE(02D4, "v", car_turn_off_engine);
+OPCODE(00A7, "vfff", car_drive_to);
+OPCODE(00A8, "v", set_car_to_psycho_driver);
+OPCODE(00A9, "v", set_car_to_normal_driver);
+OPCODE(01F3, "v", car_airborne);
+OPCODE(03ED, "vi", set_car_not_damaged_when_upside_down);
+OPCODE(03F3, "vvv", car_get_color);
+OPCODE(00AA, "vvvv", get_car_position);
+OPCODE(00AB, "vfff", set_car_position);
+OPCODE(053F, "vi", set_car_tires_vulnerable);
+OPCODE(0468, "v", set_car_clear_last_weapon_damage);
+OPCODE(04F1, "v", is_car_waiting_for_world_collision);
+OPCODE(03A2, "vi", set_vehicle_action);
+OPCODE(0431, "vi", car_passenger_seat_free);
+OPCODE(04BD, "vi", set_car_is_part_of_convoy);
+OPCODE(0519, "vi", lock_car_in_current_position);
 
 class ViceVehicle
 {
@@ -65,6 +67,9 @@ private:
 	SCRIPT_MISSION* m_pMission;
 	bool m_bKeepOnDestroy;
 public:
+
+	bool operator ==(ViceVehicle* actor);
+
 	ViceVehicle(SCRIPT_MISSION* pMission, DWORD dwModel, VCPosition_t position, bool bKeepOnDestroy = true);
 	ViceVehicle(DWORD m_dwVehicle);
 	~ViceVehicle();
@@ -115,6 +120,8 @@ public:
 
 	void SetWatertight(bool watertight);
 
+	void SetIsPartOfConvoy(bool value);
+
 	bool IsWaitingForWorldCollision();
 
 	void SetAction(int action); // Use enum?
@@ -127,6 +134,10 @@ public:
 	void SetNotDamagedWhenUpsideDown(bool value);
 	VCPosition_t* GetPosition();
 	void SetPosition(VCPosition_t* position);
+
+	void Lock(bool lock);
+
+	ViceFire* CreateFire();
 
 	void SetTiresVulnerable(bool value);
 

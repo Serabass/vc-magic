@@ -3,11 +3,11 @@
 #ifndef PICKUP_H
 #define PICKUP_H
 
-const SCRIPT_COMMAND pickup_is_picked_up = { 0x0214, "v" };
-const SCRIPT_COMMAND destroy_pickup = { 0x0215, "v" };
-const SCRIPT_COMMAND create_default_pickup = { 0x0213, "iifffv" };
-const SCRIPT_COMMAND create_cash_pickup = { 0x02E1, "ifffv" };
-const SCRIPT_COMMAND create_clothes_pickup = { 0x02E1, "ifffv" };
+OPCODE(0214, "v", pickup_is_picked_up);
+OPCODE(0215, "v", destroy_pickup);
+OPCODE(0213, "iifffv", create_default_pickup);
+OPCODE(02E1, "ifffv", create_cash_pickup);
+OPCODE(02E1, "ifffv", create_clothes_pickup);
 
 	class VicePickup {
 	private:

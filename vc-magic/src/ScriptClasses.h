@@ -8,7 +8,7 @@
 #ifndef SCRIPTCLASSES_H
 #define SCRIPTCLASSES_H
 
-#define STRUCT_OFFSET(T, baseAddr, offset) (T*)(baseAddr + offset)
+#define OPCODE(code, args, name) const SCRIPT_COMMAND name = { 0x##code, args }
 
 	class VicePlayer;
 	class ViceActor;

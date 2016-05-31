@@ -2,9 +2,9 @@
 
 #ifndef SCPECIALACTOR_H
 #define SCPECIALACTOR_H
-const SCRIPT_COMMAND load_special_actor = { 0x023C, "is" };
-const SCRIPT_COMMAND special_actor_loaded = { 0x023D, "i" };
-const SCRIPT_COMMAND unload_special_actor = { 0x0296, "i" };
+OPCODE(023C, "is", load_special_actor);
+OPCODE(023D, "i", special_actor_loaded);
+OPCODE(0296, "i", unload_special_actor);
 
 class ViceSpecialActor
 {

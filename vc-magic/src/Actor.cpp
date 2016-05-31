@@ -5,6 +5,14 @@
 				$(&cmd, &m_dwActor, &result); \
 				return result;
 
+bool ViceActor::operator==(VicePlayer* player) {
+	return *GetActor() == *player->GetActor();
+}
+
+bool ViceActor::operator==(ViceActor* actor) {
+	return *GetActor() == *actor->GetActor();
+}
+
 	//--------------------------------------------------------------------------------
 	// Actor class functions.
 	//
@@ -43,6 +51,12 @@
 		return new ViceActor(actor);
 	}
 
+	ViceActor* ViceActor::CreateRandomInVehiclePassengerseat(ViceVehicle* vehicle, int seatIndex) {
+		DWORD actor;
+		$(&create_random_actor_in_vehicle_passengerseat, vehicle->GetVehicle(), seatIndex, &actor);
+		return new ViceActor(actor);
+	}
+
 	ViceActor* ViceActor::GetRandomActorInZone(GXTKey zoneName, bool civilian, bool gang, bool criminal) {
 		DWORD actor;
 		$(&get_random_actor_in_zone, zoneName, (int)civilian, (int)gang, (int)criminal, &actor);
@@ -61,6 +75,7 @@
 			if (((int)foundPed != 0) && ped == foundPed)
 				return new ViceActor(i);
 		}
+		return NULL;
 	}
 
 	DWORD* ViceActor::GetActor()
@@ -448,4 +463,8 @@
 
 	void ViceActor::DestroyInstantly() {
 		$(&destroy_actor_instantly, &m_dwActor);
+	}
+
+	void ViceActor::ClearDamage() {
+		$(&clear_actor_damage, &m_dwActor);
 	}

@@ -3,10 +3,10 @@
 #ifndef TIMER_H
 #define TIMER_H
 #include "ScriptClasses.h"
-const SCRIPT_COMMAND create_timer = { 0x014E, "vi" };	// x, y, z, a
-const SCRIPT_COMMAND stop_timer = { 0x014F, "vi" };	// x, y, z, a
-const SCRIPT_COMMAND pause_timer = { 0x0396, "v" };	// x, y, z, a
-const SCRIPT_COMMAND set_timer_with_text = { 0x03C3, "vis" };	// x, y, z, a
+OPCODE(014E, "vi", create_timer);	// x, y, z, a
+OPCODE(014F, "vi", stop_timer);	// x, y, z, a
+OPCODE(0396, "v", pause_timer);	// x, y, z, a
+OPCODE(03C3, "vis", set_timer_with_text);	// x, y, z, a
 
 class ViceTimer {
 protected:

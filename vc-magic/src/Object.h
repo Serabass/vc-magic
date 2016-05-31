@@ -3,21 +3,25 @@
 #ifndef OBJECT_H
 #define OBJECT_H
 
-const SCRIPT_COMMAND create_object_at = { 0x0107, "ifffv" };
-const SCRIPT_COMMAND destroy_object = { 0x0108, "v" };
-const SCRIPT_COMMAND object_is_damaged = { 0x0366, "v" };
-const SCRIPT_COMMAND object_exists = { 0x03CA, "v" };
-const SCRIPT_COMMAND make_object_targetable = { 0x035D, "v" };
-const SCRIPT_COMMAND keep_object_in_memory = { 0x0550, "vi" };
-const SCRIPT_COMMAND object_set_rotation = { 0x0453, "vfff" };
-const SCRIPT_COMMAND throw_object = { 0x0381, "vfff" };
+OPCODE(0107, "ifffv", create_object_at);
+OPCODE(0108, "v", destroy_object);
+OPCODE(0366, "v", object_is_damaged);
+OPCODE(03CA, "v", object_exists);
+OPCODE(035D, "v", make_object_targetable);
+OPCODE(0550, "vi", keep_object_in_memory);
+OPCODE(0453, "vfff", object_set_rotation);
+OPCODE(0381, "vfff", throw_object);
 
 	class ViceObject {
 	private:
 		DWORD m_dwObject;
 	public:
+
+		bool operator ==(ViceObject* object);
 		ViceObject(int objectId, VCPosition_t position);
 		~ViceObject();
+
+		DWORD* GetObjectID();
 
 		// 02F3
 		void Load(/* ... */);

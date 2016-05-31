@@ -4,10 +4,10 @@
 #define SCRIPT_H
 #include "ScriptClasses.h"
 
-const SCRIPT_COMMAND name_thread = { 0x03A4, "s" };		// "MAIN"
-const SCRIPT_COMMAND wait = { 0x0001, "i" };		// time_in_ms
-const SCRIPT_COMMAND create_thread = { 0x00D7, "iz" };		// StartIP (4F)
-const SCRIPT_COMMAND end_thread = { 0x004E, "" };		// -/-
+OPCODE(03A4, "s", name_thread);		// "MAIN"
+OPCODE(0001, "i", wait);		// time_in_ms
+OPCODE(00D7, "iz", create_thread);		// StartIP (4F)
+OPCODE(004E, "", end_thread);		// -/-
 
 class ViceScript
 {

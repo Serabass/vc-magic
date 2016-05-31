@@ -4,8 +4,8 @@
 
 #ifndef SPHERE_H
 #define SPHERE_H
-const SCRIPT_COMMAND create_sphere = { 0x03BC, "ffffi" };
-const SCRIPT_COMMAND destroy_sphere = { 0x03BD, "v" };
+OPCODE(03BC, "ffffi", create_sphere);
+OPCODE(03BD, "v", destroy_sphere);
 
 class ViceSphere {
 private:

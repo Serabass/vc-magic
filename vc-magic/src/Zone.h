@@ -3,10 +3,10 @@
 #ifndef ZONE_H
 #define ZONE_H
 
-//const SCRIPT_COMMAND set_zone_car_info = { 0x0152, "siiiiiiiiiiii" };
-//const SCRIPT_COMMAND set_zone_gang_info = { 0x015C, "siiiiiiiiiiii" };
-const SCRIPT_COMMAND set_zone_pedgroup_info = { 0x0324, "sii" };
-//const SCRIPT_COMMAND set_zone_carclass_info = { 0x04EC, "siiiiiiiiiiii" };
+//OPCODE(0152, "siiiiiiiiiiii", set_zone_car_info);
+//OPCODE(015C, "siiiiiiiiiiii", set_zone_gang_info);
+OPCODE(0324, "sii", set_zone_pedgroup_info);
+//OPCODE(04EC, "siiiiiiiiiiii", set_zone_carclass_info);
 
 	class ViceZone {
 	public:

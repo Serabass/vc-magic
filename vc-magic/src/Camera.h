@@ -3,19 +3,19 @@
 #ifndef CAMERA_H
 #define CAMERA_H
 
-const SCRIPT_COMMAND set_camera_behind_player = { 0x0373, "" };		// -/-
-const SCRIPT_COMMAND set_camera_behind_mode = { 0x032A, "i" };		// -/-
-const SCRIPT_COMMAND set_camera_directly_before_player = { 0x03C8, "" };		// -/-
-const SCRIPT_COMMAND camera_on_vehicle = { 0x0158, "vii" };
-const SCRIPT_COMMAND camera_on_player = { 0x0157, "vii" };
-const SCRIPT_COMMAND camera_on_actor = { 0x0159, "vii" };
-const SCRIPT_COMMAND restore_camera = { 0x015A, "" };		// -/-
-const SCRIPT_COMMAND point_camera = { 0x0160, "fffi" };	// x, y, z, type
-const SCRIPT_COMMAND restore_camera_jumpcut = { 0x02EB, "" };		// -/-
-const SCRIPT_COMMAND set_camera_position = { 0x015F, "ffffff" }; // x, y, z, vx, vy, vz
-const SCRIPT_COMMAND shake_camera = { 0x0003, "i" };
-const SCRIPT_COMMAND set_camera = { 0x03CB, "fff" };	// x, y, z
-const SCRIPT_COMMAND set_camera_pointing_time = { 0x0460, "fi" };
+OPCODE(0373, "", set_camera_behind_player);		// -/-
+OPCODE(032A, "i", set_camera_behind_mode);		// -/-
+OPCODE(03C8, "", set_camera_directly_before_player);		// -/-
+OPCODE(0158, "vii", camera_on_vehicle);
+OPCODE(0157, "vii", camera_on_player);
+OPCODE(0159, "vii", camera_on_actor);
+OPCODE(015A, "", restore_camera);		// -/-
+OPCODE(0160, "fffi", point_camera);	// x, y, z, type
+OPCODE(02EB, "", restore_camera_jumpcut);		// -/-
+OPCODE(015F, "ffffff", set_camera_position); // x, y, z, vx, vy, vz
+OPCODE(0003, "i", shake_camera);
+OPCODE(03CB, "fff", set_camera);	// x, y, z
+OPCODE(0460, "fi", set_camera_pointing_time);
 
 	class ViceCamera {
 	private:

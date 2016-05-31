@@ -1,5 +1,15 @@
 #include "Object.h"
 
+bool ViceObject::operator==(ViceObject* object) {
+	return *GetObjectID() == *object->GetObjectID();
+}
+
+DWORD* ViceObject::GetObjectID()
+{
+	return &m_dwObject;
+}
+
+
 ViceObject::ViceObject(int objectId, VCPosition_t position) {
 	$(&create_object_at, objectId, position.x, position.y, position.z, &m_dwObject);
 }

@@ -5,11 +5,11 @@
 #ifndef RAMPAGE_H
 #define RAMPAGE_H
 
-const SCRIPT_COMMAND clear_rampage_kills = { 0x0297, "" };	// player_char, bool_ignored
-const SCRIPT_COMMAND get_rampage_kills = { 0x0298, "iv" };	// model_id
-const SCRIPT_COMMAND get_rampage_status = { 0x01FA, "i" };	// model_id
-const SCRIPT_COMMAND init_rampage = { 0x01F9, "siiiiiii" };
-const SCRIPT_COMMAND set_total_rampages = { 0x0408, "i" };
+OPCODE(0297, "", clear_rampage_kills);	// player_char, bool_ignored
+OPCODE(0298, "iv", get_rampage_kills);	// model_id
+OPCODE(01FA, "i", get_rampage_status);	// model_id
+OPCODE(01F9, "siiiiiii", init_rampage);
+OPCODE(0408, "i", set_total_rampages);
 
 class ViceRampage {
 

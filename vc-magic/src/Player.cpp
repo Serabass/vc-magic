@@ -1,8 +1,5 @@
 #include "Player.h"
 
-// Externals
-extern VicePlayer*	pPlayer;
-
 #define VICEPLAYER_RETURN_RESULT_1ARG(type, cmd) \
 				type result; \
 				$(&cmd, &m_dwChar, &result); \
@@ -11,6 +8,15 @@ extern VicePlayer*	pPlayer;
 //--------------------------------------------------------------------------------
 // ScriptPlayer class functions.
 //
+
+bool VicePlayer::operator==(VicePlayer* player) {
+	return *GetActor() == *player->GetActor();
+}
+
+bool VicePlayer::operator==(ViceActor* actor) {
+	return *GetActor() == *actor->GetActor();
+}
+
 VicePlayer::VicePlayer(float fX, float fY, float fZ)
 {
 	$(&create_player, 0, fX, fY, fZ, &m_dwChar);
@@ -280,7 +286,7 @@ void VicePlayer::SetVisible() {
 	$(&set_player_visible, 1);
 }
 
-// Only Classic
+// Only Classical mode
 bool VicePlayer::AimingAt(ViceActor* actor) {
 	return !!$(&player_aiming_at_actor, &m_dwChar, actor->GetActor());
 }
@@ -303,10 +309,11 @@ std::vector<ViceActor*> VicePlayer::NearestActors() {
 	return result;
 }
 
+// Works incorrect
 std::vector<ViceVehicle*> VicePlayer::NearestVehicles() {
 	std::vector<ViceVehicle*> result;
 
-	for (DWORD i = 0; i < 10000; i++) {
+	for (DWORD i = 0; i < 100000; i++) {
 		CVehicle* foundVehicle = ViceVehicle::$Vehicle__get((void*)*ViceVehicle::vehiclesArray, i);
 		if (((int)foundVehicle != 0)) {
 			result.push_back(new ViceVehicle(i));
@@ -315,3 +322,17 @@ std::vector<ViceVehicle*> VicePlayer::NearestVehicles() {
 
 	return result;
 }
+
+
+bool VicePlayer::FiringInRectangle(float p1, float p2, float p3, float p4) {
+	return !!$(&player_firing_weapons_in_rectangle, &m_dwChar, p1, p2, p3, p4);
+}
+
+bool VicePlayer::IsAggressive() {
+	return !!$(&player_is_aggressive, &m_dwChar);
+}
+
+bool VicePlayer::DrivingPlane() {
+	return !!$(&player_driving_plane, &m_dwChar);
+}
+ 

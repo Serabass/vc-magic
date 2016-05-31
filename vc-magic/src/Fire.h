@@ -3,12 +3,12 @@
 #ifndef FIRE_H
 #define FIRE_H
 
-const SCRIPT_COMMAND create_fire = { 0x02CF, "fffv" };	// x, y, z, a
-const SCRIPT_COMMAND is_fire_extinguished = { 0x02D0, "v" };	// x, y, z, a
-const SCRIPT_COMMAND destroy_fire = { 0x02D1, "v" };	// x, y, z, a
-const SCRIPT_COMMAND remove_all_fires = { 0x031A, "" };	// x, y, z, a
-const SCRIPT_COMMAND create_car_fire = { 0x0325, "vv" };	// x, y, z, a
-const SCRIPT_COMMAND create_actor_fire = { 0x0326, "vv" };	// x, y, z, a
+OPCODE(02CF, "fffv", create_fire);	// x, y, z, a
+OPCODE(02D0, "v", is_fire_extinguished);	// x, y, z, a
+OPCODE(02D1, "v", destroy_fire);	// x, y, z, a
+OPCODE(031A, "", remove_all_fires);	// x, y, z, a
+OPCODE(0325, "vv", create_car_fire);	// x, y, z, a
+OPCODE(0326, "vv", create_actor_fire);	// x, y, z, a
 
 
 	class ViceFire {

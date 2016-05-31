@@ -1,5 +1,9 @@
 #include "AbstractObject.h"
 
-DWORD ViceAbstractObject::GetHandle() {
-	return m_dwHandle;
+bool ViceAbstractObject::operator==(ViceAbstractObject* object) {
+	return *GetHandle() == *object->GetHandle();
+}
+
+DWORD* ViceAbstractObject::GetHandle() {
+	return &m_dwHandle;
 }

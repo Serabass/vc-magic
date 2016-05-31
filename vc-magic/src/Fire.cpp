@@ -23,7 +23,9 @@
 	}
 
 	ViceFire* ViceFire::CreateOn(ViceVehicle* vehicle) {
-		CREATE_FIRE(create_car_fire, vehicle->GetVehicle());
+		DWORD m_dwNewFire;
+		$(&create_car_fire, vehicle->GetVehicle(), &m_dwNewFire);
+		return new ViceFire(m_dwNewFire);
 	}
 
 	void ViceFire::DestroyAll() {

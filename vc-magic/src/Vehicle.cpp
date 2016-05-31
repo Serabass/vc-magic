@@ -10,6 +10,11 @@
 //--------------------------------------------------------------------------------
 // ScriptVehicle class functions.
 //
+
+bool ViceVehicle::operator==(ViceVehicle* vehicle) {
+	return *GetVehicle() == *vehicle->GetVehicle();
+}
+
 ViceVehicle::ViceVehicle(SCRIPT_MISSION* pMission, DWORD dwModel, VCPosition_t position, bool bKeepOnDestroy)
 {
 	m_pMission = pMission;
@@ -315,4 +320,17 @@ ViceVehicle* ViceVehicle::FromCVehicle(CVehicle* vehicle) {
 		if (((int)foundVehicle != 0) && vehicle == foundVehicle)
 			return new ViceVehicle(i);
 	}
+	return NULL;
+}
+
+ViceFire* ViceVehicle::CreateFire() {
+	return ViceFire::CreateOn(this);
+}
+
+void ViceVehicle::SetIsPartOfConvoy(bool value) {
+	$(&set_car_is_part_of_convoy, &m_dwVehicle, value);
+}
+
+void ViceVehicle::Lock(bool lock) {
+	$(&lock_car_in_current_position, &m_dwVehicle, lock);
 }

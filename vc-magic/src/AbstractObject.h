@@ -5,13 +5,15 @@
 
 	interface ViceAbstractObject {
 	private:
-		DWORD m_dwHandle;	
+		DWORD m_dwHandle;
 	public:
 
-		DWORD GetHandle();
+		bool operator ==(ViceAbstractObject* object);
 
-		VCPosition_t Position();
-		void Position(VCPosition_t position);
+		DWORD* GetHandle();
+
+		ViceVector3Df Position();
+		void Position(ViceVector3Df position);
 		
 		float ZAngle();
 		void ZAngle(float zAngle);

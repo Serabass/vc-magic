@@ -5,53 +5,57 @@
 #ifndef PLAYER_H
 #define PLAYER_H
 
-const SCRIPT_COMMAND freeze_player = { 0x01B4, "vi" };		// PLAYER_CHAR, Freeze(1/0)
-const SCRIPT_COMMAND create_player = { 0x0053, "ifffv" };	// 0, x, y, z, PLAYER_CHAR
-const SCRIPT_COMMAND create_actor_from_player = { 0x01F5, "vv" };		// PLAYER_CHAR, PLAYER_ACTOR
-const SCRIPT_COMMAND clear_player_wanted_level = { 0x0110, "v" };		// PLAYER_CHAR
-const SCRIPT_COMMAND set_player_wanted_level = { 0x010D, "vi" };		// PLAYER_CHAR, level
-const SCRIPT_COMMAND set_player_min_wanted_level = { 0x010E, "vi" };		// PLAYER_CHAR, level
-const SCRIPT_COMMAND set_player_health = { 0x0222, "vi" };		// PLAYER_CHAR, health
-const SCRIPT_COMMAND get_player_health = { 0x0225, "vv" };		// PLAYER_CHAR, health
-const SCRIPT_COMMAND player_near_point_on_foot = { 0x00F6, "vffffffi" };//	PLAYER_CHAR, x, y, z, rx, ry, rz, b
-const SCRIPT_COMMAND is_player_near_point_3d = { 0x00F5, "vffffffi" };//	PLAYER_CHAR, x, y, z, rx, ry, rz, b
-const SCRIPT_COMMAND set_player_z_angle = { 0x0171, "vf" };
-const SCRIPT_COMMAND give_player_weapon = { 0x01B1, "vii" };	// PLAYER_CHAR, weapon, ammo
-const SCRIPT_COMMAND add_money_to_player = { 0x0109, "vi" };		// PLAYER_CHAR, money
-const SCRIPT_COMMAND player_arm_weapon = { 0x01B8, "vi" };	// x, y, z, a
-const SCRIPT_COMMAND hold_cellphone = { 0x052B, "vi" };	// x, y, z, a
-const SCRIPT_COMMAND is_player_pressing_horn = { 0x0122, "v" };	// x, y, z, a
-const SCRIPT_COMMAND get_player_position = { 0x0054, "vvvv" };	// x, y, z, a
-const SCRIPT_COMMAND get_player_z_angle = { 0x0170, "vv" };	// x, y, z, a
-const SCRIPT_COMMAND set_player_ignored_by_cops = { 0x01F7, "vi" };	// player_char, bool_ignored
-const SCRIPT_COMMAND kill_player = { 0x0322, "v" };
-const SCRIPT_COMMAND clear_weapons_from_player = { 0x03B8, "v" };
-const SCRIPT_COMMAND put_player_at = { 0x0055, "vfff" };
-const SCRIPT_COMMAND get_player_money = { 0x010B, "vv" };
-const SCRIPT_COMMAND is_player_stopped = { 0x029F, "v" };
-const SCRIPT_COMMAND is_player_defined = { 0x0256, "v" };
-const SCRIPT_COMMAND player_on_foot = { 0x044A, "v" };
-const SCRIPT_COMMAND get_player_wanted_level = { 0x01C0, "vv" };
-const SCRIPT_COMMAND set_player_drunk_visuals = { 0x052C, "vi" };
-const SCRIPT_COMMAND set_player_visible = { 0x0336, "vi" };
-const SCRIPT_COMMAND get_player_car = { 0x00DA, "vv" };
-const SCRIPT_COMMAND set_sensivity_to_crime = { 0x03C7, "f" };
-const SCRIPT_COMMAND get_player_ammo = { 0x0419, "viv" };
-const SCRIPT_COMMAND player_in_car = { 0x0442, "vv" };
-const SCRIPT_COMMAND player_in_a_car = { 0x0443, "v" };
-const SCRIPT_COMMAND player_driving_boat = { 0x04A8, "v" };
-const SCRIPT_COMMAND player_look_at_actor = { 0x0210, "vv" };
-const SCRIPT_COMMAND player_has_weapon = { 0x0490, "vi" };
-const SCRIPT_COMMAND is_player_controllable = { 0x03EE, "v" };
-const SCRIPT_COMMAND player_driving = { 0x00E0, "v" };
-const SCRIPT_COMMAND player_driving_car = { 0x00DC, "vv" };
-const SCRIPT_COMMAND player_driving_vehicle_type = { 0x00DE, "vi" };
-const SCRIPT_COMMAND set_player_fast_reload = { 0x0331, "vi" };
-const SCRIPT_COMMAND set_player_infinite_run = { 0x0330, "vi" };
-const SCRIPT_COMMAND is_player_skin_equals = { 0x0500, "vs" };
-const SCRIPT_COMMAND make_player_fireproof = { 0x055D, "vi" };
-const SCRIPT_COMMAND player_aiming_at_actor = { 0x0457, "vv" };
-const SCRIPT_COMMAND player_driving_a_motorbike = { 0x047E, "v" };
+OPCODE(01B4, "vi", freeze_player);		// PLAYER_CHAR, Freeze(1/0)
+OPCODE(0053, "ifffv", create_player);	// 0, x, y, z, PLAYER_CHAR
+OPCODE(01F5, "vv", create_actor_from_player);		// PLAYER_CHAR, PLAYER_ACTOR
+OPCODE(0110, "v", clear_player_wanted_level);		// PLAYER_CHAR
+OPCODE(010D, "vi", set_player_wanted_level);		// PLAYER_CHAR, level
+OPCODE(010E, "vi", set_player_min_wanted_level);		// PLAYER_CHAR, level
+OPCODE(0222, "vi", set_player_health);		// PLAYER_CHAR, health
+OPCODE(0225, "vv", get_player_health);		// PLAYER_CHAR, health
+OPCODE(00F6, "vffffffi", player_near_point_on_foot);//	PLAYER_CHAR, x, y, z, rx, ry, rz, b
+OPCODE(00F5, "vffffffi", is_player_near_point_3d);//	PLAYER_CHAR, x, y, z, rx, ry, rz, b
+OPCODE(0171, "vf", set_player_z_angle);
+OPCODE(01B1, "vii", give_player_weapon);	// PLAYER_CHAR, weapon, ammo
+OPCODE(0109, "vi", add_money_to_player);		// PLAYER_CHAR, money
+OPCODE(01B8, "vi", player_arm_weapon);	// x, y, z, a
+OPCODE(052B, "vi", hold_cellphone);	// x, y, z, a
+OPCODE(0122, "v", is_player_pressing_horn);	// x, y, z, a
+OPCODE(0054, "vvvv", get_player_position);	// x, y, z, a
+OPCODE(0170, "vv", get_player_z_angle);	// x, y, z, a
+OPCODE(01F7, "vi", set_player_ignored_by_cops);	// player_char, bool_ignored
+OPCODE(0322, "v", kill_player);
+OPCODE(03B8, "v", clear_weapons_from_player);
+OPCODE(0055, "vfff", put_player_at);
+OPCODE(010B, "vv", get_player_money);
+OPCODE(029F, "v", is_player_stopped);
+OPCODE(0256, "v", is_player_defined);
+OPCODE(044A, "v", player_on_foot);
+OPCODE(01C0, "vv", get_player_wanted_level);
+OPCODE(052C, "vi", set_player_drunk_visuals);
+OPCODE(0336, "vi", set_player_visible);
+OPCODE(00DA, "vv", get_player_car);
+OPCODE(03C7, "f", set_sensivity_to_crime);
+OPCODE(0419, "viv", get_player_ammo);
+OPCODE(0442, "vv", player_in_car);
+OPCODE(0443, "v", player_in_a_car);
+OPCODE(04A8, "v", player_driving_boat);
+OPCODE(0210, "vv", player_look_at_actor);
+OPCODE(0490, "vi", player_has_weapon);
+OPCODE(03EE, "v", is_player_controllable);
+OPCODE(00E0, "v", player_driving);
+OPCODE(00DC, "vv", player_driving_car);
+OPCODE(00DE, "vi", player_driving_vehicle_type);
+OPCODE(0331, "vi", set_player_fast_reload);
+OPCODE(0330, "vi", set_player_infinite_run);
+OPCODE(0500, "vs", is_player_skin_equals);
+OPCODE(055D, "vi", make_player_fireproof);
+OPCODE(0457, "vv", player_aiming_at_actor);
+OPCODE(047E, "v", player_driving_a_motorbike);
+OPCODE(02D5, "vffff", player_firing_weapons_in_rectangle);
+OPCODE(02DF, "v", player_is_aggressive);
+OPCODE(04C9, "v", player_driving_plane);
+OPCODE(046F, "vv", get_player_currently_armed_weapon);
 
 struct PlayerStruct {
 
@@ -64,10 +68,9 @@ private:
 	DWORD m_dwActor;
 public:
 
-	/*operator ViceActor*() {
-		return new ViceActor(*GetActor());
-	}
-	*/
+	bool operator ==(VicePlayer* player);
+	bool operator ==(ViceActor* actor);
+
 	CPed* ped;
 
 	VicePlayer(float fX, float fY, float fZ);
@@ -80,7 +83,7 @@ public:
 	bool NearPointOnFoot(float fX, float fY, float fZ, float fRX, float fRY, float fRZ, bool bSphere);
 
 	void PutAt(float fX, float fY, float fZ);
-	void PutAt(VCPosition_t position);
+	void PutAt(ViceVector3Df position);
 
 	void SetSkin(GXTKey ViceModel);
 	void Freeze(bool bFrozen);
@@ -130,6 +133,7 @@ public:
 	bool InCar(ViceVehicle* car);
 
 	bool DrivingBoat();
+	bool DrivingPlane();
 	bool HasWeapon(WEAPON weapon);
 	bool IsControllable();
 	bool Driving();
@@ -148,6 +152,8 @@ public:
 
 	bool DrivingAMotorbike();
 
+	bool FiringInRectangle(float p1, float p2, float p3, float p4);
+
 	typedef void(__cdecl* EnumNearestPedsCallback)(CPed* ped, int index);
 	typedef void(__cdecl* EnumNearestPedsWithNoIndexCallback)(CPed* ped);
 
@@ -157,6 +163,8 @@ public:
 
 	void EnumNearestPeds(EnumNearestPedsCallback callback);
 	void EnumNearestPeds(EnumNearestPedsWithNoIndexCallback callback);
+
+	bool IsAggressive();
 
 	template <typename T>
 	T* $$(int off);

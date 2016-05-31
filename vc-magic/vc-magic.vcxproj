@@ -132,6 +132,7 @@
     <ClInclude Include="src\Actor.h" />
     <ClInclude Include="src\ActorGroup.h" />
     <ClInclude Include="src\ActorsClock.h" />
+    <ClInclude Include="src\Animate.h" />
     <ClInclude Include="src\AreaRect.h" />
     <ClInclude Include="src\Army.h" />
     <ClInclude Include="src\Camera.h" />
@@ -182,6 +183,7 @@
     <ClCompile Include="src\Actor.cpp" />
     <ClCompile Include="src\ActorGroup.cpp" />
     <ClCompile Include="src\ActorsClock.cpp" />
+    <ClCompile Include="src\Animate.cpp" />
     <ClCompile Include="src\AreaRect.cpp" />
     <ClCompile Include="src\Army.cpp" />
     <ClCompile Include="src\Camera.cpp" />

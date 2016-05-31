@@ -493,6 +493,8 @@ void MainScript(SCRIPT_MISSION* pMission)
 	{
 		SCRIPT_WAIT(1000);
 		std::vector<ViceVehicle*> v = pPlayer->NearestVehicles();
+
+		PRINT("%d\n", v.size());
 	}
 }
 

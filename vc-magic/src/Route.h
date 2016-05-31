@@ -3,9 +3,9 @@
 #ifndef ROUTE_H
 #define ROUTE_H
 
-const SCRIPT_COMMAND add_route_point = { 0x01E2, "ifff" };
-const SCRIPT_COMMAND clear_route = { 0x03AC, "" };
-const SCRIPT_COMMAND set_actor_follow_route = { 0x01E1, "vii" };
+OPCODE(01E2, "ifff", add_route_point);
+OPCODE(03AC, "", clear_route);
+OPCODE(01E1, "vii", set_actor_follow_route);
 
 	class ViceRoute {
 	public:

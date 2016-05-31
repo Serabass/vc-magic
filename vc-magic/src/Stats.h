@@ -3,10 +3,10 @@
 #ifndef STATS_H
 #define STATS_H
 
-const SCRIPT_COMMAND increment_people_saved_in_ambulance = { 0x0401, "" };
-const SCRIPT_COMMAND increment_criminals_stopped = { 0x0402, "" };
-const SCRIPT_COMMAND save_highest_ambulance_level = { 0x0403, "i" };
-const SCRIPT_COMMAND increment_fires_extinguished = { 0x0404, "" };
+OPCODE(0401, "", increment_people_saved_in_ambulance);
+OPCODE(0402, "", increment_criminals_stopped);
+OPCODE(0403, "i", save_highest_ambulance_level);
+OPCODE(0404, "", increment_fires_extinguished);
 
 class Stats {
 	static int * pedsKilledRecently;

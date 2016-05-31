@@ -5,8 +5,8 @@
 #include "ScriptClasses.h"
 #include "GameDefines.h"
 
-const SCRIPT_COMMAND create_police_roadblock = { 0x04C0, "ffffff" };
-const SCRIPT_COMMAND remove_references_to_roadblocks = { 0x04C1, "" };
+OPCODE(04C0, "ffffff", create_police_roadblock);
+OPCODE(04C1, "", remove_references_to_roadblocks);
 
 class VicePolice {
 

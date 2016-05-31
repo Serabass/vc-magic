@@ -3,9 +3,9 @@
 #ifndef WEATHER_H
 #define WEATHER_H
 
-const SCRIPT_COMMAND force_weather = { 0x01B5, "i" };	// weather_index
-const SCRIPT_COMMAND release_weather = { 0x01B7, "" };	// weather_index
-const SCRIPT_COMMAND set_weather = { 0x01B6, "i" };		// WEATHER_*
+OPCODE(01B5, "i", force_weather);	// weather_index
+OPCODE(01B7, "", release_weather);	// weather_index
+OPCODE(01B6, "i", set_weather);		// WEATHER_*
 
 class ViceWeather {
 public:

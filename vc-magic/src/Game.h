@@ -5,39 +5,39 @@
 #ifndef GAME_H
 #define GAME_H
 
-const SCRIPT_COMMAND set_fade_color = { 0x0169, "iii" };	// Red(0-255), Green(0-255), Blue(0-255)
-const SCRIPT_COMMAND fade = { 0x016A, "ii" };		// (time in ms), FADE_*
-const SCRIPT_COMMAND is_fading = { 0x016B, "" };		// -/-
-const SCRIPT_COMMAND set_max_wanted_level = { 0x01F0, "i" };		// MaxLevel
-const SCRIPT_COMMAND get_max_wanted_level = { 0x057B, "v" };		// MaxLevel
-const SCRIPT_COMMAND set_wasted_busted_check = { 0x0111, "i" };		// Check(1/0)
-const SCRIPT_COMMAND set_current_time = { 0x00C0, "ii" };		// Hours, Minutes
-const SCRIPT_COMMAND refresh_screen = { 0x04E4, "ff" };		// x, y
-const SCRIPT_COMMAND select_interior = { 0x04BB, "i" };		// INTERIOR_*
-const SCRIPT_COMMAND play_music = { 0x0394, "i" };		// music
-const SCRIPT_COMMAND toggle_widescreen = { 0x02A3, "i" };		// widescreen(1/0)
-const SCRIPT_COMMAND restart_if_wasted_at = { 0x016C, "ffff" };	// x, y, z, a
-const SCRIPT_COMMAND restart_if_busted_at = { 0x016D, "ffff" };	// x, y, z, a
-const SCRIPT_COMMAND show_save_screen = { 0x03D8, "" };	// x, y, z, a
-const SCRIPT_COMMAND wasted_or_busted_scm = { 0x0112, "" };	// x, y, z, a
-const SCRIPT_COMMAND set_taxi_boost_jump = { 0x0572, "i" };
-const SCRIPT_COMMAND put_hidden_package_at = { 0x02EC, "fff" };
-const SCRIPT_COMMAND set_total_hidden_packages = { 0x02ED, "i" };
-const SCRIPT_COMMAND get_hidden_packages_found = { 0x03E1, "v" };
-const SCRIPT_COMMAND increment_progress = { 0x030C, "i" };
-const SCRIPT_COMMAND set_total_missions = { 0x042C, "i" };
-const SCRIPT_COMMAND create_swat_rope_at = { 0x0503, "iifffv" };
-const SCRIPT_COMMAND get_groundz_at = { 0x02CE, "fffv" };
-const SCRIPT_COMMAND blow_up_rc_buggy = { 0x0409, "" };
-const SCRIPT_COMMAND is_german_game = { 0x040C, "" };
-const SCRIPT_COMMAND create_random_car_for_carpark = { 0x03C5, "ffff" };
-const SCRIPT_COMMAND set_free_paynspray_to = { 0x0335, "i" };
-const SCRIPT_COMMAND enable_rc_car_detonation = { 0x04D6, "i" };
-const SCRIPT_COMMAND set_streaming = { 0x03AF, "i" };
-const SCRIPT_COMMAND set_rubbish = { 0x03AD, "i" };
-const SCRIPT_COMMAND get_percentage_completed = { 0x058C, "v" };
-const SCRIPT_COMMAND load_splash = { 0x044D, "s" };
-const SCRIPT_COMMAND load_end_of_game_audio = { 0x0451, "" };
+OPCODE(0169, "iii", set_fade_color);	// Red(0-255), Green(0-255), Blue(0-255)
+OPCODE(016A, "ii", fade);		// (time in ms), FADE_*
+OPCODE(016B, "", is_fading);		// -/-
+OPCODE(01F0, "i", set_max_wanted_level);		// MaxLevel
+OPCODE(057B, "v", get_max_wanted_level);		// MaxLevel
+OPCODE(0111, "i", set_wasted_busted_check);		// Check(1/0)
+OPCODE(00C0, "ii", set_current_time);		// Hours, Minutes
+OPCODE(04E4, "ff", refresh_screen);		// x, y
+OPCODE(04BB, "i", select_interior);		// INTERIOR_*
+OPCODE(0394, "i", play_music);		// music
+OPCODE(02A3, "i", toggle_widescreen);		// widescreen(1/0)
+OPCODE(016C, "ffff", restart_if_wasted_at);	// x, y, z, a
+OPCODE(016D, "ffff", restart_if_busted_at);	// x, y, z, a
+OPCODE(03D8, "", show_save_screen);	// x, y, z, a
+OPCODE(0112, "", wasted_or_busted_scm);	// x, y, z, a
+OPCODE(0572, "i", set_taxi_boost_jump);
+OPCODE(02EC, "fff", put_hidden_package_at);
+OPCODE(02ED, "i", set_total_hidden_packages);
+OPCODE(03E1, "v", get_hidden_packages_found);
+OPCODE(030C, "i", increment_progress);
+OPCODE(042C, "i", set_total_missions);
+OPCODE(0503, "iifffv", create_swat_rope_at);
+OPCODE(02CE, "fffv", get_groundz_at);
+OPCODE(0409, "", blow_up_rc_buggy);
+OPCODE(040C, "", is_german_game);
+OPCODE(03C5, "ffff", create_random_car_for_carpark);
+OPCODE(0335, "i", set_free_paynspray_to);
+OPCODE(04D6, "i", enable_rc_car_detonation);
+OPCODE(03AF, "i", set_streaming);
+OPCODE(03AD, "i", set_rubbish);
+OPCODE(058C, "v", get_percentage_completed);
+OPCODE(044D, "s", load_splash);
+OPCODE(0451, "", load_end_of_game_audio);
 
 class ViceGame
 {

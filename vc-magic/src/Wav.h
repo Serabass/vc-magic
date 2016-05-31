@@ -3,12 +3,12 @@
 #ifndef WAV_H
 #define WAV_H
 
-const SCRIPT_COMMAND load_wav = { 0x03CF, "sv" };
-const SCRIPT_COMMAND wav_loaded = { 0x03D0, "v" };
-const SCRIPT_COMMAND play_wav = { 0x03D1, "v" };
-const SCRIPT_COMMAND wav_ended = { 0x03D2, "v" };
-const SCRIPT_COMMAND unload_wav = { 0x040D, "v" };
-const SCRIPT_COMMAND set_wav_position = { 0x03D7, "vfff" };
+OPCODE(03CF, "sv", load_wav);
+OPCODE(03D0, "v", wav_loaded);
+OPCODE(03D1, "v", play_wav);
+OPCODE(03D2, "v", wav_ended);
+OPCODE(040D, "v", unload_wav);
+OPCODE(03D7, "vfff", set_wav_position);
 
 	class ViceWav {
 	private:

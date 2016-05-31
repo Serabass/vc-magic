@@ -3,9 +3,9 @@
 #ifndef SOUND_H
 #define SOUND_H
 
-const SCRIPT_COMMAND create_sound_at = { 0x018D, "fffiv" };
-const SCRIPT_COMMAND stop_sound = { 0x018E, "v" };
-const SCRIPT_COMMAND play_sound_at = { 0x018C, "ifff" };
+OPCODE(018D, "fffiv", create_sound_at);
+OPCODE(018E, "v", stop_sound);
+OPCODE(018C, "ifff", play_sound_at);
 
 	class ViceSound {
 	private:

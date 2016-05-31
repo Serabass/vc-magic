@@ -2,23 +2,23 @@
 
 #ifndef TEXT_H
 #define TEXT_H
-const SCRIPT_COMMAND text_styled = { 0x00BA, "sii" };	// (OR 0217) TEXT, time, style
-const SCRIPT_COMMAND text_now = { 0x00BC, "sii" };	// TEXT, time, style
-const SCRIPT_COMMAND text_1number_styled = { 0x01E3, "siii" };	// TEXT, number, time, style
-const SCRIPT_COMMAND text_clear_all = { 0x00BE, "" };	// x, y, z, a
-const SCRIPT_COMMAND text_clear_small_messages_only = { 0x03EB, "" };	// x, y, z, a
-const SCRIPT_COMMAND text_box = { 0x03E5, "s" };
-const SCRIPT_COMMAND remove_text_box = { 0x03E6, "" };
-const SCRIPT_COMMAND remove_text = { 0x03D5, "s" };
-const SCRIPT_COMMAND remove_styled_text = { 0x03D6, "s" };
-const SCRIPT_COMMAND text_draw = { 0x033E, "ffs" };
-const SCRIPT_COMMAND set_text_draw_color = { 0x0340, "iiii" };
-const SCRIPT_COMMAND set_text_linewidth = { 0x0343, "f" };
-const SCRIPT_COMMAND use_gxt_table = { 0x054C, "s" };
-const SCRIPT_COMMAND display_message_at_stadium = { 0x054D, "i" };
-const SCRIPT_COMMAND enable_text_draw = { 0x03F0, "i" };
-const SCRIPT_COMMAND text_draw_1num = { 0x045A, "ffsv" };
-const SCRIPT_COMMAND text_draw_2num = { 0x045B, "ffsvv" };
+OPCODE(00BA, "sii", text_styled);	// (OR 0217) TEXT, time, style
+OPCODE(00BC, "sii", text_now);	// TEXT, time, style
+OPCODE(01E3, "siii", text_1number_styled);	// TEXT, number, time, style
+OPCODE(00BE, "", text_clear_all);	// x, y, z, a
+OPCODE(03EB, "", text_clear_small_messages_only);	// x, y, z, a
+OPCODE(03E5, "s", text_box);
+OPCODE(03E6, "", remove_text_box);
+OPCODE(03D5, "s", remove_text);
+OPCODE(03D6, "s", remove_styled_text);
+OPCODE(033E, "ffs", text_draw);
+OPCODE(0340, "iiii", set_text_draw_color);
+OPCODE(0343, "f", set_text_linewidth);
+OPCODE(054C, "s", use_gxt_table);
+OPCODE(054D, "i", display_message_at_stadium);
+OPCODE(03F0, "i", enable_text_draw);
+OPCODE(045A, "ffsv", text_draw_1num);
+OPCODE(045B, "ffsvv", text_draw_2num);
 
 class ViceText {
 public:

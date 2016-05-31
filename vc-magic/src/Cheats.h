@@ -3,7 +3,7 @@
 #ifndef CHEATS_H
 #define CHEATS_H
 
-const SCRIPT_COMMAND are_car_cheats_used = { 0x0445, "" };
+OPCODE(0445, "", are_car_cheats_used);
 
 class ViceCheats {
 private:
