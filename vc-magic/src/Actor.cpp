@@ -468,3 +468,11 @@ bool ViceActor::operator==(ViceActor* actor) {
 	void ViceActor::ClearDamage() {
 		$(&clear_actor_damage, &m_dwActor);
 	}
+
+	bool ViceActor::DrivingPoliceVehicle() {
+		return !!$(&actor_driving_police_vehicle, &m_dwActor);
+	}
+
+	bool ViceActor::Defined() {
+		return !!$(&is_actor_defined, &m_dwActor);
+	}

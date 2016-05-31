@@ -4,6 +4,9 @@
 
 #ifndef ACTOR_H
 #define ACTOR_H
+
+#ifndef ACTOR_OPCODES // For collapsable regions
+#define ACTOR_OPCODES
 OPCODE(009A, "iifffv", create_actor);	// PEDTYPE_*, #MODEL, x, y, z, var_actor
 OPCODE(034F, "v", destroy_actor_fading);		// var_actor
 OPCODE(0352, "vs", set_actor_skin);		// var_actor, MODEL_*
@@ -81,7 +84,10 @@ OPCODE(04C6, "vv", actor_do_kung_fu_stance_towards_actor);
 OPCODE(01E0, "v", actor_clear_leader);
 OPCODE(009B, "v", destroy_actor_instantly);
 OPCODE(054E, "v", clear_actor_damage);
+OPCODE(056C, "v", actor_driving_police_vehicle);
+OPCODE(056D, "v", is_actor_defined);
 
+#endif
 	class ViceActor
 	{
 	private:
@@ -139,12 +145,15 @@ OPCODE(054E, "v", clear_actor_damage);
 		void MakeConverse(ViceActor* actor);
 
 		bool DrivingAMotorbike();
+		bool DrivingPoliceVehicle();
 
 		void Stop();
 
 		bool InRangeOfPlayer(VicePlayer* player);
 
 		ViceVehicle* GetCar();
+
+		bool Defined();
 
 		bool InWater();
 
@@ -163,7 +172,6 @@ OPCODE(054E, "v", clear_actor_damage);
 		CPed* getStruct();
 
 		VCPosition_t GetPosition();
-
 
 		void Avoid(VicePlayer* player);
 		void Kill(VicePlayer* player);
