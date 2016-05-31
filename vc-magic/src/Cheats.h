@@ -24,6 +24,9 @@ public:
 	// Doesn't work
 	static void WatchCheats();
 	static bool AreCarCheatsActivated();
+
+	typedef bool(__thiscall *FannyMagnetFn)(CPed* ped, CPed* player);
+	static FannyMagnetFn FannyMagnet;
 };
 
 

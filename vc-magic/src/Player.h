@@ -151,6 +151,10 @@ public:
 	typedef void(__cdecl* EnumNearestPedsCallback)(CPed* ped, int index);
 	typedef void(__cdecl* EnumNearestPedsWithNoIndexCallback)(CPed* ped);
 
+	std::vector<ViceVehicle*> NearestVehicles();
+
+	std::vector<ViceActor*> NearestActors();
+
 	void EnumNearestPeds(EnumNearestPedsCallback callback);
 	void EnumNearestPeds(EnumNearestPedsWithNoIndexCallback callback);
 

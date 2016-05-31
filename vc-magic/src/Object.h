@@ -10,6 +10,7 @@ const SCRIPT_COMMAND object_exists = { 0x03CA, "v" };
 const SCRIPT_COMMAND make_object_targetable = { 0x035D, "v" };
 const SCRIPT_COMMAND keep_object_in_memory = { 0x0550, "vi" };
 const SCRIPT_COMMAND object_set_rotation = { 0x0453, "vfff" };
+const SCRIPT_COMMAND throw_object = { 0x0381, "vfff" };
 
 	class ViceObject {
 	private:

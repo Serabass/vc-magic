@@ -35,3 +35,7 @@ void ViceObject::KeepInMemory() {
 void ViceObject::SetRotation(VCPosition_t rotation) {
 	$(&object_set_rotation, &m_dwObject, rotation.x, rotation.y, rotation.z);
 }
+
+void ViceObject::Throw(VCPosition_t distance) {
+	$(&throw_object, &m_dwObject, distance.x, distance.y, distance.z);
+}

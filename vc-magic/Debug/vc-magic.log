@@ -1,8 +1,56 @@
-﻿Сборка начата 31.05.2016 2:32:30.
+﻿Сборка начата 31.05.2016 6:32:14.
      1>Проект "D:\!programming\C++\vc-magic\vc-magic\vc-magic.vcxproj" в узле 2 (целевые объекты Build).
      1>ClCompile:
-         D:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _WINDLL /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\" /Fd"Debug\vc140.pdb" /Gd /TP /analyze- /errorReport:prompt src\MissionThreads.cpp
+         D:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _WINDLL /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\" /Fd"Debug\vc140.pdb" /Gd /TP /analyze- /errorReport:prompt src\AbstractObject.cpp src\Actor.cpp src\ActorGroup.cpp src\ActorsClock.cpp src\AreaRect.cpp src\Army.cpp src\Camera.cpp src\Cheats.cpp src\Checkpoint.cpp src\Fire.cpp src\Game.cpp src\Gang.cpp src\Garage.cpp src\Geom.cpp src\HUD.cpp src\Marker.cpp src\MissionHook.cpp src\MissionThreads.cpp src\Model.cpp src\Object.cpp src\Phone.cpp src\Pickup.cpp src\Player.cpp src\Police.cpp src\Radio.cpp src\Rampage.cpp src\Route.cpp src\Script.cpp src\ScriptClasses.cpp src\Settings.cpp src\Sound.cpp src\SpecialActor.cpp src\Sphere.cpp src\Stats.cpp src\StructReader.cpp src\Text.cpp src\Timer.cpp src\Utils.cpp src\Vehicle.cpp src\Wav.cpp src\Weather.cpp src\Zone.cpp
+         Zone.cpp
+         Weather.cpp
+         Wav.cpp
+         Vehicle.cpp
+         Utils.cpp
+         Timer.cpp
+         Text.cpp
+         StructReader.cpp
+         Stats.cpp
+         Sphere.cpp
+         SpecialActor.cpp
+         Sound.cpp
+         Settings.cpp
+         ScriptClasses.cpp
+         Script.cpp
+         Route.cpp
+         Rampage.cpp
+         Radio.cpp
+         Police.cpp
+         Player.cpp
+         Создание кода...
+     1>d:\!programming\c++\vc-magic\vc-magic\src\vehicle.cpp(318): warning C4715: ViceVehicle::FromCVehicle: значение возвращается не при всех путях выполнения
+         Компиляция...
+         Pickup.cpp
+         Phone.cpp
+         Object.cpp
+         Model.cpp
          MissionThreads.cpp
+         MissionHook.cpp
+         Marker.cpp
+         HUD.cpp
+         Geom.cpp
+         Garage.cpp
+         Gang.cpp
+         Game.cpp
+         Fire.cpp
+         Checkpoint.cpp
+         Cheats.cpp
+         Camera.cpp
+         Army.cpp
+         AreaRect.cpp
+         ActorsClock.cpp
+         ActorGroup.cpp
+         Создание кода...
+         Компиляция...
+         Actor.cpp
+         AbstractObject.cpp
+         Создание кода...
+     1>d:\!programming\c++\vc-magic\vc-magic\src\actor.cpp(64): warning C4715: ViceActor::FromCPed: значение возвращается не при всех путях выполнения
        Link:
          D:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\!programming\C++\vc-magic\Debug\vc-magic.asi" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /Debug /PDB:"D:\!programming\C++\vc-magic\Debug\vc-magic.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\!programming\C++\vc-magic\Debug\vc-magic.lib" /MACHINE:X86 /DLL Debug\AbstractObject.obj
          Debug\Actor.obj
@@ -59,4 +107,4 @@
 
 Сборка успешно завершена.
 
-Затраченное время: 00:00:01.90
+Затраченное время: 00:00:42.04

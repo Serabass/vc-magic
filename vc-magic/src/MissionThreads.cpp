@@ -14,6 +14,9 @@
 
 #include <stdio.h>
 
+#define COMMMA ,
+#define PRINT(str, ...) fprintf_s(consoleStdOut, str, __VA_ARGS__)
+
 // Externals
 extern VicePlayer*	pPlayer;	// Player stuff.
 extern GAME_SCRIPT_THREAD* gst;
@@ -342,13 +345,13 @@ TheyAreOut:
 
 	// Phil's marker
 	pPhilMarker = new ViceMarker();
-	pPhilMarker->TieToActor(pPhil->GetActor(), 4, 2);
+	// pPhilMarker->TieToActor(pPhil, 4, 2);
 	pPhilMarker->ShowOnRadar(3);
 	pPhilMarker->SetColor(2);
 
 	// Hilary's marker
 	pHilaryMarker = new ViceMarker();
-	pHilaryMarker->TieToActor(pHilary->GetActor(), 4, 2);
+	// pHilaryMarker->TieToActor(pHilary, 4, 2);
 	pHilaryMarker->ShowOnRadar(3);
 	pHilaryMarker->SetColor(4);
 
@@ -463,7 +466,6 @@ DWORD __stdcall ConsoleWatch(LPVOID lpThreadParameter) {
 	fprintf_s(consoleStdOut, "Hello!\n");
 
 	for (;;) {
-		fprintf_s(consoleStdOut, "X:%d Y:%d\n", ViceSettings::mouse->x, ViceSettings::mouse->y);
 	}
 
 	return 0;
@@ -481,23 +483,16 @@ void MainScript(SCRIPT_MISSION* pMission)
 
 	ViceVehicle* car = new ViceVehicle(pMission, MODEL::CAR::BANSHEE, BikeShop, false);
 
-	VCPosition_t fPosition = car->GetRelativeCoordinates(-8.0, 30.0, 3.0);
+	//ViceActor* actor = new ViceActor(pMission);
+	//actor->Spawn(PEDTYPE::COP, MODEL::COP, BikeShop.x, BikeShop.y, BikeShop.z);
+	
+	ViceModel::LoadOne(pMission, MODEL::COLT45);
+	ViceGame::SetMaxWantedLevel(0);
 
 	for (;;)
 	{
-		SCRIPT_WAIT(10);
-		if (KEY_PRESSED(VK_UP)) {
-			fPosition.z++;
-		} else if (KEY_PRESSED(VK_DOWN)) {
-			fPosition.z--;
-		} else if (KEY_PRESSED(VK_LEFT)) {
-			fPosition.x++;
-		} else if (KEY_PRESSED(VK_RIGHT)) {
-			fPosition.x--;
-		}
-
-		ViceCamera::SetPosition(fPosition, { 0.0f, 0.0f, 0.0f });
-		ViceCamera::At(car, 15, 2);
+		SCRIPT_WAIT(1000);
+		std::vector<ViceVehicle*> v = pPlayer->NearestVehicles();
 	}
 }
 

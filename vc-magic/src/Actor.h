@@ -86,7 +86,7 @@ const SCRIPT_COMMAND destroy_actor_instantly = { 0x009B, "v" };
 	private:
 		DWORD m_dwActor;
 		SCRIPT_MISSION* m_pMission;
-		bool m_bKeepOnDestroy;
+		bool m_bKeepOnDestroy = false;
 		bool m_bSpawned;
 	public:
 		ViceActor(SCRIPT_MISSION* pMission, bool bKeepOnDestroy = true);
@@ -97,6 +97,8 @@ const SCRIPT_COMMAND destroy_actor_instantly = { 0x009B, "v" };
 		static ViceActor* CreateRandomInVehicleDriverseat(ViceVehicle* car);
 		static ViceActor* GetRandomActorInZone(GXTKey zoneName, bool civilian, bool gang, bool criminal);
 		static ViceActor* GetRandomActorInZone(ViceZone* zone, bool civilian, bool gang, bool criminal);
+
+		static ViceActor* FromCPed(CPed* ped);
 
 		DWORD* GetActor();
 		bool IsDead();
@@ -217,9 +219,9 @@ const SCRIPT_COMMAND destroy_actor_instantly = { 0x009B, "v" };
 
 		typedef bool(__thiscall *TSetModelIndex)(void* pThis, int modelIndex);
 		static TSetModelIndex SetModelIndex;
-	private:
-		typedef CPed*(__thiscall *TgetStructAddress)(void* pThis, signed int id);
-		static TgetStructAddress getStructAddress;
+		typedef CPed*(__thiscall *TActorGet)(void* pThis, signed int id);
+		static TActorGet $Actor__get;
+		static int* actorsArray;
 	};
 
 	template <typename T> T* ViceActor::$$(int off = 0) {

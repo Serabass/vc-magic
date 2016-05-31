@@ -280,6 +280,7 @@ void VicePlayer::SetVisible() {
 	$(&set_player_visible, 1);
 }
 
+// Only Classic
 bool VicePlayer::AimingAt(ViceActor* actor) {
 	return !!$(&player_aiming_at_actor, &m_dwChar, actor->GetActor());
 }
@@ -287,4 +288,30 @@ bool VicePlayer::AimingAt(ViceActor* actor) {
 
 bool VicePlayer::DrivingAMotorbike() {
 	return !!$(&player_driving_a_motorbike, &m_dwChar);
+}
+
+// Works!
+std::vector<ViceActor*> VicePlayer::NearestActors() {
+	std::vector<ViceActor*> result;
+
+	for (CPed *ped : this->getStruct()->nearestPeds) {
+		if (ped != 0) {
+			result.push_back(ViceActor::FromCPed(ped));
+		}
+	}
+
+	return result;
+}
+
+std::vector<ViceVehicle*> VicePlayer::NearestVehicles() {
+	std::vector<ViceVehicle*> result;
+
+	for (DWORD i = 0; i < 10000; i++) {
+		CVehicle* foundVehicle = ViceVehicle::$Vehicle__get((void*)*ViceVehicle::vehiclesArray, i);
+		if (((int)foundVehicle != 0)) {
+			result.push_back(new ViceVehicle(i));
+		}
+	}
+
+	return result;
 }

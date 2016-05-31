@@ -69,6 +69,8 @@ public:
 	ViceVehicle(DWORD m_dwVehicle);
 	~ViceVehicle();
 
+	static ViceVehicle* FromCVehicle(CVehicle* vehicle);
+
 	DWORD* GetVehicle();
 	int GetHealth();
 	void SetHealth(int health);
@@ -135,7 +137,7 @@ public:
 
 	typedef CVehicle*(__thiscall *TgetStructAddress)(int pThis, signed int id);
 	typedef void(__thiscall *TOpenTrunk)(CVehicle* pThis);
-	static TgetStructAddress getStructAddress;
+	static TgetStructAddress $Actor__get;
 
 	bool PassengerSeatFree(int seatIndex);
 
@@ -150,6 +152,9 @@ public:
 	void openTrunk();
 	void Ram(ViceVehicle *vehicle);
 
+	typedef CVehicle*(__thiscall *TVehicleGet)(void* pThis, signed int id);
+	static TVehicleGet $Vehicle__get;
+	static int* vehiclesArray;
 
 private:
 	typedef CVehicle*(__cdecl* TSpawnNearPlayer)(int modelIndex);

@@ -8,6 +8,8 @@ const SCRIPT_COMMAND tie_marker_to_actor = { 0x0162, "viiv" };	// var_actor, ukn
 const SCRIPT_COMMAND disable_marker = { 0x0164, "v" };		// var_marker
 const SCRIPT_COMMAND set_marker_color = { 0x0165, "vi" };		// var_marker, color
 const SCRIPT_COMMAND create_marker_above_car = { 0x0186, "vv" };		// var_car, var_marker
+
+// Doesn't work
 const SCRIPT_COMMAND create_marker_above_actor = { 0x0187, "vv" };		// var_car, var_marker
 const SCRIPT_COMMAND create_marker_above_object = { 0x0188, "vv" };		// var_car, var_marker
 const SCRIPT_COMMAND set_marker_brightness = { 0x0166, "vi" };		// var_marker, brightness
@@ -28,7 +30,7 @@ public:
 	~ViceMarker();
 
 
-	void TieToActor(DWORD* pdwActor, int iSize, int iType);
+	void TieToActor(ViceActor* sctor, int iSize, int iType);
 	void TieToVehicle(DWORD* pdwVehicle, int iSize, int iType);
 	void SphereAndIcon(float x, float y, float z, int iIcon);
 	void ShowOnRadar(int iSize);
@@ -38,7 +40,9 @@ public:
 	// TODO: Make it with objects and overloaded CreateAbove()
 	static ViceMarker* CreateAbovePickup(DWORD* dwPickup);
 	static ViceMarker* CreateAboveCar(DWORD* dwCar);
-	static ViceMarker* CreateAboveActor(DWORD* dwActor);
+
+	// Doesn't work
+	static ViceMarker* CreateAboveActor(ViceActor* actor);
 	static ViceMarker* CreateAboveObject(DWORD* dwObject);
 };
 

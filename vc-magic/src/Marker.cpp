@@ -26,9 +26,10 @@ ViceMarker::~ViceMarker()
 	}
 }
 
-void ViceMarker::TieToActor(DWORD* pdwActor, int iSize, int iType)
+// Works
+void ViceMarker::TieToActor(ViceActor* actor, int iSize, int iType)
 {
-	$(&tie_marker_to_actor, pdwActor, iSize, iType, &m_dwMarker);
+	$(&tie_marker_to_actor, actor->GetActor(), iSize, iType, &m_dwMarker);
 }
 
 void ViceMarker::TieToVehicle(DWORD* pdwVehicle, int iSize, int iType)
@@ -72,9 +73,9 @@ ViceMarker* ViceMarker::CreateAboveCar(DWORD* dwCar) {
 	return new ViceMarker(m_dwMarker);
 }
 
-ViceMarker* ViceMarker::CreateAboveActor(DWORD* dwActor) {
+ViceMarker* ViceMarker::CreateAboveActor(ViceActor* actor) {
 	DWORD m_dwMarker;
-	$(&create_marker_above_actor, &m_dwMarker, dwActor);
+	$(&create_marker_above_actor, actor->GetActor(), &m_dwMarker);
 	return new ViceMarker(m_dwMarker);
 }
 

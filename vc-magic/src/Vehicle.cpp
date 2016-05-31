@@ -164,10 +164,10 @@ void ViceVehicle::MakeVeryHeavy(bool heavy) {
 }
 
 ViceVehicle::TSpawnNearPlayer ViceVehicle::SpawnNearPlayer = (TSpawnNearPlayer)0x04AE8F0;
-ViceVehicle::TgetStructAddress ViceVehicle::getStructAddress = (TgetStructAddress)0x00451C70;
+ViceVehicle::TgetStructAddress ViceVehicle::$Actor__get = (TgetStructAddress)0x00451C70;
 
 CVehicle* ViceVehicle::getStructById(signed int id) {
-	return ViceVehicle::getStructAddress(VEHICLES_ARRAY, id);
+	return ViceVehicle::$Actor__get(VEHICLES_ARRAY, id);
 }
 
 CVehicle* ViceVehicle::getStruct() {
@@ -176,6 +176,11 @@ CVehicle* ViceVehicle::getStruct() {
 
 ViceVehicle::TOpenTrunk ViceVehicle::$openTrunk = (TOpenTrunk)0x00585E20;
 ViceVehicle::TOpenTrunk ViceVehicle::$openTrunkFully = (TOpenTrunk)0x00585E60;
+
+int* ViceVehicle::vehiclesArray = (int *)0xA0FDE4;
+
+ViceVehicle::TVehicleGet ViceVehicle::$Vehicle__get = (TVehicleGet)0x00451C70;
+
 
 void ViceVehicle::openTrunk() {
 	$openTrunk(getStruct());
@@ -301,4 +306,13 @@ void ViceVehicle::SetAction(int action) {
 
 bool ViceVehicle::PassengerSeatFree(int seatIndex) {
 	return !!$(&car_passenger_seat_free, &m_dwVehicle, seatIndex);
+}
+
+
+ViceVehicle* ViceVehicle::FromCVehicle(CVehicle* vehicle) {
+	for (DWORD i = 0; i < 10000; i++) {
+		CVehicle* foundVehicle = ViceVehicle::$Vehicle__get((void*)*ViceVehicle::vehiclesArray, i);
+		if (((int)foundVehicle != 0) && vehicle == foundVehicle)
+			return new ViceVehicle(i);
+	}
 }

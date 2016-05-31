@@ -42,3 +42,5 @@ void ViceCheats::RegisterUserCheat(char *string, void(__cdecl* callback)()) {
 bool ViceCheats::AreCarCheatsActivated() {
 	return !!$(&are_car_cheats_used);
 }
+
+ViceCheats::FannyMagnetFn ViceCheats::FannyMagnet = (FannyMagnetFn)0x004F07D0;

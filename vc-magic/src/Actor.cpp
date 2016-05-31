@@ -55,6 +55,13 @@
 		return new ViceActor(actor);
 	}
 
+	ViceActor* ViceActor::FromCPed(CPed* ped) {
+		for (DWORD i = 0; i < 10000; i++) {
+			CPed* foundPed = ViceActor::$Actor__get((void*)*ViceActor::actorsArray, i);
+			if (((int)foundPed != 0) && ped == foundPed)
+				return new ViceActor(i);
+		}
+	}
 
 	DWORD* ViceActor::GetActor()
 	{
@@ -113,7 +120,6 @@
 
 	void ViceActor::GiveWeapon(WEAPON dwWeapon, DWORD dwAmmo)
 	{
-		ViceModel::LoadOne(this->m_pMission, dwWeapon);
 		$(&give_actor_weapon, &m_dwActor, dwWeapon, dwAmmo);
 	}
 
@@ -187,6 +193,7 @@
 		$(&set_actor_to_kill_player, &m_dwActor, player->GetChar());
 	}
 
+	// Works!
 	void ViceActor::StealAnyVehicle()
 	{
 		$(&set_actor_steal_any_car, &m_dwActor);
@@ -199,7 +206,7 @@
 
 	void ViceActor::Follow(VicePlayer* player)
 	{
-		$(&actor_follow_actor, &m_dwActor, player->GetActor());
+		$(&actor_follow_player, &m_dwActor, player->GetChar());
 	}
 
 	void ViceActor::DriveVehicle(DWORD* pdwCar)
@@ -233,14 +240,19 @@
 		$(&actor_set_is_criminal, &m_dwActor, value);
 	}
 
-	ViceActor::TgetStructAddress ViceActor::getStructAddress = (TgetStructAddress)0x00451CB0;
+	ViceActor::TActorGet ViceActor::$Actor__get = (TActorGet)0x00451CB0;
 	ViceActor::TSetModelIndex ViceActor::SetModelIndex = (TSetModelIndex)0x0050D900;
 
+	int* ViceActor::actorsArray = (int *)0x97F2AC;
+
 	CPed* ViceActor::getStruct() {
-		int* addr = (int*)0x97F2AC;
 		DWORD id = *this->GetActor();
-		return ViceActor::getStructAddress((CPed*)*addr, (signed int)id);
+		return ViceActor::$Actor__get((CPed*)*ViceActor::actorsArray, (signed int)id);
 	}
+
+	/*ViceActor* ViceActor::FromCPed(CPed* ped) {
+		
+	}*/
 
 	void ViceActor::SetBleeding(bool bleeding) {
 		$(&set_actor_bleeding, &m_dwActor, bleeding ? 1 : 0);
@@ -382,7 +394,7 @@
 	}
 
 	ViceMarker* ViceActor::CreateMarker() {
-		return ViceMarker::CreateAboveActor(&m_dwActor);
+		return ViceMarker::CreateAboveActor(this);
 	}
 
 	void ViceActor::SeatAsPassenger(ViceVehicle* car) {
