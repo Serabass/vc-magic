@@ -135,6 +135,7 @@ float* ViceGame::carDensity = (float*)0x686FC8;
 float* ViceGame::trafficAccidents = (float*)0x687238;
 int* ViceGame::speed = (int*)0x97F264;
 VCRGBA* ViceGame::fontColor = (VCRGBA*)0x97F820;
+bool* ViceGame::sniperActive = (bool*)0xA10B3B;
 
 void(__cdecl* ViceGame::printString)(float, float, int) = (void(__cdecl*)(float, float, int))0x4D5540;
 

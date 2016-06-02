@@ -65,36 +65,25 @@ void MainScript(SCRIPT_MISSION* pMission)
 
 	CreateThread(0, 0, &ConsoleWatch, 0, 0, 0);
 
-	VCPosition_t areaPos = { -1639.35f, -1087.55f, 14.50f };
+	VCPosition_t areaPos = { -1470.87f, -824.29f, 14.87f, 118.92f };
 
-	ViceAreaRect area = {
-		{ -1619.35f, -1067.55f, 14.50f },
-		{ -1659.35f, -1107.55f, 14.50f }
-	};
+	*ViceGame::pedDensity = 100;
 
-	std::vector<ViceActor*> bikers;
-	std::vector<ViceVehicle*> bikes;
-
-	for (size_t x = 0; x < 10; x++) {
-		for (size_t y = 0; y < 10; y++) {
-			ViceVehicle* v = new ViceVehicle(pMission, MODEL::BIKE::SANCHEZ, {
-				area.start.x + x * 10, 
-				area.start.y + y * 10,
-				area.start.z,
-			});
-
-			// ViceActor* a = ViceActor::CreateRandomInVehicleDriverseat(v);
-			//bikers.push_back(a);
-			bikes.push_back(v);
-
-			v->Lock(true);
-		}
-	}
+	ViceModel::LoadOne(pMission, MODEL::WEAPON_MODEL::BUDDYSHOT);
 
 	for (;;)
 	{
+
 		SCRIPT_WAIT(100);
 
+		std::vector<ViceVehicle*> a = pPlayer->NearestVehicles();
+
+		if (KEY_PRESSED(VK_TAB))
+			for (ViceVehicle* ac : a) {
+				for (ViceVehicle* ac2 : a) {
+					ac->Ram(ac2);
+				}
+			}
 	}
 }
 

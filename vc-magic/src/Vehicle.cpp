@@ -169,10 +169,11 @@ void ViceVehicle::MakeVeryHeavy(bool heavy) {
 }
 
 ViceVehicle::TSpawnNearPlayer ViceVehicle::$SpawnNearPlayer = (TSpawnNearPlayer)0x04AE8F0;
-ViceVehicle::TVehicleGet ViceVehicle::$Vehicle__get = (TVehicleGet)0x00451C70;
+ViceVehicle::TVehicleGet ViceVehicle::$Vehicle__getById = (TVehicleGet)0x00451C70;
+ViceVehicle::TVehicleGetId ViceVehicle::$Vehicle__getIdByStruct = (TVehicleGetId)0x0042C4B0;
 
 CVehicle* ViceVehicle::getStructById(signed int id) {
-	return ViceVehicle::$Vehicle__get(ViceVehicle::vehiclesArray, id);
+	return ViceVehicle::$Vehicle__getById(ViceVehicle::vehiclesArray, id);
 }
 
 CVehicle* ViceVehicle::getStruct() {
@@ -184,12 +185,6 @@ ViceVehicle::TOpenTrunk ViceVehicle::$openTrunkFully = (TOpenTrunk)0x00585E60;
 
 int* ViceVehicle::vehiclesArray = (int *)0xA0FDE4;
 
-//ViceVehicle::TVehicleGet ViceVehicle::$Vehicle__get = (TVehicleGet)0x00451C70;
-
-
-void ViceVehicle::openTrunk() {
-	$openTrunk(getStruct());
-}
 
 bool ViceVehicle::IsHitByWeapon(WEAPON weapon) {
 	return !!$(&is_car_hit_by_weapon, &m_dwVehicle, weapon);
@@ -215,7 +210,7 @@ void ViceVehicle::CloseAllDoors() {
 	$(&car_close_all_doors, &m_dwVehicle);
 }
 
-
+// Works!
 void ViceVehicle::OpenTrunk() {
 	$(&car_open_trunk, &m_dwVehicle);
 }
@@ -315,13 +310,12 @@ bool ViceVehicle::PassengerSeatFree(int seatIndex) {
 
 
 ViceVehicle* ViceVehicle::FromCVehicle(CVehicle* vehicle) {
-	for (DWORD i = 0; i < 10000; i++) {
-		CVehicle* foundVehicle = ViceVehicle::$Vehicle__get(ViceVehicle::vehiclesArray, i);
-		if (((int)foundVehicle != 0) && vehicle == foundVehicle)
-			return new ViceVehicle(i);
-	}
-
-	return NULL;
+	DWORD id = ViceVehicle::$Vehicle__getIdByStruct(ViceVehicle::vehiclesArray, vehicle);
+	
+	if (!id)
+		return NULL;
+	
+	return new ViceVehicle(id);
 }
 
 ViceVehicle* ViceVehicle::SpawnNextTo(SCRIPT_MISSION* pMission, VCPosition_t* position, DWORD modelIndex, float distance) {

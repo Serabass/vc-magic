@@ -105,6 +105,8 @@ public:
 	static bool* policeHeliState;
 	static VCRGBA* fontColor;
 
+	static bool* sniperActive;
+
 	static void(__cdecl* printString)(float x, float y, int a);
 
 	static void LoadWeaponModels(WEAPON);

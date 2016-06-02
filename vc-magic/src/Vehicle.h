@@ -161,12 +161,16 @@ public:
 	static TOpenTrunk $openTrunk;
 	static TOpenTrunk $openTrunkFully;
 
-	void openTrunk();
 	void Ram(ViceVehicle *vehicle);
 
 	typedef CVehicle*(__thiscall *TVehicleGet)(int* pThis, signed int id);
-	static TVehicleGet $Vehicle__get;
+	static TVehicleGet $Vehicle__getById;
+	typedef int(__thiscall *TVehicleGetId)(int* pThis, CVehicle* vehicle);
+	static TVehicleGetId $Vehicle__getIdByStruct;
 	static int* vehiclesArray;
+
+	static ViceVehicle* find(DWORD id);
+	static ViceVehicle* find(CVehicle* structPtr);
 	
 	typedef bool(__cdecl* TSpawnNearPlayer)(int modelIndex);
 	static TSpawnNearPlayer $SpawnNearPlayer;

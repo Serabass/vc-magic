@@ -476,3 +476,7 @@ bool ViceActor::operator==(ViceActor* actor) {
 	bool ViceActor::Defined() {
 		return !!$(&is_actor_defined, &m_dwActor);
 	}
+
+	bool ViceActor::IsMale() {
+		return !!$(&is_actor_male, &m_dwActor);
+	}

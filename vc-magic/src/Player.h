@@ -57,6 +57,7 @@ OPCODE(02DF, "v", player_is_aggressive);
 OPCODE(04C9, "v", player_driving_plane);
 OPCODE(046F, "vv", get_player_currently_armed_weapon);
 OPCODE(0130, "v", is_player_busted);
+OPCODE(0117, "v", is_player_wasted);
 
 struct PlayerStruct {
 
@@ -149,6 +150,7 @@ public:
 
 	bool IsPlayerSkinEquals(GXTKey skin);
 	bool Busted();
+	bool Wasted();
 	void MakeFireproof(bool fireproof);
 	void MakeFireproof();
 
@@ -174,7 +176,7 @@ private:
 };
 
 template <typename T> T* VicePlayer::$$(int off = 0) {
-	return (T*)((int)this->getStruct() + off);
+	return (T*)(*(int*)this->getStruct() + off);
 }
 
 #endif

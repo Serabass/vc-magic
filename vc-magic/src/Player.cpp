@@ -193,6 +193,7 @@ int VicePlayer::GetWantedLevel() {
 	VICEPLAYER_RETURN_RESULT_1ARG(int, get_player_wanted_level)
 }
 
+// Doesn't work
 ViceVehicle* VicePlayer::GetCar() {
 	DWORD dwCar;
 	$(&get_player_car, &m_dwChar, &dwCar);
@@ -300,12 +301,13 @@ bool VicePlayer::DrivingAMotorbike() {
 std::vector<ViceActor*> VicePlayer::NearestActors() {
 	std::vector<ViceActor*> result;
 
+	
 	for (CPed *ped : this->getStruct()->nearestPeds) {
 		if (ped != 0) {
 			result.push_back(ViceActor::FromCPed(ped));
 		}
 	}
-
+	
 	return result;
 }
 
@@ -314,7 +316,8 @@ std::vector<ViceVehicle*> VicePlayer::NearestVehicles() {
 	std::vector<ViceVehicle*> result;
 
 	for (DWORD i = 0; i < 100000; i++) {
-		CVehicle* foundVehicle = ViceVehicle::$Vehicle__get(ViceVehicle::vehiclesArray, i);
+		
+		CVehicle* foundVehicle = ViceVehicle::$Vehicle__getById(ViceVehicle::vehiclesArray, i);
 		if (((int)foundVehicle != 0)) {
 			result.push_back(new ViceVehicle(i));
 		}
@@ -338,4 +341,8 @@ bool VicePlayer::DrivingPlane() {
 
 bool VicePlayer::Busted() {
 	return !!$(&is_player_busted, &m_dwChar);
+}
+
+bool VicePlayer::Wasted() {
+	return !!$(&is_player_wasted, &m_dwChar);
 }

@@ -86,6 +86,7 @@ OPCODE(009B, "v", destroy_actor_instantly);
 OPCODE(054E, "v", clear_actor_damage);
 OPCODE(056C, "v", actor_driving_police_vehicle);
 OPCODE(056D, "v", is_actor_defined);
+OPCODE(03A3, "v", is_actor_male);
 
 #endif
 
@@ -172,6 +173,7 @@ class ViceActor
 		void HoldCellPhone();
 		void ReleaseCellPhone();
 		void ToggleCellPhone();
+		bool IsMale();
 		bool UsingPhone;
 
 		CPed* getStruct();
