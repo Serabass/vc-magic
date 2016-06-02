@@ -1,9 +1,9 @@
 #pragma once
 
-#include "ScriptClasses.h"
-
 #ifndef ACTOR_H
 #define ACTOR_H
+
+#include "ScriptClasses.h"
 
 #ifndef ACTOR_OPCODES // For collapsable regions
 #define ACTOR_OPCODES
@@ -88,13 +88,18 @@ OPCODE(056C, "v", actor_driving_police_vehicle);
 OPCODE(056D, "v", is_actor_defined);
 
 #endif
-	class ViceActor
+
+class ViceActor
 	{
 	private:
 		DWORD m_dwActor;
 		SCRIPT_MISSION* m_pMission;
 		bool m_bKeepOnDestroy = false;
 		bool m_bSpawned;
+
+	protected:
+		void RunTo(float x, float y);
+
 	public:
 		bool operator ==(VicePlayer* player);
 		bool operator ==(ViceActor* actor);
@@ -176,7 +181,6 @@ OPCODE(056D, "v", is_actor_defined);
 		void Avoid(VicePlayer* player);
 		void Kill(VicePlayer* player);
 		void Kill(ViceActor* actor);
-		void RunTo(float x, float y);
 		void SetWeaponAccuracy(int accuracy);
 
 		void MoveActorFromCarPassengerseatToDriverseat();
@@ -185,7 +189,7 @@ OPCODE(056D, "v", is_actor_defined);
 
 		bool OnFoot();
 
-		// Not works yet
+		// Doesn't work yet
 		void Follow(ViceActor * actor);
 		void Follow(VicePlayer * player);
 		void DriveVehicle(DWORD * car);

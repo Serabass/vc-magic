@@ -314,7 +314,7 @@ std::vector<ViceVehicle*> VicePlayer::NearestVehicles() {
 	std::vector<ViceVehicle*> result;
 
 	for (DWORD i = 0; i < 100000; i++) {
-		CVehicle* foundVehicle = ViceVehicle::$Vehicle__get((void*)*ViceVehicle::vehiclesArray, i);
+		CVehicle* foundVehicle = ViceVehicle::$Vehicle__get(ViceVehicle::vehiclesArray, i);
 		if (((int)foundVehicle != 0)) {
 			result.push_back(new ViceVehicle(i));
 		}
@@ -335,4 +335,7 @@ bool VicePlayer::IsAggressive() {
 bool VicePlayer::DrivingPlane() {
 	return !!$(&player_driving_plane, &m_dwChar);
 }
- 
+
+bool VicePlayer::Busted() {
+	return !!$(&is_player_busted, &m_dwChar);
+}

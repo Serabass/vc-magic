@@ -38,6 +38,7 @@ OPCODE(03AD, "i", set_rubbish);
 OPCODE(058C, "v", get_percentage_completed);
 OPCODE(044D, "s", load_splash);
 OPCODE(0451, "", load_end_of_game_audio);
+OPCODE(02F1, "fff", create_explosive_barrel);
 
 class ViceGame
 {
@@ -122,6 +123,7 @@ public:
 	static void LoadSplash(GXTKey splash);
 	static void LoadEndOfGameAudio();
 
+	static void CreateExplosiveBarrel(ViceVector3Df position);
 };
 
 #endif

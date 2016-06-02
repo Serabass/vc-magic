@@ -437,7 +437,7 @@ enum PedStatus : char { // http://www.gtamodding.com/wiki/Memory_Addresses_(VC)#
 #define MODEL_STRIPB		"STRIPB"
 #define MODEL_SSTRIPC		"STRIPC"
 
-#define KEY_PRESSED(k)		GetKeyState(k) < 0
+#define KEY_PRESSED(k)		(GetKeyState(k) < 0)
 
 #define VEHICLES_ARRAY		*(int *)0xA0FDE4
 

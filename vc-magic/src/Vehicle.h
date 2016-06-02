@@ -68,13 +68,16 @@ private:
 	bool m_bKeepOnDestroy;
 public:
 
-	bool operator ==(ViceVehicle* actor);
+	bool operator ==(ViceVehicle* vehicle);
 
 	ViceVehicle(SCRIPT_MISSION* pMission, DWORD dwModel, VCPosition_t position, bool bKeepOnDestroy = true);
 	ViceVehicle(DWORD m_dwVehicle);
 	~ViceVehicle();
 
 	static ViceVehicle* FromCVehicle(CVehicle* vehicle);
+	static ViceVehicle* SpawnNextTo(SCRIPT_MISSION* pMission, VCPosition_t* position, DWORD modelIndex, float distance);
+	static ViceVehicle* SpawnNextTo(SCRIPT_MISSION* pMission, VCPosition_t* position, DWORD modelIndex);
+	// static ViceVehicle* SpawnNextTo(SCRIPT_MISSION* pMission, ViceActor* actor, MODEL::CAR modelIndex, float distance);
 
 	DWORD* GetVehicle();
 	int GetHealth();
@@ -146,10 +149,7 @@ public:
 	void RaceTo(float X, float Y);
 	ViceActor* GetDriver();
 
-	typedef CVehicle*(__thiscall *TgetStructAddress)(int pThis, signed int id);
-	typedef void(__thiscall *TOpenTrunk)(CVehicle* pThis);
-	static TgetStructAddress $Actor__get;
-
+	
 	bool PassengerSeatFree(int seatIndex);
 
 	CVehicle* getStruct();
@@ -157,19 +157,20 @@ public:
 
 	template <typename T> T* $$(VehicleProps off);
 
+	typedef void(__thiscall *TOpenTrunk)(CVehicle* pThis);
 	static TOpenTrunk $openTrunk;
 	static TOpenTrunk $openTrunkFully;
 
 	void openTrunk();
 	void Ram(ViceVehicle *vehicle);
 
-	typedef CVehicle*(__thiscall *TVehicleGet)(void* pThis, signed int id);
+	typedef CVehicle*(__thiscall *TVehicleGet)(int* pThis, signed int id);
 	static TVehicleGet $Vehicle__get;
 	static int* vehiclesArray;
-
+	
+	typedef bool(__cdecl* TSpawnNearPlayer)(int modelIndex);
+	static TSpawnNearPlayer $SpawnNearPlayer;
 private:
-	typedef CVehicle*(__cdecl* TSpawnNearPlayer)(int modelIndex);
-	static TSpawnNearPlayer SpawnNearPlayer;
 };
 
 template <typename T> T* ViceVehicle::$$(VehicleProps off) {

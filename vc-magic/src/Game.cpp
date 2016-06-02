@@ -200,3 +200,7 @@ void ViceGame::LoadSplash(GXTKey splash) {
 void ViceGame::LoadEndOfGameAudio() {
 	$(&load_end_of_game_audio);
 }
+
+void ViceGame::CreateExplosiveBarrel(ViceVector3Df position) {
+	$(&create_explosive_barrel, position.x, position.y, position.z);
+}

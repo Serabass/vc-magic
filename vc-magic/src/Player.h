@@ -56,6 +56,7 @@ OPCODE(02D5, "vffff", player_firing_weapons_in_rectangle);
 OPCODE(02DF, "v", player_is_aggressive);
 OPCODE(04C9, "v", player_driving_plane);
 OPCODE(046F, "vv", get_player_currently_armed_weapon);
+OPCODE(0130, "v", is_player_busted);
 
 struct PlayerStruct {
 
@@ -147,6 +148,7 @@ public:
 	void SetInfiniteRun();
 
 	bool IsPlayerSkinEquals(GXTKey skin);
+	bool Busted();
 	void MakeFireproof(bool fireproof);
 	void MakeFireproof();
 

@@ -100,7 +100,7 @@ bool ViceActor::operator==(ViceActor* actor) {
 
 	void ViceActor::Spawn(PEDTYPE iPedType, DWORD dwModel, float fX, float fY, float fZ)
 	{
-		ViceModel::LoadOne(this->m_pMission, dwModel);
+		ViceModel::LoadOne(m_pMission, dwModel);
 		$(&create_actor, iPedType, dwModel, fX, fY, fZ, &m_dwActor);
 
 		m_bSpawned = true;

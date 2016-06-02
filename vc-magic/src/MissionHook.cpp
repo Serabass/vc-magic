@@ -21,7 +21,7 @@ extern FARPROC ScriptRestart;
 extern bool bMissionEnded;
 
 // Constants
-const VCPosition_t PlayerStart	= { -534.0f, 644.82f, 11.0f, 0.0f };
+const VCPosition_t PlayerStart	= { -1675.13f, -1102.62f, 19.01f, 278.92 };
 
 
 // Globals
@@ -230,9 +230,8 @@ SCRIPT_MISSION* GetMission(DWORD MissionId)
 	do
 	{
 		if (pCurrentMission->Id == MissionId)
-		{
 			return pCurrentMission;
-		}
+
 		pCurrentMission = pCurrentMission->pNext;
 	} while (pCurrentMission != &MissionHead);
 	return NULL;
@@ -347,8 +346,10 @@ void ScriptInit()
 	ViceGame::RefreshScreen(PlayerStart.x, PlayerStart.y);
 	ViceCamera::Set({ PlayerStart.x, PlayerStart.y + 2.0f, PlayerStart.z });
 	pPlayer = new VicePlayer(PlayerStart.x, PlayerStart.y, PlayerStart.z);
-	pPlayer->SetSkin(MODEL_SAM);
+	pPlayer->SetSkin(MODEL_IGBUDDY);
 	pPlayer->ZAngle(PlayerStart.a);
+	pPlayer->SetInfiniteRun(true);
+	ViceGame::SetMaxWantedLevel(0);
 	ViceGame::SetWastedSpawnPosition(PlayerStart.x, PlayerStart.y, PlayerStart.z, 360.0f-PlayerStart.a);
 	ViceGame::SetBustedSpawnPosition(PlayerStart.x, PlayerStart.y, PlayerStart.z, 360.0f-PlayerStart.a);
 	ViceWeather::Set(WEATHER::SUNNY);

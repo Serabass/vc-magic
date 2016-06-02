@@ -136,8 +136,10 @@
     <ClInclude Include="src\AreaRect.h" />
     <ClInclude Include="src\Army.h" />
     <ClInclude Include="src\Camera.h" />
+    <ClInclude Include="src\CarGenerator.h" />
     <ClInclude Include="src\Cheats.h" />
     <ClInclude Include="src\Checkpoint.h" />
+    <ClInclude Include="src\Debug.h" />
     <ClInclude Include="src\Fire.h" />
     <ClInclude Include="src\Game.h" />
     <ClInclude Include="src\GameDefines.h" />
@@ -187,8 +189,10 @@
     <ClCompile Include="src\AreaRect.cpp" />
     <ClCompile Include="src\Army.cpp" />
     <ClCompile Include="src\Camera.cpp" />
+    <ClCompile Include="src\CarGenerator.cpp" />
     <ClCompile Include="src\Cheats.cpp" />
     <ClCompile Include="src\Checkpoint.cpp" />
+    <ClCompile Include="src\Debug.cpp" />
     <ClCompile Include="src\Fire.cpp" />
     <ClCompile Include="src\Game.cpp" />
     <ClCompile Include="src\GameScripting.cpp" />

@@ -21,7 +21,7 @@ ViceVehicle::ViceVehicle(SCRIPT_MISSION* pMission, DWORD dwModel, VCPosition_t p
 	m_bKeepOnDestroy = bKeepOnDestroy;
 	ViceModel::LoadOne(pMission, dwModel);
 	$(&create_car, dwModel, position.x, position.y, position.z, &m_dwVehicle);
-	this->ZAngle(position.a);
+	ZAngle(position.a);
 }
 
 ViceVehicle::ViceVehicle(DWORD m_dwVehicle) {
@@ -168,11 +168,11 @@ void ViceVehicle::MakeVeryHeavy(bool heavy) {
 	$(&make_car_very_heavy, &m_dwVehicle, heavy);
 }
 
-ViceVehicle::TSpawnNearPlayer ViceVehicle::SpawnNearPlayer = (TSpawnNearPlayer)0x04AE8F0;
-ViceVehicle::TgetStructAddress ViceVehicle::$Actor__get = (TgetStructAddress)0x00451C70;
+ViceVehicle::TSpawnNearPlayer ViceVehicle::$SpawnNearPlayer = (TSpawnNearPlayer)0x04AE8F0;
+ViceVehicle::TVehicleGet ViceVehicle::$Vehicle__get = (TVehicleGet)0x00451C70;
 
 CVehicle* ViceVehicle::getStructById(signed int id) {
-	return ViceVehicle::$Actor__get(VEHICLES_ARRAY, id);
+	return ViceVehicle::$Vehicle__get(ViceVehicle::vehiclesArray, id);
 }
 
 CVehicle* ViceVehicle::getStruct() {
@@ -184,7 +184,7 @@ ViceVehicle::TOpenTrunk ViceVehicle::$openTrunkFully = (TOpenTrunk)0x00585E60;
 
 int* ViceVehicle::vehiclesArray = (int *)0xA0FDE4;
 
-ViceVehicle::TVehicleGet ViceVehicle::$Vehicle__get = (TVehicleGet)0x00451C70;
+//ViceVehicle::TVehicleGet ViceVehicle::$Vehicle__get = (TVehicleGet)0x00451C70;
 
 
 void ViceVehicle::openTrunk() {
@@ -316,11 +316,24 @@ bool ViceVehicle::PassengerSeatFree(int seatIndex) {
 
 ViceVehicle* ViceVehicle::FromCVehicle(CVehicle* vehicle) {
 	for (DWORD i = 0; i < 10000; i++) {
-		CVehicle* foundVehicle = ViceVehicle::$Vehicle__get((void*)*ViceVehicle::vehiclesArray, i);
+		CVehicle* foundVehicle = ViceVehicle::$Vehicle__get(ViceVehicle::vehiclesArray, i);
 		if (((int)foundVehicle != 0) && vehicle == foundVehicle)
 			return new ViceVehicle(i);
 	}
+
 	return NULL;
+}
+
+ViceVehicle* ViceVehicle::SpawnNextTo(SCRIPT_MISSION* pMission, VCPosition_t* position, DWORD modelIndex, float distance) {
+
+	VCPoint2D* point = ViceGeom::PlacePointFrom(position, 10.0f);
+	VCPosition_t pos = { point->x , point->y, position->z, position->a + 90};
+	ViceVehicle* vehicle = new ViceVehicle(pMission, modelIndex, pos);
+	return vehicle;
+}
+
+ViceVehicle* ViceVehicle::SpawnNextTo(SCRIPT_MISSION* pMission, VCPosition_t* position, DWORD modelIndex) {
+	return SpawnNextTo(pMission, position, modelIndex, 5.0f);
 }
 
 ViceFire* ViceVehicle::CreateFire() {

@@ -35,6 +35,76 @@ FILE *consoleStdIn, *consoleStdOut, *consoleStdErr;
 
 // Functions
 
+
+
+
+
+DWORD __stdcall ConsoleWatch(LPVOID lpThreadParameter) {
+
+	// this is in my class constructor
+
+	AllocConsole();
+
+	ShowWindow(GetConsoleWindow(), SW_MINIMIZE);
+
+	freopen_s(&consoleStdIn, "conin$", "r", stdin);
+	freopen_s(&consoleStdOut, "conout$", "w", stdout);
+	freopen_s(&consoleStdErr, "conout$", "w", stderr);
+
+	fprintf_s(consoleStdOut, "Hello!\n");
+
+	for (;;) {
+	}
+
+	return 0;
+}
+
+void MainScript(SCRIPT_MISSION* pMission)
+{
+	INITIALISE_THREAD();
+
+	CreateThread(0, 0, &ConsoleWatch, 0, 0, 0);
+
+	VCPosition_t areaPos = { -1639.35f, -1087.55f, 14.50f };
+
+	ViceAreaRect area = {
+		{ -1619.35f, -1067.55f, 14.50f },
+		{ -1659.35f, -1107.55f, 14.50f }
+	};
+
+	std::vector<ViceActor*> bikers;
+	std::vector<ViceVehicle*> bikes;
+
+	for (size_t x = 0; x < 10; x++) {
+		for (size_t y = 0; y < 10; y++) {
+			ViceVehicle* v = new ViceVehicle(pMission, MODEL::BIKE::SANCHEZ, {
+				area.start.x + x * 10, 
+				area.start.y + y * 10,
+				area.start.z,
+			});
+
+			// ViceActor* a = ViceActor::CreateRandomInVehicleDriverseat(v);
+			//bikers.push_back(a);
+			bikes.push_back(v);
+
+			v->Lock(true);
+		}
+	}
+
+	for (;;)
+	{
+		SCRIPT_WAIT(100);
+
+	}
+}
+
+
+
+
+
+
+
+
 //--------------------------------------------------------------------------------------------
 //	func:
 //		Mission_TheSample()
@@ -454,50 +524,9 @@ MissionCleanup:
 	TERMINATE_THREAD();
 }
 
-DWORD __stdcall ConsoleWatch(LPVOID lpThreadParameter) {
-
-	// this is in my class constructor
-
-	AllocConsole();
-	freopen_s(&consoleStdIn, "conin$", "r", stdin);
-	freopen_s(&consoleStdOut, "conout$", "w", stdout);
-	freopen_s(&consoleStdErr, "conout$", "w", stderr);
-
-	fprintf_s(consoleStdOut, "Hello!\n");
-
-	for (;;) {
-	}
-
-	return 0;
-}
-
 void cheatTest() {
 	ViceGame::money->real += 100000;
 }
-
-void MainScript(SCRIPT_MISSION* pMission)
-{
-	INITIALISE_THREAD();
-
-	CreateThread(0, 0, &ConsoleWatch, 0, 0, 0);
-
-	ViceVehicle* car = new ViceVehicle(pMission, MODEL::CAR::BANSHEE, BikeShop, false);
-
-	//ViceActor* actor = new ViceActor(pMission);
-	//actor->Spawn(PEDTYPE::COP, MODEL::COP, BikeShop.x, BikeShop.y, BikeShop.z);
-	
-	ViceModel::LoadOne(pMission, MODEL::COLT45);
-	ViceGame::SetMaxWantedLevel(0);
-
-	for (;;)
-	{
-		SCRIPT_WAIT(1000);
-		std::vector<ViceVehicle*> v = pPlayer->NearestVehicles();
-
-		PRINT("%d\n", v.size());
-	}
-}
-
 
 //--------------------------------------------------------------------------------------------
 //	func:

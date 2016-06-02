@@ -60,8 +60,8 @@ struct SCRIPT_COMMAND		//	Params				| z param is for zero-terminating
 };							//		s = string		| as far as i know.
 
 struct VCPoint2D {
-	int x;
-	int y;
+	float x;
+	float y;
 };
 
 struct Money {
