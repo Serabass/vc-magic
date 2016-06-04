@@ -2,19 +2,10 @@
 #ifndef ARMY_H
 #define ARMY_H
 
+#include "Actor.h"
+
 #include "ScriptClasses.h"
 #include <vector>
-
-class ViceArmySoldier {
-private:
-public:
-	ViceArmy* m_army;
-
-	ViceArmySoldier(ViceArmy* army);
-	ViceArmySoldier(ViceArmy* army, ViceActor* actor);
-
-	void Spawn();
-};
 
 class ViceArmy {
 private:
@@ -58,6 +49,9 @@ public:
 
 	ViceArmySoldier* AddSoldier(ViceArmySoldier* actor);
 	ViceArmySoldier* AddSoldier();
+
+	void Spawn();
+
 	void CordonOffArea();
 	void RunBehavior();
 	void UpdateBehavior();

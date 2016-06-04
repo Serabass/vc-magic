@@ -25,7 +25,7 @@ private:
 	bool m_bCreated;
 public:
 	ViceMarker();
-	ViceMarker(VCPosition_t position, int color, int flag);
+	ViceMarker(ViceVector3Df position, int color, int flag);
 	ViceMarker(DWORD dwMarker);
 	~ViceMarker();
 

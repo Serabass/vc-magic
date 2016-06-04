@@ -44,7 +44,9 @@
 	class ViceGeom;
 	class ViceUtils;
 	class ViceArmy;
+	class ViceArmySoldier;
 	class ViceCarGenerator;
+	class ViceAnimation;
 	class GXTBuilder;
 	class ViceDebug;
 	struct ViceAreaRect;
@@ -61,7 +63,11 @@
 #include "HUD.h"
 #include "Fire.h"
 #include "Marker.h"
-#include "Vehicle.h"
+
+#include "Vehicle\Vehicle.h"
+#include "Vehicle\Car.h"
+#include "Vehicle\Bike.h"
+
 #include "Actor.h"
 #include "SpecialActor.h"
 #include "Player.h"
@@ -89,6 +95,7 @@
 #include "Army.h"
 #include "CarGenerator.h"
 #include "Debug.h"
+#include "Animation.h"
 #include "GXTBuilder.h"
 
 //Class definitions

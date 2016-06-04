@@ -14,8 +14,7 @@
 
 #include <stdio.h>
 
-#define COMMMA ,
-#define PRINT(str, ...) fprintf_s(consoleStdOut, str, __VA_ARGS__)
+#define COMMA ,
 
 // Externals
 extern VicePlayer*	pPlayer;	// Player stuff.
@@ -31,59 +30,24 @@ const VCPosition_t CopShop = { 350.0f, -527.0f, 10.0f, 0.0f };
 // Globals
 bool bMissionEnded = true;	// Mission ended flag.
 
-FILE *consoleStdIn, *consoleStdOut, *consoleStdErr;
-
 // Functions
 
 
 
 
-
-DWORD __stdcall ConsoleWatch(LPVOID lpThreadParameter) {
-
-	// this is in my class constructor
-
-	AllocConsole();
-
-	ShowWindow(GetConsoleWindow(), SW_MINIMIZE);
-
-	freopen_s(&consoleStdIn, "conin$", "r", stdin);
-	freopen_s(&consoleStdOut, "conout$", "w", stdout);
-	freopen_s(&consoleStdErr, "conout$", "w", stderr);
-
-	fprintf_s(consoleStdOut, "Hello!\n");
-
-	for (;;) {
-	}
-
-	return 0;
-}
-
 void MainScript(SCRIPT_MISSION* pMission)
 {
 	INITIALISE_THREAD();
+	const VCPosition_t pos = { -1480.15f, -1203.04f, 14.87f, 103.75f };
 
-	CreateThread(0, 0, &ConsoleWatch, 0, 0, 0);
-
-	VCPosition_t areaPos = { -1470.87f, -824.29f, 14.87f, 118.92f };
-
-	*ViceGame::pedDensity = 100;
-
-	ViceModel::LoadOne(pMission, MODEL::WEAPON_MODEL::BUDDYSHOT);
+	ViceVehicleBike* bike = new ViceVehicleBike(pMission, MODEL::BIKE::SANCHEZ, pos);
 
 	for (;;)
 	{
+		SCRIPT_WAIT(1000);
 
-		SCRIPT_WAIT(100);
-
-		std::vector<ViceVehicle*> a = pPlayer->NearestVehicles();
-
-		if (KEY_PRESSED(VK_TAB))
-			for (ViceVehicle* ac : a) {
-				for (ViceVehicle* ac2 : a) {
-					ac->Ram(ac2);
-				}
-			}
+		int tire0 = bike->IsTireDeflated(ViceVehicleBike::TireIndex::Front);
+		
 	}
 }
 

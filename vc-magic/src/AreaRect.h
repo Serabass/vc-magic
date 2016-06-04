@@ -4,8 +4,8 @@
 #define AREARECT_H
 
 	struct ViceAreaRect {
-		VCPosition_t start;
-		VCPosition_t end;
+		ViceVector3Df start;
+		ViceVector3Df end;
 
 		float minx() {
 			return min(start.x, end.x);

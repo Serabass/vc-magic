@@ -13,6 +13,12 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Заголовочные файлы\Vehicle">
+      <UniqueIdentifier>{b9e2a655-cc79-414d-b3e2-977cb1108600}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы исходного кода\Vehicle">
+      <UniqueIdentifier>{ae4fd847-af81-4944-849f-ddf11c702f9f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\GameDefines.h">
@@ -61,9 +67,6 @@
       <Filter>Заголовочные файлы</Filter>
     </ClInclude>
     <ClInclude Include="src\Marker.h">
-      <Filter>Заголовочные файлы</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Vehicle.h">
       <Filter>Заголовочные файлы</Filter>
     </ClInclude>
     <ClInclude Include="src\SpecialActor.h">
@@ -168,6 +171,24 @@
     <ClInclude Include="src\Debug.h">
       <Filter>Заголовочные файлы</Filter>
     </ClInclude>
+    <ClInclude Include="src\Animation.h">
+      <Filter>Заголовочные файлы</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Vehicle\Vehicle.h">
+      <Filter>Заголовочные файлы\Vehicle</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Vehicle\Car.h">
+      <Filter>Заголовочные файлы\Vehicle</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Vehicle\Bike.h">
+      <Filter>Заголовочные файлы\Vehicle</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Vehicle\Boat.h">
+      <Filter>Заголовочные файлы\Vehicle</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Vehicle\Heli.h">
+      <Filter>Заголовочные файлы\Vehicle</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\GameScripting.cpp">
@@ -213,9 +234,6 @@
       <Filter>Файлы исходного кода</Filter>
     </ClCompile>
     <ClCompile Include="src\Marker.cpp">
-      <Filter>Файлы исходного кода</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Vehicle.cpp">
       <Filter>Файлы исходного кода</Filter>
     </ClCompile>
     <ClCompile Include="src\SpecialActor.cpp">
@@ -316,6 +334,24 @@
     </ClCompile>
     <ClCompile Include="src\Debug.cpp">
       <Filter>Файлы исходного кода</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Animation.cpp">
+      <Filter>Файлы исходного кода</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Vehicle\Vehicle.cpp">
+      <Filter>Файлы исходного кода\Vehicle</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Vehicle\Car.cpp">
+      <Filter>Файлы исходного кода\Vehicle</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Vehicle\Bike.cpp">
+      <Filter>Файлы исходного кода\Vehicle</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Vehicle\Boat.cpp">
+      <Filter>Файлы исходного кода\Vehicle</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Vehicle\Heli.cpp">
+      <Filter>Файлы исходного кода\Vehicle</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

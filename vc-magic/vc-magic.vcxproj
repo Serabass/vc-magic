@@ -133,6 +133,7 @@
     <ClInclude Include="src\ActorGroup.h" />
     <ClInclude Include="src\ActorsClock.h" />
     <ClInclude Include="src\Animate.h" />
+    <ClInclude Include="src\Animation.h" />
     <ClInclude Include="src\AreaRect.h" />
     <ClInclude Include="src\Army.h" />
     <ClInclude Include="src\Camera.h" />
@@ -175,7 +176,11 @@
     <ClInclude Include="src\Utils.h" />
     <ClInclude Include="src\vc-magic.h" />
     <ClInclude Include="src\ScriptClasses.h" />
-    <ClInclude Include="src\Vehicle.h" />
+    <ClInclude Include="src\Vehicle\Bike.h" />
+    <ClInclude Include="src\Vehicle\Boat.h" />
+    <ClInclude Include="src\Vehicle\Car.h" />
+    <ClInclude Include="src\Vehicle\Heli.h" />
+    <ClInclude Include="src\Vehicle\Vehicle.h" />
     <ClInclude Include="src\Wav.h" />
     <ClInclude Include="src\Weather.h" />
     <ClInclude Include="src\Zone.h" />
@@ -186,6 +191,7 @@
     <ClCompile Include="src\ActorGroup.cpp" />
     <ClCompile Include="src\ActorsClock.cpp" />
     <ClCompile Include="src\Animate.cpp" />
+    <ClCompile Include="src\Animation.cpp" />
     <ClCompile Include="src\AreaRect.cpp" />
     <ClCompile Include="src\Army.cpp" />
     <ClCompile Include="src\Camera.cpp" />
@@ -226,7 +232,11 @@
     <ClCompile Include="src\Utils.cpp" />
     <ClCompile Include="src\vc-magic.cpp" />
     <ClCompile Include="src\ScriptClasses.cpp" />
-    <ClCompile Include="src\Vehicle.cpp" />
+    <ClCompile Include="src\Vehicle\Bike.cpp" />
+    <ClCompile Include="src\Vehicle\Boat.cpp" />
+    <ClCompile Include="src\Vehicle\Car.cpp" />
+    <ClCompile Include="src\Vehicle\Heli.cpp" />
+    <ClCompile Include="src\Vehicle\Vehicle.cpp" />
     <ClCompile Include="src\Wav.cpp" />
     <ClCompile Include="src\Weather.cpp" />
     <ClCompile Include="src\Zone.cpp" />

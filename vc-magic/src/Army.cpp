@@ -1,14 +1,4 @@
-#include "Actor.h"
 #include "Army.h"
-
-ViceArmySoldier::ViceArmySoldier(ViceArmy* army) {
-	ViceActor* actor = new ViceActor(army->pMission);
-	m_army = army;
-}
-
-void ViceArmySoldier::Spawn() {
-	// Spawn(PEDTYPE::COP, MODEL::IDE::ARMY, { m_army->area.start.x + rand() % 10, m_army->area.start.y + rand() % 10, m_army->area.start.z });
-}
 
 ViceArmy::ViceArmy(SCRIPT_MISSION* pMission) {
 	this->pMission = pMission;
@@ -42,6 +32,16 @@ void ViceArmy::EnumSoldiers(EnumSoldiersCallback callback) {
 	}
 }
 
+void ViceArmy::Spawn() {
+	for (size_t i = 0; i < soldiers.size(); i++) {
+		soldiers[i]->Spawn({
+			area.start.x + i * 3,
+			area.start.y + i * 3,
+			area.start.z
+		});
+	}
+}
+
 void ViceArmy::EnumSoldiers(EnumSoldiersNoIndexCallback callback) {
 	for (size_t i = 0; i < soldiers.size(); i++) {
 		if (!callback(soldiers[i]))
@@ -64,27 +64,61 @@ DWORD WINAPI ViceArmy::StaticThreadStart(void* Param)
 }
 
 void ViceArmy::CordonOffArea() {
-	float width = abs(area.start.x - area.end.x);
-	float length = abs(area.start.y - area.end.y);
+
+	float w = abs(abs(area.start.x) - abs(area.end.x));
+	float l = abs(abs(area.start.y) - abs(area.end.y));
 	float sideCount = soldiers.size() / 4;
 
-	float xStep = width / sideCount;
-	float yStep = length / sideCount;
+	float minx = area.minx();
+	float miny = area.miny();
+	float maxx = area.maxx();
+	float maxy = area.maxy();
+
+	float xStep = w / sideCount;
+	float yStep = l / sideCount;
 
 	size_t i = 0;
 
-	for (float x = min(area.start.x, area.end.x); x < max(area.start.x, area.end.x); x += xStep) {
-		for (float y = min(area.start.y, area.end.y); y < max(area.start.y, area.end.y); y += yStep) {
-			if (i >= soldiers.size())
-				break;
-
-			ViceArmySoldier* soldier = soldiers[i];
-			// soldier->RunTo(x, y);
-
-			i++;
-		}
+	float x = minx;
+	while (x <= maxx) {
+		x += xStep;
+		if (x > maxx) break;
+		if (i >= soldiers.size()) return;
+		soldiers[i]->RunTo(x, miny);
+		//println("1:", i, " : ", x);
+		i++;
 	}
 
+
+	float y = miny;
+	while (y <= maxy) {
+		y += yStep;
+		if (y > maxy) break;
+		if (i >= soldiers.size()) return;
+		soldiers[i]->RunTo(maxx, y);
+		//println("2:", i, " : ", y);
+		i++;
+	}
+
+	x = maxx;
+	while (x > minx) {
+		x -= xStep;
+		if (x <= minx) break;
+		if (i >= soldiers.size()) return;
+		soldiers[i]->RunTo(x, maxy);
+		//println("3:", i, " : ", x);
+		i++;
+	}
+
+	y = maxy;
+	while (y > miny) {
+		y -= yStep;
+		if (y <= miny) break;
+		if (i >= soldiers.size()) return;
+		soldiers[i]->RunTo(minx, y);
+		//println("4:", i, " : ", y);
+		i++;
+	}
 }
 
 void ViceArmy::UpdateBehavior() {

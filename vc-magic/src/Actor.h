@@ -87,6 +87,7 @@ OPCODE(054E, "v", clear_actor_damage);
 OPCODE(056C, "v", actor_driving_police_vehicle);
 OPCODE(056D, "v", is_actor_defined);
 OPCODE(03A3, "v", is_actor_male);
+OPCODE(0123, "vv", is_actor_spotted_player);
 
 #endif
 
@@ -97,9 +98,6 @@ class ViceActor
 		SCRIPT_MISSION* m_pMission;
 		bool m_bKeepOnDestroy = false;
 		bool m_bSpawned;
-
-	protected:
-		void RunTo(float x, float y);
 
 	public:
 		bool operator ==(VicePlayer* player);
@@ -122,8 +120,8 @@ class ViceActor
 		bool NearPoint(float fX, float fY, float fZ, float fRX, float fRY, float fRZ, bool bSphere);
 		bool NearPoint(ViceVector3Df position, ViceVector3Df radius, bool bSphere);
 
-		void Spawn(PEDTYPE iPedType, DWORD dwModel, float fX, float fY, float fZ);
-		void Spawn(PEDTYPE iPedType, DWORD dwModel, ViceVector3Df position);
+		virtual void Spawn(PEDTYPE iPedType, DWORD dwModel, float fX, float fY, float fZ);
+		virtual void Spawn(PEDTYPE iPedType, DWORD dwModel, ViceVector3Df position);
 		void SpawnInPassengerSeat(DWORD* pdwVehicle, int iPedType, DWORD dwModel, int iSeat);
 		void SpawnInPassengerSeat(ViceVehicle* pVehicle, int iPedType, DWORD dwModel, int iSeat);
 		void SpawnInDriverSeat(DWORD* pdwVehicle, int iPedType, DWORD dwModel);
@@ -153,8 +151,11 @@ class ViceActor
 		bool DrivingAMotorbike();
 		bool DrivingPoliceVehicle();
 
+		bool SpottedPlayer(VicePlayer* player);
+
 		void Stop();
 
+		void RunTo(float x, float y);
 		bool InRangeOfPlayer(VicePlayer* player);
 
 		ViceVehicle* GetCar();
@@ -207,6 +208,8 @@ class ViceActor
 		bool InCar();
 		bool InCar(ViceVehicle* car);
 
+		void PlayAnimation(int iAnimGrp, int iAnimID, float fBlend);
+
 		void SetCanBeShotInACar();
 		void SetCanBeShotInACar(bool value);
 
@@ -248,4 +251,27 @@ class ViceActor
 	template <typename T> T* ViceActor::$$(int off = 0) {
 		return (T*)((int)this->getStruct() + off);
 	}
+
+
+
+
+
+
+
+
+
+
+	class ViceArmySoldier : public ViceActor {
+	private:
+	public:
+		ViceArmy* m_army;
+
+		bool protectArea;
+
+		ViceArmySoldier(ViceArmy* army);
+		ViceArmySoldier(ViceArmy* army, ViceActor* actor);
+
+		virtual void Spawn(ViceVector3Df position);
+	};
+
 #endif

@@ -1,4 +1,5 @@
 #include "Player.h"
+#include <algorithm> 
 
 #define VICEPLAYER_RETURN_RESULT_1ARG(type, cmd) \
 				type result; \
@@ -308,6 +309,28 @@ std::vector<ViceActor*> VicePlayer::NearestActors() {
 		}
 	}
 	
+	std::sort(result.begin(), result.end(), [this](ViceActor* a, ViceActor* b) {
+		VCPosition_t playerPos = this->GetPosition();
+		VCPosition_t aPos = a->GetPosition();
+		VCPosition_t bPos = b->GetPosition();
+
+		VCPoint2D playerPoint;
+		VCPoint2D aPoint;
+		VCPoint2D bPoint;
+
+		playerPoint.x = playerPos.x;
+		playerPoint.y = playerPos.y;
+
+		aPoint.x = aPos.x;
+		aPoint.y = aPos.y;
+
+		bPoint.x = bPos.x;
+		bPoint.y = bPos.y;
+
+		return ViceGeom::distance(&playerPoint, &aPoint)
+			< ViceGeom::distance(&playerPoint, &bPoint);
+	});
+
 	return result;
 }
 
@@ -316,13 +339,13 @@ std::vector<ViceVehicle*> VicePlayer::NearestVehicles() {
 	std::vector<ViceVehicle*> result;
 
 	for (DWORD i = 0; i < 100000; i++) {
-		
 		CVehicle* foundVehicle = ViceVehicle::$Vehicle__getById(ViceVehicle::vehiclesArray, i);
 		if (((int)foundVehicle != 0)) {
 			result.push_back(new ViceVehicle(i));
 		}
 	}
 
+	ViceDebug::println("9999999");
 	return result;
 }
 
@@ -345,4 +368,24 @@ bool VicePlayer::Busted() {
 
 bool VicePlayer::Wasted() {
 	return !!$(&is_player_wasted, &m_dwChar);
+}
+
+// Doesn't work. No action. Game's do not crush
+void VicePlayer::PlayAnimation(int iAnimGrp, int iAnimID, float fBlend) {
+	ViceDebug::println("%d, %d, %2.2f", iAnimGrp, iAnimID, fBlend);
+	$(&play_animation, &m_dwActor, iAnimGrp, iAnimID, fBlend);
+}
+
+// Doesn't work. No action. Game's do not crush
+void VicePlayer::PlayAnimation(char* animGrpName, char* animName, float fBlend) {
+	for (ViceAnimation::AnimationGroup grp : ViceAnimation::animationGroups) {
+		if (grp.name == animGrpName) {
+			for (ViceAnimation::AnimationStruct anim : grp.animations) {
+				if (anim.name == animName) {
+					PlayAnimation(grp.id, anim.id, fBlend);
+					return;
+				}
+			}
+		}
+	}
 }

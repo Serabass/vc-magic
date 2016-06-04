@@ -480,3 +480,31 @@ bool ViceActor::operator==(ViceActor* actor) {
 	bool ViceActor::IsMale() {
 		return !!$(&is_actor_male, &m_dwActor);
 	}
+
+	bool ViceActor::SpottedPlayer(VicePlayer* player) {
+		return !!$(&is_actor_spotted_player, &m_dwActor, player->GetChar());
+	}
+
+	void ViceActor::PlayAnimation(int iAnimGrp, int iAnimID, float fBlend) {
+		$(&play_animation, &m_dwActor, iAnimGrp, iAnimID, fBlend);
+	}
+
+
+
+
+
+
+
+
+	ViceArmySoldier::ViceArmySoldier(ViceArmy* army)  : ViceActor(army->pMission) {
+		ViceActor* actor = new ViceActor(army->pMission);
+		m_army = army;
+	}
+
+	ViceArmySoldier::ViceArmySoldier(ViceArmy* army, ViceActor* actor) : ViceActor(*actor->GetActor()) {
+		m_army = army;
+	}
+
+	void ViceArmySoldier::Spawn(ViceVector3Df position) {
+		ViceActor::Spawn(PEDTYPE::COP, MODEL::IDE::ARMY, position);
+	}

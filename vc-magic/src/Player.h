@@ -58,6 +58,7 @@ OPCODE(04C9, "v", player_driving_plane);
 OPCODE(046F, "vv", get_player_currently_armed_weapon);
 OPCODE(0130, "v", is_player_busted);
 OPCODE(0117, "v", is_player_wasted);
+OPCODE(0673, "viif", play_animation); // var_actor, animGrp, animID, blend (float)
 
 struct PlayerStruct {
 
@@ -144,6 +145,9 @@ public:
 
 	void SetFastReload(bool value);
 	void SetFastReload();
+
+	void PlayAnimation(int iAnimGrp, int iAnimID, float fBlend);
+	void PlayAnimation(char* iAnimGrp, char* iAnimID, float fBlend);
 
 	void SetInfiniteRun(bool value);
 	void SetInfiniteRun();
