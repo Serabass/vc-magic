@@ -59,6 +59,7 @@ OPCODE(03A2, "vi", set_vehicle_action);
 OPCODE(0431, "vi", car_passenger_seat_free);
 OPCODE(04BD, "vi", set_car_is_part_of_convoy);
 OPCODE(0519, "vi", lock_car_in_current_position);
+OPCODE(0294, "vi", set_vehicle_sprayable);
 
 class ViceVehicle
 {
@@ -110,7 +111,6 @@ public:
 	bool Stopped();
 	bool Flipped();
 	bool Sunk();
-	void SetSprayable(bool value);
 	float GetZAngle();
 	int GetNumPassengers();
 	int GetMaxPassengers();
@@ -127,6 +127,8 @@ public:
 
 	void SetAction(int action); // Use enum?
 
+	void SetSprayable(bool sprayable = true);
+
 	ViceMarker* CreateMarker();
 
 	void DriveTo(VCPosition_t destination);
@@ -136,7 +138,7 @@ public:
 	VCPosition_t* GetPosition();
 	void SetPosition(VCPosition_t* position);
 
-	void Lock(bool lock);
+	void Lock(bool lock = true);
 
 	ViceFire* CreateFire();
 
@@ -147,7 +149,6 @@ public:
 	void RaceTo(float X, float Y);
 	ViceActor* GetDriver();
 
-	
 	bool PassengerSeatFree(int seatIndex);
 
 	CVehicle* getStruct();

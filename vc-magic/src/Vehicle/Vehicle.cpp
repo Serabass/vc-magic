@@ -211,10 +211,6 @@ ViceActor* ViceVehicle::GetDriver() {
 	return new ViceActor(dwActor);
 }
 
-void ViceVehicle::SetSprayable(bool value) {
-	$(&set_car_sprayable, &m_dwVehicle, value);
-}
-
 bool ViceVehicle::Sunk() {
 	return !!$(&is_car_sunk, &m_dwVehicle);
 }
@@ -224,11 +220,15 @@ float ViceVehicle::GetZAngle() {
 }
 
 int ViceVehicle::GetNumPassengers() {
-	VICEVEHICLE_RETURN_RESULT_1ARG(int, get_car_num_passengers);
+	int result;
+	$(&get_car_num_passengers, &m_dwVehicle, &result);
+	return result;
 }
 
 int ViceVehicle::GetMaxPassengers() {
-	VICEVEHICLE_RETURN_RESULT_1ARG(int, get_car_max_passengers);
+	int result;
+	$(&get_car_max_passengers, &m_dwVehicle, &result);
+	return result;
 }
 
 void ViceVehicle::TurnOffEngine() {
@@ -330,4 +330,8 @@ void ViceVehicle::SetIsPartOfConvoy(bool value) {
 
 void ViceVehicle::Lock(bool lock) {
 	$(&lock_car_in_current_position, &m_dwVehicle, lock);
+}
+
+void ViceVehicle::SetSprayable(bool sprayable) {
+	$(&set_vehicle_sprayable, &m_dwVehicle, sprayable);
 }

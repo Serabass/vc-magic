@@ -1,64 +1,8 @@
-﻿Сборка начата 04.06.2016 21:13:13.
+﻿Сборка начата 04.06.2016 21:33:53.
      1>Проект "D:\!programming\C++\vc-magic\vc-magic\vc-magic.vcxproj" в узле 2 (целевые объекты Build).
      1>ClCompile:
-         D:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _WINDLL /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\" /Fd"Debug\vc140.pdb" /Gd /TP /analyze- /errorReport:prompt src\AbstractObject.cpp src\Animate.cpp src\Animation.cpp src\AreaRect.cpp src\Camera.cpp src\CarGenerator.cpp src\Cheats.cpp src\Checkpoint.cpp src\Debug.cpp src\Fire.cpp src\Game.cpp src\Gang.cpp src\Garage.cpp src\Geom.cpp src\HUD.cpp src\Marker.cpp src\MissionHook.cpp src\MissionThreads.cpp src\Model.cpp src\Object.cpp src\Ped\Actor.cpp src\Ped\ActorGroup.cpp src\Ped\ActorsClock.cpp src\Ped\Army.cpp src\Ped\Player.cpp src\Ped\SpecialActor.cpp src\Phone.cpp src\Pickup.cpp src\Police.cpp src\Radio.cpp src\Rampage.cpp src\Route.cpp src\Script.cpp src\ScriptClasses.cpp src\Settings.cpp src\Sound.cpp src\Sphere.cpp src\Stats.cpp src\StructReader.cpp src\Text.cpp src\Timer.cpp src\Utils.cpp src\Vehicle\Bike.cpp src\Vehicle\Boat.cpp src\Vehicle\Car.cpp src\Vehicle\Heli.cpp src\Vehicle\Vehicle.cpp src\Wav.cpp src\Weather.cpp src\Zone.cpp
-         Zone.cpp
-         Weather.cpp
-         Wav.cpp
+         D:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _WINDLL /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\" /Fd"Debug\vc140.pdb" /Gd /TP /analyze- /errorReport:prompt src\Vehicle\Vehicle.cpp
          Vehicle.cpp
-         Heli.cpp
-         Car.cpp
-         Boat.cpp
-         Bike.cpp
-         Utils.cpp
-         Timer.cpp
-         Text.cpp
-         StructReader.cpp
-         Stats.cpp
-         Sphere.cpp
-         Sound.cpp
-         Settings.cpp
-         ScriptClasses.cpp
-         Script.cpp
-         Route.cpp
-         Rampage.cpp
-         Создание кода...
-         Компиляция...
-         Radio.cpp
-         Police.cpp
-         Pickup.cpp
-         Phone.cpp
-         SpecialActor.cpp
-         Player.cpp
-         ActorsClock.cpp
-         Actor.cpp
-         Object.cpp
-         Model.cpp
-         MissionThreads.cpp
-         MissionHook.cpp
-         Создание кода...
-         Компиляция...
-         Army.cpp
-     1>d:\!programming\c++\vc-magic\vc-magic\src\ped\army.cpp(70): warning C4244: инициализация: преобразование "unsigned int" в "float", возможна потеря данных
-         ActorGroup.cpp
-         Marker.cpp
-         HUD.cpp
-         Geom.cpp
-     1>d:\!programming\c++\vc-magic\vc-magic\src\geom.cpp(21): warning C4244: return: преобразование "double" в "float", возможна потеря данных
-         Garage.cpp
-         Gang.cpp
-         Game.cpp
-         Fire.cpp
-         Debug.cpp
-         Checkpoint.cpp
-         Cheats.cpp
-         CarGenerator.cpp
-         Camera.cpp
-         AreaRect.cpp
-         Animation.cpp
-         Animate.cpp
-         AbstractObject.cpp
-         Создание кода...
        Link:
          D:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\!programming\C++\vc-magic\Debug\vc-magic.asi" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /Debug /PDB:"D:\!programming\C++\vc-magic\Debug\vc-magic.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\!programming\C++\vc-magic\Debug\vc-magic.lib" /MACHINE:X86 /DLL Debug\AbstractObject.obj
          Debug\Animate.obj
@@ -123,4 +67,4 @@
 
 Сборка успешно завершена.
 
-Затраченное время: 00:00:50.63
+Затраченное время: 00:00:01.50
