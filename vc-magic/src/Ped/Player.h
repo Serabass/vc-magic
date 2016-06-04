@@ -1,6 +1,6 @@
 #pragma once
 
-#include "ScriptClasses.h"
+#include "..\ScriptClasses.h"
 
 #ifndef PLAYER_H
 #define PLAYER_H

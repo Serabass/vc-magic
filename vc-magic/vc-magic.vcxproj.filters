@@ -19,6 +19,12 @@
     <Filter Include="Файлы исходного кода\Vehicle">
       <UniqueIdentifier>{ae4fd847-af81-4944-849f-ddf11c702f9f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Заголовочные файлы\Ped">
+      <UniqueIdentifier>{e0025607-975a-4627-aa85-556bfa6423bb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы исходного кода\Ped">
+      <UniqueIdentifier>{4bd6320e-2d17-468e-9d69-295c24255c18}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\GameDefines.h">
@@ -67,15 +73,6 @@
       <Filter>Заголовочные файлы</Filter>
     </ClInclude>
     <ClInclude Include="src\Marker.h">
-      <Filter>Заголовочные файлы</Filter>
-    </ClInclude>
-    <ClInclude Include="src\SpecialActor.h">
-      <Filter>Заголовочные файлы</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Actor.h">
-      <Filter>Заголовочные файлы</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Player.h">
       <Filter>Заголовочные файлы</Filter>
     </ClInclude>
     <ClInclude Include="src\Text.h">
@@ -135,22 +132,13 @@
     <ClInclude Include="src\Phone.h">
       <Filter>Заголовочные файлы</Filter>
     </ClInclude>
-    <ClInclude Include="src\ActorGroup.h">
-      <Filter>Заголовочные файлы</Filter>
-    </ClInclude>
     <ClInclude Include="src\Geom.h">
       <Filter>Заголовочные файлы</Filter>
     </ClInclude>
     <ClInclude Include="src\Utils.h">
       <Filter>Заголовочные файлы</Filter>
     </ClInclude>
-    <ClInclude Include="src\Army.h">
-      <Filter>Заголовочные файлы</Filter>
-    </ClInclude>
     <ClInclude Include="src\AreaRect.h">
-      <Filter>Заголовочные файлы</Filter>
-    </ClInclude>
-    <ClInclude Include="src\ActorsClock.h">
       <Filter>Заголовочные файлы</Filter>
     </ClInclude>
     <ClInclude Include="src\Route.h">
@@ -188,6 +176,24 @@
     </ClInclude>
     <ClInclude Include="src\Vehicle\Heli.h">
       <Filter>Заголовочные файлы\Vehicle</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Ped\Actor.h">
+      <Filter>Заголовочные файлы\Ped</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Ped\ActorGroup.h">
+      <Filter>Заголовочные файлы\Ped</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Ped\ActorsClock.h">
+      <Filter>Заголовочные файлы\Ped</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Ped\Army.h">
+      <Filter>Заголовочные файлы\Ped</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Ped\Player.h">
+      <Filter>Заголовочные файлы\Ped</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Ped\SpecialActor.h">
+      <Filter>Заголовочные файлы\Ped</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -234,15 +240,6 @@
       <Filter>Файлы исходного кода</Filter>
     </ClCompile>
     <ClCompile Include="src\Marker.cpp">
-      <Filter>Файлы исходного кода</Filter>
-    </ClCompile>
-    <ClCompile Include="src\SpecialActor.cpp">
-      <Filter>Файлы исходного кода</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Actor.cpp">
-      <Filter>Файлы исходного кода</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Player.cpp">
       <Filter>Файлы исходного кода</Filter>
     </ClCompile>
     <ClCompile Include="src\Text.cpp">
@@ -299,22 +296,13 @@
     <ClCompile Include="src\Phone.cpp">
       <Filter>Файлы исходного кода</Filter>
     </ClCompile>
-    <ClCompile Include="src\ActorGroup.cpp">
-      <Filter>Файлы исходного кода</Filter>
-    </ClCompile>
     <ClCompile Include="src\Geom.cpp">
       <Filter>Файлы исходного кода</Filter>
     </ClCompile>
     <ClCompile Include="src\Utils.cpp">
       <Filter>Файлы исходного кода</Filter>
     </ClCompile>
-    <ClCompile Include="src\Army.cpp">
-      <Filter>Файлы исходного кода</Filter>
-    </ClCompile>
     <ClCompile Include="src\AreaRect.cpp">
-      <Filter>Файлы исходного кода</Filter>
-    </ClCompile>
-    <ClCompile Include="src\ActorsClock.cpp">
       <Filter>Файлы исходного кода</Filter>
     </ClCompile>
     <ClCompile Include="src\Route.cpp">
@@ -352,6 +340,24 @@
     </ClCompile>
     <ClCompile Include="src\Vehicle\Heli.cpp">
       <Filter>Файлы исходного кода\Vehicle</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Ped\Actor.cpp">
+      <Filter>Файлы исходного кода\Ped</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Ped\ActorGroup.cpp">
+      <Filter>Файлы исходного кода\Ped</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Ped\ActorsClock.cpp">
+      <Filter>Файлы исходного кода\Ped</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Ped\Army.cpp">
+      <Filter>Файлы исходного кода\Ped</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Ped\Player.cpp">
+      <Filter>Файлы исходного кода\Ped</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Ped\SpecialActor.cpp">
+      <Filter>Файлы исходного кода\Ped</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

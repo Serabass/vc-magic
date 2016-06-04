@@ -1,17 +1,13 @@
-﻿Сборка начата 04.06.2016 20:42:54.
+﻿Сборка начата 04.06.2016 21:09:34.
      1>Проект "D:\!programming\C++\vc-magic\vc-magic\vc-magic.vcxproj" в узле 2 (целевые объекты Build).
      1>ClCompile:
-         D:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _WINDLL /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\" /Fd"Debug\vc140.pdb" /Gd /TP /analyze- /errorReport:prompt src\Vehicle\Heli.cpp
-         Heli.cpp
+         D:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _WINDLL /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\" /Fd"Debug\vc140.pdb" /Gd /TP /analyze- /errorReport:prompt src\Ped\ActorGroup.cpp
+         ActorGroup.cpp
        Link:
          D:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\!programming\C++\vc-magic\Debug\vc-magic.asi" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /Debug /PDB:"D:\!programming\C++\vc-magic\Debug\vc-magic.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\!programming\C++\vc-magic\Debug\vc-magic.lib" /MACHINE:X86 /DLL Debug\AbstractObject.obj
-         Debug\Actor.obj
-         Debug\ActorGroup.obj
-         Debug\ActorsClock.obj
          Debug\Animate.obj
          Debug\Animation.obj
          Debug\AreaRect.obj
-         Debug\Army.obj
          Debug\Camera.obj
          Debug\CarGenerator.obj
          Debug\Cheats.obj
@@ -30,9 +26,14 @@
          Debug\MissionThreads.obj
          Debug\Model.obj
          Debug\Object.obj
+         Debug\Actor.obj
+         Debug\ActorGroup.obj
+         Debug\ActorsClock.obj
+         Debug\Army.obj
+         Debug\Player.obj
+         Debug\SpecialActor.obj
          Debug\Phone.obj
          Debug\Pickup.obj
-         Debug\Player.obj
          Debug\Police.obj
          Debug\Radio.obj
          Debug\Rampage.obj
@@ -40,7 +41,6 @@
          Debug\Script.obj
          Debug\Settings.obj
          Debug\Sound.obj
-         Debug\SpecialActor.obj
          Debug\Sphere.obj
          Debug\Stats.obj
          Debug\HUD.obj
@@ -67,4 +67,4 @@
 
 Сборка успешно завершена.
 
-Затраченное время: 00:00:01.72
+Затраченное время: 00:00:01.91

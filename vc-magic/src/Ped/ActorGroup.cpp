@@ -1,5 +1,4 @@
 #include "ActorGroup.h"
-#include "vc-magic.h"
 
 ViceActorGroup::ViceActorGroup() {
 

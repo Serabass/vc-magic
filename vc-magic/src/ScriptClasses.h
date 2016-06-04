@@ -12,7 +12,13 @@
 
 	class VicePlayer;
 	class ViceActor;
+
 	class ViceVehicle;
+	class ViceVehicleCar;
+	class ViceVehicleHeli;
+	class ViceVehicleBike;
+	class ViceVehicleBoat;
+
 	class ViceFire;
 	class ViceSpecialActor;
 	class ViceText;
@@ -63,14 +69,20 @@
 #include "HUD.h"
 #include "Fire.h"
 #include "Marker.h"
+#include "AreaRect.h"
 
 #include "Vehicle\Vehicle.h"
 #include "Vehicle\Car.h"
 #include "Vehicle\Bike.h"
+#include "Vehicle\Heli.h"
+#include "Vehicle\Boat.h"
 
-#include "Actor.h"
-#include "SpecialActor.h"
-#include "Player.h"
+#include "Ped\Actor.h"
+#include "Ped\SpecialActor.h"
+#include "Ped\Player.h"
+#include "Ped\ActorGroup.h"
+#include "Ped\Army.h"
+
 #include "Police.h"
 #include "Text.h"
 #include "Model.h"
@@ -88,11 +100,8 @@
 #include "Checkpoint.h"
 #include "Phone.h"
 #include "Sphere.h"
-#include "ActorGroup.h"
 #include "Geom.h"
 #include "Utils.h"
-#include "AreaRect.h"
-#include "Army.h"
 #include "CarGenerator.h"
 #include "Debug.h"
 #include "Animation.h"

@@ -4,7 +4,7 @@
 
 #include "Actor.h"
 
-#include "ScriptClasses.h"
+#include "..\ScriptClasses.h"
 #include <vector>
 
 class ViceArmy {

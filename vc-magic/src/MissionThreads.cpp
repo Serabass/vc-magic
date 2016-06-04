@@ -38,16 +38,21 @@ bool bMissionEnded = true;	// Mission ended flag.
 void MainScript(SCRIPT_MISSION* pMission)
 {
 	INITIALISE_THREAD();
-	const VCPosition_t pos = { -1480.15f, -1203.04f, 14.87f, 103.75f };
+	const VCPosition_t pos = { -1480.15f, -1203.04f, 14.87f, 0.75f };
+	const VCPosition_t pos2 = { -1480.15f, -1103.04f, 14.87f, 0.75f };
 
-	ViceVehicleBike* bike = new ViceVehicleBike(pMission, MODEL::BIKE::SANCHEZ, pos);
-
+	ViceVehicleHeli* heli = new ViceVehicleHeli(pMission, MODEL::HELI::SPARROW, pos);
+	ViceVehicleHeli* heli2 = new ViceVehicleHeli(pMission, MODEL::HELI::MAVERICK, pos2);
+	 
 	for (;;)
 	{
 		SCRIPT_WAIT(1000);
 
-		int tire0 = bike->IsTireDeflated(ViceVehicleBike::TireIndex::Front);
-		
+		if (pPlayer->Driving(heli)) {
+			VCPosition_t* p = heli->GetPosition();
+			ViceVector3Df pos = { p->x, p->y - 10, p->z };
+			heli2->FlyTo(pos, 100);
+		}
 	}
 }
 

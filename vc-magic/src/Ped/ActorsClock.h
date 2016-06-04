@@ -1,4 +1,4 @@
-#include "ScriptClasses.h"
+#include "..\ScriptClasses.h"
 #include <vector>
 
 #ifndef ACTORSCLOCK_H

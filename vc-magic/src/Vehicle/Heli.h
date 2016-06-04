@@ -5,6 +5,7 @@
 
 class ViceVehicleHeli : public ViceVehicle
 {
+public:
 	ViceVehicleHeli(SCRIPT_MISSION* pMission, MODEL::HELI dwModel, VCPosition_t position, bool bKeepOnDestroy = true);
 	
 	void FlyTo(ViceVector3Df position, int speed);

@@ -1,4 +1,4 @@
-#include "ScriptClasses.h"
+#include "..\ScriptClasses.h"
 
 #ifndef SCPECIALACTOR_H
 #define SCPECIALACTOR_H

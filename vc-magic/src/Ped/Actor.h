@@ -3,7 +3,7 @@
 #ifndef ACTOR_H
 #define ACTOR_H
 
-#include "ScriptClasses.h"
+#include "..\ScriptClasses.h"
 
 #ifndef ACTOR_OPCODES // For collapsable regions
 #define ACTOR_OPCODES

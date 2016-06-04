@@ -129,13 +129,9 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="src\AbstractObject.h" />
-    <ClInclude Include="src\Actor.h" />
-    <ClInclude Include="src\ActorGroup.h" />
-    <ClInclude Include="src\ActorsClock.h" />
     <ClInclude Include="src\Animate.h" />
     <ClInclude Include="src\Animation.h" />
     <ClInclude Include="src\AreaRect.h" />
-    <ClInclude Include="src\Army.h" />
     <ClInclude Include="src\Camera.h" />
     <ClInclude Include="src\CarGenerator.h" />
     <ClInclude Include="src\Cheats.h" />
@@ -156,9 +152,14 @@
     <ClInclude Include="src\MissionThreads.h" />
     <ClInclude Include="src\Model.h" />
     <ClInclude Include="src\Object.h" />
+    <ClInclude Include="src\Ped\Actor.h" />
+    <ClInclude Include="src\Ped\ActorGroup.h" />
+    <ClInclude Include="src\Ped\ActorsClock.h" />
+    <ClInclude Include="src\Ped\Army.h" />
+    <ClInclude Include="src\Ped\Player.h" />
+    <ClInclude Include="src\Ped\SpecialActor.h" />
     <ClInclude Include="src\Phone.h" />
     <ClInclude Include="src\Pickup.h" />
-    <ClInclude Include="src\Player.h" />
     <ClInclude Include="src\Police.h" />
     <ClInclude Include="src\Radio.h" />
     <ClInclude Include="src\Rampage.h" />
@@ -166,7 +167,6 @@
     <ClInclude Include="src\Script.h" />
     <ClInclude Include="src\Settings.h" />
     <ClInclude Include="src\Sound.h" />
-    <ClInclude Include="src\SpecialActor.h" />
     <ClInclude Include="src\Sphere.h" />
     <ClInclude Include="src\Stats.h" />
     <ClInclude Include="src\HUD.h" />
@@ -187,13 +187,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\AbstractObject.cpp" />
-    <ClCompile Include="src\Actor.cpp" />
-    <ClCompile Include="src\ActorGroup.cpp" />
-    <ClCompile Include="src\ActorsClock.cpp" />
     <ClCompile Include="src\Animate.cpp" />
     <ClCompile Include="src\Animation.cpp" />
     <ClCompile Include="src\AreaRect.cpp" />
-    <ClCompile Include="src\Army.cpp" />
     <ClCompile Include="src\Camera.cpp" />
     <ClCompile Include="src\CarGenerator.cpp" />
     <ClCompile Include="src\Cheats.cpp" />
@@ -212,9 +208,14 @@
     <ClCompile Include="src\MissionThreads.cpp" />
     <ClCompile Include="src\Model.cpp" />
     <ClCompile Include="src\Object.cpp" />
+    <ClCompile Include="src\Ped\Actor.cpp" />
+    <ClCompile Include="src\Ped\ActorGroup.cpp" />
+    <ClCompile Include="src\Ped\ActorsClock.cpp" />
+    <ClCompile Include="src\Ped\Army.cpp" />
+    <ClCompile Include="src\Ped\Player.cpp" />
+    <ClCompile Include="src\Ped\SpecialActor.cpp" />
     <ClCompile Include="src\Phone.cpp" />
     <ClCompile Include="src\Pickup.cpp" />
-    <ClCompile Include="src\Player.cpp" />
     <ClCompile Include="src\Police.cpp" />
     <ClCompile Include="src\Radio.cpp" />
     <ClCompile Include="src\Rampage.cpp" />
@@ -222,7 +223,6 @@
     <ClCompile Include="src\Script.cpp" />
     <ClCompile Include="src\Settings.cpp" />
     <ClCompile Include="src\Sound.cpp" />
-    <ClCompile Include="src\SpecialActor.cpp" />
     <ClCompile Include="src\Sphere.cpp" />
     <ClCompile Include="src\Stats.cpp" />
     <ClCompile Include="src\HUD.cpp" />
