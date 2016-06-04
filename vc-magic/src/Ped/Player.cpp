@@ -72,6 +72,11 @@ void VicePlayer::PutAt(float fX, float fY, float fZ)
 	$(&put_player_at, &m_dwChar, fX, fY, fZ);
 }
 
+void VicePlayer::PutAt(ViceVector3Df position)
+{
+	$(&put_player_at, &m_dwChar, position.x, position.y, position.z);
+}
+
 int VicePlayer::GetMoney() {
 	int money;
 	$(&get_player_money, &m_dwChar, &money);
@@ -101,6 +106,13 @@ void VicePlayer::Health(int iHealth)
 void VicePlayer::ZAngle(float fAngle)
 {
 	$(&set_player_z_angle, &m_dwChar, fAngle);
+}
+
+float VicePlayer::ZAngle()
+{
+	float fAngle;
+	$(&get_player_z_angle, &m_dwChar, &fAngle);
+	return fAngle;
 }
 
 void VicePlayer::GiveWeapon(SCRIPT_MISSION* m_pMission, WEAPON dwWeapon, DWORD dwAmmo)
