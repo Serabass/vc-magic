@@ -131,6 +131,7 @@
     <ClInclude Include="src\AbstractObject.h" />
     <ClInclude Include="src\Animate.h" />
     <ClInclude Include="src\Animation.h" />
+    <ClInclude Include="src\AreaPolygon.h" />
     <ClInclude Include="src\AreaRect.h" />
     <ClInclude Include="src\Camera.h" />
     <ClInclude Include="src\CarGenerator.h" />
@@ -189,6 +190,7 @@
     <ClCompile Include="src\AbstractObject.cpp" />
     <ClCompile Include="src\Animate.cpp" />
     <ClCompile Include="src\Animation.cpp" />
+    <ClCompile Include="src\AreaPolygon.cpp" />
     <ClCompile Include="src\AreaRect.cpp" />
     <ClCompile Include="src\Camera.cpp" />
     <ClCompile Include="src\CarGenerator.cpp" />

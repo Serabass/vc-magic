@@ -195,6 +195,9 @@
     <ClInclude Include="src\Ped\SpecialActor.h">
       <Filter>Заголовочные файлы\Ped</Filter>
     </ClInclude>
+    <ClInclude Include="src\AreaPolygon.h">
+      <Filter>Заголовочные файлы</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\GameScripting.cpp">
@@ -358,6 +361,9 @@
     </ClCompile>
     <ClCompile Include="src\Ped\SpecialActor.cpp">
       <Filter>Файлы исходного кода\Ped</Filter>
+    </ClCompile>
+    <ClCompile Include="src\AreaPolygon.cpp">
+      <Filter>Файлы исходного кода</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

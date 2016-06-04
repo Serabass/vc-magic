@@ -56,6 +56,7 @@
 	class GXTBuilder;
 	class ViceDebug;
 	struct ViceAreaRect;
+	struct ViceAreaRegion;
 
 // Includes
 #include "GameScripting.h"
@@ -70,6 +71,7 @@
 #include "Fire.h"
 #include "Marker.h"
 #include "AreaRect.h"
+#include "AreaPolygon.h"
 
 #include "Vehicle\Vehicle.h"
 #include "Vehicle\Car.h"
