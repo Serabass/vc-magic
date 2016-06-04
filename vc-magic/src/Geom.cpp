@@ -1,7 +1,7 @@
 #include "Geom.h"
 #include <math.h>
 
-#define PI 3.14159265358979323846
+#define PI 3.14159265358979323846f
 
 VCPoint2D* ViceGeom::PlacePointFrom(VCPoint2D* point, float angle, float distance) {
 	VCPoint2D* result = new VCPoint2D();

@@ -335,3 +335,25 @@ void ViceVehicle::Lock(bool lock) {
 void ViceVehicle::SetSprayable(bool sprayable) {
 	$(&set_vehicle_sprayable, &m_dwVehicle, sprayable);
 }
+
+std::vector<ViceActor*> ViceVehicle::GetPassengers() {
+	std::vector<ViceActor*> result;
+	CPed* ped;
+
+	ped = *$$<CPed*>(VehicleProps::passenger1);
+	if (ped != 0) {
+		result.push_back(ViceActor::FromCPed(ped));
+	}
+
+	ped = *$$<CPed*>(VehicleProps::passenger2);
+	if (ped != 0) {
+		result.push_back(ViceActor::FromCPed(ped));
+	}
+
+	ped = *$$<CPed*>(VehicleProps::passenger3);
+	if (ped != 0) {
+		result.push_back(ViceActor::FromCPed(ped));
+	}
+
+	return result;
+}

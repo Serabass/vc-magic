@@ -65,9 +65,9 @@ DWORD WINAPI ViceArmy::StaticThreadStart(void* Param)
 
 void ViceArmy::CordonOffArea() {
 
-	float w = abs(abs(area.start.x) - abs(area.end.x));
-	float l = abs(abs(area.start.y) - abs(area.end.y));
-	float sideCount = soldiers.size() / 4;
+	float w = area.width();
+	float l = area.length();
+	float sideCount = (float)soldiers.size() / 4;
 
 	float minx = area.minx();
 	float miny = area.miny();

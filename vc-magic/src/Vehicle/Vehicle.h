@@ -138,6 +138,9 @@ public:
 	VCPosition_t* GetPosition();
 	void SetPosition(VCPosition_t* position);
 
+	std::vector<ViceActor*> GetPassengers();
+	ViceActor* GetPassenger(int seatIndex); // use enum like tires plz
+
 	void Lock(bool lock = true);
 
 	ViceFire* CreateFire();
