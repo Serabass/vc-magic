@@ -29,7 +29,10 @@
 #define STAD_STRING_10 0x696974
 #define STAD_STRING_11 0x696978
 
-
+#ifndef GROUNDZ
+#define GROUNDZ
+// float(__cdecl* getGroundZAt2)(float, float) = (float(__cdecl*)(float, float))0x4D5540;
+#endif
 // Structures
 struct GAME_SCRIPT_THREAD	// 0x88 bytes total.
 {							// - Credit to CyQ & PatrickW
@@ -62,6 +65,11 @@ struct SCRIPT_COMMAND		//	Params				| z param is for zero-terminating
 struct VCPoint2D {
 	float x;
 	float y;
+
+	float z() {
+		return ((float(__cdecl*)(float, float))0x4D5540)( x, y ); // Govno idea, chestnoe slovo
+	}
+
 };
 
 struct Money {

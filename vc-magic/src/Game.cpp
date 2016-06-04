@@ -106,7 +106,6 @@ void ViceGame::CreateSWATRope(int id, int model, VCPosition_t pos) {
 
 bool(__cdecl* ViceGame::setTime)(char, char) = (bool(__cdecl*)(char, char))0x487160;
 bool(__cdecl* ViceGame::glassIsBrokenAt)(float, float, float) = (bool(__cdecl*)(float, float, float))0x552EE0;
-double(__cdecl* ViceGame::getGroundZAt)(float, float) = (double(__cdecl*)(float, float))0x4D5540;
 
 int* ViceGame::maxWantedLevelHuman = (int *)0x6910D8;
 int* ViceGame::maxWantedLevel = (int *)0x6910DC;

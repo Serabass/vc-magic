@@ -71,7 +71,6 @@ public:
 
 	static bool(__cdecl* setTime)(char hour, char minute);
 	static bool(__cdecl* glassIsBrokenAt)(float x, float y, float z);
-	static double(__cdecl* getGroundZAt)(float x, float y);
 
 
 

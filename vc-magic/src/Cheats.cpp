@@ -14,7 +14,7 @@ DWORD __stdcall ViceCheats::Watcher(LPVOID lpThreadParameter) {
 
 		std::vector<UserCheat*>::iterator it = userCheats.begin();
 
-		SetWindowText(*ViceGame::mainHWND, *ViceGame::lastTypedChars);
+		ViceDebug::println("CHARS: %s", *ViceGame::lastTypedChars);
 
 		while (it != userCheats.end()) {
 			UserCheat* userCheat = *it;

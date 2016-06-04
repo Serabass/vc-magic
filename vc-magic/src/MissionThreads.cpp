@@ -48,6 +48,8 @@ void MainScript(SCRIPT_MISSION* pMission)
 	{
 		SCRIPT_WAIT(1000);
 
+		ViceDebug::println("CHARS: %s", *ViceGame::lastTypedChars);
+
 		if (pPlayer->Driving(heli)) {
 			VCPosition_t* p = heli->GetPosition();
 			ViceVector3Df pos = { p->x, p->y - 10, p->z };

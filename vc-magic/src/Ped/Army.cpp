@@ -37,7 +37,7 @@ void ViceArmy::Spawn() {
 		soldiers[i]->Spawn({
 			area.start.x + i * 3,
 			area.start.y + i * 3,
-			area.start.z
+			area.start.z()
 		});
 	}
 }
@@ -64,60 +64,12 @@ DWORD WINAPI ViceArmy::StaticThreadStart(void* Param)
 }
 
 void ViceArmy::CordonOffArea() {
+	// plz cache the vector
+	std::vector<VCPoint2D> points = area.CreatePerimeterPoints(soldiers.size());
+	int i = 0;
 
-	float w = area.width();
-	float l = area.length();
-	float sideCount = (float)soldiers.size() / 4;
-
-	float minx = area.minx();
-	float miny = area.miny();
-	float maxx = area.maxx();
-	float maxy = area.maxy();
-
-	float xStep = w / sideCount;
-	float yStep = l / sideCount;
-
-	size_t i = 0;
-
-	float x = minx;
-	while (x <= maxx) {
-		x += xStep;
-		if (x > maxx) break;
-		if (i >= soldiers.size()) return;
-		soldiers[i]->RunTo(x, miny);
-		//println("1:", i, " : ", x);
-		i++;
-	}
-
-
-	float y = miny;
-	while (y <= maxy) {
-		y += yStep;
-		if (y > maxy) break;
-		if (i >= soldiers.size()) return;
-		soldiers[i]->RunTo(maxx, y);
-		//println("2:", i, " : ", y);
-		i++;
-	}
-
-	x = maxx;
-	while (x > minx) {
-		x -= xStep;
-		if (x <= minx) break;
-		if (i >= soldiers.size()) return;
-		soldiers[i]->RunTo(x, maxy);
-		//println("3:", i, " : ", x);
-		i++;
-	}
-
-	y = maxy;
-	while (y > miny) {
-		y -= yStep;
-		if (y <= miny) break;
-		if (i >= soldiers.size()) return;
-		soldiers[i]->RunTo(minx, y);
-		//println("4:", i, " : ", y);
-		i++;
+	for (VCPoint2D point : points) {
+		soldiers[i++]->RunTo(point.x, point.y);
 	}
 }
 

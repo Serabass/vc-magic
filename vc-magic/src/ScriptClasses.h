@@ -12,6 +12,7 @@
 
 	class VicePlayer;
 	class ViceActor;
+	class ViceSpecialActor;
 
 	class ViceVehicle;
 	class ViceVehicleCar;
@@ -20,7 +21,6 @@
 	class ViceVehicleBoat;
 
 	class ViceFire;
-	class ViceSpecialActor;
 	class ViceText;
 	class ViceCheats;
 	class ViceGame;
