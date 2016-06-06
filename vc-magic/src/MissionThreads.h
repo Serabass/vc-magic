@@ -11,8 +11,6 @@
 // Includes
 #include "MissionHook.h"
 
-#include <v8.h>
-
 // Structures
 struct VCPosition_t
 {

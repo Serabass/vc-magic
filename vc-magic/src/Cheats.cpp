@@ -1,6 +1,8 @@
 #include "ScriptClasses.h"
 #include <stdio.h>
 
+typedef std::vector<UserCheat*>::iterator cheatIterator;
+
 char * ViceCheats::strNUTTERTOOLS = (char *)0x6D8604;
 char * ViceCheats::strPROFESSIONALTOOLS = (char *)0x6D85F0;
 char(__cdecl* ViceCheats::check)(char, char *) = (char(__cdecl*)(char, char *))0x4ACF60;
@@ -12,13 +14,21 @@ std::vector<UserCheat*> ViceCheats::userCheats = {};
 DWORD __stdcall ViceCheats::Watcher(LPVOID lpThreadParameter) {
 	for (;;) {
 
-		std::vector<UserCheat*>::iterator it = userCheats.begin();
+		cheatIterator it = userCheats.begin();
 
-		ViceDebug::println("CHARS: %s", *ViceGame::lastTypedChars);
+		ViceDebug::println("%d", userCheats.size());
 
 		while (it != userCheats.end()) {
 			UserCheat* userCheat = *it;
-			int res = strncmp(*ViceGame::lastTypedChars, userCheat->string, strlen(&userCheat->string[0]));
+			const int len = strlen(ViceGame::lastTypedChar);
+			char * reversed = "";
+
+			for (int i = len; i >= 0; i++) {
+				ViceDebug::println("123");
+				reversed[len - i] = userCheat->string[i];
+			}
+
+			int res = strncmp(ViceGame::lastTypedChar, userCheat->string, strlen(&userCheat->string[0]));
 			char s[10];
 			sprintf_s(s, "%d", strlen(&userCheat->string[0]));
 			if (res != -1) {
@@ -35,8 +45,11 @@ void ViceCheats::WatchCheats() {
 
 void ViceCheats::RegisterUserCheat(char *string, void(__cdecl* callback)()) {
 	UserCheat* userCheat = new UserCheat();
+	char* s = _strrev(string);
+	ViceDebug::println("%s", s);
 	*userCheat->string = *string;
 	userCheat->callback = callback;
+	userCheats.push_back(userCheat);
 }
 
 bool ViceCheats::AreCarCheatsActivated() {

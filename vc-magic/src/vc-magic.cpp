@@ -10,6 +10,8 @@
 #include "vc-magic.h"
 #include <windows.h>
 
+#include "jx.h"
+
 
 // Externals
 extern int ScriptTick();
@@ -32,6 +34,7 @@ bool (*WastedBustedCheck)();
 
 // Functions
 
+
 //--------------------------------------------------------------------------------------------
 //	func:
 //		DllMain()
@@ -44,6 +47,7 @@ bool (*WastedBustedCheck)();
 //
 BOOL WINAPI DllMain(HINSTANCE hInstance, DWORD fdwReason, LPVOID)
 {
+
 	switch (fdwReason)
 	{
 		case DLL_PROCESS_ATTACH:

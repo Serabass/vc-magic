@@ -11,8 +11,23 @@
 #include "GameDefines.h"
 #include "ScriptClasses.h"
 #include <math.h>
+#include <string.h>
+#include <sstream>
 
 #include <stdio.h>
+
+
+using namespace std;
+#if defined(_MSC_VER)
+// Sleep time for Windows is 1 ms while it's 1 ns for POSIX
+// Beware using this for your app. This is just to give a
+// basic idea on usage
+#include <windows.h>
+#else
+#include <unistd.h>
+#define Sleep(x) usleep(x)
+#endif
+
 
 #define COMMA ,
 
@@ -32,31 +47,104 @@ bool bMissionEnded = true;	// Mission ended flag.
 
 // Functions
 
-
-
-
 void MainScript(SCRIPT_MISSION* pMission)
 {
 	INITIALISE_THREAD();
 	const VCPosition_t pos = { -1480.15f, -1203.04f, 14.87f, 0.75f };
 	const VCPosition_t pos2 = { -1480.15f, -1103.04f, 14.87f, 0.75f };
 
-	ViceVehicleHeli* heli = new ViceVehicleHeli(pMission, MODEL::HELI::SPARROW, pos);
-	ViceVehicleHeli* heli2 = new ViceVehicleHeli(pMission, MODEL::HELI::MAVERICK, pos2);
-	 
+	// ViceVehicleCar* car = new ViceVehicleCar(pMission, MODEL::CAR::BANSHEE, pos);
+	
+	ViceGame::CreateExplosiveBarrel({ pos.x, pos.y, pos.z });
+
+	// ViceCheats::WatchCheats();
 	for (;;)
 	{
-		SCRIPT_WAIT(1000);
+		SCRIPT_WAIT(100);
 
-		ViceDebug::println("CHARS: %s", *ViceGame::lastTypedChars);
-
-		if (pPlayer->Driving(heli)) {
-			VCPosition_t* p = heli->GetPosition();
-			ViceVector3Df pos = { p->x, p->y - 10, p->z };
-			heli2->FlyTo(pos, 100);
-		}
 	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

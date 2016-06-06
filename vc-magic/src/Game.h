@@ -85,7 +85,7 @@ public:
 	static bool* taxiBoostJump;
 
 	static char* lastTypedChar;
-	static LPCSTR* lastTypedChars;
+	static char** lastTypedChars;
 	static HWND* mainHWND;
 
 	static StadiumStrings* stadiumStrings;

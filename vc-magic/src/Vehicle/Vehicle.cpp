@@ -154,6 +154,7 @@ void ViceVehicle::SetAction(VehicleAction action, WORD time) {
 	*$$<WORD>(VehicleProps::actionTime) = time;
 }
 
+// Works!
 void ViceVehicle::MakeVeryHeavy(bool heavy) {
 	$(&make_car_very_heavy, &m_dwVehicle, heavy);
 }
@@ -335,6 +336,11 @@ void ViceVehicle::Lock(bool lock) {
 void ViceVehicle::SetSprayable(bool sprayable) {
 	$(&set_vehicle_sprayable, &m_dwVehicle, sprayable);
 }
+
+void ViceVehicle::SetImmunities(bool bulletProof, bool fireProof, bool explosionProof, bool collisionProof, bool meeleeProof) {
+	$(&set_vehicle_immunities, &m_dwVehicle, bulletProof, fireProof, explosionProof, collisionProof, meeleeProof);
+}
+
 
 std::vector<ViceActor*> ViceVehicle::GetPassengers() {
 	std::vector<ViceActor*> result;

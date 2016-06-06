@@ -60,6 +60,7 @@ OPCODE(0431, "vi", car_passenger_seat_free);
 OPCODE(04BD, "vi", set_car_is_part_of_convoy);
 OPCODE(0519, "vi", lock_car_in_current_position);
 OPCODE(0294, "vi", set_vehicle_sprayable);
+OPCODE(02AC, "viiiii", set_vehicle_immunities);
 
 class ViceVehicle
 {
@@ -137,6 +138,7 @@ public:
 	void SetNotDamagedWhenUpsideDown(bool value);
 	VCPosition_t* GetPosition();
 	void SetPosition(VCPosition_t* position);
+	void SetImmunities(bool bulletProof, bool fireProof, bool explosionProof, bool collisionProof, bool meeleeProof);
 
 	std::vector<ViceActor*> GetPassengers();
 	ViceActor* GetPassenger(int seatIndex); // use enum like tires plz

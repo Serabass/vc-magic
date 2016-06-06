@@ -5,6 +5,7 @@
 
 	class ViceDebug {
 	public:
+
 		static FILE *consoleStdIn, *consoleStdOut, *consoleStdErr;
 
 		static void open();

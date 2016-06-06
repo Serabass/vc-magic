@@ -118,7 +118,7 @@ char* ViceGame::minute = (char*)0x0A10B92;
 bool* ViceGame::taxiBoostJump = (bool*)0x0A10B3A;
 
 char* ViceGame::lastTypedChar = (char*)0x0A10942;
-LPCSTR* ViceGame::lastTypedChars = (LPCSTR*)0x0A10942;
+char** ViceGame::lastTypedChars = (char**)0x0A10942;
 HWND* ViceGame::mainHWND = (HWND*)0x07897A4;
 
 StadiumStrings* ViceGame::stadiumStrings = (StadiumStrings*)STAD_STRING_1;
@@ -165,6 +165,7 @@ void ViceGame::CreateRandomCarForCarPark(VCPosition_t position) {
 	$(&create_random_car_for_carpark, position.x, position.y, position.z, position.a);
 }
 
+// DEPRECATED. Use *ViceGame::freeRespray = %value% OR %value% = *ViceGame::freeRespray instead
 void ViceGame::SetFreePaynspray(bool value) {
 	$(&set_free_paynspray_to, (int)value);
 }

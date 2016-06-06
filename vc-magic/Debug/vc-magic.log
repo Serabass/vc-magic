@@ -1,10 +1,67 @@
-﻿Сборка начата 04.06.2016 23:46:24.
+﻿Сборка начата 06.06.2016 15:02:38.
      1>Проект "D:\!programming\C++\vc-magic\vc-magic\vc-magic.vcxproj" в узле 2 (целевые объекты Build).
      1>ClCompile:
-         D:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _WINDLL /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\" /Fd"Debug\vc140.pdb" /Gd /TP /analyze- /errorReport:prompt src\MissionThreads.cpp
+         D:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /I"D:\!programming\C++\vc-magic\\JXcore\include" /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D JS_ENGINE_V8 /D JXCORE_EMBEDDED /D WIN32 /D _LIB /D _WINDLL /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\" /Fd"Debug\vc140.pdb" /Gd /TP /analyze- /errorReport:prompt src\AbstractObject.cpp src\Animate.cpp src\Animation.cpp src\AreaPolygon.cpp src\AreaRect.cpp src\Camera.cpp src\CarGenerator.cpp src\Cheats.cpp src\Checkpoint.cpp src\Debug.cpp src\Fire.cpp src\Game.cpp src\Gang.cpp src\Garage.cpp src\Geom.cpp src\HUD.cpp src\Marker.cpp src\MissionHook.cpp src\MissionThreads.cpp src\Model.cpp src\Object.cpp src\Ped\Actor.cpp src\Ped\ActorGroup.cpp src\Ped\ActorsClock.cpp src\Ped\Army.cpp src\Ped\Player.cpp src\Ped\SpecialActor.cpp src\Phone.cpp src\Pickup.cpp src\Police.cpp src\Radio.cpp src\Rampage.cpp src\Route.cpp src\Script.cpp src\ScriptClasses.cpp src\Settings.cpp src\Sound.cpp src\Sphere.cpp src\Stats.cpp src\StructReader.cpp src\Text.cpp src\Timer.cpp src\Utils.cpp src\Vehicle\Bike.cpp src\Vehicle\Boat.cpp src\Vehicle\Car.cpp src\Vehicle\Heli.cpp src\Vehicle\Vehicle.cpp src\Wav.cpp src\Weather.cpp src\Zone.cpp
+         Weather.cpp
+         Vehicle.cpp
+         Text.cpp
+         Model.cpp
          MissionThreads.cpp
+         MissionHook.cpp
+         Game.cpp
+         Debug.cpp
+         Camera.cpp
+         Создание кода...
+         Компиляция...
+         Zone.cpp
+         Wav.cpp
+         Heli.cpp
+         Car.cpp
+         Boat.cpp
+         Bike.cpp
+         Utils.cpp
+         Timer.cpp
+         StructReader.cpp
+         Stats.cpp
+         Sphere.cpp
+         Sound.cpp
+         Settings.cpp
+         ScriptClasses.cpp
+         Script.cpp
+         Route.cpp
+         Rampage.cpp
+         Radio.cpp
+         Police.cpp
+         Pickup.cpp
+         Создание кода...
+         Компиляция...
+         Phone.cpp
+         SpecialActor.cpp
+         Player.cpp
+         Army.cpp
+         ActorsClock.cpp
+         ActorGroup.cpp
+         Actor.cpp
+         Object.cpp
+         Marker.cpp
+         HUD.cpp
+         Geom.cpp
+         Garage.cpp
+         Gang.cpp
+         Fire.cpp
+         Checkpoint.cpp
+         Cheats.cpp
+         CarGenerator.cpp
+         AreaRect.cpp
+         AreaPolygon.cpp
+         Animation.cpp
+         Создание кода...
+         Компиляция...
+         Animate.cpp
+         AbstractObject.cpp
+         Создание кода...
        Link:
-         D:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\!programming\C++\vc-magic\Debug\vc-magic.asi" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /Debug /PDB:"D:\!programming\C++\vc-magic\Debug\vc-magic.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\!programming\C++\vc-magic\Debug\vc-magic.lib" /MACHINE:X86 /DLL Debug\AbstractObject.obj
+         D:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\!programming\C++\vc-magic\Debug\vc-magic.asi" /INCREMENTAL /NOLOGO ./JXcore/x86/jx.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /Debug /PDB:"D:\!programming\C++\vc-magic\Debug\vc-magic.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\!programming\C++\vc-magic\Debug\vc-magic.lib" /MACHINE:X86 /DLL Debug\AbstractObject.obj
          Debug\Animate.obj
          Debug\Animation.obj
          Debug\AreaPolygon.obj
@@ -68,4 +125,4 @@
 
 Сборка успешно завершена.
 
-Затраченное время: 00:00:01.71
+Затраченное время: 00:00:54.76

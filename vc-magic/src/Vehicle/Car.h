@@ -17,7 +17,7 @@ public:
 	ViceVehicleCar(SCRIPT_MISSION* pMission, MODEL::CAR dwModel, VCPosition_t position, bool bKeepOnDestroy = true);
 
 	bool IsTireDeflated(TireIndex index);
-	void SetTireDeflated(TireIndex index, bool deflated);
+	void SetTireDeflated(TireIndex index, bool deflated = true);
 };
 
 #endif
