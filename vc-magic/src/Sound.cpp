@@ -10,7 +10,7 @@ ViceSound::~ViceSound()
 	$(&stop_sound, &m_dwSound);
 }
 
-void ViceSound::Play(VCPosition_t position)
+void ViceSound::Play(VCPosition_t position) // Use ViceVector3Df plz
 {
 	$(&play_sound_at, &m_dwSound, position.x, position.y, position.z);
 }

@@ -50,18 +50,43 @@ bool bMissionEnded = true;	// Mission ended flag.
 void MainScript(SCRIPT_MISSION* pMission)
 {
 	INITIALISE_THREAD();
-	const VCPosition_t pos = { -1480.15f, -1203.04f, 14.87f, 0.75f };
-	const VCPosition_t pos2 = { -1480.15f, -1103.04f, 14.87f, 0.75f };
+	VCPosition_t pos = { -1480.15f, -1203.04f, 14.87f, 0.75f };
+	VCPosition_t pos2 = { -1521.84f, - 1211.38f, 14.87f, 0.75f };
 
-	// ViceVehicleCar* car = new ViceVehicleCar(pMission, MODEL::CAR::BANSHEE, pos);
+	float distance = 10;
+
+	std::vector<ViceVehicleBike*> bikes;
+
+	VCPoint2D point = { pos.x, pos.y };
 	
-	ViceGame::CreateExplosiveBarrel({ pos.x, pos.y, pos.z });
+	const int count = 10;
 
-	// ViceCheats::WatchCheats();
+	for (int i = 0; i < count; i++) {
+		float a = (360 / count) * i;
+		
+		VCPoint2D* carPoint = ViceGeom::PlacePointFrom(&point, a, distance);
+		VCPosition_t carPos = { carPoint->x , carPoint->y , 14.87f, a };
+		ViceVehicleBike* bike = new ViceVehicleBike(pMission, MODEL::BIKE::PCJ600, carPos);
+		bikes.push_back(bike);
+	}
+
 	for (;;)
 	{
 		SCRIPT_WAIT(100);
 
+		if (!KEY_PRESSED(VK_TAB))
+			continue;
+
+		for (int i = 0; i < count - 1; i++) {
+			float a = (360 / count) * i + 1;
+
+			ViceVehicleBike* current = bikes[i];
+
+			VCPoint2D* carPoint = ViceGeom::PlacePointFrom(&point, a, distance);
+
+			current->RaceTo(carPoint->x, carPoint->y);
+			current->DriveTo({ carPoint->x, carPoint->y, 14.87f });
+		}
 	}
 }
 

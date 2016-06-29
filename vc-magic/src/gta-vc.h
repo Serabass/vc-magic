@@ -23,8 +23,8 @@ enum VehicleProps : int {
 	zRoll = 0x0C,
 
 	xDirection = 0x014,
-	yDirection = 0x018C,
-	zDirection = 0x014,
+	yDirection = 0x018,
+	zDirection = 0x01C,
 
 	lastXPos = 0x24,
 	lastYPos = 0x28,
@@ -48,6 +48,7 @@ enum VehicleProps : int {
 
 	weight = 0xB8,
 	unknownObjectOnGround = 0xE4,
+	lastCollisionCar = 0x108,
 	driverBehavior = 0x156,
 	action = 0x157, // WTF
 	actionTime = 0x158, // WTF

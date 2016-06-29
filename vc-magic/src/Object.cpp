@@ -16,6 +16,7 @@ ViceObject::ViceObject(int objectId, VCPosition_t position) {
 
 ViceObject::~ViceObject() {
 	$(&destroy_object, &m_dwObject);
+	$(&remove_references_to_object, &m_dwObject);
 }
 
 bool ViceObject::IsDamaged() {
@@ -48,4 +49,12 @@ void ViceObject::SetRotation(VCPosition_t rotation) {
 
 void ViceObject::Throw(VCPosition_t distance) {
 	$(&throw_object, &m_dwObject, distance.x, distance.y, distance.z);
+}
+
+void ViceObject::RemoveRefs() {
+	$(&remove_references_to_object, &m_dwObject);
+}
+
+void ViceObject::SetVelocity(ViceVector3Df* velocity) {
+	$(&set_object_velocity, &m_dwObject, velocity->x, velocity->y, velocity->z);
 }

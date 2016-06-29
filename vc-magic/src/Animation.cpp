@@ -625,5 +625,5 @@ bool ViceAnimation::loaded(GXTKey name) {
 }
 
 void ViceAnimation::release(GXTKey name) {
-	$(&animation_loaded, name);
+	$(&release_animation, name);
 }

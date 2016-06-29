@@ -61,6 +61,7 @@ OPCODE(04BD, "vi", set_car_is_part_of_convoy);
 OPCODE(0519, "vi", lock_car_in_current_position);
 OPCODE(0294, "vi", set_vehicle_sprayable);
 OPCODE(02AC, "viiiii", set_vehicle_immunities);
+OPCODE(0541, "v", fire_guns_on_vehicle);
 
 class ViceVehicle
 {
@@ -146,6 +147,8 @@ public:
 	void Lock(bool lock = true);
 
 	ViceFire* CreateFire();
+
+	void FireGuns();
 
 	void SetTiresVulnerable(bool value);
 

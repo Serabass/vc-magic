@@ -11,6 +11,8 @@ OPCODE(035D, "v", make_object_targetable);
 OPCODE(0550, "vi", keep_object_in_memory);
 OPCODE(0453, "vfff", object_set_rotation);
 OPCODE(0381, "vfff", throw_object);
+OPCODE(01C4, "v", remove_references_to_object);
+OPCODE(05A7, "vfff", set_object_velocity);
 
 	class ViceObject {
 	private:
@@ -92,6 +94,7 @@ OPCODE(0381, "vfff", throw_object);
 
 		// 0566
 		void SetInterior(int interior);
+		void SetVelocity(ViceVector3Df* velocity);
 	};
 
 #endif

@@ -346,7 +346,7 @@ void ScriptInit()
 	ViceGame::SetWastedBustedCheck(true);
 	ViceGame::SetCurrentTime(20, 0);
 	ViceGame::RefreshScreen(PlayerStart.x, PlayerStart.y);
-	ViceCamera::Set({ PlayerStart.x, PlayerStart.y + 2.0f, PlayerStart.z });
+	// ViceCamera::Set({ PlayerStart.x, PlayerStart.y + 2.0f, PlayerStart.z });
 	pPlayer = new VicePlayer(PlayerStart.x, PlayerStart.y, PlayerStart.z);
 	pPlayer->SetSkin(MODEL_IGBUDDY);
 	pPlayer->ZAngle(PlayerStart.a);
@@ -358,7 +358,7 @@ void ScriptInit()
 	ViceWeather::Set(WEATHER::SUNNY);
 	ViceGame::Fade(1000, FADE::FADEIN);
 	ViceGame::SelectInterior(INTERIOR::OUTSIDE);
-	pPlayer->Freeze(false);
+	pPlayer->Freeze(true);
 
 	MissionHead.hThread = CreateThread(NULL, 0, (LPTHREAD_START_ROUTINE)MainScript, &MissionHead, 0, NULL);
 }

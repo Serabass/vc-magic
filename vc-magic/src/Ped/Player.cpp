@@ -256,6 +256,7 @@ bool VicePlayer::Driving(ViceVehicle* car) {
 	return !!$(&player_driving, &m_dwChar, car->GetVehicle());
 }
 
+// Wrong?
 bool VicePlayer::Driving(MODEL::CAR car) {
 	return !!$(&player_driving, &m_dwChar, (int)car);
 }

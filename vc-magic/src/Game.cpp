@@ -40,7 +40,7 @@ void ViceGame::RefreshScreen(float fX, float fY)
 	$(&refresh_screen, fX, fY);
 }
 
-void ViceGame::SelectInterior(int Interior)
+void ViceGame::SelectInterior(int Interior) // Use enum plz
 {
 	$(&select_interior, Interior);
 }

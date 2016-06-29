@@ -65,6 +65,6 @@ void ViceSpecialActor::SetWander(bool bWander)
 
 bool ViceSpecialActor::Loaded()
 {
-	return !!$(&load_special_actor, m_iSlot);
+	return !!$(&special_actor_loaded, m_iSlot);
 }
 

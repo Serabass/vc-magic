@@ -119,7 +119,7 @@ bool ViceVehicle::IsBurning()
 	return $(&is_car_burning, &m_dwVehicle) ? 1 : 0;
 }
 
-DWORD ViceVehicle::ViceModel()
+DWORD ViceVehicle::ViceModel() // use Enum plz
 {
 	VICEVEHICLE_RETURN_RESULT_1ARG(DWORD, get_car_model);
 }
@@ -295,7 +295,7 @@ void ViceVehicle::SetAction(int action) {
 }
 
 
-bool ViceVehicle::PassengerSeatFree(int seatIndex) {
+bool ViceVehicle::PassengerSeatFree(int seatIndex) { // use enum like Tires plz
 	return !!$(&car_passenger_seat_free, &m_dwVehicle, seatIndex);
 }
 
@@ -316,6 +316,7 @@ ViceVehicle* ViceVehicle::SpawnNextTo(SCRIPT_MISSION* pMission, VCPosition_t* po
 	ViceVehicle* vehicle = new ViceVehicle(pMission, modelIndex, pos);
 	return vehicle;
 }
+
 
 ViceVehicle* ViceVehicle::SpawnNextTo(SCRIPT_MISSION* pMission, VCPosition_t* position, DWORD modelIndex) {
 	return SpawnNextTo(pMission, position, modelIndex, 5.0f);
@@ -341,6 +342,10 @@ void ViceVehicle::SetImmunities(bool bulletProof, bool fireProof, bool explosion
 	$(&set_vehicle_immunities, &m_dwVehicle, bulletProof, fireProof, explosionProof, collisionProof, meeleeProof);
 }
 
+
+void ViceVehicle::FireGuns() {
+	$(&fire_guns_on_vehicle, &m_dwVehicle);
+}
 
 std::vector<ViceActor*> ViceVehicle::GetPassengers() {
 	std::vector<ViceActor*> result;
