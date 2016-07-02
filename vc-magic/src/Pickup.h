@@ -7,7 +7,7 @@ OPCODE(0214, "v", pickup_is_picked_up);
 OPCODE(0215, "v", destroy_pickup);
 OPCODE(0213, "iifffv", create_default_pickup);
 OPCODE(02E1, "ifffv", create_cash_pickup);
-OPCODE(05BB, "ifffv", create_clothes_pickup);
+OPCODE(055B, "ifffv", create_clothes_pickup);
 
 	class VicePickup {
 	private:

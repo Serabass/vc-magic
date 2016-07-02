@@ -311,7 +311,7 @@ bool VicePlayer::DrivingAMotorbike() {
 	return !!$(&player_driving_a_motorbike, &m_dwChar);
 }
 
-// Works!
+// Works! But it will better via getById instead of ->nearestPeds
 std::vector<ViceActor*> VicePlayer::NearestActors() {
 	std::vector<ViceActor*> result;
 
