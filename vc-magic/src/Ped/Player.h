@@ -172,7 +172,10 @@ public:
 	void EnumNearestPeds(EnumNearestPedsCallback callback);
 	void EnumNearestPeds(EnumNearestPedsWithNoIndexCallback callback);
 
+	ViceVector3Df* GetSniperFiringCoords(SCRIPT_MISSION* pMission, float offset);
+
 	bool IsAggressive();
+	bool $$IsAggressive();
 
 	template <typename T>
 	T* $$(int off);

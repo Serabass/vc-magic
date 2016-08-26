@@ -80,14 +80,13 @@ void sampleMethod(JXResult *results, int argc) {
 		ss_result << str_result << "\n";
 	}
 
-	ViceDebug::println("%s", ss_result.str().c_str());
-
 	// return an Array back to JS Land
 	const char *str = "[1, 2, 3]";
 
 	// results[argc] corresponds to return value
 	JX_SetJSON(&results[argc], str, strlen(str));
 }
+
 void injectJx() {
 	// TODO Create a class ViceJS
 	TCHAR currentPath[255];
@@ -98,8 +97,6 @@ void injectJx() {
 	JX_InitializeNewEngine();
 
 	char *contents = "process.natives.sampleMethod(1,2,3,4)";
-
-	ViceDebug::println("INJECT");
 
 	// define the entry file contents
 	JX_DefineMainFile(contents);
@@ -161,7 +158,7 @@ void ViceDebug::open() {
 
 	*stdout = *consoleStdOut;
 
-	injectJx();
+	// injectJx();
 }
 
 void ViceDebug::print(char* str, ...) {
@@ -175,6 +172,14 @@ void ViceDebug::println(char* str, ...) {
 	va_list args;
 	va_start(args, str);
 	vfprintf_s(consoleStdOut, str, args);
+	fprintf_s(consoleStdOut, "\n");
+	va_end(args);
+}
+
+void ViceDebug::read(char* str, ...) {
+	va_list args;
+	va_start(args, str);
+	vfscanf(consoleStdIn, str, args);
 	fprintf_s(consoleStdOut, "\n");
 	va_end(args);
 }

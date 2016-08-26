@@ -3,6 +3,11 @@
 		MissionThreads.cpp
 	desc:
 		This file contains the thread functions for the main, and mission scripts.
+		
+		
+		
+		!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+		http://gamedev.ru/articles/?id=80201 - WebSockets!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 */
 
 // Inlcudes
@@ -13,10 +18,16 @@
 #include <math.h>
 #include <string.h>
 #include <sstream>
-
+#include <iostream>
 #include <stdio.h>
 
-
+#include <memory>
+#include <string>
+#include <future>
+#include <thread>
+#include <mutex>
+#include <condition_variable>
+#include <deque>
 using namespace std;
 #if defined(_MSC_VER)
 // Sleep time for Windows is 1 ms while it's 1 ns for POSIX
@@ -50,44 +61,73 @@ bool bMissionEnded = true;	// Mission ended flag.
 void MainScript(SCRIPT_MISSION* pMission)
 {
 	INITIALISE_THREAD();
-	VCPosition_t pos = { -1480.15f, -1203.04f, 14.87f, 0.75f };
-	VCPosition_t pos2 = { -1521.84f, - 1211.38f, 14.87f, 0.75f };
 
-	float distance = 10;
-
-	std::vector<ViceVehicleBike*> bikes;
-
-	VCPoint2D point = { pos.x, pos.y };
-	
-	const int count = 10;
-
-	for (int i = 0; i < count; i++) {
-		float a = (360 / count) * i;
-		
-		VCPoint2D* carPoint = ViceGeom::PlacePointFrom(&point, a, distance);
-		VCPosition_t carPos = { carPoint->x , carPoint->y , 14.87f, a };
-		ViceVehicleBike* bike = new ViceVehicleBike(pMission, MODEL::BIKE::PCJ600, carPos);
-		bikes.push_back(bike);
-	}
-
-	for (;;)
+	for (;; )
 	{
-		SCRIPT_WAIT(100);
+		SCRIPT_WAIT(1000);
 
-		if (!KEY_PRESSED(VK_TAB))
-			continue;
-
-		for (int i = 0; i < count - 1; i++) {
-			float a = (360 / count) * i + 1;
-
-			ViceVehicleBike* current = bikes[i];
-
-			VCPoint2D* carPoint = ViceGeom::PlacePointFrom(&point, a, distance);
-
-			current->RaceTo(carPoint->x, carPoint->y);
-			current->DriveTo({ carPoint->x, carPoint->y, 14.87f });
-		}
+		std::cout << "new string: \n";
 	}
+
+	std::mutex m;
+	std::condition_variable cv;
+	std::string new_string;
+	bool error = false;
+	
+
+	auto io_thread = std::thread([&] {
+		std::string s;
+		while (!error && std::getline(std::cin, s, '\n'))
+		{
+			auto lock = std::unique_lock<std::mutex>(m);
+			new_string = std::move(s);
+
+			std::cout << "pampam: " << new_string;
+
+			if (new_string == "quit") {
+				error = true;
+			}
+
+			lock.unlock();
+			cv.notify_all();
+		}
+		auto lock = std::unique_lock<std::mutex>(m);
+		error = true;
+		lock.unlock();
+		cv.notify_all();
+	});
+
+	auto current_string = std::string();
+	for (;; )
+	{
+		SCRIPT_WAIT(1000);
+		continue;
+
+		auto lock = std::unique_lock<std::mutex>(m);
+
+		cv.wait(lock, [&] {
+			return error || (current_string != new_string);
+		});
+
+		if (error)
+		{
+			break;
+		}
+		current_string = new_string;
+		lock.unlock();
+
+		// now use the string that arrived from our non-blocking stream
+		std::cout << "new string: " << current_string;
+		std::cout.flush();
+		for (int i = 0; i < 10; ++i) {
+			std::this_thread::sleep_for(std::chrono::seconds(1));
+			std::cout << " " << i;
+			std::cout.flush();
+		}
+		std::cout << ". done. next?\n";
+		std::cout.flush();
+	}
+	io_thread.join();
 }
 
 

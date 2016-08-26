@@ -21,6 +21,7 @@ bool ViceModel::Available(DWORD dwModel)
 	return !!$(&is_model_available, dwModel);
 }
 
+// Rename to LoadOnce
 void ViceModel::LoadOne(SCRIPT_MISSION* pMission, DWORD dwModel)
 {
 	if (!ViceModel::Available(dwModel)) {

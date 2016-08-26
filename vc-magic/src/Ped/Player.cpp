@@ -224,6 +224,7 @@ int VicePlayer::GetAmmo(WEAPON weaponIndex) {
 	return ammo;
 }
 
+// Rename to InACar
 bool VicePlayer::InCar() {
 	return !!$(&player_in_a_car, &m_dwChar);
 }
@@ -312,6 +313,7 @@ bool VicePlayer::DrivingAMotorbike() {
 }
 
 // Works! But it will better via getById instead of ->nearestPeds
+// Sorting works!
 std::vector<ViceActor*> VicePlayer::NearestActors() {
 	std::vector<ViceActor*> result;
 
@@ -357,8 +359,29 @@ std::vector<ViceVehicle*> VicePlayer::NearestVehicles() {
 			result.push_back(new ViceVehicle(i));
 		}
 	}
+	
+	std::sort(result.begin(), result.end(), [this](ViceVehicle* a, ViceVehicle* b) {
+		VCPosition_t playerPos = this->GetPosition();
+		VCPosition_t aPos = *a->GetPosition();
+		VCPosition_t bPos = *b->GetPosition();
 
-	ViceDebug::println("9999999");
+		VCPoint2D playerPoint;
+		VCPoint2D aPoint;
+		VCPoint2D bPoint;
+
+		playerPoint.x = playerPos.x;
+		playerPoint.y = playerPos.y;
+
+		aPoint.x = aPos.x;
+		aPoint.y = aPos.y;
+
+		bPoint.x = bPos.x;
+		bPoint.y = bPos.y;
+
+		return ViceGeom::distance(&playerPoint, &aPoint)
+			< ViceGeom::distance(&playerPoint, &bPoint);
+	});
+
 	return result;
 }
 
@@ -369,6 +392,12 @@ bool VicePlayer::FiringInRectangle(float p1, float p2, float p3, float p4) {
 
 bool VicePlayer::IsAggressive() {
 	return !!$(&player_is_aggressive, &m_dwChar);
+}
+
+// Doesn't work! WHY?!
+bool VicePlayer::$$IsAggressive() {
+	CPed* struc = ViceActor::$Actor__get((CPed*)*ViceActor::actorsArray, *this->GetActor());
+	return !!((struc->someFlags >> 6) & 1);
 }
 
 bool VicePlayer::DrivingPlane() {
@@ -385,7 +414,6 @@ bool VicePlayer::Wasted() {
 
 // Doesn't work. No action. Game's do not crush
 void VicePlayer::PlayAnimation(int iAnimGrp, int iAnimID, float fBlend) {
-	ViceDebug::println("%d, %d, %2.2f", iAnimGrp, iAnimID, fBlend);
 	$(&play_animation, &m_dwActor, iAnimGrp, iAnimID, fBlend);
 }
 
@@ -401,4 +429,34 @@ void VicePlayer::PlayAnimation(char* animGrpName, char* animName, float fBlend) 
 			}
 		}
 	}
+}
+
+// Doesn't work
+ViceVector3Df* VicePlayer::GetSniperFiringCoords(SCRIPT_MISSION* pMission, float offset = 100.0f) {
+
+	VCPosition_t pos = this->GetPosition();
+
+	for (float x = -1000; x <= 1000; x+=offset) {
+		SCRIPT_WAIT(100);
+		for (float y = -1000; y <= 1000; y+=offset) {
+			for (float z = -1000; z <= 1000; z+=offset) {
+				ViceVector3Df* current = new ViceVector3Df();
+
+				current->x = pos.x;
+				current->y = pos.y;
+				current->z = pos.z;
+
+				if (ViceGame::TestForSniperBullet(
+					current->x - offset, current->x + offset,
+					current->y - offset, current->y + offset,
+					current->z - offset, current->z + offset
+					)) {
+
+					return current;
+				}
+			}
+		}
+	}
+
+	return nullptr;
 }

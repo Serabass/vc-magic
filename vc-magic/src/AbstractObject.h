@@ -3,7 +3,7 @@
 #ifndef ABSTRACT_OBJECT_H
 #define ABSTRACT_OBJECT_H
 
-	interface ViceAbstractObject {
+interface ViceAbstractObject {
 	private:
 		DWORD m_dwHandle;
 	public:

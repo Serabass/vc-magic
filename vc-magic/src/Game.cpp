@@ -106,6 +106,7 @@ void ViceGame::CreateSWATRope(int id, int model, VCPosition_t pos) {
 
 bool(__cdecl* ViceGame::setTime)(char, char) = (bool(__cdecl*)(char, char))0x487160;
 bool(__cdecl* ViceGame::glassIsBrokenAt)(float, float, float) = (bool(__cdecl*)(float, float, float))0x552EE0;
+bool(__cdecl* ViceGame::TestForSniperBullet)(float, float, float, float, float, float) = (bool(__cdecl*)(float, float, float, float, float, float))0x5C3B20;
 
 int* ViceGame::maxWantedLevelHuman = (int *)0x6910D8;
 int* ViceGame::maxWantedLevel = (int *)0x6910DC;
@@ -120,6 +121,10 @@ bool* ViceGame::taxiBoostJump = (bool*)0x0A10B3A;
 char* ViceGame::lastTypedChar = (char*)0x0A10942;
 char** ViceGame::lastTypedChars = (char**)0x0A10942;
 HWND* ViceGame::mainHWND = (HWND*)0x07897A4;
+
+char* ViceGame::shotgunBulletsCount = (char*)0x5CD8B9;
+char* ViceGame::stubbyShotgunBulletsCount = (char*)0x5CD8D1;
+char* ViceGame::spasBulletsCount = (char*)0x5CD8E9;
 
 StadiumStrings* ViceGame::stadiumStrings = (StadiumStrings*)STAD_STRING_1;
 int* ViceGame::moonSize = (int*)0x695680;
@@ -205,3 +210,8 @@ void ViceGame::LoadEndOfGameAudio() {
 void ViceGame::CreateExplosiveBarrel(ViceVector3Df position) {
 	$(&create_explosive_barrel, position.x, position.y, position.z);
 }
+
+
+ViceGame::TProcessLineOfSight ViceGame::$ProcessLineOfSight = (ViceGame::TProcessLineOfSight)0x004D92D0;
+
+//(ViceVector3Df * vecStart, ViceVector3Df * vecEnd, CColPoint ** colCollision, int * CollisionEntity, bool bCheckBuildings = true, bool bCheckVehicles = true, bool bCheckPeds = true, bool bCheckObjects = true, bool bCheckDummies = true, bool bSeeThroughStuff = false, bool bIgnoreSomeObjectsForCamera = false, bool bShootThroughStuff = false)

@@ -71,6 +71,7 @@ public:
 
 	static bool(__cdecl* setTime)(char hour, char minute);
 	static bool(__cdecl* glassIsBrokenAt)(float x, float y, float z);
+	static bool(__cdecl* TestForSniperBullet)(float x1, float x2, float y1, float y2, float z1, float z2);
 
 
 
@@ -104,6 +105,10 @@ public:
 	static bool* policeHeliState;
 	static VCRGBA* fontColor;
 
+	static char* shotgunBulletsCount;
+	static char* stubbyShotgunBulletsCount;
+	static char* spasBulletsCount;
+
 	static bool* sniperActive;
 
 	static void(__cdecl* printString)(float x, float y, int a);
@@ -125,6 +130,31 @@ public:
 	static void LoadEndOfGameAudio();
 
 	static void CreateExplosiveBarrel(ViceVector3Df position);
+
+
+
+
+
+
+	typedef bool(__cdecl* TProcessLineOfSight)(
+		ViceVector3Df const& vecStart,
+		ViceVector3Df const& vecEnd,
+		CColPoint & colCollision,
+		int & CollisionEntity,
+		bool bCheckBuildings,
+		bool bCheckVehicles,
+		bool bCheckPeds,
+		bool bCheckObjects,
+		bool bCheckDummies,
+		bool bSeeThroughStuff,
+		bool bIgnoreSomeObjectsForCamera,
+		bool bShootThroughStuff
+		);
+
+
+
+	static TProcessLineOfSight $ProcessLineOfSight;
+
 };
 
 #endif

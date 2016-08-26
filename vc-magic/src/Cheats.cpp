@@ -16,7 +16,6 @@ DWORD __stdcall ViceCheats::Watcher(LPVOID lpThreadParameter) {
 
 		cheatIterator it = userCheats.begin();
 
-		ViceDebug::println("%d", userCheats.size());
 
 		while (it != userCheats.end()) {
 			UserCheat* userCheat = *it;
@@ -24,7 +23,6 @@ DWORD __stdcall ViceCheats::Watcher(LPVOID lpThreadParameter) {
 			char * reversed = "";
 
 			for (int i = len; i >= 0; i++) {
-				ViceDebug::println("123");
 				reversed[len - i] = userCheat->string[i];
 			}
 
@@ -46,7 +44,6 @@ void ViceCheats::WatchCheats() {
 void ViceCheats::RegisterUserCheat(char *string, void(__cdecl* callback)()) {
 	UserCheat* userCheat = new UserCheat();
 	char* s = _strrev(string);
-	ViceDebug::println("%s", s);
 	*userCheat->string = *string;
 	userCheat->callback = callback;
 	userCheats.push_back(userCheat);

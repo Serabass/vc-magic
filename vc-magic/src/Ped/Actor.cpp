@@ -492,8 +492,11 @@ bool ViceActor::operator==(ViceActor* actor) {
 
 
 
+	ViceActor::TWarpToCar ViceActor::$WarpToCar = (TWarpToCar)0x004EF8B0;
 
-
+	void ViceActor::warpToCar(ViceVehicle* car) {
+		$WarpToCar(this->getStruct(), car->getStruct());
+	}
 
 
 	ViceArmySoldier::ViceArmySoldier(ViceArmy* army)  : ViceActor(army->pMission) {

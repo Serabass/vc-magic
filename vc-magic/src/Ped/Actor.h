@@ -246,6 +246,11 @@ class ViceActor
 		typedef CPed*(__thiscall *TActorGet)(void* pThis, signed int id);
 		static TActorGet $Actor__get;
 		static int* actorsArray;
+
+		typedef char(__thiscall *TWarpToCar)(CPed* pThis, CVehicle* vehicle);
+		static TWarpToCar $WarpToCar;
+
+		void warpToCar(ViceVehicle* car);
 	};
 
 	template <typename T> T* ViceActor::$$(int off = 0) {

@@ -204,3 +204,17 @@ struct CVehicle
 };
 #pragma pack(pop)
 
+struct CColPoint
+{
+	ViceVector3Df         m_vPoint;
+	float field_C;
+	ViceVector3Df         m_vNormal;
+	float field_1C;
+	unsigned __int8 m_nSurfaceTypeA;
+	unsigned __int8 m_nPieceTypeA;
+	unsigned __int8 m_nLightingA;
+	unsigned __int8 m_nSurfaceTypeB;
+	unsigned __int8 m_nPieceTypeB;
+	unsigned __int8 m_nLightingB;
+	float           m_fDepth;
+};

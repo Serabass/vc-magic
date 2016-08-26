@@ -14,6 +14,7 @@
 		static void Mbox(int i);
 		static void print(char* str, ...);
 		static void println(char* str, ...);
+		static void read(char* str, ...);
 	};
 
 #endif
