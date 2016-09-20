@@ -1,4 +1,4 @@
-﻿Сборка начата 26.08.2016 1:41:09.
+﻿Сборка начата 26.08.2016 20:07:03.
      1>Проект "D:\!programming\C++\vc-magic\vc-magic\vc-magic.vcxproj" в узле 2 (целевые объекты Build).
      1>ClCompile:
          D:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /I"D:\!programming\C++\vc-magic\\JXcore\include" /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D JS_ENGINE_V8 /D JXCORE_EMBEDDED /D WIN32 /D _LIB /D _WINDLL /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\" /Fd"Debug\vc140.pdb" /Gd /TP /analyze- /errorReport:prompt src\MissionThreads.cpp
@@ -68,4 +68,4 @@
 
 Сборка успешно завершена.
 
-Затраченное время: 00:00:09.87
+Затраченное время: 00:00:03.33

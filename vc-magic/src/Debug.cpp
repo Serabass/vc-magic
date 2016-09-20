@@ -142,7 +142,9 @@ FILE * ViceDebug::consoleStdErr;
 
 void ViceDebug::open() {
 
-	AllocConsole();
+	// AllocConsole();
+
+	AttachConsole(ATTACH_PARENT_PROCESS);
 
 	CreateThread(0, 0, &ConsoleWatch, 0, 0, 0);
 

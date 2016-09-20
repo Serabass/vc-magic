@@ -1,0 +1,18 @@
+// Async!
+game.init().then(function () {
+	var player = getPlayer();
+
+	player.setHealth(100).then(function () {
+		
+	});
+
+	player.getHealth().then(function (health) {
+		
+	});
+
+	player.getCar().then(function (car) {
+		car.getSpeed().then(function (speed) {
+			
+		});
+	});
+});
