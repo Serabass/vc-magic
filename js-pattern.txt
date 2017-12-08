@@ -1,6 +1,6 @@
 // Async!
 game.init().then(function () {
-	var player = getPlayer();
+	var player = game.getPlayer();
 
 	player.setHealth(100).then(function () {
 		
